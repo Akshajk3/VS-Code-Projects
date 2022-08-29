@@ -1,5 +1,3 @@
-from pyexpat.model import XML_CTYPE_CHOICE
-from turtle import position
 import pygame
 import neat
 import os
@@ -43,11 +41,15 @@ class Toc:
 class Tile:
 
     def __init__(self):
-        self.rect = pygame.draw.rect(SCREEN, (255, 0, 0), (90, 90, 30, 30))
+        self.positions = [(90, 90), (215, 90), (340, 90)]
+        self.rect = pygame.draw.rect(SCREEN, (255, 0, 0), (340, 90, 30, 30))
 
     def draw(self, COLOR):
         if draw == False:
-            pygame.draw.rect(SCREEN, COLOR, pygame.Rect(90, 90, 30, 30))
+            i = 0
+            while i < 2:
+                pygame.draw.rect(SCREEN, COLOR, pygame.Rect(self.positions, 30, 30))
+                i += 1
 
 class X:
     

@@ -27,6 +27,9 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 COLORS = GREEN
 
+POS_X = [90, 215, 340]
+POS_Y = [90, 90, 90]
+
 class Toc:
     X_POS = 50
     Y_POS = 50
@@ -42,13 +45,18 @@ class Tile:
 
     def __init__(self):
         self.positions = [(90, 90), (215, 90), (340, 90)]
-        self.rect = pygame.draw.rect(SCREEN, (255, 0, 0), (340, 90, 30, 30))
+        i = 0
+        if draw == False:
+            while i < 3:
+                self.rect = pygame.draw.rect(SCREEN, (255, 0, 0), (POS_X[i], POS_Y[i], 30, 30))
+                i += 1
 
     def draw(self, COLOR):
+        i = 0
         if draw == False:
-            i = 0
-            while i < 2:
-                pygame.draw.rect(SCREEN, COLOR, pygame.Rect(self.positions, 30, 30))
+            while i < 3:
+                tileDraw[i] = True
+                pygame.draw.rect(SCREEN, COLOR, (POS_X[i], POS_Y[i], 30, 30))
                 i += 1
 
 class X:
@@ -72,9 +80,12 @@ def update_ui(COLOR):
         XP.draw()
 
 def main():
-    global draw
+    global draw, positions, tileDraw
 
     clock = pygame.time.Clock()
+
+    positions = [(90, 90), (215, 90), (340, 90)]
+    tileDraw = [False, False, False]
 
     player = Toc()
     X_P = X()

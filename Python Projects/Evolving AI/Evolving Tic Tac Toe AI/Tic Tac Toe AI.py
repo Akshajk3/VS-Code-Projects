@@ -21,7 +21,7 @@ IMG_SIZE = (150, 150)
 
 X_IMG = pygame.transform.scale(X_IMG, IMG_SIZE)
 
-tiles = []
+TILES = []
 
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
@@ -29,6 +29,8 @@ COLORS = GREEN
 
 POS_X = [90, 215, 340]
 POS_Y = [90, 90, 90]
+
+DRAW = False
 
 class Toc:
     X_POS = 50
@@ -45,15 +47,11 @@ class Tile:
 
     def __init__(self):
         self.positions = [(90, 90), (215, 90), (340, 90)]
-        i = 0
-        if draw == False:
-            while i < 3:
-                self.rect = pygame.draw.rect(SCREEN, (255, 0, 0), (POS_X[i], POS_Y[i], 30, 30))
-                i += 1
+
 
     def draw(self, COLOR):
         i = 0
-        if draw == False:
+        if DRAW == False:
             while i < 3:
                 tileDraw[i] = True
                 pygame.draw.rect(SCREEN, COLOR, (POS_X[i], POS_Y[i], 30, 30))
@@ -76,21 +74,19 @@ def update_ui(COLOR):
     SCREEN.fill((255,255,255))
     board.draw()
     tile.draw(COLOR)
-    if draw == True:
+    if DRAW == True:
         XP.draw()
 
 def main():
-    global draw, positions, tileDraw
+    global positions, tileDraw
 
     clock = pygame.time.Clock()
 
-    positions = [(90, 90), (215, 90), (340, 90)]
     tileDraw = [False, False, False]
 
     player = Toc()
     X_P = X()
     tile = Tile()
-    draw = False
 
     run = True
     
@@ -100,7 +96,7 @@ def main():
             if tile.rect.collidepoint(pygame.mouse.get_pos()):
                     COLORS = RED
                     if event.type == pygame.MOUSEBUTTONDOWN:
-                        draw = True
+                        DRAW = True
             else:
                 COLORS = GREEN
 

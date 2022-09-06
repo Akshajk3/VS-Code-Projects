@@ -39,7 +39,11 @@ def main():
                     sqSelected = (row, col)
                     playerClicks.append(sqSelected)
                 if len(playerClicks) == 2:
-                    pass
+                    move = ChessEngine.Move(playerClicks[0], playerClicks[1], gs.board)
+                    print(move.getChessNotation())
+                    gs.makeMove(move)
+                    sqSelected = ()
+                    playerClicks = []
                 
         drawGameState(SCREEN, gs)
         clock.tick(MAX_FPS)

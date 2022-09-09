@@ -44,6 +44,9 @@ def main():
                     gs.makeMove(move)
                     sqSelected = ()
                     playerClicks = []
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_z:
+                    gs.undoMove()
                 
         drawGameState(SCREEN, gs)
         clock.tick(MAX_FPS)

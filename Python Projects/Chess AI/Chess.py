@@ -20,6 +20,7 @@ def main():
     clock = pygame.time.Clock()
     SCREEN.fill(pygame.Color("white"))
     gs = ChessEngine.GameState()
+    validMoves = gs.getValidMoves()
     loadImages()
     running = True
     sqSelected = ()

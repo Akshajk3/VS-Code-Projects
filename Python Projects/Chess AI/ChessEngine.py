@@ -29,6 +29,40 @@ class GameState():
             self.board[move.startRow][move.startCol] = move.pieceMoved
             self.board[move.endRow][move.endCol] = move.pieceCaptured
             self.whiteToMove = not self.whiteToMove
+    '''
+    All moves considering check
+    '''
+    def getValidMoves(self):
+        return self.getAllPossibleMoves()#for now we will not worry about checks
+    '''
+    All moves without considering check
+    '''
+    def getAllPossibleMoves(self):
+        moves = []
+        for r in range(len(self.board)):#number of rows
+            for c in range(len(self.board[r])):#number of collumns
+                turn = self.board[r][c][0]
+                if(turn == "w" and self.whiteToMove) and (turn == "b" and not self.whiteToMove):
+                    piece = self.board[r][c][1]
+                    if piece == "p":
+                        self.getPawnMoves(r, c, moves)
+                    elif piece == "r":
+                        self.getRookMoves(r, c, moves)
+
+    '''
+    Get all possible pawn moves for the pawn located at r, c and add these moves to the list
+    '''
+    def getPawnMove(self, r, c, moves):
+        pass
+
+    '''
+    Get all possible rook moves for the rook located at r, c and add these moves to the list
+    '''
+    def getRookMoves(self, r, c, moves):
+        pass
+
+
+
 
 class Move():
 

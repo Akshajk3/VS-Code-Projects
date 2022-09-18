@@ -21,6 +21,7 @@ def main():
     SCREEN.fill(pygame.Color("white"))
     gs = ChessEngine.GameState()
     validMoves = gs.getValidMoves()
+    moveMade = False #flag variable to let us know when to check for possible moves
     loadImages()
     running = True
     sqSelected = ()
@@ -41,14 +42,20 @@ def main():
                     playerClicks.append(sqSelected)
                 if len(playerClicks) == 2:
                     move = ChessEngine.Move(playerClicks[0], playerClicks[1], gs.board)
-                    print(move.getChessNotation())
-                    gs.makeMove(move)
+                    #print(move.getChessNotation())
+                    if move in validMoves:
+                        gs.makeMove(move)
+                        moveMade = True
                     sqSelected = ()
                     playerClicks = []
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_z:
                     gs.undoMove()
-                
+                    moveMade = True
+
+        if moveMade:
+            validMoves = gs.getValidMoves()
+            moveMade = False
         drawGameState(SCREEN, gs)
         clock.tick(MAX_FPS)
         pygame.display.flip()

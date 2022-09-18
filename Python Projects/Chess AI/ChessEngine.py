@@ -9,7 +9,7 @@ class GameState():
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["--", "--", "--", "bp", "--", "--", "--", "--"],
             ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
             ["wR", "wN", "wB", "wQ", "wK", "wB", "wN", "wR"]
             ]
@@ -42,18 +42,29 @@ class GameState():
         for r in range(len(self.board)):#number of rows
             for c in range(len(self.board[r])):#number of collumns
                 turn = self.board[r][c][0]
-                if(turn == "w" and self.whiteToMove) and (turn == "b" and not self.whiteToMove):
+                if(turn == "w" and self.whiteToMove) or (turn == "b" and not self.whiteToMove):
                     piece = self.board[r][c][1]
                     if piece == "p":
-                        self.getPawnMoves(r, c, moves)
+                        self.getPawnMove(r, c, moves)
                     elif piece == "r":
                         self.getRookMoves(r, c, moves)
-
+        return moves
     '''
     Get all possible pawn moves for the pawn located at r, c and add these moves to the list
     '''
     def getPawnMove(self, r, c, moves):
-        pass
+        if self.whiteToMove:
+            if self.board[r-1][c] == "--":
+                moves.append(Move((r, c), (r-1, c), self.board))
+                if r == 6 and self.board[r-2][c] == "--":
+                    moves.append(Move((r, c), (r-2, c), self.board))
+            if c - 1 >= 0:
+                if self.board[r-1][c-1][0] == "b":
+                    moves.append(Move((r, c), (r-1, c-1), self.board))
+            if c + 1 <= 7:
+                if self.board[r-1][c+1][0] == "b":
+                    moves.append(Move((r, c), (r-1, c+1), self.board))
+
 
     '''
     Get all possible rook moves for the rook located at r, c and add these moves to the list
@@ -79,6 +90,18 @@ class Move():
         self.endCol = endSq[1]
         self.pieceMoved = board[self.startRow][self.startCol]
         self.pieceCaptured = board[self.endRow][self.endCol]
+        self.MoveID = self.startRow * 1000 + self.startCol * 100 + self.endRow * 10 + self.endCol
+
+    '''
+    Override the equals method
+    '''
+
+    def __eq__(self, other):
+        if isinstance(other, Move):
+            return self.MoveID == other.MoveID
+        return False
+
+
 
     def getChessNotation(self):
         return self.getRankFile(self.startRow, self.startCol) + self.getRankFile(self.endRow, self.endCol)

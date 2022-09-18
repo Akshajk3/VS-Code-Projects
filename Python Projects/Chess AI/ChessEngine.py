@@ -90,7 +90,6 @@ class GameState():
                     endPiece = self.board[endRow][endCol]
                     if endPiece == "--":#blank space
                         moves.append(Move((r, c), (endRow, endCol), self.board))
-                        print("hello")
                     elif endPiece[0] == enemyColor:#enemy piece
                         moves.append(Move((r, c), (endRow, endCol), self.board))
                         break
@@ -124,7 +123,7 @@ class GameState():
         for d in directions:
             for i in range(1, 8):
                 endRow = r + d[0] * i
-                endCol = c + d[0] * i
+                endCol = c + d[1] * i
                 if 0 <= endRow < 8 and 0 <= endCol < 8:
                     endPiece = self.board[endRow][endCol]
                     if endPiece == "--":
@@ -137,8 +136,8 @@ class GameState():
                     break
 
     def getQueenMoves(self, r, c, moves):
-        self.getRookMoves()
-        self.getBishopMoves()
+        self.getRookMoves(r, c, moves)
+        self.getBishopMoves(r, c, moves)
 
     def getKingMoves(self, r, c, moves):
         kingMoves = ((-1, 1), (-1, -1), (1, 1), (1, 0), (-1, 0), (1, -1), (0, 1), (0, -1))
@@ -146,7 +145,10 @@ class GameState():
         for m in kingMoves:
             endRow = r + m[0]
             endCol = c + m[0]
-            if
+            if 0 <= endRow < 8 and 0 <= endCol < 8:
+                endPiece = self.board[endRow][endCol]
+                if endPiece != allyColor:
+                    moves.append(Move((r, c), (endRow, endCol), self.board))
 
 
 

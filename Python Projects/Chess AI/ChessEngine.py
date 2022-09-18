@@ -9,10 +9,11 @@ class GameState():
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "bp", "--", "--", "--", "--"],
+            ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
-            ["wR", "wN", "wB", "wQ", "wK", "wB", "wN", "wR"]
-            ]
+            ["wR", "wN", "wB", "wQ", "wK", "wB", "wN", "wR"]]
+        self.moveFunctions = {'p': self.getPawnMove, 'R': self.getRookMoves, 'N': self.getKnightMoves,
+                              'B': self.getBishopMoves, 'Q': self.getQueenMoves, 'K': self.getKingMoves}
         self.whiteToMove = True
         self.moveLog = []
     '''
@@ -44,10 +45,7 @@ class GameState():
                 turn = self.board[r][c][0]
                 if(turn == "w" and self.whiteToMove) or (turn == "b" and not self.whiteToMove):
                     piece = self.board[r][c][1]
-                    if piece == "p":
-                        self.getPawnMove(r, c, moves)
-                    elif piece == "r":
-                        self.getRookMoves(r, c, moves)
+                    self.moveFunctions[piece](r, c, moves)#call the appropriate move function based on piece
         return moves
     '''
     Get all possible pawn moves for the pawn located at r, c and add these moves to the list
@@ -64,12 +62,58 @@ class GameState():
             if c + 1 <= 7:
                 if self.board[r-1][c+1][0] == "b":
                     moves.append(Move((r, c), (r-1, c+1), self.board))
+        else:
+            if self.board[r+1][c] == "--":
+                moves.append(Move((r, c), (r+1, c), self.board))
+                if r == 1 and self.board[r+2][c] == "--":
+                    moves.append(Move((r, c), (r+2, c), self.board))
+            if c - 1 >= 0:
+                if self.board[r+1][c-1][0] == "w":
+                    moves.append(Move((r, c), (r+1, c-1), self.board))
+            if c + 1 <= 7:
+                if self.board[r+1][c+1][0] == "w":
+                    moves.append(Move((r, c), (r+1, c+1), self.board))
+
 
 
     '''
     Get all possible rook moves for the rook located at r, c and add these moves to the list
     '''
     def getRookMoves(self, r, c, moves):
+        directions = ((-1, 0), (0, -1), (1, 0), (0, 1))
+        enemyColor = "b" if self.whiteToMove else "w"
+        for d in directions:
+            for i in range(1, 8):
+                endRow = r + d[0] * i
+                endCol = c + d[0] * i
+                if 0 <= endRow < 8 and 0 <= endCol < 8:
+                    endPiece = self.board[endRow][endCol]
+                    if endPiece == "--": #blank space
+                        moves.append(Move((r, c), (endRow, endCol), self.board))
+                    if endPiece[0] == enemyColor: #enemy piece valid
+                        moves.append(Move((r, c), (endRow, endCol), self.board))
+                        break
+                    else: #friendly piece
+                        break
+
+
+
+    '''
+    Get all the possible moves for the Knight located at r, c and add these moves to the list
+    '''
+    def getKnightMoves(self, r, c, moves):
+        pass
+
+    '''
+    Get all the possible moves for the Bishop located ar r, c and add these moves to the list
+    '''
+    def getBishopMoves(self, r, c, moves):
+        pass
+
+    def getQueenMoves(self, r, c, moves):
+        pass
+
+    def getKingMoves(self, r, c, moves):
         pass
 
 

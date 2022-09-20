@@ -16,6 +16,8 @@ class GameState():
                               'B': self.getBishopMoves, 'Q': self.getQueenMoves, 'K': self.getKingMoves}
         self.whiteToMove = True
         self.moveLog = []
+        self.whiteKingLocation = (7, 4)
+        self.blackKingLocation = (0, 4)
     '''
     Takes a move as a parameter and executes it(Does not work for castling, pawn promotion and en-passant'''
     def makeMove(self, move):
@@ -23,6 +25,10 @@ class GameState():
         self.board[move.endRow][move.endCol] = move.pieceMoved
         self.moveLog.append(move)
         self.whiteToMove = not self.whiteToMove
+        if move.pieceMoved == "wK":
+            self.whiteKingLocation = (move.endRow, move.endCol)
+        elif move.pieceMoved == "bK":
+            self.blackKingLocation = (move.endRow, move.endCol)
     
     def undoMove(self):
         if len(self.moveLog) != 0:
@@ -148,6 +154,7 @@ class GameState():
             if 0 <= endRow < 8 and 0 <= endCol < 8:
                 endPiece = self.board[endRow][endCol]
                 if endPiece[0] != allyColor:
+                    moves.append(Move((r, c), (endRow, endCol), self.board))
                     
 
 

@@ -45,13 +45,33 @@ class GameState():
         moves = self.getAllPossibleMoves()
         #2) for each move, make the move
         nums = [0, 1, 2, 3, 4, 5]
-        for i in range(len(moves)):
-            pass
+        for i in range(len(moves)-1, -1, -1):
+            self.makeMove(moves[i])
         #3) geneerate all of your opponents moves
         #4) for each of your opponents moves,see if they see if they attack your king
         #5) if they do attack your king, not a valid move
 
         return moves
+    '''
+    Determine if the current player is under attack
+    '''
+    def inCheck(self):
+        if self.whiteToMove:
+            return self.squareUnderAttack(self.whiteKingLocation[0], self.whiteKingLocation[1])
+        else:
+            return self.squareUnderAttack(self.blackKingLocation[0], self.blackKingLocation[1])
+
+    '''
+    Determine if the enemy can attack the square r, c
+    '''
+    def squareUnderAttack(self, r, c):
+        self.whiteToMove = not self.whiteToMove #switch to opponents turn
+        oppMoves = self.getAllPossibleMoves()
+        self.whiteToMove = not self.whiteToMove
+        for move in oppMoves:
+            if move.endRow == r and move.endCol == c:
+                return True
+        return False
     '''
     All moves without considering check
     '''

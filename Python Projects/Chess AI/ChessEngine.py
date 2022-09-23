@@ -40,7 +40,18 @@ class GameState():
     All moves considering check
     '''
     def getValidMoves(self):
-        return self.getAllPossibleMoves()#for now we will not worry about checks
+
+        #1) generate all possible moves
+        moves = self.getAllPossibleMoves()
+        #2) for each move, make the move
+        nums = [0, 1, 2, 3, 4, 5]
+        for i in range(len(moves)):
+            pass
+        #3) geneerate all of your opponents moves
+        #4) for each of your opponents moves,see if they see if they attack your king
+        #5) if they do attack your king, not a valid move
+
+        return moves
     '''
     All moves without considering check
     '''

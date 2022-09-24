@@ -1,5 +1,5 @@
 import pygame
-import neat
+#import neat
 import os
 import random
 

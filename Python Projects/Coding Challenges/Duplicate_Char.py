@@ -10,7 +10,10 @@ def checkForDuplicates(message):
 def main():
     message = input("Message: ")
     result = checkForDuplicates(message.lower())
-    print(result)
+    if result:
+        print("Has duplicate character")
+    else:
+        print("No duplicate characters")
 
 
 if __name__ == '__main__':

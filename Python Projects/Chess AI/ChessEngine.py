@@ -44,12 +44,17 @@ class GameState():
         #1) generate all possible moves
         moves = self.getAllPossibleMoves()
         #2) for each move, make the move
-        nums = [0, 1, 2, 3, 4, 5]
         for i in range(len(moves)-1, -1, -1):
             self.makeMove(moves[i])
-        #3) geneerate all of your opponents moves
-        #4) for each of your opponents moves,see if they see if they attack your king
-        #5) if they do attack your king, not a valid move
+            #3) geneerate all of your opponents moves
+            #4) for each of your opponents moves,see if they see if they attack your king
+            #5) if they do attack your king, not a valid move
+            self.whiteToMove = not self.whiteToMove
+            if self.inCheck():
+                moves.remove(moves[i])
+            self.whiteToMove = not self.whiteToMove
+            self.undoMove()
+        
 
         return moves
     '''

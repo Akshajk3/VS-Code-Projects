@@ -54,8 +54,6 @@ class GameState():
                 moves.remove(moves[i])
             self.whiteToMove = not self.whiteToMove
             self.undoMove()
-        
-
         return moves
     '''
     Determine if the current player is under attack
@@ -70,7 +68,7 @@ class GameState():
     Determine if the enemy can attack the square r, c
     '''
     def squareUnderAttack(self, r, c):
-        self.whiteToMove = not self.whiteToMove #switch to opponents turn
+        self.whiteToMove = not self.whiteToMove
         oppMoves = self.getAllPossibleMoves()
         self.whiteToMove = not self.whiteToMove
         for move in oppMoves:

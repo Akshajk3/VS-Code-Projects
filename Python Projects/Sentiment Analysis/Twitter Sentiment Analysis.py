@@ -11,13 +11,3 @@ access_token_secret = 'eLUjYXEDhTvm8gMfTWXoUMD0Lehbs124nxIX5eEMOgSH0'
 
 auth_handler = tweepy.OAuthHandler(consumer_key=api_key, consumer_secret=api_key_secret)
 auth_handler.set_access_token(access_token, access_token_secret)
-
-api = tweepy.API(auth_handler)
-
-search_term = 'stocks'
-tweet_amount = 200
-
-tweets = api.search_tweets(q=search_term, lang='en')
-
-for tweet in tweets:
-    print(tweet)

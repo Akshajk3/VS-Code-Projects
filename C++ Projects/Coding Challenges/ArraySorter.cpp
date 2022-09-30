@@ -1,25 +1,22 @@
 #include <iostream>
 #include <cstring>
+#include <string>
 
 using namespace std;
 
 int main()
 {
     string input;
-    int num_zeros;
-    std::cout << "Input a Number: ";
+    std::cout << "Input a list of numbers: ";
     std::cin >> input;
     int n = input.length();
     char array[n+1];
     strcpy(array, input.c_str());
+    int num = stoi(array);
+    int p = 1;
     for(int i; i < n; i++)
     {
-        if(array[i] == '0')
-        {
-            num_zeros++;
-        }
+
     }
-    std::cout << num_zeros;
-    std::cout << "\n";
-    return 0;
+
 }

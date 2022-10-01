@@ -2,6 +2,10 @@
     "files.associations": {
         "bitset": "cpp",
         "string": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "__locale": "cpp",
+        "__string": "cpp",
+        "string_view": "cpp",
+        "ostream": "cpp"
     }
 }

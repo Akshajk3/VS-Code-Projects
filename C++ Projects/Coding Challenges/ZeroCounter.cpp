@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     string input;
-    int num_zeros;
+    int num_zeros = 0;
     std::cout << "Input a Number: ";
     std::cin >> input;
     int n = input.length();

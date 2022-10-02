@@ -1,3 +1,7 @@
+from os import remove
+from shutil import move
+
+
 class GameState():
     def __init__(self):
         #First letter represents the color, b for black, and w for white
@@ -60,24 +64,21 @@ class GameState():
         
         if self.Check:
             if len(self.checks) == 1:
-                moves = self.getAllPossibleMoves()
-                #block a check you must have a piece between the enemy piece and the king
+                moves = self.getAllPossibleMoves
                 check = self.checks[0]
                 checkRow = check[0]
                 checkCol = check[1]
-                pieceChecking = self.board[checkRow][checkCol] #enemy piece causing a check
-                validSquares = [] #squares that the piece can move to
-                #If knight, then knight must be captured or the king must be moved
-                if pieceChecking[1] == 'N':
-                    validSquare = [(checkRow, checkCol)]
+                pieceChecking = self.board[checkRow][checkCol]
+                validSquares = []
+                if pieceChecking == 'N':
+                    validSquares = [(checkRow, checkCol)]
                 else:
                     for i in range(1, 8):
-                        validSquare = (kingRow + check[2] * i, kingCol + check[3] * i) #check[2] and check[3] are the different directions
+                        validSquare = (kingRow + check[2] * i, kingCol + check[3] * i)
                         validSquares.append(validSquare)
                         if validSquare[0] == checkRow and validSquare[1] == checkCol:
                             break
-                #get rid of moves that dont block check or move king
-                for i in range(len(moves) -1, -1, -1):
+                for i in range(len(moves) - 1, -1, -1, -1):
                     if moves[i].pieceMoved[1] != 'K':
                         if not (moves[i].endRow, moves[i].endCol) in validSquares:
                             moves.remove(moves[i])
@@ -121,15 +122,15 @@ class GameState():
                     elif endPiece[0] == enemyColor:
                         type = endPiece[1]
                         if(0 <= j <= 3 and type == 'R') or (4 <= j <= 7 and type == 'B') or (j == 1 and type == 'p' and ((enemyColor == 'w' and 6 <= j <=7) or (enemyColor == 'b' and 6 <= j <= 7))) or (type == 'Q') or (j == 1 and type == 'K'):
-                            if possiblePin == ():
+                            if possiblePin == (): #if no blocking piece then check is true
                                 inCheck = True
                                 checks.append((endRow, endCol, d[0], d[1]))
                                 break
-                            else:
+                            else: #piece is pinned
                                 pins.append(possiblePin)
-                        else:
+                        else: #enemy piece is not applying check
                             break
-                else:
+                else: #off the board
                     break
 
         knightMoves = ((-2, 1), (2, 1), (2, -1), (-1, 2), (1, 2), (1, -2), (-2, -1), (-1, -2))

@@ -20,14 +20,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\glad.c" />
+    <ClCompile Include="EBO.cpp" />
+    <ClCompile Include="shaderClass.cpp" />
     <ClCompile Include="Test.cpp" />
+    <ClCompile Include="VAO.cpp" />
+    <ClCompile Include="VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="default.frag" />
     <None Include="default.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EBO.h" />
     <ClInclude Include="shaderClass.h" />
+    <ClInclude Include="VAO.h" />
+    <ClInclude Include="VBO.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

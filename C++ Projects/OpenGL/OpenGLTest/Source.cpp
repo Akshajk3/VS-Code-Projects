@@ -1,4 +1,5 @@
-#include <C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\OpenGLTest\Dependencies\GLFW\include\GLFW\glfw3.h>
+#include </home/akshaj/GitHub/VS-Code-Projects/C++ Projects/OpenGL/OpenGLTest/Dependencies/GLFW/include/GLFW/glfw3.h>
+#include </home/akshaj/GitHub/VS-Code-Projects/C++ Projects/OpenGL/OpenGLTest/Dependencies/GLFW/lib-vc2022/glfw3.lib>
 
 int main(void)
 {

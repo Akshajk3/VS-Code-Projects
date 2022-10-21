@@ -13,7 +13,7 @@ class VAO
 		VAO();
 
 		//Links the VBO to the VAO using a certain layout
-		void LinkVBO(VBO VBO, GLuint layout);
+		void LinkAttrib(VBO VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr string);
 		//Binds the VAO
 		void Bind();
 		//Unbinds the VAO

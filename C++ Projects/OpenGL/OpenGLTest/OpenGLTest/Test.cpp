@@ -44,13 +44,13 @@ int main()
 	
 		// Vertices coordinates
 	GLfloat vertices[] =
-	{
-		-0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Lower left corner
-		0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Lower right corner
-		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f, // Upper corner
-		-0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, //Inner Left
-		0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, //Inner Right
-		0.0f, -0.5f * float(sqrt(3)) / 3, 0.0f //Inner Down
+	{ //			Coordinates					/			Colors		  //
+		-0.5f, -0.5f * float(sqrt(3)) / 3,		 0.0f,	0.8f, 0.3f, 0.02f, // Lower left corner
+		0.5f, -0.5f * float(sqrt(3)) / 3,		 0.0f,	0.8f, 0.3f, 0.02f, // Lower right corner
+		0.0f, 0.5f * float(sqrt(3)) * 2 / 3,	 0.0f,	1.0f, 0.6f, 0.32f, // Upper corner
+		-0.25, 0.5f * float(sqrt(3)) / 6,		 0.0f,	0.9f, 0.45f, 0.17f,//Inner Left
+		0.25f, 0.5f * float(sqrt(3)) / 6,		 0.0f,	0.9f, 0.45f, 0.17f,//Inner Right
+		0.0f, -0.5f * float(sqrt(3)) / 3,		 0.0f,	0.8f, 0.3f, 0.02f, //Inner Down
 	};
 
 	GLuint indices[] =

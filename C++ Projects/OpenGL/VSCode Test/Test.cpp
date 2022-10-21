@@ -1,4 +1,4 @@
-#include <include\GLFW\glfw3.h>
+#include <C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\VSCode Test\include\GLFW\glfw3.h>
 
 int main(void)
 {

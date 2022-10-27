@@ -14,7 +14,7 @@ from keras.layers import Dense, Dropout, LSTM
 start = dt.datetime(2012,1,1)
 end = dt.datetime(2020,1,1)
 
-company = 'AAPL'
+company = 'CTS'
 
 data = web.DataReader(company, 'yahoo', start, end)
 
@@ -45,7 +45,7 @@ model.add(Dropout(0.2))
 model.add(Dense(units=1)) #Prediction of the next closing value
 
 model.compile(optimizer='adam', loss='mean_squared_error')
-model.fit(x_train, y_train, epochs=50, batch_size=32)
+model.fit(x_train, y_train, epochs=25, batch_size=32)
 
 '''Test the model accuracy on existing data'''
 
@@ -82,3 +82,14 @@ plt.xlabel('Time')
 plt.ylabel(f'{company} Share Price')
 plt.legend()
 plt.show()
+
+
+#Predicting the future price
+
+real_data = [model_inputs[len(model_inputs) + 1 - prediction_days:len(model_inputs+1), 0]]
+real_data = np.array(real_data)
+real_data = np.reshape(real_data, (real_data.shape[0], real_data.shape[1], 1))
+
+prediction = model.predict(real_data)
+prediction = scaler.inverse_transform(prediction)
+print(f"Prediction: {prediction}")

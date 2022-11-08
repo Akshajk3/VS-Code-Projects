@@ -1,35 +1,39 @@
 import pygame
-from pygame.locals import *
-import sys
- 
+
 pygame.init()
-display = pygame.display.set_mode((300, 300))
-FPS_CLOCK = pygame.time.Clock()
 
 
-class Player:
-    def __init__(self):
-        self.rect = pygame.draw.rect(display, (255, 0, 0), (100, 100, 100, 100))
-    
-    def draw(self):
-        self.rect
- 
-player = Player()
- 
-while 1:
+SCREEN = pygame.display.set_mode((800, 800))
+pygame.display.set_caption("Testing")
 
-    player.draw()
+RED = (255, 0, 0)
+WHITE = (255, 255, 255)
 
-    for event in pygame.event.get():
-        ...
-        ...
-        if event.type == pygame.MOUSEBUTTONDOWN:           
-            if player.rect.collidepoint(pygame.mouse.get_pos()):
-                print("Mouse clicked on the Player")
-  
-        if event.type == pygame.MOUSEBUTTONUP:
-            if player.rect.collidepoint(pygame.mouse.get_pos()):
-                print("Mouse released on the Player")
+def main():
+    run = True
+    COLOR = WHITE
+    rect = pygame.Rect(30, 30, 50, 50)
+    touching = False
+
+    while run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+            if rect.collidepoint(pygame.mouse.get_pos()):
+                COLOR = RED
+                touching = True
+            else:
+                COLOR = WHITE
+
+            if event.type == pygame.MOUSEBUTTONDOWN and touching:
+                pygame.quit()
+                quit()
         
-        if event.type == pygame.QUIT:
-            pygame.quit()
+        pygame.draw.rect(SCREEN, COLOR, rect)
+        pygame.display.update()
+
+        
+
+main()

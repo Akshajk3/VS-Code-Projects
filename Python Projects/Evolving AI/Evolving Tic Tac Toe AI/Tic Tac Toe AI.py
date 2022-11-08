@@ -23,6 +23,8 @@ X_IMG = pygame.transform.scale(X_IMG, IMG_SIZE)
 
 TILES = []
 
+BOX_SIZE = 30
+
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 COLORS = GREEN
@@ -42,16 +44,50 @@ class Toc:
     def draw(self):
         SCREEN.blit(self.img, (self.X_POS, self.Y_POS))
 
+class Piece:
+    def __init__(self):
+        self.X_img = X_IMG
+        self.O_img = O_IMG
+        self.X_turn = True
+    
+    def draw(self, x_pos, y_pos):
+        SCREEN.blit(self.X_img, (x_pos, y_pos))
+
 class Tile:
-    def __init__(self, x_pos, y_pos):
-        self.rect = pygame.draw.rect()
+    def __init__(self):
+        self.x_pos = 90
+        self.y_pos = 90
+        self.rect = pygame.Rect(self.x_pos, self.y_pos, BOX_SIZE, BOX_SIZE)
+        self.color = GREEN
+        self.touching = False
+        self.piece = Piece()
+        self.placed = False
+
+    def input(self):
+        if self.rect.collidepoint(pygame.mouse.get_pos()):
+            self.color = RED
+            self.touching = True
+        
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN and self.touching:
+                print("Placed")
+                self.placed = True
+
+    def draw(self):
+        pygame.draw.rect(SCREEN, self.color, self.rect)
+        if self.placed == True:
+            self.piece.draw(self.x_pos, self.y_pos)
 
 
-def update_ui(COLOR):
+def update_ui():
     board = Toc()
+    tile = Tile()
     SCREEN.fill((255, 255, 255))
+
+    tile.input()
     
     board.draw()
+    tile.draw()
     
 
 def main():
@@ -64,7 +100,7 @@ def main():
                 pygame.quit()
                 quit()
 
-            update_ui(RED)
+            update_ui()
             pygame.display.update()
 
 

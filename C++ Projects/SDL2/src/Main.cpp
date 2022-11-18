@@ -2,40 +2,44 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 
-#include "RenderWindow.hpp"
-#include "RenderWindow.cpp"
-
-int main(int argc, char* args[])
+int main()
 {
-	if(SDL_Init(SDL_INIT_VIDEO) > 0)
+	if(SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
-		std::cout <<"I want to die: SDL_ERROR:" << SDL_GetError() << std::endl;
-	}
-	
-	if(!(IMG_Init(IMG_INIT_PNG)))
-	{
-		std::cout << "IMG_init has failed. ERROR: " << SDL_GetError() << std::endl;
+		std::cout << "BRUH UR PC BAD. Error: " << SDL_Error << std::endl;
 	}
 
-	RenderWindow window("Game v1.0", 1280, 720);
+	SDL_Window *window = SDL_CreateWindow("Test Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1280, 720, 0);
 
-	bool run = true;
+	if(!window)
+	{
+		std::cout << "Bro how u pc so bad that it cannot make window. Error: " << SDL_Error << std::endl;
+	}
 
+	SDL_Surface *window_surface = SDL_GetWindowSurface(window);
+
+	if(!window_surface)
+	{
+		std::cout << "Bro u cant event get the window surface L. Error: " << SDL_Error << std::endl;
+	}
+
+	SDL_UpdateWindowSurface(window);
+
+	bool gameRunning = true;
 	SDL_Event event;
-
-	while(run)
+	
+	while(gameRunning)
 	{
 		while(SDL_PollEvent(&event))
 		{
 			if(event.type == SDL_QUIT)
 			{
-				run = false;
+				gameRunning = false;
 			}
 		}
 	}
 
-	window.cleanUp();
 	SDL_Quit();
-
 	return 0;
+	
 }

@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "iostream": "cpp"
-    }
+        "iostream": "cpp",
+        "${workspaceFolder}/include":
+        "C:/SDL2-w64/include"
+    },
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
 }

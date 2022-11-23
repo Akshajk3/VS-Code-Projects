@@ -65,12 +65,12 @@ int main(int argc, char** argv)
 			}
 		}
 
-		rect.y += velocity;
-		if(rect.y <= 0)
+		rect.x += velocity;
+		if(rect.x <= 0)
 		{
 			velocity = -velocity;
 		}
-		if(rect.y >= SCREEN_HEIGHT)
+		if(rect.x >= SCREEN_WIDTH)
 		{
 			velocity = -velocity;
 		}

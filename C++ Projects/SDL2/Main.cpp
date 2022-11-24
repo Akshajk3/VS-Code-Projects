@@ -5,8 +5,9 @@
 #include <cstdlib>
 
 
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 720
+#define SCREEN_WIDTH 640
+#define SCREEN_HEIGHT 480
+#define SQUARE_SIZE 50
 
 int main(int argc, char** argv)
 {
@@ -36,14 +37,16 @@ int main(int argc, char** argv)
 	SDL_Rect rect = {0, 0, 1000, 1000};
 	rect.x = SCREEN_WIDTH/2;
 	rect.y = SCREEN_HEIGHT/2;
-	rect.w = 50;
-	rect.h = 50;
+	rect.w = SQUARE_SIZE;
+	rect.h = SQUARE_SIZE;
 	SDL_Event event;
 	bool run = true;
 	int green = 255;
 	int red = 255;
 	int blue = 255;
 	float velocity = 1;
+	float v_velocity = 1;
+	float h_velocity = 1;
 
 	while(run)
 	{
@@ -63,18 +66,31 @@ int main(int argc, char** argv)
 				//rect.w = 50+(rand()%255);
 				//rect.h = 50+(rand()%400);
 			}
+
+			if(event.type == SDLK_w)
+			{
+				v_velocity = 1;
+				std::cout << "Pressed w" << std::endl;
+			}
+			else if(event.type == SDLK_s)
+			{
+				v_velocity = -1;
+			}
+
+			if(event.type == SDLK_d)
+			{
+				h_velocity = 1;
+			}
+			else if(event.type = SDLK_a)
+			{
+				h_velocity = -1;
+			}
 		}
 
-		rect.x += velocity;
-		if(rect.x <= 0)
-		{
-			velocity = -velocity;
-		}
-		if(rect.x >= SCREEN_WIDTH)
-		{
-			velocity = -velocity;
-		}
-		std::cout << rect.y << velocity << std::endl;
+		rect.y += v_velocity;
+		rect.x += h_velocity;
+
+		std::cout << rect.y << " " << velocity << std::endl;
 
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
 		SDL_RenderClear(renderer);

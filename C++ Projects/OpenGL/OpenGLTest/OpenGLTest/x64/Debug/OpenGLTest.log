@@ -1,3 +1,4 @@
 ﻿  glad.c
-  Test.cpp
+  LINK : C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\OpenGLTest\x64\Debug\OpenGLTest.exe not found or not built by the last incremental link; performing full link
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   OpenGLTest.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\OpenGLTest\x64\Debug\OpenGLTest.exe

@@ -1,2 +1,0 @@
-﻿  Application.cpp
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Test\Test\src\Application.cpp(1,10): fatal  error C1083: Cannot open include file: 'GLFW/glfw3.h': No such file or directory

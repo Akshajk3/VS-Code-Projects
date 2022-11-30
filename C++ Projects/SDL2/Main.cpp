@@ -1,7 +1,6 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include <cstdlib>
 
 #include "RenderWindow.hpp"
 #include "RenderWindow.cpp"
@@ -12,7 +11,7 @@
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
 
-int main(int argv, char* args)
+int main(int argv, char* args[])
 {
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
@@ -26,8 +25,8 @@ int main(int argv, char* args)
 
     RenderWindow window("Test", SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    SDL_Texture* grassTexture = window.loadTexture("gfx/ground_grass.png"); 
-    
+    SDL_Texture* grassTexture = window.loadTexture("gfx/ground_grass.png");
+
     bool run = true;
     SDL_Event event;
 

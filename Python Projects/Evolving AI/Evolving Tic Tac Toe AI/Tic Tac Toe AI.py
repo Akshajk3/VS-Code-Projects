@@ -66,11 +66,11 @@ class Tile:
     def input(self):
         if self.rect.collidepoint(pygame.mouse.get_pos()):
             self.color = RED
-
-    def checkForPress(self):
+            self.touching = True
+            print(self.touching)
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
-                print("Hello")
+                print("Hello World")
 
     def draw(self):
         if self.placed == True:
@@ -85,7 +85,6 @@ def update_ui():
     SCREEN.fill((255, 255, 255))
 
     tile.input()
-    tile.checkForPress()
     
     board.draw()
     tile.draw()
@@ -94,12 +93,15 @@ def update_ui():
 def main():
     run = True
     toc = Toc()
+    tile = Tile()
 
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
+
+            tile.input()
 
             update_ui()
             pygame.display.update()

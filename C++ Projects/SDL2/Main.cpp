@@ -23,6 +23,7 @@ int main(int argv, char* args[])
         std::cout << "SDL Image failed to Init. Error: " << SDL_GetError() << std::endl;
     }
 
+
     RenderWindow window("Test", SCREEN_WIDTH, SCREEN_HEIGHT);
 
     SDL_Texture* grassTexture = window.loadTexture("gfx/ground_grass.png");

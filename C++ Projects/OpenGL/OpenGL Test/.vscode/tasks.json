@@ -7,13 +7,16 @@
             "args": [
                 "-g",
                 "-std=c++17",
-                "-I./include",
-                "-L./lib",
-                "src/\\*.cpp",
-                "src/glad.c",
+                "${file}",
+                "-I",
+                "./include",
+                "-L",
+                "./lib",
+                "-lopengl32",
+                "-lglew32",
                 "-lglfw3dll",
                 "-o",
-                "${workspaceFolder}/myprogram.exe"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe" 
             ],
             "options": {
                 "cwd": "${fileDirname}"

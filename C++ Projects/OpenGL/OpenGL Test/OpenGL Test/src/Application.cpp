@@ -1,6 +1,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <cstdlib>
 
 static unsigned int CompileShader(unsigned int type, const std::string& source)
 {
@@ -87,6 +88,10 @@ int main(void)
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
 
+    int red;
+    int green;
+    int blue;
+
     std::string vertexShader = 
         "#version 330 core\n"
         "\n"
@@ -98,14 +103,14 @@ int main(void)
         "}";
 
     std::string fragmentShader = 
-    "#version 330 core\n"
-    "\n"
-    "layout(location = 0) out vec4 color;\n"
-    "\n"
-    "void main()\n"
-    "{\n"
-    "   color = vec4(0.5, 0.2, 0.0, 1.0);\n"
-    "}\n";
+        "#version 330 core\n"
+        "\n"
+        "layout(location = 0) out vec4 color;\n"
+        "\n"
+        "void main()\n"
+        "{\n"
+        "   color = vec4(1.0, 0.75, 0.79, 1.0);\n"
+        "}\n";
 
     unsigned int shader = CreateShader(vertexShader, fragmentShader);
     glUseProgram(shader);
@@ -123,8 +128,9 @@ int main(void)
 
         /* Poll for and process events */
         glfwPollEvents();
-    }
 
+    }
+    
     glfwTerminate();
     return 0;
 }

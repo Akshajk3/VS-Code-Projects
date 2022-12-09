@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "J6gXXRaOTDHxJIAezG8HAwO1rQFqEGgRvbDsd3iWSjA8VGdZXuHeCyzXwxJ08stg88+ti8LkNLuyq7EhWek8JQ==",
+  "dgSpecHash": "LfMIISAX46jKGfhZjLPSL174oYpEakG3e53Hv00Y/ANuujdmrEtLqMdFEqnU5XSh5bWZ9wSivns8CMEeBEP2bg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kanumuri\\Documents\\GitHub\\VS-Code-Projects\\C# Projects\\OpenGL\\OpenGL Test\\OpenGL Test\\OpenGL Test.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/akshaj/GitHub/VS-Code-Projects/C# Projects/OpenGL/OpenGL Test/OpenGL Test/OpenGL Test.csproj",
+  "expectedPackageFiles": [
+    "/home/akshaj/.nuget/packages/microsoft.netcore.app.ref/6.0.11/microsoft.netcore.app.ref.6.0.11.nupkg.sha512",
+    "/home/akshaj/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.11/microsoft.aspnetcore.app.ref.6.0.11.nupkg.sha512",
+    "/home/akshaj/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.11/microsoft.netcore.app.host.linux-x64.6.0.11.nupkg.sha512"
+  ],
   "logs": []
 }

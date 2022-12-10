@@ -35,7 +35,7 @@ namespace OpenGL_Test
 
         protected override void Render()
         {
-            glClearColor(0, 0, 0, 0);
+            glClearColor(MathF.Sin(GameTime.TotalElapsedSeconds), 0, 0, 0);
             glClear(GL_COLOR_BUFFER_BIT);
 
             Glfw.SwapBuffers(DisplayManager.Window);

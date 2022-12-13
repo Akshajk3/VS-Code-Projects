@@ -1,2 +1,2 @@
 all:
-	g++ -I Dependencies/GLEW/include -I Dependencies/include -I Dependencies -L Dependencies/GLEW/bin/Release/Win32 -L Dependencies/lib-vc2022 -L src/glad.c -o main OpenGL\ Test/src/Application.cpp -ldl -lglfw
+	g++ -I Dependencies/GLEW/include -I Dependencies/include -I Dependencies -L Dependencies/GLEW/bin/Release/Win32 -L Dependencies/lib-vc2022 -L src/glad.c OpenGL\ Test/src/Application.cpp src/glad.c -o main -ldl -lglfw

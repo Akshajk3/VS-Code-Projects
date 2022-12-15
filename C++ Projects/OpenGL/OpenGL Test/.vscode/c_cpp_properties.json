@@ -10,7 +10,10 @@
                 "${workspaceFolder}/Dependencies/GLEW/include",
                 "${workspaceFolder}/Dependencies/include",
                 "C:/MinGW/include/OpenGL/GLEW/include",
-                "C:/MinGW/include/OpenGL"
+                "C:/MinGW/include/OpenGL",
+                "C:/MinGW/include/OpenGL/glad/include",
+                "${workspaceFolder}/Dependencies/include",
+                "${workspaceFolder}/Dependencies"
             ],
             "defines": [
                 "_DEBUG",

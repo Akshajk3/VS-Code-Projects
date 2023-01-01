@@ -20,13 +20,13 @@ int main()
 
 	// Define the vertices that are used for rendering the triangle
 	GLfloat vertices[] =
-	{//				COORDINATES					/					COLORS	  //
-		-0.5f, -0.5f * float(sqrt(3)) / 3,     0.0f,     0.8f,  0.3f,  0.02f, // Lower left corner
-		 0.5f, -0.5f * float(sqrt(3)) / 3,     0.0f,     0.8f,  0.3f,  0.02f, // Lower right corner
-		 0.0f,  0.5f * float(sqrt(3)) * 2 / 3, 0.0f,     1.0f,  0.6f,  0.32f, // Upper corner
-		-0.25f, 0.5f * float(sqrt(3)) / 6,     0.0f,     0.9f,  0.45f, 0.17f, // Inner left
-		 0.25f, 0.5f * float(sqrt(3)) / 6,     0.0f,     0.9f,  0.45f, 0.17f, // Inner right
-		 0.0f, -0.5f * float(sqrt(3)) / 3,     0.0f,     0.8f,  0.3f,  0.02f  // Inner down
+	{ //               COORDINATES                  /     COLORS           //
+		-0.5f, -0.5f * float(sqrt(3)) * 1 / 3, 0.0f,     0.09f, 0.35f,  0.61f, // Lower left corner
+		 0.5f, -0.5f * float(sqrt(3)) * 1 / 3, 0.0f,     0.09f, 0.35f,  0.61f, // Lower right corner
+		 0.0f,  0.5f * float(sqrt(3)) * 2 / 3, 0.0f,     0.26f, 0.80f,  0.63f, // Upper corner
+		-0.25f, 0.5f * float(sqrt(3)) * 1 / 6, 0.0f,     0.17f, 0.56f,  0.62f, // Inner left
+		 0.25f, 0.5f * float(sqrt(3)) * 1 / 6, 0.0f,     0.17f, 0.56f,  0.62f, // Inner right
+		 0.0f, -0.5f * float(sqrt(3)) * 1 / 3, 0.0f,     0.09f, 0.35f,  0.61f  // Inner down
 	};
 
 	// Define the indeces for the EBO
@@ -68,20 +68,26 @@ int main()
 	// Generate the EBO and link it to the indices
 	EBO EBO1(indices, sizeof(indices));
 
-	// Links the VBO to the VAO
-	VAO1.LinkVBO(VBO1, 0);
+	// Links the VBO attributes such as the vertex positions and colors to the VAO
+	VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
+	VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 	// Unbind all to prevent acidentally modifying
 	VAO1.Unbind();
 	VBO1.Unbind();
 	EBO1.Unbind();
 
+	// Gets ID of uniform called "scale"
+	GLuint uniId = glGetUniformLocation(shaderProgram.ID, "scale");
+
 	// The main loop that runs while the window is still open
 	while (!glfwWindowShouldClose(window))
 	{
-		glClearColor(0.07f, 0.13f, 0.17f, 1);
+		glClearColor(0.0f, 0.0f, 0.2f, 1);
 		glClear(GL_COLOR_BUFFER_BIT);
 		// Tell OpenGL what Shader Program we want to use
 		shaderProgram.Activate();
+		// Assigns a value to the uniform; NOTE: must always come after the shader program has been activated
+		glUniform1f(uniId, 0.5f);
 		// Bind the VAO so OpenGL knows to use it
 		VAO1.Bind();
 		// Draw the triangle using GL_TRIANGES as a primitive

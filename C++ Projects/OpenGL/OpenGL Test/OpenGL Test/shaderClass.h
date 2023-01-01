@@ -22,5 +22,8 @@ public:
 	void Activate();
 	// Deletes the Shader Program
 	void Delete();
+private:
+	// Checks for compilation errors in the different shaders
+	void CompileErrors(unsigned int shader, const char* type);
 };
 #endif

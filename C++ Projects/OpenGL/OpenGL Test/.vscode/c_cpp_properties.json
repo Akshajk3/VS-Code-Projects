@@ -1,31 +1,15 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "Linux",
             "includePath": [
-                "${default}",
-                "${workspaceFolder}/Dependencies/GLEW/include",
-                "${workspaceFolder}/Dependencies/include",
-                "${workspaceFolder}/Dependencies",
-                "${workspaceFolder}/Dependencies/GLEW/include",
-                "${workspaceFolder}/Dependencies/include",
-                "C:/MinGW/include/OpenGL/GLEW/include",
-                "C:/MinGW/include/OpenGL",
-                "C:/MinGW/include/OpenGL/glad/include",
-                "${workspaceFolder}/Dependencies/include",
-                "${workspaceFolder}/Dependencies"
+                "${default}"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "windowsSdkVersion": "10.0.19041.0",
-            "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.33.31629/bin/Hostx64/x64/cl.exe",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "windows-msvc-x64",
-            "configurationProvider": "ms-vscode.makefile-tools"
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
         }
     ],
     "version": 4

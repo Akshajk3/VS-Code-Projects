@@ -1,0 +1,4 @@
+﻿  WalnutApp.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\RayTracing\RayTracing\src\WalnutApp.cpp(26,51): warning C4244: '=': conversion from 'float' to 'uint32_t', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\RayTracing\RayTracing\src\WalnutApp.cpp(27,52): warning C4244: '=': conversion from 'float' to 'uint32_t', possible loss of data
+  RayTracing.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\RayTracing\bin\Debug-windows-x86_64\RayTracing\RayTracing.exe

@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${default}",
-                "${workspaceFolder}/Dependencies/glad/include"
+                "${workspaceFolder}/Dependencies/glad/include",
+                "${workspaceFolder}/Dependencies/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

@@ -1,2 +1,2 @@
 all:
-	g++ -Isrc/Include -Lsrc/lib -o main Fun\ Time\ Messing\ Around\ With\ OpenGL/Main.cpp -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
+	g++ -IDependencies/include -IDependencies/glad/include -Lsrc/lib -o main Fun\ Time\ Messing\ Around\ With\ OpenGL/Main.cpp -lGL -lglut -lGLEW

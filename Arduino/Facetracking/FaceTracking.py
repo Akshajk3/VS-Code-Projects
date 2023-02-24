@@ -4,7 +4,7 @@ import serial, time
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 cap = cv2.VideoCapture(1)
 
-ArduinoSerial=serial.Serial('com7',9600,timeout=0.1)
+ArduinoSerial = serial.Serial('/dev/ttyACM0', 9600, timeout=0.1)
 time.sleep(1)
 
 while cap.isOpened():

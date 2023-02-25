@@ -2,16 +2,16 @@ import cv2
 import serial, time
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
-ArduinoSerial = serial.Serial('/dev/ttyACM0', 9600, timeout=0.1)
+ArduinoSerial = serial.Serial('/dev/tty.usbmodem1101', 9600, timeout=0.1)
 time.sleep(1)
 
 while cap.isOpened():
     ret, frame = cap.read()
     frame = cv2.flip(frame, 1) #mirror the image
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMulitScale(gray, 1.1, 6)
+    faces = face_cascade.detectMultiScale(gray, 1.1, 6)
     
     for x, y, w, h in faces:
         #sending coordinates to the Arduino

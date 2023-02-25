@@ -15,7 +15,7 @@ void setup()
   y.write(ypos);
 }
 
-const int angle = 2; // degree of increment or decrement
+const int angle = 5; // degree of increment or decrement
 
 void loop()
 {
@@ -40,6 +40,7 @@ void loop()
       ypos -= angle;
 
     // if the servo is outside its range
+    /*
     if(xpos >= 180)
       xpos = 180;
     else if(xpos <= 0)
@@ -48,6 +49,7 @@ void loop()
       ypos = 180;
     else if(ypos <= 0)
       ypos = 0;
+      */
 
     x.write(xpos);
     y.write(ypos);

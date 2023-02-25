@@ -51,6 +51,12 @@ void loop()
       ypos = 0;
       */
 
+    //used for testing
+    Serial.print("\t");
+    Serial.print(x_mid);
+    Serial.print("\t");
+    Serial.println(y_mid);
+
     x.write(xpos);
     y.write(ypos);
   }

@@ -30,26 +30,25 @@ void loop()
         y_mid = Serial.parseInt(); //read center y-coordinate
       }
     }
-    if(x_mid > width / 2 + 30)
+    if(x_mid > width / 2 + 10)
       xpos += angle;
-    if(x_mid < width / 2 + 30)
+    if(x_mid < width / 2 + 10)
       xpos -= angle;
-    if(y_mid > hieght / 2 + 30)
+    if(y_mid > hieght / 2 + 10)
       ypos += angle;
-    if(y_mid < hieght / 2 + 30)
+    if(y_mid < hieght / 2 + 10)
       ypos -= angle;
 
     // if the servo is outside its range
-    /*
-    if(xpos >= 180)
-      xpos = 180;
+    
+    if(xpos >= 360)
+      xpos = 360;
     else if(xpos <= 0)
       xpos = 0;
-    if(ypos >= 180)
-      ypos = 180;
+    if(ypos >= 270)
+      ypos = 270;
     else if(ypos <= 0)
       ypos = 0;
-      */
 
     //used for testing
     Serial.print("\t");

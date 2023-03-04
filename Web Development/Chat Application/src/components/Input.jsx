@@ -1,6 +1,5 @@
-import { async } from "@firebase/util";
-import { arrayUnion, doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
-import React, { useContext, useDebugValue, useState } from "react";
+import { arrayUnion, doc, serverTimestamp, updateDoc } from "firebase/firestore";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import Img from "./img/image.png"
@@ -9,7 +8,6 @@ import { v4 as uuid } from "uuid";
 import { Timestamp } from "firebase/firestore";
 import { db, storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { updateProfile } from "firebase/auth";
 
 const Input = () => {
     const [ text, setText] = useState("");
@@ -20,7 +18,7 @@ const Input = () => {
     
     const handleSend = async () => {
          
-        if(img){
+        if(img && text !== ""){
             const storageRef = ref(storage, uuid());
 
             const uploadTask = uploadBytesResumable(storageRef, img);
@@ -44,7 +42,7 @@ const Input = () => {
                 }
             )
         }
-        else{
+        else if(text !== ""){
             await updateDoc(doc(db, "chats", data.chatId), {
                 messages: arrayUnion({
                     id: uuid(),
@@ -72,10 +70,14 @@ const Input = () => {
         setText("");
         setImg(null);
     };
+
+    const handleKey = (e) => {
+        e.code === "Enter" && handleSend();
+    }
     
     return (
         <div className="input">
-            <input type="text" placeholder="Type something..." onChange={e=>setText(e.target.value)} value={text}/>
+            <input type="text" placeholder="Type something..." onChange={e=>setText(e.target.value)} value={text} onKeyDown={handleKey}/>
             <div className="send">
                 <img src={Attach} alt="" />
                 <input type="file" style={{display:"none"}} id="file" onChange={e=>setImg(e.target.files[0])}/>

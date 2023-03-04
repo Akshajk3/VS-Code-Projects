@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import icon from "../src/img/photo.png";
+import placeHolderImg from "../src/img/user.png";
 import {  createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db } from "./firebase"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -10,7 +11,6 @@ const Register = () => {
     const [err, setErr] = useState(false);
     const navigate = useNavigate();
 
-
     const handleSubmit = async (e) => {
       e.preventDefault();
       const displayName = e.target[0].value;
@@ -18,7 +18,7 @@ const Register = () => {
       const password = e.target[2].value;
       const file = e.target[3].files[0];
   
-      try {
+        try {
         //Create user
         const res = await createUserWithEmailAndPassword(auth, email, password);
   
@@ -54,7 +54,7 @@ const Register = () => {
       } catch (err) {
         setErr(true);
       }
-    };
+  };
     return(
         <div className="formContainer">
 
@@ -66,12 +66,12 @@ const Register = () => {
                     <input type="email" placeholder="Email"/>
                     <input type="password" placeholder="Password (At least 6 characters)"/>
                     <input style={{display: "none"}} type="file" id="file"/>
-                    <label htmlFor="file">
+                    <label htmlFor="file" placeholder={placeHolderImg}>
                         <img src={icon} alt="" />
                         <span>Add an avatar</span>
                     </label>
                     <button>Sign Up</button>
-                    {err && <span>Something went wrong {err}</span>}
+                    {err && <span>Something went wrong</span>}
                 </form>
                 <p>You do have an account? <Link to="/login">Login</Link></p>
             </div>

@@ -24,7 +24,14 @@ const Search = () => {
     };
 
     const handleKey = (e) =>{
-        e.code === "Enter" && handleSearch();
+        if(username !== "")
+        {
+            e.code === "Enter" && handleSearch();
+        }
+        else
+        {
+            document.getElementById("element").style.display = "none";
+        }
     };
 
     const handleSelect = async () =>{

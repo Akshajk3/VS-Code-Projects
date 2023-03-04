@@ -8,11 +8,21 @@ import { ChatContext } from "../context/ChatContext";
 
 const Chat = () => {
     const {data} = useContext(ChatContext);
+    var displayName = "";
+
+    if(data.user?.displayName == null)
+    {
+        displayName = "Please Select a User!";
+    }
+    else
+    {
+        displayName = data.user?.displayName;
+    }
 
     return (
         <div className="chat">
             <div className="chatInfo">
-                <span>{data.user?.displayName}</span>
+                <span>{displayName}</span>
                 <div className="chatIcons">
                     <img src={Cam} alt="" />
                     <img src={Add} alt="" />

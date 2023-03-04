@@ -103,12 +103,13 @@
         width: 65%;
         height: 80%;
         display: flex;
+        overflow: hidden;
 
         .sidebar{
             flex: 1;
             background-color: #3e3c61;
             position: relative;
-            overflow: scroll;
+            overflow-y:auto;
 
             .navbar{
                 display: flex;

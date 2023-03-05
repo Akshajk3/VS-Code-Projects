@@ -24,14 +24,7 @@ const Search = () => {
     };
 
     const handleKey = (e) =>{
-        if(username !== "")
-        {
-            e.code === "Enter" && handleSearch();
-        }
-        else
-        {
-            document.getElementById("element").style.display = "none";
-        }
+        e.code === "Enter" && handleSearch();
     };
 
     const handleSelect = async () =>{
@@ -53,6 +46,8 @@ const Search = () => {
                         photoURL: user.photoURL
                     },
                     [combinedId+".date"]: serverTimestamp()
+
+                    
                 });
 
                 await updateDoc(doc(db, "userChats", user.uid), {
@@ -67,8 +62,6 @@ const Search = () => {
         }catch(err){
 
         }
-
-        //create user chats
     };
 
     return (

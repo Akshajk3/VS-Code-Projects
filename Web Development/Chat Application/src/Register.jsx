@@ -17,6 +17,8 @@ const Register = () => {
       const email = e.target[1].value;
       const password = e.target[2].value;
       const file = e.target[3].files[0];
+
+      
   
         try {
         //Create user
@@ -66,7 +68,7 @@ const Register = () => {
                     <input type="email" placeholder="Email"/>
                     <input type="password" placeholder="Password (At least 6 characters)"/>
                     <input style={{display: "none"}} type="file" id="file"/>
-                    <label htmlFor="file" placeholder={placeHolderImg}>
+                    <label htmlFor="file" placeholder="https://cdn-icons-png.flaticon.com/512/456/456212.png">
                         <img src={icon} alt="" />
                         <span>Add an avatar</span>
                     </label>

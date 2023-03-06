@@ -3,7 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "${default}"
+                "${default}",
+                "Dependencies/glad/include",
+                "Dependencies"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

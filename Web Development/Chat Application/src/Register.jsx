@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import icon from "../src/img/photo.png";
-import placeHolderImg from "../src/img/user.png";
 import {  createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage, db } from "./firebase"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";

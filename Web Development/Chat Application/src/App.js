@@ -1,6 +1,7 @@
 import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
+import Settings from "./Settings";
 import "./style.scss"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
@@ -31,6 +32,7 @@ function App() {
           />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </BrowserRouter>

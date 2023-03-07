@@ -3,9 +3,10 @@ import icon from "../src/img/photo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { db, storage } from "./firebase";
+import { auth, db, storage } from "./firebase";
 import { v4 as uuid } from "uuid"
 import { doc, updateDoc } from "firebase/firestore";
+import { updateProfile, updateCurrentUser } from "firebase/auth";
 
 const Settings = () => {
     const [err, setErr] = useState(false);
@@ -38,6 +39,10 @@ const Settings = () => {
                         displayName,
                         photoURL: downloadURL,
                     })
+                    await updateProfile(currentUser, {
+                        displayName,
+                        photoURL: downloadURL,
+                    })
                 })
             }
         )
@@ -46,6 +51,9 @@ const Settings = () => {
       else if(img === null && text !== ""){
         setBlank(false);
         await updateDoc(doc(db, "users", currentUser.uid), {
+            displayName,
+        })
+        await updateProfile(currentUser, {
             displayName,
         })
         navigate("/");
@@ -65,6 +73,9 @@ const Settings = () => {
                     await updateDoc(doc(db, "users", currentUser.uid),{
                         photoURL: downloadURL,
                     })
+                    await updateProfile(currentUser, {
+                        photoURL: downloadURL,
+                    })
                 })
             }
         )
@@ -79,6 +90,7 @@ const Settings = () => {
     catch(err){
         setErr(true);
     }
+    console.log(currentUser);
   };
     return(
         <div className="formContainer">

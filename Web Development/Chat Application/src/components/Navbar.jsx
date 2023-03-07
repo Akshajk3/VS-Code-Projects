@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { signOut } from "firebase/auth";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
-import { doc, onSnapshot } from "firebase/firestore";
 
 const Navbar = () => {
     const {currentUser} = useContext(AuthContext);

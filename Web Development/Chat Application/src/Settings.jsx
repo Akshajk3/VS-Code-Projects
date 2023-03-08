@@ -3,10 +3,10 @@ import icon from "../src/img/photo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { auth, db, storage } from "./firebase";
+import { db, storage } from "./firebase";
 import { v4 as uuid } from "uuid"
 import { doc, updateDoc } from "firebase/firestore";
-import { updateProfile, updateCurrentUser } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 
 const Settings = () => {
     const [err, setErr] = useState(false);
@@ -15,6 +15,7 @@ const Settings = () => {
     const [ text, setText ] = useState("");
     const [ img, setImg ] = useState(null);
     const [ blank, setBlank ] = useState(false);
+    const delayInMilliseconds = 100;
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -33,8 +34,8 @@ const Settings = () => {
             (error) => {
 
             },
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+            async () => {
+                await getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
                     await updateDoc(doc(db, "users", currentUser.uid),{
                         displayName,
                         photoURL: downloadURL,
@@ -46,7 +47,9 @@ const Settings = () => {
                 })
             }
         )
-        navigate("/");
+        setTimeout(function(){
+            navigate("/");
+        }, delayInMilliseconds);
       }
       else if(img === null && text !== ""){
         setBlank(false);
@@ -56,7 +59,9 @@ const Settings = () => {
         await updateProfile(currentUser, {
             displayName,
         })
-        navigate("/");
+        setTimeout(function(){
+            navigate("/")
+        }, delayInMilliseconds);
       }
       else if(img && text === "")
       {
@@ -68,8 +73,8 @@ const Settings = () => {
             (error) => {
 
             },
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+            async () => {
+                await getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
                     await updateDoc(doc(db, "users", currentUser.uid),{
                         photoURL: downloadURL,
                     })
@@ -79,6 +84,9 @@ const Settings = () => {
                 })
             }
         )
+        setTimeout(function(){
+            navigate("/");
+        }, delayInMilliseconds);
       }
       else{
         setBlank(true);
@@ -86,6 +94,9 @@ const Settings = () => {
 
       setText("");
       setImg(null);
+      setTimeout(function(){
+        navigate("/");
+      }, delayInMilliseconds);
     }
     catch(err){
         setErr(true);

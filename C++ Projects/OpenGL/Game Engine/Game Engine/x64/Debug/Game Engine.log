@@ -1,0 +1,5 @@
+﻿  Main.cpp
+  shaderClass.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Game Engine.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\x64\Debug\Game Engine.exe

@@ -13,11 +13,16 @@ const Message = ({message}) => {
         ref.current?.scrollIntoView({behavior:"smooth"})
     }, [message]);
 
+    const month = message.date.toDate().toDateString().substring(0, 10);
+    const time = message.date.toDate().toLocaleTimeString('en-US').substring(0, 5);
+    const pm = message.date.toDate().toLocaleTimeString('en-US').substring(8, 11);
+
     return (
         <div ref={ref} className={`message ${message.senderId === currentUser.uid && "owner"}`}>
             <div className="messageInfo">
                 <img src= {message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt="" />
-                <span>just now</span>
+                <span>{month} </span>
+                <span>at {time} {pm}</span>
             </div>
             <div className="messageContent">
                 <p>{message.text}</p>

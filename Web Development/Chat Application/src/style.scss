@@ -115,7 +115,7 @@
             flex: 1;
             background-color: #3e3c61;
             position: relative;
-            overflow-y:auto;
+            overflow-y: auto;
 
             .navbar{
                 display: flex;
@@ -208,8 +208,23 @@
             overflow: scroll;
             cursor: pointer;
 
+            .removeFriend{
+                visibility: hidden;
+                display: block;
+            }
+
             &:hover{
                 background-color: #2f2d52;
+                .removeFriend{
+                    visibility: visible;
+                    position: absolute;
+                    right: 10px;
+                    cursor: pointer;
+                    img{
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
             }
 
             img{
@@ -222,6 +237,7 @@
                     height: 25px;
                 }
             }
+
 
             .userChatInfo{
                 span{
@@ -283,6 +299,7 @@
                         flex-direction: column;
                         color: gray;
                         font-weight: 300;
+                        font-size: 13px;
 
                         img{
                             width: 40px;

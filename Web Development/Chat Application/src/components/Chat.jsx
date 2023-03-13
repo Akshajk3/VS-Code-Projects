@@ -28,7 +28,6 @@ const Chat = () => {
                     <img src={Cam} alt="" />
                     <img src={Add} alt="" />
                     <Link to="/settings"><img src={More} alt=""/></Link>
-                    
                 </div>
             </div>
             <Messages/>

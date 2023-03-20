@@ -14,7 +14,7 @@ Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, 
 	glActiveTexture(ID);
 	glBindTexture(texType, ID);
 
-	glTexParameteri()
+	glTexParameteri();
 
 	glTexParameteri(texType, GL_TEXTURE_WRAP_S, GL_REPEAT);
 }

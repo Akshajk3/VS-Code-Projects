@@ -96,8 +96,17 @@ class SnakeGame:
     
     def _is_collision(self):
         # hits boundary
-        if self.head.x > self.w - BLOCK_SIZE or self.head.x < 0 or self.head.y > self.h - BLOCK_SIZE or self.head.y < 0:
-            return True
+        if self.head.x > self.w - BLOCK_SIZE:
+            self.head = Point(0 - BLOCK_SIZE, self.head.y)
+
+        elif self.head.x < 0:
+            self.head = Point(self.w, self.head.y)
+    
+        if self.head.y > self.h - BLOCK_SIZE:
+            self.head = Point(self.head.x, 0 - BLOCK_SIZE)
+        elif self.head.y < 0:
+            self.head = Point(self.head.x, self.h)
+
         # hits itself
         if self.head in self.snake[1:]:
             return True

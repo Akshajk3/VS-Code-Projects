@@ -22,10 +22,10 @@ current_generation = 0
 
 class Car:
     def __init__(self):
-        self.sprite = pygame.image.load('car.png').convert()
+        self.sprite = pygame.image.load('car.png').convert() # Convert Speeds Up A Lot
         self.sprite = pygame.transform.scale(self.sprite, (CAR_SIZE_X, CAR_SIZE_Y))
         self.rotated_sprite = self.sprite
-
+        
         self.position = [830, 920]
         self.angle = 0
         self.speed = 0
@@ -67,7 +67,7 @@ class Car:
         while not game_map.get_at((x, y)) == BORDER_COLOR and length < 300:
             length = length + 1
             x = int(self.center[0] + math.cos(math.radians(360 - (self.angle + degree))) * length)
-            y = int(self.center[1] + math.cos(math.radians(360 - (self.angle + degree))) * length)
+            y = int(self.center[1] + math.sin(math.radians(360 - (self.angle + degree))) * length)
 
         dist = int(math.sqrt(math.pow(x - self.center[0], 2) + math.pow(y - self.center[1], 2)))
         self.radars.append([(x, y), dist])
@@ -188,7 +188,7 @@ def run_simulation(genomes, config):
 
         screen.blit(game_map, (0, 0))
         for car in cars:
-            if car.is_alive:
+            if car.is_alive():
                 car.draw(screen)
         
         text = generation_font.render("Generation: " + str(current_generation), True, (0, 0, 0))

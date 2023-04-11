@@ -19,7 +19,7 @@ class Game():
     RED = (255, 0, 0)
 
     def __init__(self, window, window_width, window_height):
-        self.window_width = window_height
+        self.window_width = window_width
         self.window_height = window_height
 
         self.left_paddle = Paddle(10, self.window_height // 2 - Paddle.HEIGHT // 2)

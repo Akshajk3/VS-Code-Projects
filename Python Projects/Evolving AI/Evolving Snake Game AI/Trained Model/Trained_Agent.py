@@ -18,7 +18,7 @@ class Agent:
         self.gamma = 0.9 # discount rate
         self.memory = deque(maxlen=MAX_MEMORY) # popleft()
         self.model = Linear_QNet(11, 256, 3)
-        self.model.load_state_dict(torch.load("./model/model.pth"))
+        self.model.load_state_dict(torch.load("./model/squiggy.pth"))
         self.trainer = QTrainer(self.model, lr=LR, gamma=self.gamma)
         
 

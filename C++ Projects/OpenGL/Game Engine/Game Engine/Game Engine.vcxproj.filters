@@ -68,4 +68,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="pop_cat.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

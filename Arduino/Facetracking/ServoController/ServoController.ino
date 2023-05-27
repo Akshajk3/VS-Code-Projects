@@ -1,62 +1,49 @@
+
 #include <Servo.h>
-
-Servo x,y;
-//resolution of camera
-int width = 1280, hieght = 720;
-//starting position of the servos
-int xpos = 90, ypos = 90;
-
+Servo servoVer; //Vertical Servo
+Servo servoHor; //Horizontal Servo
+int x;
+int y;
+int prevX;
+int prevY;
 void setup()
 {
   Serial.begin(9600);
-  x.attach(9);
-  y.attach(10);
-  x.write(xpos);
-  y.write(ypos);
+  servoVer.attach(9); //Attach Vertical Servo to Pin 5
+  servoHor.attach(10); //Attach Horizontal Servo to Pin 6
+  servoVer.write(90);
+  servoHor.write(90);
 }
-
-const int angle = 5; // degree of increment or decrement
-
+void Pos()
+{
+  if(prevX != x || prevY != y)
+  {
+    int servoX = map(x, 600, 0, 70, 179);
+    int servoY = map(y, 450, 0, 179, 95);
+    servoX = min(servoX, 179);
+    servoX = max(servoX, 70);
+    servoY = min(servoY, 179);
+    servoY = max(servoY, 95);
+    
+    servoHor.write(servoX);
+  }
+}
 void loop()
 {
-  if (Serial.available() > 0)
+  if(Serial.available() > 0)
   {
-    int x_mid, y_mid;
     if(Serial.read() == 'X')
     {
-      x_mid = Serial.parseInt(); //read center x-coordinate
+      x = Serial.parseInt();
       if(Serial.read() == 'Y')
       {
-        y_mid = Serial.parseInt(); //read center y-coordinate
+        y = Serial.parseInt();
+       Pos();
       }
     }
-    if(x_mid > width / 2 + 10)
-      xpos += angle;
-    if(x_mid < width / 2 + 10)
-      xpos -= angle;
-    if(y_mid > hieght / 2 + 10)
-      ypos += angle;
-    if(y_mid < hieght / 2 + 10)
-      ypos -= angle;
-
-    // if the servo is outside its range
-    
-    if(xpos >= 360)
-      xpos = 360;
-    else if(xpos <= 0)
-      xpos = 0;
-    if(ypos >= 270)
-      ypos = 270;
-    else if(ypos <= 0)
-      ypos = 0;
-
-    //used for testing
-    Serial.print("\t");
-    Serial.print(x_mid);
-    Serial.print("\t");
-    Serial.println(y_mid);
-
-    x.write(xpos);
-    y.write(ypos);
+    while(Serial.available() > 0)
+    {
+      Serial.read();
+    }
   }
 }

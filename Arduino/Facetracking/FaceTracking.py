@@ -1,30 +1,28 @@
 import cv2
 import serial, time
 
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+cascade_path = "haarcascade_frontalface_default.xml"
+clf = cv2.CascadeClassifier(cascade_path)
 cap = cv2.VideoCapture(0)
 
-ArduinoSerial = serial.Serial('/dev/tty.usbmodem1101', 9600, timeout=0.1)
+ArduinoSerial = serial.Serial("com9", 9600, timeout=0.1)
+
 time.sleep(1)
 
-while cap.isOpened():
-    ret, frame = cap.read()
-    frame = cv2.flip(frame, 1) #mirror the image
+while True:
+    _, frame = cap.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, 1.1, 6)
-    
-    for x, y, w, h in faces:
-        #sending coordinates to the Arduino
-        string = 'X{0:d}Y{1:d}'.format((x+w//2), (y+h//2))
-        print(string)
-        ArduinoSerial.write(string.encode('utf-8'))
-        #plot the center of the face
-        cv2.circle(frame, (x+w//2, y+h//2),2, (0, 255, 0), 2)
-        #plot the roi
-        cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 3)
+    faces = clf.detectMultiScale(gray, scaleFactor = 1.1)
 
-        cv2.imshow('img', frame)
-        if cv2.waitKey(10)&0xFF==ord('q'):
-            break
+    for x,y,w,h in faces:
+        string='X{0:d}Y{1:d}'.format((x+w//2),(y+h//2))
+        cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
+        print(string)
+        ArduinoSerial.write(string.encode("utf-8"))
+    
+    cv2.imshow("Face Tracking Turret", frame)
+    if cv2.waitKey(1) == ord("q"):
+        break
+
 cap.release()
 cv2.destroyAllWindows()

@@ -26,6 +26,7 @@ void Pos()
     servoY = max(servoY, 95);
     
     servoHor.write(servoX);
+    servoVer.write(servoY);
   }
 }
 void loop()

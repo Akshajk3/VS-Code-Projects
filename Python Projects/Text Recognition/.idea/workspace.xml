@@ -1,7 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c73f03b-7109-475c-b720-79ba6848688d" name="Changes" comment="" />
+    <list default="true" id="2c73f03b-7109-475c-b720-79ba6848688d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/androidTest/java/com/example/firstapp/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/java/com/example/firstapp/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/app/src/test/java/com/example/firstapp/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Android Development/First App/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../FirstApplication/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../FirstApplication/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java Projects/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java Projects/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java Projects/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java Projects/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java Projects/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/FileContentIndex/7ed74c00-acfb-4971-b253-ed5284ef5b4e.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/Browse.VC.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/ipch/AutoPCH/402539bf21b36896/VBO.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/ipch/AutoPCH/402539bf21b36896/VBO.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/ipch/AutoPCH/5532c74f048b64cc/TEXTURE.ipch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/ipch/AutoPCH/6dc9b849392be235/VAO.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/ipch/AutoPCH/6dc9b849392be235/VAO.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/ipch/AutoPCH/94f761dc492696f6/MAIN.ipch" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/.vs/Game Engine/v17/ipch/AutoPCH/94f761dc492696f6/MAIN.ipch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/Main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/Main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/default.frag" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/default.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/default.vert" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/default.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Game Engine.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Main.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Main.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Texture.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/Texture.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/VAO.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/VAO.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/vc143.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/vc143.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/vc143.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/Game Engine/x64/Debug/vc143.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/x64/Debug/Game Engine.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/x64/Debug/Game Engine.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/x64/Debug/Game Engine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../C++ Projects/OpenGL/Game Engine/x64/Debug/Game Engine.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java Projects/Test.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +97,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Kanumuri/Documents/GitHub/VS-Code-Projects/Python Projects/Text Recognition"
+    "last_opened_file_path": "C:/Users/Kanumuri/Documents/GitHub/VS-Code-Projects/Python Projects/Minecraft"
   }
 }]]></component>
   <component name="RunManager">

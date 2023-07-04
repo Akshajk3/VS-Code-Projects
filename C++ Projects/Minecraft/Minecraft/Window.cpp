@@ -18,13 +18,14 @@ void Window::Close()
 
 Window* Window::createWindow(int width, int height, const char* title, bool fullScreenMode)
 {
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT,GL_TRUE);  
+	
 	Window* res = new Window();
 	GLFWmonitor* primaryMonitor = fullScreenMode ? glfwGetPrimaryMonitor() : nullptr;
-	res->window = glfwCreateWindow(width, height, title, primaryMonitor, nullptr);
+	res->window = glfwCreateWindow(width, height, title, NULL, NULL);
 	if (res->window == NULL)
 	{
 		std::cout << "Failed to Create Window" << std::endl;

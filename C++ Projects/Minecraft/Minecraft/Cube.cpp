@@ -29,6 +29,7 @@ GLfloat vertices[] =
 	-0.5f,  0.5f, -0.5f,      1.0f, 1.0f, 1.0f,			1.0f, 0.0f
 };
 
+
 // Indices for vertices order
 GLuint indices[] =
 {
@@ -39,6 +40,7 @@ GLuint indices[] =
 	16, 17, 18, 16, 18, 19,
 	20, 21, 22, 20, 22, 23
 };
+
 
 void Cube::Init(const Window& window, glm::vec3 position)
 {
@@ -55,6 +57,7 @@ void Cube::Init(const Window& window, glm::vec3 position)
 
 	texture.texUnit(shaderProgram, "tex0", 0);
 }
+
 
 void Cube::Update()
 {

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
-//import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Login = () => {
     const [err, setErr] = useState(false);
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -14,7 +14,7 @@ const Login = () => {
 
         try{
             await signInWithEmailAndPassword(auth, email, password);
-            //navigate("/");
+            navigate("/");
         }
         catch(err)
         {
@@ -33,7 +33,7 @@ const Login = () => {
                     <button>Sign In</button>
                     {err && <span>Something went wrong</span>}
                 </form>
-                <p>You don't have an account? Register</p>
+                <p>You don't have an account? <Link to="/register">Register</Link></p>
             </div>
         </div>
     )

@@ -7,7 +7,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "Cube.h"
 #include "Window.h"
 #include "Camera.h"
 #include "textureManager.h"
@@ -43,17 +42,11 @@ int main(void)
 
 	glViewport(0, 0, windowWidth, windowHeight);
 
-
+	Shader shaderProgram("default.vert", "default.frag");
 	
 	glEnable(GL_DEPTH_TEST);
 
 	Camera camera(windowWidth, windowHeight, glm::vec3(0.0f, 0.0f, 2.0f));
-
-	Cube Cube1;
-	Cube Cube2;
-
-	//Cube1.Init(*window, glm::vec3(0, 0, 0));
-	//Cube2.Init(*window, glm::vec3(1, 0, 0));
 
 	while (!glfwWindowShouldClose(window->window))
 	{
@@ -61,17 +54,13 @@ int main(void)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		camera.Inputs(window->window);
-		//camera.Matrix(45.0f, 0.1f, 100.0f, Cube1.shaderProgram, "camMatrix");
+		camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
-		//Cube1.Update();
-		//Cube2.Update();
 		glfwSwapBuffers(window->window);
 		glfwPollEvents();
 
 	}
 
-	//Cube1.Destroy();
-	//Cube2.Destroy();
 	Window::freeWindow(window);
 	glfwTerminate();
 	return 0;

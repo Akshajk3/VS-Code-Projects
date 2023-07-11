@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/famakerspace/GitHub/VS-Code-Projects/C++ Projects/Minecraft/Minecraft",
-      "program": "/home/famakerspace/GitHub/VS-Code-Projects/C++ Projects/Minecraft/Minecraft/build/Debug/outDebug",
+      "cwd": "/home/famakerspace/GitHub/VS-Code-Projects/C++ Projects/Minecraft",
+      "program": "/home/famakerspace/GitHub/VS-Code-Projects/C++ Projects/Minecraft/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -1,2 +1,0 @@
-all:
-	g++ -IDependencies -IDependencies/glad/include -o main Minecraft/Main.cpp Minecraft/glad.c Minecraft/shaderClass.cpp Minecraft/VBO.cpp Minecraft/VAO.cpp Minecraft/EBO.cpp Minecraft/textureManager.cpp Minecraft/Window.cpp Minecraft/Cube.cpp Minecraft/Camera.cpp Minecraft/stb.cpp -lglfw -ldl -lpthread -lX11 -lXrandr

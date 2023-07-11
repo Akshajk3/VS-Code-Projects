@@ -1,4 +1,5 @@
 import models.cube # default model
+import collider
 
 class Block_type:
 	# new optional model argument (cube model by default)
@@ -12,6 +13,13 @@ class Block_type:
 		self.transparent = model.transparent
 		self.is_cube = model.is_cube
 		self.glass = model.glass
+
+		# create colliders
+
+		self.colliders = []
+		
+		for _collider in model.colliders:
+			self.colliders.append(collider.Collider(*_collider))
 
 		# replace data contained in numbers.py with model specific data
 

@@ -18,6 +18,7 @@ class Chunk:
                          self.chunk_position[2] * CHUNK_LENGTH)
         
         self.world = world
+        self.modified = False
 
         self.blocks = [[[0
             for z in range(CHUNK_LENGTH)]

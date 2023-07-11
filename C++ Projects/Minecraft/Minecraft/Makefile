@@ -1,0 +1,2 @@
+all:
+	g++ -IDependencies -IDependencies/glad/include -o main Main.cpp glad.c shaderClass.cpp VBO.cpp VAO.cpp EBO.cpp textureManager.cpp Window.cpp Cube.cpp Camera.cpp stb.cpp -lglfw -ldl -lpthread -lX11 -lXrandr

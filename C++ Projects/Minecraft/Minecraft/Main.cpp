@@ -10,6 +10,7 @@
 #include "Window.h"
 #include "Camera.h"
 #include "textureManager.h"
+#include "block_type.h"
 #include "shaderClass.h"
 #include "VAO.h"
 #include "VBO.h"

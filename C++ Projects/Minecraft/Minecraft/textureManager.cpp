@@ -52,11 +52,6 @@ void TextureManager::texUnit(Shader& shader, const char* uniform, GLuint unit)
 	glUniform1i(texUni, unit);
 }
 
-void TextureManager::addTexture(const std::string& texture_path)
-{
-	
-}
-
 void TextureManager::Bind()
 {
 	glBindTexture(type, ID);

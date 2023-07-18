@@ -74,8 +74,8 @@ class Save:
         chunk_data.save(chunk_path, gzipped = True)
 
     def load(self):
-        for x in range(-12, 12):
-            for y in range(-12, 12):
+        for x in range(-4, 4):
+            for y in range(-4, 4):
                 self.load_chunk((x, 0, y))
     
     def save(self):

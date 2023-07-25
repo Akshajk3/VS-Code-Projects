@@ -1,2 +1,2 @@
 all:
-	g++ -IDependencies -IDependencies/glad/include -o main Main.cpp glad.c shaderClass.cpp VBO.cpp VAO.cpp EBO.cpp textureManager.cpp Window.cpp block_type.cpp Camera.cpp stb.cpp -lglfw -ldl -lpthread -lX11 -lXrandr
+	g++ -IDependencies -IDependencies/glad/include -o main Main.cpp glad.c app.cpp block_type.cpp chunk_manager.cpp chunk.cpp hit.cpp mesh.cpp shader.cpp stb.cpp texture_array.cpp textureManager.cpp world.cpp buffers.cpp vertex_array.cpp -lglfw -ldl -lpthread -lX11 -lXrandr

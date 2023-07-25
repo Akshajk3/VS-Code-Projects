@@ -1,34 +1,46 @@
 #ifndef TEXTURE_MANAGER_CLASS_H
 #define TEXTURE_MANAGER_CLASS_H
 
-#include <glad/glad.h>
-#include <stb/stb_image.h>
-#include <string>
 #include <array>
+#include <string>
+#include <stb/stb_image.h>
 
-#include "shaderClass.h"
+#include "shader.h"
+#include "texture_array.h"
+
+constexpr uint32_t TEX_ARRAY_SIZE = 32;
+struct Image
+{
+    GLubyte* image_data;
+    GLsizei width, height;
+    GLint comp;
+};
 
 class TextureManager
 {
-	const uint32_t TEX_ARRAY_SIZE = 32;
-
-	struct Image
-	{
-		GLubyte* iamge_data;
-		GLsizei width, height;
-		GLint comp;
-	};
-
+    ShaderProgram* shaderProgram;
+    Image texture_images[TEX_ARRAY_SIZE];
+    TextureArray texture_array;
+    GLubyte sampler_location;
+    mutable uint32_t current_index;
 public:
-	GLuint ID;
-	GLenum type;
-	TextureManager(const char* image, GLenum texType, GLenum slot, GLenum format, GLenum pixelType);
+    TextureManager(size_t texture_width, size_t texture_height, ShaderProgram* shader_program);
+    ~TextureManager();
+    void addTexture(const std::string& texture_path);
 
-	void texUnit(Shader& shader, const char* uniform, GLuint unit);
-	void addTexture(const std::string& texture_path);
-	void Bind();
-	void Unbind();
-	void Delete();
+    void generateMipmaps() const
+    {
+        texture_array.generateMipmaps();
+    }
+    void activate() const
+    {
+        texture_array.activate();
+        shaderProgram->setUniform1i(sampler_location, 0);
+    }
+    uint32_t getCurrentIndex() const
+    {
+        return current_index;
+    }
 };
 
-#endif // !TEXTURE_MANAGER_CLASS_H
+#endif

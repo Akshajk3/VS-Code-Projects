@@ -11,12 +11,12 @@ out float v_shading_value;
 uniform mat4 mvp;
 
 vec2 tex_coords[4] = vec2[4]
-{
+(
     vec2(0.0f, 1.0f),
     vec2(0.0f, 0.0f),
     vec2(1.0f, 0.0f),
     vec2(1.0f, 1.0f)
-};
+);
 
 void main(void)
 {

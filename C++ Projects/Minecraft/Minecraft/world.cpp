@@ -15,12 +15,12 @@ World::World(const std::shared_ptr<TextureManager>& textureManager) : texture_ma
 
     std::cout << "Initilizing the block models\n";
     block_types[0] = new BlockType("Air", 0, &models.air, {}, true, false);
-    //block_types[1] = new BlockType("Stone", 1, &models.cube, {1, 1, 1, 1, 1, 1}, false, true);
+    block_types[1] = new BlockType("Stone", 1, &models.cube, {1, 1, 1, 1, 1, 1}, false, true);
     //block_types[2] = new BlockType("Grass", 2, &models.cube, {3, 3, 2, 4, 3, 3}, false, true);
     //block_types[3] = new BlockType("Dirt", 3, &models.cube, {4, 4, 4, 4, 4, 4}, false, true);
     //block_types[4] = new BlockType("Cobblestone", 4, &models.cube, {5, 5, 5, 5, 5, 5}, false, true);
     //block_types[5] = new BlockType("Planks", 5, &models.cube, {6, 6, 6, 6, 6, 6}, false, true);
-    chunkManager = std::make_unique<ChunkManager>(&block_types);
+    //chunkManager = std::make_unique<ChunkManager>(&block_types);
     texture_manager->generateMipmaps();
     texture_manager->activate();
 }

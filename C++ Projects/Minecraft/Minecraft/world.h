@@ -13,16 +13,16 @@ class World
     std::shared_ptr<TextureManager> texture_manager;
     std::array<BlockType*, BLOCK_COUNT> block_types;
 public:
-    std::unique_ptr<ChunkManager> chunkManager;
+    std::unique_ptr<ChunkManager> chunkManager = std::make_unique<ChunkManager>(&block_types);
     World(const std::shared_ptr<TextureManager>& textureManager);
     ~World() noexcept;
     int getBlock(const glm::vec3& pos);
     void setBlock(const glm::vec3& pos, int block);
-    void render()
-    {
-        chunkManager->updateChunkMeshQueue();
-        chunkManager->renderChunks();
-    }
+        void render()
+        {
+            chunkManager->updateChunkMeshQueue();
+            //chunkManager->renderChunks();
+        }
 };
 
 #endif

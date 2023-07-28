@@ -104,9 +104,9 @@ void Chunk::generate_mesh(uint8_t sy, uint8_t end)
 {
     BlockID block;
     size_t current_quad_count = 0;
-    for(uint16_t i = 0u; sy && (i < sy); i++)
+    for(uint16_t i = 0u; i < sy; i++)
         current_quad_count += subchunks[i].getMesh().current_quad_count;
-
+        
     for(sy; sy < end; sy++)
     {
         Subchunk& subchunk = subchunks[sy];
@@ -117,7 +117,7 @@ void Chunk::generate_mesh(uint8_t sy, uint8_t end)
             for(size_t lx = 0; lx < CHUNK_WIDTH; lx++)
                 for(size_t lz = 0; lz < CHUNK_LENGTH; lz++)
         {
-            ly + sy * (CHUNK_HEIGHT / SUBCHUNK_COUNT) + sly;
+            ly = sy * (CHUNK_HEIGHT / SUBCHUNK_COUNT) + sly;
             glm::vec3 lpos(lx, ly, lz);
             block = blocks[lx][ly][lz];
             if(!block)

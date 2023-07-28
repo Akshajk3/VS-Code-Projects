@@ -1,2 +1,2 @@
 all:
-	g++ -Isrc/Include -Lsrc/lib -o main Main.cpp -lmingw32 -lSDL2main -lSDL2 -lSDL2_image
+	g++ -o main Main.cpp Game.cpp TextureManager.cpp -lSDL2main -lSDL2 -lSDL2_image

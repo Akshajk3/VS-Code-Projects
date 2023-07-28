@@ -17,6 +17,8 @@ App::App(size_t width, size_t height, bool vsync, bool gl_debug, bool msaa)
         throw std::runtime_error("GLFW Failed to Initilize");
     }
 
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     window = glfwCreateWindow(width, height, "Minecraft Vindle Edition", nullptr, nullptr);
     if(!window)
     {

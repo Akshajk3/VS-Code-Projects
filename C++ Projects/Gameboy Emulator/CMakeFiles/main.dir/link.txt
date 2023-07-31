@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/main.dir/Main.o CMakeFiles/main.dir/bus.o CMakeFiles/main.dir/cart.o CMakeFiles/main.dir/cpu.o CMakeFiles/main.dir/emu.o CMakeFiles/main.dir/ppu.o CMakeFiles/main.dir/timer.o -o main  /usr/lib/x86_64-linux-gnu/libSDL2.so 

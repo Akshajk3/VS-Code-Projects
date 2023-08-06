@@ -1,3 +1,0 @@
-/home/famakerspace/GitHub/VS-Code-Projects/C++ Projects/Gameboy Emulator/CMakeFiles/main.dir
-/home/famakerspace/GitHub/VS-Code-Projects/C++ Projects/Gameboy Emulator/CMakeFiles/edit_cache.dir
-/home/famakerspace/GitHub/VS-Code-Projects/C++ Projects/Gameboy Emulator/CMakeFiles/rebuild_cache.dir

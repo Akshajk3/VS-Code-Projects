@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 
+#include "Bus.h"
+
 class Bus;
 
 class olc6502
@@ -76,7 +78,7 @@ public:
 	uint8_t cycles = 0;
 
 private:
-	Bus* bus = nullptr;
+	Bus		*bus = nullptr;
 	uint8_t read(uint16_t address);
 	void write(uint16_t address, uint8_t data);
 

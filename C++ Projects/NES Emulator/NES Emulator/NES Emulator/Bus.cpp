@@ -2,10 +2,10 @@
 
 Bus::Bus()
 {
-	for (auto& i : ram)
-		i = 0x00;
-
 	cpu.ConnectBus(this);
+	
+	for (auto &i : ram)
+		i = 0x00;
 }
 
 Bus::~Bus()

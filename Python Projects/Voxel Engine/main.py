@@ -10,7 +10,7 @@ class VoxelEngine:
         pygame.display.gl_set_attribute(pygame.GL_CONTEXT_MINOR_VERSION, 3)
         pygame.display.gl_set_attribute(pygame.GL_CONTEXT_PROFILE_MASK, pygame.GL_CONTEXT_PROFILE_CORE)
         pygame.display.gl_set_attribute(pygame.GL_DEPTH_SIZE, 24)
-
+ 
         pygame.display.set_mode(WIN_RES, flags=pygame.OPENGL | pygame.DOUBLEBUF)
         self.ctx = mgl.create_context()
 
@@ -29,7 +29,7 @@ class VoxelEngine:
         pygame.display.set_caption(f'{self.clock.get_fps() :.0f}')
 
     def render(self):
-        self.ctx.clear()
+        self.ctx.clear(color=BG_COLOR)
         pygame.display.flip()
 
     def handle_events(self):

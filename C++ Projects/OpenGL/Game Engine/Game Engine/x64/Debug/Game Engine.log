@@ -1,12 +1,8 @@
-﻿  EBO.cpp
-  Main.cpp
-  shaderClass.cpp
-  stb.cpp
+﻿  Main.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\Game Engine\Main.cpp(45,11): error C2065: 'vertices': undeclared identifier
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\Game Engine\Main.cpp(45,28): error C2065: 'vertices': undeclared identifier
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\Game Engine\Main.cpp(46,11): error C2065: 'indices': undeclared identifier
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\Game Engine\Main.cpp(46,27): error C2065: 'indices': undeclared identifier
   Texture.cpp
-  VAO.cpp
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\Game Engine\VAO.cpp(11,63): warning C4244: 'argument': conversion from 'GLsizeiptr' to 'GLsizei', possible loss of data
-  VBO.cpp
+  shaderClass.cpp
   Generating Code...
-  glad.c
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  Game Engine.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\x64\Debug\Game Engine.exe

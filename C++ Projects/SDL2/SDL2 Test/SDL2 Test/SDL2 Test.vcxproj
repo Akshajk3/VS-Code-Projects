@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="RenderWindow.h" />
   </ItemGroup>
   <ItemGroup>

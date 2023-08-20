@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <iostream>
 
 class Game
@@ -13,16 +14,17 @@ public:
 	
 	void handleEvents();
 	void update();
-	void render();
-	void clean();
-
 	bool running()
 	{
 		return isRunning;
 	}
+	void render();
+	void clean();
+
+	static SDL_Renderer* renderer;
 
 private:
+	int cnt = 0;
 	bool isRunning;
 	SDL_Window* window;
-	SDL_Renderer* renderer;
 };

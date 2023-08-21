@@ -1,2 +1,7 @@
-﻿  Main.cpp
+﻿  Entity.cpp
+  Main.cpp
+  RenderWindow.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\SDL2 Test\SDL2 Test\RenderWindow.cpp(46,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\SDL2 Test\SDL2 Test\RenderWindow.cpp(47,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   SDL2 Test.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\SDL2 Test\x64\Debug\SDL2 Test.exe

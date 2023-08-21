@@ -15,7 +15,9 @@ public:
 	void clear();
 	void render(Entity& entity, int entityScale);
 	void display();
+
+	SDL_Renderer* renderer;
 private:
 	SDL_Window* window;
-	SDL_Renderer* renderer;
+	int currentFrame = 0;
 };

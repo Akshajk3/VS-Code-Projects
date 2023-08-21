@@ -2,14 +2,15 @@
 
 #include <SDL2/SDL.h>
 #include <iostream>
+#include <vector>
 
 class Entity
 {
 public:
-	Entity(float p_x, float p_y, SDL_Texture* tex);
+	Entity(float p_x, float p_y, std::vector<SDL_Texture*> tex);
 	float getX();
 	float getY();
-	SDL_Texture* getTexture();
+	std::vector<SDL_Texture*> getTextures();
 	SDL_Rect getCurrentFrame();
 
 	void update(int movement[2]);
@@ -17,7 +18,7 @@ public:
 private:
 	float x, y;
 	SDL_Rect currentFrame;
-	SDL_Texture* texture;
+	std::vector<SDL_Texture*> textures;
 
 	//int velocity[4] = { 0, 0 };
 };

@@ -28,7 +28,11 @@ int main(int argc, char* argv[])
 
 	RenderWindow window("Vindleview Valley", 800, 600);
 
-	SDL_Texture* playerTex = window.loadTexture("Assets/Characters/images/Basic Charakter_1.png");
+	TextureManager textureManager;
+
+	std::string playerPath = "Assets/Characters/images";
+
+	std::vector<SDL_Texture*> playerTex = textureManager.loadTextures(playerPath, window.renderer);
 
 	Entity player(0, 0, playerTex);
 

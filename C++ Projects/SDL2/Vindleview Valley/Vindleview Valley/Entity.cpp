@@ -3,8 +3,8 @@
 #include <cmath>
 #include <vector>
 
-Entity::Entity(float p_x, float p_y, SDL_Texture* tex)
-	: x(p_x), y(p_y), texture(tex)
+Entity::Entity(float p_x, float p_y, std::vector<SDL_Texture*> tex)
+	: x(p_x), y(p_y), textures(tex)
 {
 	currentFrame.x = 0;
 	currentFrame.y = 0;
@@ -22,9 +22,9 @@ float Entity::getY()
 	return y;
 }
 
-SDL_Texture* Entity::getTexture()
+std::vector<SDL_Texture*> Entity::getTextures()
 {
-	return texture;
+	return textures;
 }
 
 SDL_Rect Entity::getCurrentFrame()
@@ -41,7 +41,6 @@ void Entity::update(int movement[2])
 	x += frame_movement[0];
 	y += frame_movement[1];
 
-	std::cout << x << "," << y << std::endl;
 }
 
 float* Entity::normalize(float movement[2])

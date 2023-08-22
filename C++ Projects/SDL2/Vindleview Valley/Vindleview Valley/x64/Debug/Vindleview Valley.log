@@ -3,5 +3,10 @@ C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Entity.cpp(37,40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Entity.cpp(37,53): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Entity.cpp(37,53): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Entity.cpp(59): warning C4172: returning address of local variable or temporary: normalizedMovement
+  Main.cpp
+  RenderWindow.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\RenderWindow.cpp(51,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\RenderWindow.cpp(52,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Entity.cpp(57): warning C4172: returning address of local variable or temporary: normalizedMovement
   Vindleview Valley.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\x64\Debug\Vindleview Valley.exe

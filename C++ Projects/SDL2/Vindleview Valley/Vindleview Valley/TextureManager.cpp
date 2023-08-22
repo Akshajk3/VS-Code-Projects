@@ -1,6 +1,10 @@
 #include "TextureManager.h"
 
+#if __cplusplus == 201103L
 namespace fs = std::experimental::filesystem;
+#else
+namespace fs = std::filesystem;
+#endif
 
 TextureManager::TextureManager() {}
 

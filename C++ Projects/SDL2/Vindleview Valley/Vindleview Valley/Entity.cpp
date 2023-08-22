@@ -40,7 +40,6 @@ void Entity::update(int movement[2])
 
 	x += frame_movement[0];
 	y += frame_movement[1];
-
 }
 
 float* Entity::normalize(float movement[2])

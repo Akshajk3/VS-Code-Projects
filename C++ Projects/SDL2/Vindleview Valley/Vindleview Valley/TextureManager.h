@@ -4,7 +4,11 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 #include <vector>
-#include <experimental/filesystem>
+#if __cplusplus == 201103L
+#include <experimental/filesystem
+#else
+#include <filesystem>
+#endif
 #include <algorithm>
 #include <string>
 

@@ -19,6 +19,7 @@ private:
 	float x, y;
 	SDL_Rect currentFrame;
 	std::vector<SDL_Texture*> textures;
+	int frame = 0;
 
 	//int velocity[4] = { 0, 0 };
 };

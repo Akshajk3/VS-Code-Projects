@@ -53,8 +53,9 @@ void RenderWindow::render(Entity& entity, int entityScale)
 	dest.w = entity.getCurrentFrame().w * entityScale;
 	dest.h = entity.getCurrentFrame().h * entityScale;
 
+	currentFrame = (currentFrame + 1) % (2);
 	
-	SDL_RenderCopy(renderer, entity.getTextures()[], &src, &dest);
+	SDL_RenderCopy(renderer, entity.getTextures()[currentFrame], &src, &dest);
 }
 
 void RenderWindow::display()

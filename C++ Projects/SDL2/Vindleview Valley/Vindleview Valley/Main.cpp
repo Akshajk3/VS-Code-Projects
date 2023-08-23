@@ -1,10 +1,14 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <map>
+#include <vector>
+#include <string>
 
 #include "RenderWindow.h"
 #include "TextureManager.h"
 #include "Entity.h"
+#include "Animation.h"
 
 int main(int argc, char* argv[])
 {
@@ -30,11 +34,21 @@ int main(int argc, char* argv[])
 
 	TextureManager textureManager;
 
-	std::string playerPath = "Assets/Characters/images";
+	std::map<std::string, Animation> assets;
+
+	std::map<std::string, std::string> assetPaths;
+
+	assetPaths["idle"] = ("Assets/Characters/images/idle_down");
+
+	//assets["player/idle_down"] = Animation(textureManager.loadTextures(assetPaths["idle"], window.renderer), 20, true);
+
+	std::string playerPath = "Assets/Characters/images/walk_down";
 
 	std::vector<SDL_Texture*> playerTex = textureManager.loadTextures(playerPath, window.renderer);
 
-	Entity player(0, 0, playerTex);
+	Animation playerAnim(playerTex, 10, true);
+
+	Entity player(0, 0, playerTex, playerAnim, "player");
 
 	bool movement[4] = {false, false, false, false};
 

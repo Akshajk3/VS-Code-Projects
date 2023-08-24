@@ -38,13 +38,14 @@ int main(int argc, char* argv[])
 
 	std::map<std::string, std::string> assetPaths;
 
-	assetPaths["idle"] = ("Assets/Characters/images/idle_down");
+	assetPaths["idle_down"] = ("Assets/Characters/images/idle_down");
+	assetPaths["walk_down"] = ("Assets/Characters/images/walk_down");
 
 	//assets["player/idle_down"] = Animation(textureManager.loadTextures(assetPaths["idle"], window.renderer), 20, true);
 
 	std::string playerPath = "Assets/Characters/images/walk_down";
 
-	std::vector<SDL_Texture*> playerTex = textureManager.loadTextures(playerPath, window.renderer);
+	std::vector<SDL_Texture*> playerTex = textureManager.loadTextures(assetPaths["walk_down"], window.renderer);
 
 	Animation playerAnim(playerTex, 10, true);
 

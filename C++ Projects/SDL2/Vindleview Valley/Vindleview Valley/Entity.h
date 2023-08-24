@@ -16,6 +16,7 @@ public:
 	SDL_Rect getCurrentFrame();
 	Animation getAnimation();
 	void setAction(std::string act);
+	void getAnimation();
 
 	void update(int movement[2]);
 	float* normalize(float movement[2]);

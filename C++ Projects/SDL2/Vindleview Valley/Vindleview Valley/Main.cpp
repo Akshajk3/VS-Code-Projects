@@ -40,16 +40,33 @@ int main(int argc, char* argv[])
 
 	assetPaths["idle_down"] = ("Assets/Characters/images/idle_down");
 	assetPaths["walk_down"] = ("Assets/Characters/images/walk_down");
+	assetPaths["idle_left"] = ("Assets/Characters/images/idle_left");
+	assetPaths["walk_left"] = ("Assets/Characters/images/walk_left");
+	assetPaths["idle_right"] = ("Assets/Characters/images/idle_right");
+	assetPaths["walk_right"] = ("Assets/Characters/images/walk_right");
+	assetPaths["idle_up"] = ("Assets/Characters/images/idle_up");
+	assetPaths["walk_up"] = ("Assets/Characters/images/walk_up");
+	
+	/*
+	assets["idle_down"] = Animation(textureManager.loadTextures(assetPaths["idle_down"], window.renderer), 20, true);
+	assets["walk_down"] = Animation(textureManager.loadTextures(assetPaths["walk_down"], window.renderer), 20, true);
+	assets["idle_left"] = Animation(textureManager.loadTextures(assetPaths["idle_left"], window.renderer), 20, true);
+	assets["walk_left"] = Animation(textureManager.loadTextures(assetPaths["walk_left"], window.renderer), 20, true);
+	assets["idle_right"] = Animation(textureManager.loadTextures(assetPaths["idle_right"], window.renderer), 20, true);
+	assets["walk_right"] = Animation(textureManager.loadTextures(assetPaths["walk_right"], window.renderer), 20, true);
+	assets["idle_up"] = Animation(textureManager.loadTextures(assetPaths["idle_up"], window.renderer), 20, true);
+	assets["walk_up"] = Animation(textureManager.loadTextures(assetPaths["walk_up"], window.renderer), 20, true);
+	*/
 
 	//assets["player/idle_down"] = Animation(textureManager.loadTextures(assetPaths["idle"], window.renderer), 20, true);
 
 	std::string playerPath = "Assets/Characters/images/walk_down";
 
-	std::vector<SDL_Texture*> playerTex = textureManager.loadTextures(assetPaths["walk_down"], window.renderer);
+	std::vector<SDL_Texture*> playerTex = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
 
 	Animation playerAnim(playerTex, 10, true);
 
-	Entity player(0, 0, playerTex, playerAnim, "player");
+	Entity player(0, 0, playerTex, window.renderer, playerAnim, "player");
 
 	bool movement[4] = {false, false, false, false};
 

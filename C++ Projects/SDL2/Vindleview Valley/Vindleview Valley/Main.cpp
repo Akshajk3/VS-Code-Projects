@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 
 	TextureManager textureManager;
 
-	std::map<std::string, Animation> assets;
+	std::map<std::string, std::vector<SDL_Texture*>> assets;
 
 	std::map<std::string, std::string> assetPaths;
 
@@ -47,18 +47,17 @@ int main(int argc, char* argv[])
 	assetPaths["idle_up"] = ("Assets/Characters/images/idle_up");
 	assetPaths["walk_up"] = ("Assets/Characters/images/walk_up");
 	
-	/*
-	assets["idle_down"] = Animation(textureManager.loadTextures(assetPaths["idle_down"], window.renderer), 20, true);
-	assets["walk_down"] = Animation(textureManager.loadTextures(assetPaths["walk_down"], window.renderer), 20, true);
-	assets["idle_left"] = Animation(textureManager.loadTextures(assetPaths["idle_left"], window.renderer), 20, true);
-	assets["walk_left"] = Animation(textureManager.loadTextures(assetPaths["walk_left"], window.renderer), 20, true);
-	assets["idle_right"] = Animation(textureManager.loadTextures(assetPaths["idle_right"], window.renderer), 20, true);
-	assets["walk_right"] = Animation(textureManager.loadTextures(assetPaths["walk_right"], window.renderer), 20, true);
-	assets["idle_up"] = Animation(textureManager.loadTextures(assetPaths["idle_up"], window.renderer), 20, true);
-	assets["walk_up"] = Animation(textureManager.loadTextures(assetPaths["walk_up"], window.renderer), 20, true);
-	*/
+	
+	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
+	assets["walk_down"] = textureManager.loadTextures(assetPaths["walk_down"], window.renderer);
+	assets["idle_left"] = textureManager.loadTextures(assetPaths["idle_left"], window.renderer);
+	assets["walk_left"] = textureManager.loadTextures(assetPaths["walk_left"], window.renderer);
+	assets["idle_right"] = textureManager.loadTextures(assetPaths["idle_right"], window.renderer);
+	assets["walk_right"] = textureManager.loadTextures(assetPaths["walk_right"], window.renderer);
+	assets["idle_up"] = textureManager.loadTextures(assetPaths["idle_up"], window.renderer);
+	assets["walk_up"] = textureManager.loadTextures(assetPaths["walk_up"], window.renderer);
 
-	//assets["player/idle_down"] = Animation(textureManager.loadTextures(assetPaths["idle"], window.renderer), 20, true);
+	//assets["player/idle_down"] = Animation(textureManager.loadTextures(assetPaths["idle_down"], window.renderer), 20, true);
 
 	std::string playerPath = "Assets/Characters/images/walk_down";
 

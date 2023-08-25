@@ -41,15 +41,17 @@ Animation Entity::getAnimation()
 
 void Entity::setAction(std::string act)
 {
-	if (act != action)
+	if (act != action || oldDirection != direction)
 	{
 		action = act;
 
-		std::string filePath = BASE_IMG_PATH + "/" + action;
+		std::string filePath = BASE_IMG_PATH + "/" + action + "_" + direction;
 
 		textures = textureManager.loadTextures(filePath, renderer);
 
 		animation = Animation(textures, 10, true);
+
+		oldDirection = direction;
 	}
 
 }
@@ -63,20 +65,24 @@ void Entity::update(int movement[2])
 	if (frame_movement[0] != 0 || frame_movement[1] != 0)
 	{
 		if (frame_movement[1] < 0)
-			setAction("walk_up");
+			//setAction("walk_up");
+			direction = "up";
 		else if (frame_movement[1] > 0)
-			setAction("walk_down");
+			//setAction("walk_down");
+			direction = "down";
 		else if (frame_movement[0] < 0)
-			setAction("walk_left");
+			//setAction("walk_left");
+			direction = "left";
 		else if (frame_movement[0] > 0)
-			setAction("walk_right");
+			//setAction("walk_right");
+			direction = "right";
+
+		setAction("walk");
 	}
 	else
 	{
-		setAction("idle_down");
+		setAction("idle");
 	}
-
-	std::cout << action << std::endl;
 
 	animation.update();
 

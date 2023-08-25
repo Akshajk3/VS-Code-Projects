@@ -30,6 +30,8 @@ private:
 	int frame = 0;
 	std::string action;
 	std::string type;
+	std::string direction = "down";
+	std::string oldDirection = direction;
 	TextureManager textureManager;
 	SDL_Renderer* renderer;
 	//int velocity[4] = { 0, 0 };

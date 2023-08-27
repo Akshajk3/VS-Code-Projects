@@ -1,7 +1,2 @@
-﻿  Entity.cpp
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Entity.cpp(59,40): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Entity.cpp(59,40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Entity.cpp(59,53): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Entity.cpp(59,53): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Entity.cpp(99): warning C4172: returning address of local variable or temporary: normalizedMovement
+﻿  Tilemap.cpp
   Vindleview Valley.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\x64\Debug\Vindleview Valley.exe

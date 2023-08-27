@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
 
 	Animation playerAnim(playerTex, 10, true);
 
-	Entity player(0, 0, playerTex, window.renderer, playerAnim, "player");
+	Entity player(0, 0, window.renderer, playerAnim, "player", assets);
 
 	bool movement[4] = {false, false, false, false};
 

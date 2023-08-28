@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="RenderWindow.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tilemap.h" />

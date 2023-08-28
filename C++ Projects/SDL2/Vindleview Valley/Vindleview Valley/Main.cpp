@@ -40,6 +40,7 @@ int main(int argc, char* argv[])
 
 	assetPaths["idle_down"] = ("Assets/Characters/images/idle_down");
 	assetPaths["walk_down"] = ("Assets/Characters/images/walk_down");
+	assetPaths["hoe_down"] = ("Assets/Characters/images/hoe_down");
 	assetPaths["idle_left"] = ("Assets/Characters/images/idle_left");
 	assetPaths["walk_left"] = ("Assets/Characters/images/walk_left");
 	assetPaths["idle_right"] = ("Assets/Characters/images/idle_right");
@@ -50,12 +51,19 @@ int main(int argc, char* argv[])
 	
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
 	assets["walk_down"] = textureManager.loadTextures(assetPaths["walk_down"], window.renderer);
+	assets["hoe_down"] = textureManager.loadTextures(assetPaths["hoe_down"], window.renderer);
 	assets["idle_left"] = textureManager.loadTextures(assetPaths["idle_left"], window.renderer);
 	assets["walk_left"] = textureManager.loadTextures(assetPaths["walk_left"], window.renderer);
 	assets["idle_right"] = textureManager.loadTextures(assetPaths["idle_right"], window.renderer);
 	assets["walk_right"] = textureManager.loadTextures(assetPaths["walk_right"], window.renderer);
 	assets["idle_up"] = textureManager.loadTextures(assetPaths["idle_up"], window.renderer);
 	assets["walk_up"] = textureManager.loadTextures(assetPaths["walk_up"], window.renderer);
+	
+	SDL_Texture* background = textureManager.loadTexture("Assets/Tilesets/test_background.png", window.renderer);
+
+	SDL_Texture* cursorTexture = textureManager.loadTexture("Assets/Mouse_sprites/Cursor_1.png", window.renderer);
+
+	SDL_ShowCursor(SDL_DISABLE);
 
 	//assets["player/idle_down"] = Animation(textureManager.loadTextures(assetPaths["idle_down"], window.renderer), 20, true);
 
@@ -124,13 +132,30 @@ int main(int argc, char* argv[])
 					movement[3] = false;
 				}
 			}
+			if (event.type == SDL_MOUSEBUTTONDOWN)
+			{
+				if (event.button.button == SDL_BUTTON_LEFT)
+				{
+					player.setAction("hoe");
+				}
+			}
 		}
 
 		int move[2] = { movement[0] - movement[1], movement[2] - movement[3] };
 
 		window.clear();
 		player.update(move);
+		SDL_RenderCopy(window.renderer, background, nullptr, nullptr);
 		window.render(player, 4);
+
+		int mouseX;
+		int	mouseY;
+
+		SDL_GetMouseState(&mouseX, &mouseY);
+
+		SDL_Rect cursorRect = { mouseX, mouseY, 32, 32 };
+		SDL_RenderCopy(window.renderer, cursorTexture, nullptr, &cursorRect);
+
 		window.display();
 
 		frameTime = SDL_GetTicks() - frameStart;
@@ -142,6 +167,7 @@ int main(int argc, char* argv[])
 	}
 
 	window.cleanUp();
+	IMG_Quit();
 	SDL_Quit();
 	return 0;
 }

@@ -33,8 +33,8 @@ private:
 	std::string type;
 	std::string direction = "down";
 	std::string oldDirection = direction;
-	TextureManager textureManager;
 	SDL_Renderer* renderer;
 	std::map<std::string, std::vector<SDL_Texture*>> asset;
+	bool canMove = true;
 	//int velocity[4] = { 0, 0 };
 };

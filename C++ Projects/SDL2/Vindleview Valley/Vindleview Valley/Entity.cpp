@@ -51,7 +51,7 @@ void Entity::setAction(std::string act)
 
 		std::string assetPath = action + "_" + direction;
 
-		int animSpeed;
+		int animSpeed = 10;
 
 		if (action == "walk")
 			animSpeed = 10;
@@ -102,6 +102,9 @@ void Entity::update(int movement[2])
 
 	animation.update();
 
-	x += frame_movement[0];
-	y += frame_movement[1];
+	if (canMove)
+	{
+		x += frame_movement[0];
+		y += frame_movement[1];
+	}
 }

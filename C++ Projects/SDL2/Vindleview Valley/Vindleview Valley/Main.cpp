@@ -9,6 +9,7 @@
 #include "TextureManager.h"
 #include "Entity.h"
 #include "Animation.h"
+#include "Tilemap.h"
 
 int main(int argc, char* argv[])
 {
@@ -61,6 +62,8 @@ int main(int argc, char* argv[])
 	
 	SDL_Texture* background = textureManager.loadTexture("Assets/Tilesets/test_background.png", window.renderer);
 
+	SDL_Texture* grass = textureManager.loadTexture("Assets/Tilesets/images/Grass_0.png", window.renderer);
+
 	SDL_Texture* cursorTexture = textureManager.loadTexture("Assets/Mouse_sprites/Cursor_1.png", window.renderer);
 
 	SDL_ShowCursor(SDL_DISABLE);
@@ -74,6 +77,8 @@ int main(int argc, char* argv[])
 	Animation playerAnim(playerTex, 10, true);
 
 	Entity player(0, 0, window.renderer, playerAnim, "player", assets);
+
+	Tilemap tilemap(grass);
 
 	bool movement[4] = {false, false, false, false};
 
@@ -145,7 +150,8 @@ int main(int argc, char* argv[])
 
 		window.clear();
 		player.update(move);
-		SDL_RenderCopy(window.renderer, background, nullptr, nullptr);
+		//SDL_RenderCopy(window.renderer, background, nullptr, nullptr);
+		tilemap.DrawMap(window.renderer);
 		window.render(player, 4);
 
 		int mouseX;

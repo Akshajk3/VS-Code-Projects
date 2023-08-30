@@ -136,7 +136,7 @@ int main(int argc, char* argv[])
 			{
 				if (event.button.button == SDL_BUTTON_LEFT)
 				{
-					player.setAction("hoe");
+					//player.setAction("hoe");
 				}
 			}
 		}

@@ -39,6 +39,7 @@ int main(int argc, char* argv[])
 
 	std::map<std::string, std::string> assetPaths;
 
+	// Player Asset Paths
 	assetPaths["idle_down"] = ("Assets/Characters/images/idle_down");
 	assetPaths["walk_down"] = ("Assets/Characters/images/walk_down");
 	assetPaths["hoe_down"] = ("Assets/Characters/images/hoe_down");
@@ -48,7 +49,12 @@ int main(int argc, char* argv[])
 	assetPaths["walk_right"] = ("Assets/Characters/images/walk_right");
 	assetPaths["idle_up"] = ("Assets/Characters/images/idle_up");
 	assetPaths["walk_up"] = ("Assets/Characters/images/walk_up");
+
+	// Animal Asset Paths
+	assetPaths["cow_idle"] = ("Assets/Characters/images/cow/idle");
 	
+	// Tilemap Asset Paths
+	assetPaths["grass"] = ("Assets/Tilesets/images/grass");
 	
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
 	assets["walk_down"] = textureManager.loadTextures(assetPaths["walk_down"], window.renderer);
@@ -59,6 +65,9 @@ int main(int argc, char* argv[])
 	assets["walk_right"] = textureManager.loadTextures(assetPaths["walk_right"], window.renderer);
 	assets["idle_up"] = textureManager.loadTextures(assetPaths["idle_up"], window.renderer);
 	assets["walk_up"] = textureManager.loadTextures(assetPaths["walk_up"], window.renderer);
+	assets["cow_idle"] = textureManager.loadTextures(assetPaths["cow_idle"], window.renderer);
+
+	assets["grass"] = textureManager.loadTextures(assetPaths["grass"], window.renderer);
 	
 	SDL_Texture* background = textureManager.loadTexture("Assets/Tilesets/test_background.png", window.renderer);
 
@@ -74,11 +83,17 @@ int main(int argc, char* argv[])
 
 	std::vector<SDL_Texture*> playerTex = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
 
+	std::vector<SDL_Texture*> cowTex = textureManager.loadTextures(assetPaths["cow_idle"], window.renderer);
+
 	Animation playerAnim(playerTex, 10, true);
+
+	Animation cowAnim(cowTex, 10, true);
 
 	Entity player(0, 0, window.renderer, playerAnim, "player", assets);
 
-	Tilemap tilemap(grass);
+	Entity cow(100, 100, window.renderer, cowAnim, "cow", assets);
+
+	Tilemap tilemap(assets);
 
 	bool movement[4] = {false, false, false, false};
 
@@ -150,6 +165,7 @@ int main(int argc, char* argv[])
 
 		window.clear();
 		player.update(move);
+		cow.update({ 0 });
 		//SDL_RenderCopy(window.renderer, background, nullptr, nullptr);
 		tilemap.DrawMap(window.renderer);
 		window.render(player, 4);

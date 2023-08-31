@@ -24,8 +24,8 @@ int lvl1[20][25] = {
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 };
 
-Tilemap::Tilemap(SDL_Texture* grassTex1)
-    : grass1(grassTex1)
+Tilemap::Tilemap(std::map<std::string, std::vector<SDL_Texture*>> sprites)
+    : assets(sprites)
 {
     LoadMap(lvl1);
 
@@ -53,7 +53,7 @@ void Tilemap::DrawMap(SDL_Renderer* ren)
 
             if (type == 1)
             {
-                SDL_RenderCopy(ren, grass1, &src, &dest);
+                SDL_RenderCopy(ren, assets["grass1"][1], &src, &dest);
             }
         }
     }

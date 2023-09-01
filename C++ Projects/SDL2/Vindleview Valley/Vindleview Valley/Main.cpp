@@ -10,6 +10,7 @@
 #include "Entity.h"
 #include "Animation.h"
 #include "Tilemap.h"
+#include "Player.h"
 
 int main(int argc, char* argv[])
 {
@@ -91,9 +92,9 @@ int main(int argc, char* argv[])
 
 	Animation cowAnim(cowTex, 10, true);
 
-	Entity player(0, 0, window.renderer, playerAnim, "player", assets);
-
-	Entity cow(100, 100, window.renderer, cowAnim, "cow", assets);
+	Player player(0, 0, window.renderer, playerAnim, assets);
+	
+	Entity cow(10, 10, window.renderer, cowAnim, "cow", assets);
 
 	Tilemap tilemap(assets);
 
@@ -167,9 +168,10 @@ int main(int argc, char* argv[])
 
 		window.clear();
 		player.update(move);
-		cow.update({ 0 });
-		//SDL_RenderCopy(window.renderer, background, nullptr, nullptr);
+		cow.update();
 		tilemap.DrawMap(window.renderer);
+		//SDL_RenderCopy(window.renderer, cowTex[1], nullptr, nullptr);
+		window.render(cow, 4);
 		window.render(player, 4);
 
 		int mouseX;

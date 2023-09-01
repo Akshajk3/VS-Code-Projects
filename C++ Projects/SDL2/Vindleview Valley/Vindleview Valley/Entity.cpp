@@ -8,10 +8,20 @@ std::string BASE_IMG_PATH = "Assets/Characters/images";
 Entity::Entity(float p_x, float p_y, SDL_Renderer* ren, Animation anim, std::string type, std::map<std::string, std::vector<SDL_Texture*>> assets)
 	: x(p_x), y(p_y), renderer(ren), animation(anim), type(type), asset(assets)
 {
-	currentFrame.x = 0;
-	currentFrame.y = 0;
-	currentFrame.w = 16;
-	currentFrame.h = 16;
+	if (type == "player")
+	{
+		currentFrame.x = 0;
+		currentFrame.y = 0;
+		currentFrame.w = 16;
+		currentFrame.h = 16;
+	}
+	else
+	{
+		currentFrame.x = 0;
+		currentFrame.y = 0;
+		currentFrame.w = 32;
+		currentFrame.h = 32;
+	}
 
 	setAction("idle");
 }
@@ -50,18 +60,22 @@ void Entity::setAction(std::string act)
 		action = act;
 
 		std::string assetPath;
+		int animSpeed = 30;
 
 		if (type == "player")
+		{
 			assetPath = action + "_" + direction;
+			if (action == "walk")
+				animSpeed = 10;
+			if (action == "idle")
+				animSpeed = 30;
+		}
 		else
+		{
 			assetPath = type + "_" + action;
+			std::cout << assetPath << std::endl;
+		}
 
-		int animSpeed = 10;
-
-		if (action == "walk")
-			animSpeed = 10;
-		if (action == "idle")
-			animSpeed = 30;
 
 		animation = Animation(asset[assetPath], animSpeed, true);
 
@@ -70,50 +84,7 @@ void Entity::setAction(std::string act)
 
 }
 
-void Entity::update(int movement[2])
+void Entity::update()
 {
-	if(type == "player")
-	{
-		float frame_movement[2] = { movement[0], movement[1] };
-
-		//float* normalizedFrameMovement = normalize(frame_movement);
-
-		float magnitude = sqrt(frame_movement[0] * frame_movement[0] + frame_movement[1] * frame_movement[1]);
-		if (magnitude > 0)
-		{
-			frame_movement[0] /= magnitude;
-			frame_movement[1] /= magnitude;
-		}
-
-		if (frame_movement[0] != 0 || frame_movement[1] != 0)
-		{
-			if (frame_movement[1] < 0)
-				//setAction("walk_up");
-				direction = "up";
-			else if (frame_movement[1] > 0)
-				//setAction("walk_down");
-				direction = "down";
-			else if (frame_movement[0] < 0)
-				//setAction("walk_left");
-				direction = "left";
-			else if (frame_movement[0] > 0)
-				//setAction("walk_right");
-				direction = "right";
-
-			setAction("walk");
-		}
-		else
-		{
-			setAction("idle");
-		}
-
-		if (canMove)
-		{
-			x += frame_movement[0];
-			y += frame_movement[1];
-		}
-	}
-
 	animation.update();
-
 }

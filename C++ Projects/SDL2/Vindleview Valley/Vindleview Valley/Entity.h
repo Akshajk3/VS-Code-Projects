@@ -21,20 +21,20 @@ public:
 	void setAction(std::string act);
 	//void getAnimation();
 
-	void update(int movement[2]);
+	void update();
 	//float* normalize(float movement[2]);
+	std::string direction = "down";
+	bool canMove = true;
+	float x, y;
 
 private:
-	float x, y;
 	SDL_Rect currentFrame;
 	Animation animation;
 	int frame = 0;
 	std::string action;
 	std::string type;
-	std::string direction = "down";
 	std::string oldDirection = direction;
 	SDL_Renderer* renderer;
 	std::map<std::string, std::vector<SDL_Texture*>> asset;
-	bool canMove = true;
 	//int velocity[4] = { 0, 0 };
 };

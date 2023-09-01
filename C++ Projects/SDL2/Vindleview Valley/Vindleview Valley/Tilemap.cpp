@@ -53,7 +53,7 @@ void Tilemap::DrawMap(SDL_Renderer* ren)
 
             if (type == 1)
             {
-                SDL_RenderCopy(ren, assets["grass1"][1], &src, &dest);
+                SDL_RenderCopy(ren, assets["grass"][0], &src, &dest);
             }
         }
     }

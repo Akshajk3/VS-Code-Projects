@@ -60,7 +60,7 @@ void Entity::setAction(std::string act)
 		action = act;
 
 		std::string assetPath;
-		int animSpeed = 30;
+		int animSpeed = 20;
 
 		if (type == "player")
 		{
@@ -73,7 +73,6 @@ void Entity::setAction(std::string act)
 		else
 		{
 			assetPath = type + "_" + action;
-			std::cout << assetPath << std::endl;
 		}
 
 

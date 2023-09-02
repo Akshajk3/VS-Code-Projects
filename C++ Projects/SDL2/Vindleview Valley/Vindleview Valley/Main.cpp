@@ -51,8 +51,9 @@ int main(int argc, char* argv[])
 	assetPaths["idle_up"] = ("Assets/Characters/images/idle_up");
 	assetPaths["walk_up"] = ("Assets/Characters/images/walk_up");
 
-	// Animal Asset Paths
+	// Entity Asset Paths
 	assetPaths["cow_idle"] = ("Assets/Characters/images/cow/idle");
+	assetPaths["chicken_idle"] = ("Assets/Characters/images/chicken/idle");
 	
 	// Tilemap Asset Paths
 	assetPaths["grass"] = ("Assets/Tilesets/images/grass");
@@ -67,7 +68,9 @@ int main(int argc, char* argv[])
 	assets["walk_right"] = textureManager.loadTextures(assetPaths["walk_right"], window.renderer);
 	assets["idle_up"] = textureManager.loadTextures(assetPaths["idle_up"], window.renderer);
 	assets["walk_up"] = textureManager.loadTextures(assetPaths["walk_up"], window.renderer);
+
 	assets["cow_idle"] = textureManager.loadTextures(assetPaths["cow_idle"], window.renderer);
+	assets["chicken_idle"] = textureManager.loadTextures(assetPaths["chicken_idle"], window.renderer);
 
 	assets["grass"] = textureManager.loadTextures(assetPaths["grass"], window.renderer);
 	assets["fence"] = textureManager.loadTextures(assetPaths["fence"], window.renderer);
@@ -84,17 +87,16 @@ int main(int argc, char* argv[])
 
 	std::string playerPath = "Assets/Characters/images/walk_down";
 
-	std::vector<SDL_Texture*> playerTex = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
+	Animation playerAnim(assets["idle_down"], 10, true);
 
-	std::vector<SDL_Texture*> cowTex = textureManager.loadTextures(assetPaths["cow_idle"], window.renderer);
+	Animation cowAnim(assets["cow"], 10, true);
 
-	Animation playerAnim(playerTex, 10, true);
-
-	Animation cowAnim(cowTex, 10, true);
+	Animation chickenAnim(assets["chicken_idle"], 10,  true);
 
 	Player player(0, 0, window.renderer, playerAnim, assets);
 	
 	Entity cow(10, 10, window.renderer, cowAnim, "cow", assets);
+	Entity chicken(100, 100, window.renderer, chickenAnim, "chicken", assets);
 
 	Tilemap tilemap(assets);
 
@@ -172,6 +174,7 @@ int main(int argc, char* argv[])
 		tilemap.DrawMap(window.renderer);
 		//SDL_RenderCopy(window.renderer, cowTex[1], nullptr, nullptr);
 		window.render(cow, 4);
+		window.render(chicken, 2);
 		window.render(player, 4);
 
 		int mouseX;

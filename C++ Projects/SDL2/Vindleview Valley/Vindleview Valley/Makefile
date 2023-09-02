@@ -1,2 +1,2 @@
 all:
-	g++ -std=c++17 -IDependencies/SDL -o main Main.cpp Entity.cpp RenderWindow.cpp TextureManager.cpp Animation.cpp Tilemap.cpp -lSDL2 -lSDL2_image -lstdc++fs
+	g++ -std=c++17 -IDependencies/SDL -o main Main.cpp Entity.cpp RenderWindow.cpp TextureManager.cpp Animation.cpp Tilemap.cpp Player.cpp -lSDL2 -lSDL2_image -lstdc++fs

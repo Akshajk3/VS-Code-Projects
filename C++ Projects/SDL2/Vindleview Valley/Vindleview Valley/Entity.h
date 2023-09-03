@@ -26,12 +26,12 @@ public:
 	std::string direction = "down";
 	bool canMove = true;
 	float x, y;
+	std::string action;
 
 private:
 	SDL_Rect currentFrame;
 	Animation animation;
 	int frame = 0;
-	std::string action;
 	std::string type;
 	std::string oldDirection = direction;
 	SDL_Renderer* renderer;

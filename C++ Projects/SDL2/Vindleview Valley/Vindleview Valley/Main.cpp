@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
 
 	Animation playerAnim(assets["idle_down"], 10, true);
 
-	Animation cowAnim(assets["cow"], 10, true);
+	Animation cowAnim(assets["cow_idle"], 10, true);
 
 	Animation chickenAnim(assets["chicken_idle"], 10,  true);
 

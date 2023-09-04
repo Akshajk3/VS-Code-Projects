@@ -11,7 +11,7 @@ TextureManager::TextureManager() {}
 SDL_Texture* TextureManager::loadTexture(const char* filename, SDL_Renderer* renderer)
 {
 	SDL_Texture* texture = NULL;
-	texture = IMG_LoadTexture(renderer, filename);
+    texture = IMG_LoadTexture(renderer, filename);
 	
 	if (texture == NULL)
 	{

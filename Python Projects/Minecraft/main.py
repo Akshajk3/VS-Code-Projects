@@ -26,7 +26,7 @@ class Window(pyglet.window.Window):
 
         self.world = world.World()
         
-        self.shader = shader.Shader("shaders/colored lighting/vert.glsl", "shaders/colored lighting/frag.glsl")
+        self.shader = shader.Shader("vert.glsl", "frag.glsl")
         self.shader_sampler_location = self.shader.find_uniform(b"texture_array_sampler")
         self.shader.use()
 

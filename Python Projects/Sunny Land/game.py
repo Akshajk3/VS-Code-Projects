@@ -22,5 +22,6 @@ class Game:
                     sys.exit()
 
             self.screen.blit(self.display, (0, 0))
+            self.clock.tick(60)
 
 Game().run()

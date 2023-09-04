@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
 	
 	SDL_Texture* background = textureManager.loadTexture("Assets/Tilesets/test_background.png", window.renderer);
 
-	SDL_Texture* grass = textureManager.loadTexture("Assets/Tilesets/images/grass/Grass_0.png", window.renderer);
+	//SDL_Texture* grass = textureManager.loadTexture("Assets/Tilesets/images/grass/Grass_0.png", window.renderer);
 
 	SDL_Texture* cursorTexture = textureManager.loadTexture("Assets/Mouse_sprites/Cursor_1.png", window.renderer);
 

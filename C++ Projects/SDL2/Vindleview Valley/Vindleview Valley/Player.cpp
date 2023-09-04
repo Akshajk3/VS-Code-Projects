@@ -8,7 +8,7 @@ Player::Player(float p_x, float p_y, SDL_Renderer* ren, Animation anim, std::map
 
 void Player::update(int movement[2])
 {
-	float frame_movement[2] = { movement[0], movement[1] };
+	float frame_movement[2] = { static_cast<float>(movement[0]), static_cast<float>(movement[1]) };
 
 	//float* normalizedFrameMovement = normalize(frame_movement);
 

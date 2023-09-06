@@ -9,3 +9,11 @@ class Tilemap:
 
         for i in range(30):
             self.tilemap[str(3 + i) + ';10'] = {'type' : 'grass', 'variant' : 1, 'pos' : (3 + i, 10)}
+    
+    def render(self, surf):
+        for tile in self.offgrid_tiles:
+            surf.blit(self.game.assets[tile['type']][tile['variant']], tile['pos'])
+
+        for loc in self.tilemap:
+            tile = self.tilemap[loc]
+            surf.blit(self.game.assets[tile['type']][tile['variant']], (tile['pos'][0] * self.tile_size. tile['pos'][1] * self.tile_size))

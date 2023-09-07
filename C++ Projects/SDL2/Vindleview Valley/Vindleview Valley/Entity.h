@@ -34,6 +34,7 @@ private:
 	int frame = 0;
 	std::string type;
 	std::string oldDirection = direction;
+	Animation oldAnimation = animation;
 	SDL_Renderer* renderer;
 	std::map<std::string, std::vector<SDL_Texture*>> asset;
 	//int velocity[4] = { 0, 0 };

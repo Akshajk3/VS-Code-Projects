@@ -81,6 +81,8 @@ int main(int argc, char* argv[])
 
 	SDL_Texture* cursorTexture = textureManager.loadTexture("Assets/Mouse_sprites/Cursor_1.png", window.renderer);
 
+	SDL_Texture* Hoe = textureManager.loadTexture("Assets/Characters/image/hoe_down/player_actions_1.png", window.renderer);
+
 	SDL_ShowCursor(SDL_DISABLE);
 
 	//assets["player/idle_down"] = Animation(textureManager.loadTextures(assetPaths["idle_down"], window.renderer), 20, true);
@@ -136,6 +138,10 @@ int main(int argc, char* argv[])
 				{
 					movement[3] = true;
 				}
+				if (keyCode == SDLK_SPACE)
+				{
+					
+				}
 			}
 			if (event.type == SDL_KEYUP)
 			{
@@ -157,13 +163,6 @@ int main(int argc, char* argv[])
 					movement[3] = false;
 				}
 			}
-			if (event.type == SDL_MOUSEBUTTONDOWN)
-			{
-				if (event.button.button == SDL_BUTTON_LEFT)
-				{
-					//player.setAction("hoe");
-				}
-			}
 		}
 
 		int move[2] = { movement[0] - movement[1], movement[2] - movement[3] };
@@ -172,7 +171,7 @@ int main(int argc, char* argv[])
 		player.update(move);
 		cow.update();
 		tilemap.DrawMap(window.renderer);
-		//SDL_RenderCopy(window.renderer, cowTex[1], nullptr, nullptr);
+		SDL_RenderCopy(window.renderer, Hoe, nullptr, nullptr);
 		window.render(cow, 4);
 		window.render(chicken, 2);
 		window.render(player, 4);

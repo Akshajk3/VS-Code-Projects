@@ -218,7 +218,7 @@ class Game():
                 transition_surf.set_colorkey((255, 255, 255))
                 self.display.blit(transition_surf, (0, 0))
 
-            #self.display_2.blit(self.display, (0, 0))
+            self.display_2.blit(self.display, (0, 0))
 
             screenshake_offset = (random.random() * self.screenshake - self.screenshake / 2, random.random() * self.screenshake - self.screenshake / 2)
             self.screen.blit(pygame.transform.scale(self.display_2, self.screen.get_size()), screenshake_offset)

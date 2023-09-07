@@ -55,32 +55,44 @@ Animation Entity::getAnimation()
 
 void Entity::setAction(std::string act)
 {
-	if (act != action || oldDirection != direction)
+	Uint32 lastUpdateTime = SDL_GetTicks();
+	Uint32 animationSpeed;
+	
+	if(act == "hoe")
+		animationSpeed = 100;
+	else
 	{
-		action = act;
-
-		std::string assetPath;
-		int animSpeed = 20;
-
-		if (type == "player")
-		{
-			assetPath = action + "_" + direction;
-			if (action == "walk")
-				animSpeed = 10;
-			if (action == "idle")
-				animSpeed = 30;
-		}
-		else
-		{
-			assetPath = type + "_" + action;
-		}
-
-
-		animation = Animation(asset[assetPath], animSpeed, true);
-
-		oldDirection = direction;
+		animationSpeed = 0;
 	}
 
+	Uint32 currentTime = SDL_GetTicks();
+
+	if(currentTime - lastUpdateTime >= animationSpeed)
+	{
+		if (act != action || oldDirection != direction)
+		{
+			action = act;
+
+			std::string assetPath;
+			int animSpeed = 20;
+
+			if (type == "player")
+			{
+				assetPath = action + "_" + direction;
+				if (action == "walk")
+					animSpeed = 10;
+				if (action == "idle")
+					animSpeed = 30;
+			}
+			else
+			{
+				assetPath = type + "_" + action;
+			}
+			animation = Animation(asset[assetPath], animSpeed, true);
+
+			oldDirection = direction;
+		}
+	}
 }
 
 void Entity::update()

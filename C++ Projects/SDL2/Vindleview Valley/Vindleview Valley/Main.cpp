@@ -171,7 +171,7 @@ int main(int argc, char* argv[])
 		player.update(move);
 		cow.update();
 		tilemap.DrawMap(window.renderer);
-		SDL_RenderCopy(window.renderer, Hoe, nullptr, nullptr);
+		//SDL_RenderCopy(window.renderer, Hoe, nullptr, nullptr);
 		window.render(cow, 4);
 		window.render(chicken, 2);
 		window.render(player, 4);

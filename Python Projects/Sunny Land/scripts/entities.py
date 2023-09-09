@@ -30,4 +30,4 @@ class PhysicsEntity:
     def update(self, tilemap, movement=(0, 0)):
         self.collision = {'up' : False, 'down' : False, 'left' : False, 'right' : False}
 
-        frame_movement = (movement[0])
+        frame_movement = (movement[0] + self.velocity[0], movement[1] + self.velocity[1])

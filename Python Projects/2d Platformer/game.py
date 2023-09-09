@@ -73,6 +73,9 @@ class Game():
 
         self.screenshake = 0
 
+        self.font = pygame.font.Font(None, 24)
+        self.timer = 0
+
     def load_level(self, map_id):
         self.tilemap.load('data/maps/' + str(map_id) + '.json')
         #self.tilemap.load('map.json')
@@ -97,6 +100,10 @@ class Game():
         self.dead = 0
         self.transition = -30
 
+        print(self.level)
+        if self.level == 0:
+            self.timer = 0
+
     def run(self):
         pygame.mixer.music.load('data/music.wav')
         pygame.mixer.music.set_volume(0.5)
@@ -105,6 +112,8 @@ class Game():
         self.sfx['ambiance'].play(-1)
 
         while True:
+            self.timer += 1
+            text_surface = self.font.render(str(self.timer), True, (255, 255, 255))
             self.display.fill((0, 0, 0, 0))
             self.display_2.blit(self.assets['background'], (0,0))
 
@@ -113,8 +122,12 @@ class Game():
             if not len(self.enemies):
                 self.transition += 1
                 if self.transition > 30:
-                    self.level = min(self.level + 1, len(os.listdir('data/maps')) - 1)
-                    self.load_level(self.level)
+                    if self.level != 2:
+                        self.level = min(self.level + 1, len(os.listdir('data/maps')) - 1)
+                        self.load_level(self.level)
+                    else:
+                        print("You Win!. Time: " + str(self.timer))
+                        break
             if self.transition < 0:
                 self.transition += 1
 
@@ -123,6 +136,7 @@ class Game():
                 if self.dead >= 10:
                     self.transition = min(30, self.transition + 1)
                 if self.dead > 40:
+                    self.level = 0
                     self.load_level(self.level)
 
             self.scroll[0] += (self.player.rect().centerx - self.display.get_width() / 2 - self.scroll[0]) / 30
@@ -211,6 +225,8 @@ class Game():
                         self.movement[0] = False
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         self.movement[1] = False
+            
+            self.display.blit(text_surface, (0, 0))
 
             if self.transition:
                 transition_surf = pygame.Surface(self.display.get_size())

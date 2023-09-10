@@ -10,7 +10,7 @@ class PhysicsEntity:
         self.pos = list(position)
         self.size = size
         self.velocity = [0, 0]
-        self.collision = {'up' : False, 'down' : False, 'left' : False, 'right' : False}
+        self.collisions = {'up' : False, 'down' : False, 'left' : False, 'right' : False}
 
         self.action = ' '
         self.anim_offset = (-3, -3)
@@ -28,7 +28,7 @@ class PhysicsEntity:
             self.animation = self.game.assets[self.type + '/' + self.action].copy()
     
     def update(self, tilemap, movement=(0, 0)):
-        self.collision = {'up' : False, 'down' : False, 'left' : False, 'right' : False}
+        self.collisions = {'up' : False, 'down' : False, 'left' : False, 'right' : False}
 
         frame_movement = (movement[0] + self.velocity[0], movement[1] + self.velocity[1])
 
@@ -38,20 +38,23 @@ class PhysicsEntity:
             if entiy_rect.colliderect(rect):
                 if frame_movement[0] > 0:
                     entiy_rect.right = rect.left
-                    self.collision['right'] = True
+                    self.collisions['right'] = True
                 if frame_movement[0] < 0:
                     entiy_rect.left = rect.right
-                    self.collision['left'] = True
+                    self.collisions['left'] = True
+                self.pos[0] = entiy_rect.x
+
         self.pos[1] += frame_movement[1]
         entiy_rect = self.rect()
         for rect in tilemap.physics_rects_around(self.pos):
             if entiy_rect.colliderect(rect):
                 if frame_movement[1] > 0:
                     entiy_rect.bottom = rect.top
-                    self.collision['down'] = True
+                    self.collisions['down'] = True
                 if frame_movement[1] < 0:
                     entiy_rect.top = rect.bottom
-                    self.collision['up'] = True
+                    self.collisions['up'] = True
+                self.pos[1] = entiy_rect.y
 
         if movement[0] > 0:
             self.flip = False
@@ -62,7 +65,7 @@ class PhysicsEntity:
     
         self.velocity[1] = min(5, self.velocity[1] + 0.1)
 
-        if self.collision['down'] or self.collision['up']:
+        if self.collisions['down'] or self.collisions['up']:
             self.velocity[1] = 0
         
         self.animation.update()
@@ -79,7 +82,16 @@ class Player(PhysicsEntity):
     def update(self, tilemap, movement=(0, 0)):
         super().update(tilemap, movement)
 
-        if movement[0] != 0:
+        self.air_time += 1
+
+        if self.collisions['down']:
+            self.air_time = 0
+            self.jumps = 1
+        
+
+        if self.air_time > 4:
+            self.set_action('jump')
+        elif movement[0] != 0:
             self.set_action('run')
         else:
             self.set_action('idle')
@@ -91,4 +103,5 @@ class Player(PhysicsEntity):
         if self.jumps:
             self.velocity[1] = -3
             self.jumps -= 1
+            self.air_time = 5
             return True        

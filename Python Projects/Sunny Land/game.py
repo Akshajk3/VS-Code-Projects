@@ -20,15 +20,16 @@ class Game:
         self.movement = [False, False]
 
         self.assets = {
+            'grass' : load_images('grass'),
             'player/idle' : Animation(load_images('entities/player/idle'), img_dur=12),
             'player/run' : Animation(load_images('entities/player/walk'), img_dur=8),
-            #'player/jump' : Animation(load_images('entities/player/jump'))
+            'player/jump' : Animation(load_images('entities/player/fall')),
         }
 
         self.background = load_image('background.png')
         self.background = pygame.transform.scale(self.background, (640, 480))
 
-        self.player = Player(self, (50, 50), (8, 15))
+        self.player = Player(self, (50, 50), (8, 12))
 
         self.tilemap = Tilemap(self, tile_size=16)
 
@@ -40,7 +41,7 @@ class Game:
             self.player.update(self.tilemap, (self.movement[1] - self.movement[0], 0))
             self.player.render(self.display)
 
-            print("Left: " + str(self.movement[0]), "Right: " + str(self.movement[1]))
+            self.tilemap.render(self.display)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -51,6 +52,8 @@ class Game:
                         self.movement[0] = True
                     if event.key == pygame.K_RIGHT:
                         self.movement[1] = True
+                    if event.key == pygame.K_UP:
+                        self.player.jump()
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_LEFT:
                         self.movement[0] = False

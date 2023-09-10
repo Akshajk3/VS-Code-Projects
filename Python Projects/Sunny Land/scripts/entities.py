@@ -104,4 +104,7 @@ class Player(PhysicsEntity):
             self.velocity[1] = -3
             self.jumps -= 1
             self.air_time = 5
-            return True        
+            return True
+
+    def attack(self):
+        self.set_action('attack')

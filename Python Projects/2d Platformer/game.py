@@ -76,6 +76,20 @@ class Game():
         self.font = pygame.font.Font(None, 24)
         self.timer = 0
 
+        self.highscore = self.load_highscore()
+    
+    def load_highscore(self):
+        try:
+            with open('data/highscore.txt', 'r') as file:
+                return int(file.read())
+        except FileNotFoundError:
+            return None
+        
+    def save_highscore(self):
+        if self.timer < self.highscore:
+            with open('data/highscore.txt', 'w') as file:
+                file.write(str(self.timer))
+
     def load_level(self, map_id):
         self.tilemap.load('data/maps/' + str(map_id) + '.json')
         #self.tilemap.load('map.json')
@@ -113,9 +127,10 @@ class Game():
 
         while True:
             self.timer += 1
-            text_surface = self.font.render(str(self.timer), True, (255, 255, 255))
             self.display.fill((0, 0, 0, 0))
             self.display_2.blit(self.assets['background'], (0,0))
+            text_surface = self.font.render(str(self.timer), True, (255, 255, 255))
+            score_surface = self.font.render("Highscore: " + str(self.highscore), True, (255, 255, 255))
 
             self.screenshake = max(0, self.screenshake - 1)
 
@@ -126,6 +141,7 @@ class Game():
                         self.level = min(self.level + 1, len(os.listdir('data/maps')) - 1)
                         self.load_level(self.level)
                     else:
+                        self.save_highscore()
                         print("You Win!. Time: " + str(self.timer))
                         break
             if self.transition < 0:
@@ -228,7 +244,6 @@ class Game():
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         self.movement[1] = False
             
-            self.display.blit(text_surface, (0, 0))
 
             if self.transition:
                 transition_surf = pygame.Surface(self.display.get_size())
@@ -236,7 +251,11 @@ class Game():
                 transition_surf.set_colorkey((255, 255, 255))
                 self.display.blit(transition_surf, (0, 0))
 
+            self.display.blit(text_surface, (0, 0))
+            self.display.blit(score_surface, (0, 20))
+
             self.display_2.blit(self.display, (0, 0))
+
 
             screenshake_offset = (random.random() * self.screenshake - self.screenshake / 2, random.random() * self.screenshake - self.screenshake / 2)
             self.screen.blit(pygame.transform.scale(self.display_2, self.screen.get_size()), screenshake_offset)

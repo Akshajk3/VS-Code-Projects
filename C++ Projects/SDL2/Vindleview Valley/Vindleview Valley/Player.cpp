@@ -76,3 +76,8 @@ int Player::getTimer()
 {
 	return actionTimer;
 }
+
+std::string Player::getTool()
+{
+	return tool;
+}

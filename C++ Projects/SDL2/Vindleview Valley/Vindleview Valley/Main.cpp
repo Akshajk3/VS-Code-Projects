@@ -70,6 +70,11 @@ int main(int argc, char* argv[])
 	assetPaths["grass"] = ("Assets/Tilesets/images/grass");
 	assetPaths["fence"] = ("Assets/Tilesets/images/fence");
 	assetPaths["till"] = ("Assets/Tilesets/images/till");
+
+// UI Assets
+	assetPaths["hoe"] = ("Assets/Objects/images/Basic tools and meterials_2.png");
+	assetPaths["axe"] = ("Assets/Objects/images/Basic tools and meterials_1.png");
+	assetPaths["water"] = ("Assets/Objects/images/Basic tools and meterials_0.png");
 	
 // Player Assets
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
@@ -102,7 +107,11 @@ int main(int argc, char* argv[])
 	assets["fence"] = textureManager.loadTextures(assetPaths["fence"], window.renderer);
 	assets["till"] = textureManager.loadTextures(assetPaths["till"], window.renderer);
 
+// UI Assets
 	SDL_Texture* cursorTexture = textureManager.loadTexture("Assets/Mouse_sprites/Cursor_1.png", window.renderer);
+	SDL_Texture* hoe_icon = textureManager.loadTexture(assetPaths["hoe"].c_str(), window.renderer);
+	SDL_Texture* axe_icon = textureManager.loadTexture(assetPaths["axe"].c_str(), window.renderer);
+	SDL_Texture* water_icon = textureManager.loadTexture(assetPaths["water"].c_str(), window.renderer);
 
 	SDL_ShowCursor(SDL_DISABLE);
 
@@ -192,7 +201,9 @@ int main(int argc, char* argv[])
 					if (player.getTimer() == 0)
 					{
 						player.act();
-						backGroundTilemap.setTile(mouseX, mouseY, 2);
+
+						if(player.getTool() == "hoe")
+							backGroundTilemap.setTile(mouseX, mouseY, 2);
 					}
 				}
 			}
@@ -200,8 +211,8 @@ int main(int argc, char* argv[])
 
 		int move[2] = { movement[0] - movement[1], movement[2] - movement[3] };
 
-		std::cout << "Player X: " << player.getX() << std::endl;
-		std::cout << "Player Y: " << player.getY() << std::endl;
+		//std::cout << "Player X: " << player.getX() << std::endl;
+		//std::cout << "Player Y: " << player.getY() << std::endl;
 
 		window.clear();
 		player.update(move);
@@ -212,6 +223,22 @@ int main(int argc, char* argv[])
 		window.render(player, 4);
 
 		SDL_GetMouseState(&mouseX, &mouseY);
+
+		SDL_Rect toolRect = { 0, 0, 64, 64 };
+
+		if (player.getTool() == "hoe")
+		{
+			SDL_RenderCopy(window.renderer, hoe_icon, nullptr, &toolRect);	
+		}
+		if (player.getTool() == "axe")
+		{
+			SDL_RenderCopy(window.renderer, axe_icon, nullptr, &toolRect);
+		}
+		if (player.getTool() == "water")
+		{
+			SDL_RenderCopy(window.renderer, water_icon, nullptr, &toolRect);
+		}
+
 
 		SDL_Rect cursorRect = { mouseX, mouseY, 32, 32 };
 		SDL_RenderCopy(window.renderer, cursorTexture, nullptr, &cursorRect);

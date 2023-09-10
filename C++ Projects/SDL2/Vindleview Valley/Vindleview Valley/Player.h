@@ -13,7 +13,7 @@ public:
 	void update(int movement[2]);
 	void act();
 	void setTool(std::string newTool);
-
+	std::string getTool();
 	int getTimer();
 private:
 	int actionTimer = 0;

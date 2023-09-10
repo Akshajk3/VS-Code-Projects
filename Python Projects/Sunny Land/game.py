@@ -4,6 +4,7 @@ import pygame
 
 from scripts.utils import load_image, load_images, Animation
 from scripts.entities import PhysicsEntity, Player
+from scripts.tilemap import Tilemap
 
 class Game:
     def __init__(self):
@@ -20,23 +21,23 @@ class Game:
 
         self.assets = {
             'player/idle' : Animation(load_images('entities/player/idle'), img_dur=12),
-            'player/run' : Animation(load_images('entities/player/walk'), img_dur=6)
+            'player/run' : Animation(load_images('entities/player/walk'), img_dur=8),
+            #'player/jump' : Animation(load_images('entities/player/jump'))
         }
 
-        self.background = load_image('Rocky Roads/Backgrounds/desert_a.png')
+        self.background = load_image('background.png')
         self.background = pygame.transform.scale(self.background, (640, 480))
 
         self.player = Player(self, (50, 50), (8, 15))
 
+        self.tilemap = Tilemap(self, tile_size=16)
+
     def run(self):
-        #self.display.blit(self.background,  (0, 0))
-
-        
-
         while True:
             self.display.fill((0, 0, 0))
+            self.display.blit(self.background,  (0, 0))
 
-            self.player.update((self.movement[1] - self.movement[0], 0))
+            self.player.update(self.tilemap, (self.movement[1] - self.movement[0], 0))
             self.player.render(self.display)
 
             print("Left: " + str(self.movement[0]), "Right: " + str(self.movement[1]))

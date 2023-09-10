@@ -220,6 +220,8 @@ class Game():
                             self.sfx['jump'].play()
                     if event.key == pygame.K_x or event.key == pygame.K_SPACE:
                         self.player.dash()
+                    if event.key == pygame.K_r:
+                        self.dead = True
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                         self.movement[0] = False

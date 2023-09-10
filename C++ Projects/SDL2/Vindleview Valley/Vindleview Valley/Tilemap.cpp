@@ -55,6 +55,10 @@ void Tilemap::DrawMap(SDL_Renderer* ren)
             {
                 SDL_RenderCopy(ren, assets["grass"][0], &src, &dest);
             }
+            if (type == 2)
+            {
+                SDL_RenderCopy(ren, assets["till"][0], &src, &dest);
+            }
         }
     }
 }
@@ -68,4 +72,15 @@ void Tilemap::LoadMap(int arr[20][25])
             map[row][col] = arr[row][col];
         }
     }
+}
+
+void Tilemap::setTile(float p_x, float p_y, int tile)
+{
+    int row = int(p_y / 32);
+    int col = int(p_x / 32);
+
+    row = std::min(row, 20);
+    col = std::min(col, 25);
+
+    map[row][col] = tile;
 }

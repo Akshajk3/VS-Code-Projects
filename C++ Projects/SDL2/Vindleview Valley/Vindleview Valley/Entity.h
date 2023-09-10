@@ -12,7 +12,7 @@
 class Entity
 {
 public:
-	Entity(float p_x, float p_y, SDL_Renderer* ren, Animation anim, std::string type, std::map<std::string, std::vector<SDL_Texture*>> assets);
+	Entity(float p_x, float p_y, SDL_Renderer* ren, std::string type, std::map<std::string, std::vector<SDL_Texture*>> assets);
 	float getX();
 	float getY();
 	//std::vector<SDL_Texture*> getTextures();
@@ -30,7 +30,7 @@ public:
 
 private:
 	SDL_Rect currentFrame;
-	Animation animation;
+	Animation animation = oldAnimation;
 	int frame = 0;
 	std::string type;
 	std::string oldDirection = direction;

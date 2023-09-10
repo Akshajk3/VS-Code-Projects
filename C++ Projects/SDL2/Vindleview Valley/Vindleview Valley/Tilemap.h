@@ -10,6 +10,8 @@ class Tilemap
 public:
     Tilemap(std::map<std::string, std::vector<SDL_Texture*>> sprites);
 
+    void setTile(float p_x, float p_y, int tile);
+
     void LoadMap(int arr[20][25]);
     void DrawMap(SDL_Renderer* ren);
 

@@ -21,10 +21,10 @@ class Game:
 
         self.assets = {
             'grass' : load_images('grass'),
-            'player/idle' : Animation(load_images('entities/player/idle'), img_dur=8),
+            'player/idle' : Animation(load_images('entities/player/idle'), img_dur=12),
             'player/run' : Animation(load_images('entities/player/walk'), img_dur=6),
             'player/jump' : Animation(load_images('entities/player/fall')),
-            'player/attack' : Animation(load_images('entities/player/attack1'))
+            #'player/attack' : Animation(load_images('entities/player/attack1'))
         }
 
         self.background = load_image('background.png')

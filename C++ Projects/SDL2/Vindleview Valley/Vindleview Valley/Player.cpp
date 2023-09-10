@@ -1,9 +1,9 @@
 #include "Player.h"
 
-Player::Player(float p_x, float p_y, SDL_Renderer* ren, Animation anim, std::map<std::string, std::vector<SDL_Texture*>> asset)
-	: Entity(p_x, p_y, ren, anim, "player", asset)
+Player::Player(float p_x, float p_y, SDL_Renderer* ren, std::map<std::string, std::vector<SDL_Texture*>> asset)
+	: Entity(p_x, p_y, ren, "player", asset)
 {
-
+	
 }
 
 void Player::update(int movement[2])
@@ -11,6 +11,12 @@ void Player::update(int movement[2])
 	float frame_movement[2] = { static_cast<float>(movement[0]), static_cast<float>(movement[1]) };
 
 	//float* normalizedFrameMovement = normalize(frame_movement);
+
+	actionTimer = std::max(0, actionTimer - 1);
+	if (actionTimer <= 0)
+	{
+		canMove = true;
+	}
 
 	float magnitude = sqrt(frame_movement[0] * frame_movement[0] + frame_movement[1] * frame_movement[1]);
 	if (magnitude > 0)
@@ -33,12 +39,13 @@ void Player::update(int movement[2])
 		else if (frame_movement[0] > 0)
 			//setAction("walk_right");
 			direction = "right";
-
-		setAction("walk");
+		if (actionTimer == 0)
+			setAction("walk");
 	}
 	else
 	{
-		setAction("idle");
+		if (actionTimer == 0)
+			setAction("idle");
 	}
 
 	if (canMove)
@@ -48,4 +55,24 @@ void Player::update(int movement[2])
 	}
 
 	Entity::update();
+}
+
+void Player::setTool(std::string newTool)
+{
+	if (tool != newTool)
+	{
+		tool = newTool;
+	}
+}
+
+void Player::act()
+{
+	canMove = false;
+	actionTimer = 50;
+	setAction(tool);
+}
+
+int Player::getTimer()
+{
+	return actionTimer;
 }

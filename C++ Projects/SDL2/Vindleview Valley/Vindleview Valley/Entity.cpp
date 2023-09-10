@@ -5,15 +5,15 @@
 
 std::string BASE_IMG_PATH = "Assets/Characters/images";
 
-Entity::Entity(float p_x, float p_y, SDL_Renderer* ren, Animation anim, std::string type, std::map<std::string, std::vector<SDL_Texture*>> assets)
-	: x(p_x), y(p_y), renderer(ren), animation(anim), type(type), asset(assets)
+Entity::Entity(float p_x, float p_y, SDL_Renderer* ren, std::string type, std::map<std::string, std::vector<SDL_Texture*>> assets)
+	: x(p_x), y(p_y), renderer(ren), type(type), asset(assets)
 {
 	if (type == "player")
 	{
 		currentFrame.x = 0;
 		currentFrame.y = 0;
-		currentFrame.w = 16;
-		currentFrame.h = 16;
+		currentFrame.w = 48;
+		currentFrame.h = 48;
 	}
 	else
 	{
@@ -55,43 +55,28 @@ Animation Entity::getAnimation()
 
 void Entity::setAction(std::string act)
 {
-	Uint32 lastUpdateTime = SDL_GetTicks();
-	Uint32 animationSpeed;
-	
-	if(act == "hoe")
-		animationSpeed = 100;
-	else
+	if (act != action || oldDirection != direction)
 	{
-		animationSpeed = 0;
-	}
+		action = act;
 
-	Uint32 currentTime = SDL_GetTicks();
+		std::string assetPath;
+		int animSpeed = 20;
 
-	if(currentTime - lastUpdateTime >= animationSpeed)
-	{
-		if (act != action || oldDirection != direction)
+		if (type == "player")
 		{
-			action = act;
-
-			std::string assetPath;
-			int animSpeed = 20;
-
-			if (type == "player")
-			{
-				assetPath = action + "_" + direction;
-				if (action == "walk")
-					animSpeed = 10;
-				if (action == "idle")
-					animSpeed = 30;
-			}
-			else
-			{
-				assetPath = type + "_" + action;
-			}
-			animation = Animation(asset[assetPath], animSpeed, true);
-
-			oldDirection = direction;
+			assetPath = action + "_" + direction;
+			if (action == "walk")
+				animSpeed = 10;
+			if (action == "idle")
+				animSpeed = 30;
 		}
+		else
+		{
+			assetPath = type + "_" + action;
+		}
+		animation = Animation(asset[assetPath], animSpeed, true);
+
+		oldDirection = direction;
 	}
 }
 

@@ -2,13 +2,20 @@
 
 #include "Entity.h"
 
+#include <iostream>
 #include <cmath>
+#include <algorithm>
 
 class Player : public Entity
 {
 public:
-	Player(float p_x, float p_y, SDL_Renderer* ren, Animation anim, std::map<std::string, std::vector<SDL_Texture*>> asset);
-
+	Player(float p_x, float p_y, SDL_Renderer* ren, std::map<std::string, std::vector<SDL_Texture*>> asset);
 	void update(int movement[2]);
-	void attack();
+	void act();
+	void setTool(std::string newTool);
+
+	int getTimer();
+private:
+	int actionTimer = 0;
+	std::string tool = "hoe";
 };

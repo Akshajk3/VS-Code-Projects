@@ -1,0 +1,342 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AEBFE0892AAE7FD000E99C79 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBFE0882AAE7FD000E99C79 /* libSDL2-2.0.0.dylib */; };
+		AEBFE08B2AAE7FDB00E99C79 /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBFE08A2AAE7FDB00E99C79 /* libSDL2_image-2.0.0.dylib */; };
+		AEBFE0D82AAE8ADA00E99C79 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0CB2AAE8ADA00E99C79 /* Animation.cpp */; };
+		AEBFE0D92AAE8ADA00E99C79 /* RenderWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0CC2AAE8ADA00E99C79 /* RenderWindow.cpp */; };
+		AEBFE0DA2AAE8ADA00E99C79 /* Tilemap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0CD2AAE8ADA00E99C79 /* Tilemap.cpp */; };
+		AEBFE0DB2AAE8ADA00E99C79 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0CE2AAE8ADA00E99C79 /* Entity.cpp */; };
+		AEBFE0DC2AAE8ADA00E99C79 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0D22AAE8ADA00E99C79 /* TextureManager.cpp */; };
+		AEBFE0DD2AAE8ADA00E99C79 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0D32AAE8ADA00E99C79 /* Player.cpp */; };
+		AEBFE0DE2AAE8ADA00E99C79 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0D42AAE8ADA00E99C79 /* Main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AEBFE06A2AAE7AD900E99C79 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AEBFE06C2AAE7AD900E99C79 /* VindelValley */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VindelValley; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEBFE0882AAE7FD000E99C79 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../../../../opt/homebrew/Cellar/sdl2/2.28.2/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		AEBFE08A2AAE7FDB00E99C79 /* libSDL2_image-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_image-2.0.0.dylib"; path = "../../../../../../../../../../opt/homebrew/Cellar/sdl2_image/2.6.3_2/lib/libSDL2_image-2.0.0.dylib"; sourceTree = "<group>"; };
+		AEBFE0CB2AAE8ADA00E99C79 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Animation.cpp; path = ../../Animation.cpp; sourceTree = "<group>"; };
+		AEBFE0CC2AAE8ADA00E99C79 /* RenderWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RenderWindow.cpp; path = ../../RenderWindow.cpp; sourceTree = "<group>"; };
+		AEBFE0CD2AAE8ADA00E99C79 /* Tilemap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tilemap.cpp; path = ../../Tilemap.cpp; sourceTree = "<group>"; };
+		AEBFE0CE2AAE8ADA00E99C79 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Entity.cpp; path = ../../Entity.cpp; sourceTree = "<group>"; };
+		AEBFE0CF2AAE8ADA00E99C79 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../../Player.h; sourceTree = "<group>"; };
+		AEBFE0D02AAE8ADA00E99C79 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = ../../Animation.h; sourceTree = "<group>"; };
+		AEBFE0D12AAE8ADA00E99C79 /* Tilemap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tilemap.h; path = ../../Tilemap.h; sourceTree = "<group>"; };
+		AEBFE0D22AAE8ADA00E99C79 /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureManager.cpp; path = ../../TextureManager.cpp; sourceTree = "<group>"; };
+		AEBFE0D32AAE8ADA00E99C79 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = ../../Player.cpp; sourceTree = "<group>"; };
+		AEBFE0D42AAE8ADA00E99C79 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = ../../Main.cpp; sourceTree = "<group>"; };
+		AEBFE0D52AAE8ADA00E99C79 /* RenderWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderWindow.h; path = ../../RenderWindow.h; sourceTree = "<group>"; };
+		AEBFE0D62AAE8ADA00E99C79 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entity.h; path = ../../Entity.h; sourceTree = "<group>"; };
+		AEBFE0D72AAE8ADA00E99C79 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureManager.h; path = ../../TextureManager.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AEBFE0692AAE7AD900E99C79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEBFE0892AAE7FD000E99C79 /* libSDL2-2.0.0.dylib in Frameworks */,
+				AEBFE08B2AAE7FDB00E99C79 /* libSDL2_image-2.0.0.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AEBFE0632AAE7AD800E99C79 = {
+			isa = PBXGroup;
+			children = (
+				AEBFE06E2AAE7AD900E99C79 /* VindelValley */,
+				AEBFE06D2AAE7AD900E99C79 /* Products */,
+				AEBFE0872AAE7FD000E99C79 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AEBFE06D2AAE7AD900E99C79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AEBFE06C2AAE7AD900E99C79 /* VindelValley */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEBFE06E2AAE7AD900E99C79 /* VindelValley */ = {
+			isa = PBXGroup;
+			children = (
+				AEBFE0CB2AAE8ADA00E99C79 /* Animation.cpp */,
+				AEBFE0D02AAE8ADA00E99C79 /* Animation.h */,
+				AEBFE0CE2AAE8ADA00E99C79 /* Entity.cpp */,
+				AEBFE0D62AAE8ADA00E99C79 /* Entity.h */,
+				AEBFE0D42AAE8ADA00E99C79 /* Main.cpp */,
+				AEBFE0D32AAE8ADA00E99C79 /* Player.cpp */,
+				AEBFE0CF2AAE8ADA00E99C79 /* Player.h */,
+				AEBFE0CC2AAE8ADA00E99C79 /* RenderWindow.cpp */,
+				AEBFE0D52AAE8ADA00E99C79 /* RenderWindow.h */,
+				AEBFE0D22AAE8ADA00E99C79 /* TextureManager.cpp */,
+				AEBFE0D72AAE8ADA00E99C79 /* TextureManager.h */,
+				AEBFE0CD2AAE8ADA00E99C79 /* Tilemap.cpp */,
+				AEBFE0D12AAE8ADA00E99C79 /* Tilemap.h */,
+			);
+			path = VindelValley;
+			sourceTree = "<group>";
+		};
+		AEBFE0872AAE7FD000E99C79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AEBFE08A2AAE7FDB00E99C79 /* libSDL2_image-2.0.0.dylib */,
+				AEBFE0882AAE7FD000E99C79 /* libSDL2-2.0.0.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AEBFE06B2AAE7AD900E99C79 /* VindelValley */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEBFE0732AAE7AD900E99C79 /* Build configuration list for PBXNativeTarget "VindelValley" */;
+			buildPhases = (
+				AEBFE0682AAE7AD900E99C79 /* Sources */,
+				AEBFE0692AAE7AD900E99C79 /* Frameworks */,
+				AEBFE06A2AAE7AD900E99C79 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VindelValley;
+			productName = VindelValley;
+			productReference = AEBFE06C2AAE7AD900E99C79 /* VindelValley */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AEBFE0642AAE7AD800E99C79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					AEBFE06B2AAE7AD900E99C79 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = AEBFE0672AAE7AD800E99C79 /* Build configuration list for PBXProject "VindelValley" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AEBFE0632AAE7AD800E99C79;
+			productRefGroup = AEBFE06D2AAE7AD900E99C79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AEBFE06B2AAE7AD900E99C79 /* VindelValley */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AEBFE0682AAE7AD900E99C79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEBFE0DB2AAE8ADA00E99C79 /* Entity.cpp in Sources */,
+				AEBFE0DE2AAE8ADA00E99C79 /* Main.cpp in Sources */,
+				AEBFE0DA2AAE8ADA00E99C79 /* Tilemap.cpp in Sources */,
+				AEBFE0DD2AAE8ADA00E99C79 /* Player.cpp in Sources */,
+				AEBFE0D82AAE8ADA00E99C79 /* Animation.cpp in Sources */,
+				AEBFE0D92AAE8ADA00E99C79 /* RenderWindow.cpp in Sources */,
+				AEBFE0DC2AAE8ADA00E99C79 /* TextureManager.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AEBFE0712AAE7AD900E99C79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AEBFE0722AAE7AD900E99C79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AEBFE0742AAE7AD900E99C79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Dependencies/SDL\"";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/sdl2/2.28.2/lib,
+					/opt/homebrew/Cellar/sdl2_image/2.6.3_2/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AEBFE0752AAE7AD900E99C79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Dependencies/SDL\"";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/sdl2/2.28.2/lib,
+					/opt/homebrew/Cellar/sdl2_image/2.6.3_2/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AEBFE0672AAE7AD800E99C79 /* Build configuration list for PBXProject "VindelValley" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEBFE0712AAE7AD900E99C79 /* Debug */,
+				AEBFE0722AAE7AD900E99C79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEBFE0732AAE7AD900E99C79 /* Build configuration list for PBXNativeTarget "VindelValley" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEBFE0742AAE7AD900E99C79 /* Debug */,
+				AEBFE0752AAE7AD900E99C79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AEBFE0642AAE7AD800E99C79 /* Project object */;
+}

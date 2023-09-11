@@ -12,6 +12,52 @@
 #include "Tilemap.h"
 #include "Player.h"
 
+int grass[20][25] = {
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+};
+
+int plants[20][25] = {
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+};
+
 int main(int argc, char* argv[])
 {
 	if (SDL_Init(SDL_INIT_VIDEO) > 0)
@@ -71,10 +117,14 @@ int main(int argc, char* argv[])
 	assetPaths["fence"] = ("Assets/Tilesets/images/fence");
 	assetPaths["till"] = ("Assets/Tilesets/images/till");
 
-// UI Assets
+// UI Asset Paths
 	assetPaths["hoe"] = ("Assets/Objects/images/Basic tools and meterials_2.png");
 	assetPaths["axe"] = ("Assets/Objects/images/Basic tools and meterials_1.png");
 	assetPaths["water"] = ("Assets/Objects/images/Basic tools and meterials_0.png");
+    assetPaths["wheatBag"] = ("Assets/Objects/images/wheat/00.png");
+    
+// Plant Asests Paths
+    assetPaths["wheat"] = ("Assets/Objects/images/wheat");
 	
 // Player Assets
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
@@ -112,6 +162,10 @@ int main(int argc, char* argv[])
 	SDL_Texture* hoe_icon = textureManager.loadTexture(assetPaths["hoe"].c_str(), window.renderer);
 	SDL_Texture* axe_icon = textureManager.loadTexture(assetPaths["axe"].c_str(), window.renderer);
 	SDL_Texture* water_icon = textureManager.loadTexture(assetPaths["water"].c_str(), window.renderer);
+    SDL_Texture* wheat_icon = textureManager.loadTexture(assetPaths["wheatBag"].c_str(), window.renderer);
+
+// Plant Assets
+    assets["wheat"] = textureManager.loadTextures(assetPaths["wheat"], window.renderer);
 
 	SDL_ShowCursor(SDL_DISABLE);
 
@@ -121,6 +175,10 @@ int main(int argc, char* argv[])
 	Entity chicken(100, 100, window.renderer, "chicken", assets);
 
 	Tilemap backGroundTilemap(assets);
+    backGroundTilemap.LoadMap(grass);
+    
+    Tilemap plantTiles(assets);
+    plantTiles.LoadMap(plants);
 
 	bool movement[4] = {false, false, false, false};
 
@@ -173,6 +231,10 @@ int main(int argc, char* argv[])
 				{
 					player.setTool("water");
 				}
+                if (keyCode == SDLK_4)
+                {
+                    player.setTool("wheat");
+                }
 			}
 			if (event.type == SDL_KEYUP)
 			{
@@ -204,6 +266,8 @@ int main(int argc, char* argv[])
 
 						if(player.getTool() == "hoe")
 							backGroundTilemap.setTile(mouseX, mouseY, 2);
+                        if(player.getTool() == "wheat" && backGroundTilemap.getTile(mouseX, mouseY) == 2)
+                            plantTiles.setTile(mouseX, mouseY, 3);
 					}
 				}
 			}
@@ -218,6 +282,7 @@ int main(int argc, char* argv[])
 		player.update(move);
 		cow.update();
 		backGroundTilemap.DrawMap(window.renderer);
+        plantTiles.DrawMap(window.renderer);
 		window.render(cow, 4);
 		window.render(chicken, 2);
 		window.render(player, 4);
@@ -238,6 +303,10 @@ int main(int argc, char* argv[])
 		{
 			SDL_RenderCopy(window.renderer, water_icon, nullptr, &toolRect);
 		}
+        if(player.getTool() == "wheat")
+        {
+            SDL_RenderCopy(window.renderer, wheat_icon, nullptr, &toolRect);
+        }
 
 
 		SDL_Rect cursorRect = { mouseX, mouseY, 32, 32 };

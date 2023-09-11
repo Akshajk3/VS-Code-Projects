@@ -67,9 +67,12 @@ void Player::setTool(std::string newTool)
 
 void Player::act()
 {
-	canMove = false;
-	actionTimer = 50;
-	setAction(tool);
+    if (tool != "wheat")
+    {
+        setAction(tool);
+        canMove = false;
+        actionTimer = 50;
+    }
 }
 
 int Player::getTimer()

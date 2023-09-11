@@ -38,6 +38,23 @@ void Tilemap::DrawMap(SDL_Renderer* ren)
             {
                 SDL_RenderCopy(ren, assets["wheat"][1], &src, &dest);
             }
+            if (type == 4)
+            {
+                SDL_RenderCopy(ren, assets["wheat"][2], &src, &dest);
+            }
+            if(type == 5)
+            {
+                SDL_RenderCopy(ren, assets["wheat"][3], &src, &dest);
+            }
+            if(type == 6)
+            {
+                SDL_RenderCopy(ren, assets["wheat"][4], &src, &dest);
+            }
+            if(type == 7)
+            {
+                SDL_RenderCopy(ren, assets["wheat"][5], &src, &dest);
+            }
+
         }
     }
 }

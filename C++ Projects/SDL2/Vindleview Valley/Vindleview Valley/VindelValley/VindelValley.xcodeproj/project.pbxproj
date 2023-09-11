@@ -16,6 +16,7 @@
 		AEBFE0DC2AAE8ADA00E99C79 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0D22AAE8ADA00E99C79 /* TextureManager.cpp */; };
 		AEBFE0DD2AAE8ADA00E99C79 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0D32AAE8ADA00E99C79 /* Player.cpp */; };
 		AEBFE0DE2AAE8ADA00E99C79 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0D42AAE8ADA00E99C79 /* Main.cpp */; };
+		AEBFE0E12AAED7E000E99C79 /* Plant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0E02AAED7DF00E99C79 /* Plant.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,8 @@
 		AEBFE0D52AAE8ADA00E99C79 /* RenderWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RenderWindow.h; path = ../../RenderWindow.h; sourceTree = "<group>"; };
 		AEBFE0D62AAE8ADA00E99C79 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entity.h; path = ../../Entity.h; sourceTree = "<group>"; };
 		AEBFE0D72AAE8ADA00E99C79 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureManager.h; path = ../../TextureManager.h; sourceTree = "<group>"; };
+		AEBFE0DF2AAED7C800E99C79 /* Plant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Plant.h; path = ../../Plant.h; sourceTree = "<group>"; };
+		AEBFE0E02AAED7DF00E99C79 /* Plant.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Plant.cpp; path = ../../Plant.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				AEBFE0D72AAE8ADA00E99C79 /* TextureManager.h */,
 				AEBFE0CD2AAE8ADA00E99C79 /* Tilemap.cpp */,
 				AEBFE0D12AAE8ADA00E99C79 /* Tilemap.h */,
+				AEBFE0DF2AAED7C800E99C79 /* Plant.h */,
+				AEBFE0E02AAED7DF00E99C79 /* Plant.cpp */,
 			);
 			path = VindelValley;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEBFE0DB2AAE8ADA00E99C79 /* Entity.cpp in Sources */,
+				AEBFE0E12AAED7E000E99C79 /* Plant.cpp in Sources */,
 				AEBFE0DE2AAE8ADA00E99C79 /* Main.cpp in Sources */,
 				AEBFE0DA2AAE8ADA00E99C79 /* Tilemap.cpp in Sources */,
 				AEBFE0DD2AAE8ADA00E99C79 /* Player.cpp in Sources */,

@@ -11,6 +11,7 @@
 #include "Animation.h"
 #include "Tilemap.h"
 #include "Player.h"
+#include "Plant.h"
 
 int grass[20][25] = {
     { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
@@ -179,6 +180,9 @@ int main(int argc, char* argv[])
     
     Tilemap plantTiles(assets);
     plantTiles.LoadMap(plants);
+    bool plant = false;
+    
+    std::vector<Plant> Plants;
 
 	bool movement[4] = {false, false, false, false};
 
@@ -267,7 +271,11 @@ int main(int argc, char* argv[])
 						if(player.getTool() == "hoe")
 							backGroundTilemap.setTile(mouseX, mouseY, 2);
                         if(player.getTool() == "wheat" && backGroundTilemap.getTile(mouseX, mouseY) == 2)
+                        {
                             plantTiles.setTile(mouseX, mouseY, 3);
+                            Plants.push_back(Plant(mouseX, mouseY, "wheat", 10, plantTiles));
+                            plant = true;
+                        }
 					}
 				}
 			}
@@ -286,7 +294,14 @@ int main(int argc, char* argv[])
 		window.render(cow, 4);
 		window.render(chicken, 2);
 		window.render(player, 4);
-
+        
+        /*
+        for (Plant plant : Plants)
+            plant.update();
+         */
+        if (plant == true)
+            Plants[0].update();
+         
 		SDL_GetMouseState(&mouseX, &mouseY);
 
 		SDL_Rect toolRect = { 0, 0, 64, 64 };
@@ -307,7 +322,6 @@ int main(int argc, char* argv[])
         {
             SDL_RenderCopy(window.renderer, wheat_icon, nullptr, &toolRect);
         }
-
 
 		SDL_Rect cursorRect = { mouseX, mouseY, 32, 32 };
 		SDL_RenderCopy(window.renderer, cursorTexture, nullptr, &cursorRect);

@@ -1,7 +1,7 @@
 #include "Plant.h"
 
-Plant::Plant(float p_x, float p_y, std::string p_type, int gTime, Tilemap plantMap)
-    : x(p_x), y(p_y), type(p_type), growTime(gTime), tilemap(plantMap)
+Plant::Plant(float p_x, float p_y, std::string p_type, int gTime, Tilemap* plantMap)
+    : x(p_x), y(p_y), type(p_type), growTime(gTime), tilemap(plantMap), lastUpdateTime(SDL_GetTicks())
 {
     if (type == "wheat")
     {
@@ -9,31 +9,25 @@ Plant::Plant(float p_x, float p_y, std::string p_type, int gTime, Tilemap plantM
     }
     
     stage = startStage;
-    growTimer = growTime;
 }
 
 void Plant::grow()
 {
     int newStage;
-    newStage = std::min(7, stage + 1);
+    newStage = std::min(6, stage + 1);
     
-    //std::cout << newStage << std::endl;
-    
-    //std::cout << tilemap.getTile(x, y) << std::endl;
-    
-    tilemap.setTile(x, y, newStage);
-    growTimer = growTime;
+    tilemap->setTile(x, y, newStage);
     
     stage += 1;
+    
+    lastUpdateTime = currentTime;
 }
 
 void Plant::update()
 {
-    growTimer -= 1;
+    currentTime = SDL_GetTicks();
     
-    //std::cout << growTimer << std::endl;
-    
-    if (growTimer <= 0)
+    if (currentTime - lastUpdateTime > growTime)
     {
         grow();
     }

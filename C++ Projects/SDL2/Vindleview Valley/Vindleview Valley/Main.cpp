@@ -273,7 +273,7 @@ int main(int argc, char* argv[])
                         if(player.getTool() == "wheat" && backGroundTilemap.getTile(mouseX, mouseY) == 2)
                         {
                             plantTiles.setTile(mouseX, mouseY, 3);
-                            Plants.push_back(Plant(mouseX, mouseY, "wheat", 10, plantTiles));
+                            Plants.push_back(Plant(mouseX, mouseY, "wheat", 1000, &plantTiles));
                             plant = true;
                         }
 					}
@@ -295,12 +295,10 @@ int main(int argc, char* argv[])
 		window.render(chicken, 2);
 		window.render(player, 4);
         
-        /*
-        for (Plant plant : Plants)
+        
+        for (Plant& plant : Plants)
             plant.update();
-         */
-        if (plant == true)
-            Plants[0].update();
+         
          
 		SDL_GetMouseState(&mouseX, &mouseY);
 

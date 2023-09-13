@@ -129,8 +129,8 @@ class Game():
             self.timer += 1
             self.display.fill((0, 0, 0, 0))
             self.display_2.blit(self.assets['background'], (0,0))
-            text_surface = self.font.render(str(self.timer), True, (255, 255, 255))
-            score_surface = self.font.render("Highscore: " + str(self.highscore), True, (255, 255, 255))
+            text_surface = self.font.render(str(self.timer/100), True, (255, 255, 255))
+            score_surface = self.font.render("Highscore: " + str(self.highscore/100), True, (255, 255, 255))
 
             self.screenshake = max(0, self.screenshake - 1)
 
@@ -142,7 +142,7 @@ class Game():
                         self.load_level(self.level)
                     else:
                         self.save_highscore()
-                        print("You Win!. Time: " + str(self.timer))
+                        print("You Win!. Time: " + str(self.timer/100))
                         break
             if self.transition < 0:
                 self.transition += 1

@@ -7,6 +7,10 @@ Plant::Plant(float p_x, float p_y, std::string p_type, int gTime, Tilemap* plant
     {
         startStage = 3;
     }
+    if (type == "beet")
+    {
+        startStage = 7;
+    }
     
     stage = startStage;
 }

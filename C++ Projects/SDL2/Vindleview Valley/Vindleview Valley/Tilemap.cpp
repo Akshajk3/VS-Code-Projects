@@ -52,7 +52,7 @@ void Tilemap::DrawMap(SDL_Renderer* ren)
             }
             if(type == 7)
             {
-                SDL_RenderCopy(ren, assets["wheat"][5], &src, &dest);
+                SDL_RenderCopy(ren, assets["beet"][1], &src, &dest);
             }
 
         }

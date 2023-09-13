@@ -270,7 +270,7 @@ int main(int argc, char* argv[])
 
 						if(player.getTool() == "hoe")
 							backGroundTilemap.setTile(mouseX, mouseY, 2);
-                        if(player.getTool() == "wheat" && backGroundTilemap.getTile(mouseX, mouseY) == 2)
+                        if(player.getTool() == "wheat" && backGroundTilemap.getTile(mouseX, mouseY) == 2 && plantTiles.getTile(mouseX, mouseY) == 0)
                         {
                             plantTiles.setTile(mouseX, mouseY, 3);
                             Plants.push_back(Plant(mouseX, mouseY, "wheat", 1000, &plantTiles));

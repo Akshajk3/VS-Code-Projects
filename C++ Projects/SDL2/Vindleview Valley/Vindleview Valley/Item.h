@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <iostream>
 #include <string>
 
@@ -10,7 +11,7 @@ public:
     Item(float p_x, float p_y, std::string p_type, float animSpeed, SDL_Texture* p_tex);
     
     void update();
-    void render();
+    void render(SDL_Renderer* renderer);
     
 private:
     float x, y;

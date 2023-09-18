@@ -12,6 +12,7 @@
 #include "Tilemap.h"
 #include "Player.h"
 #include "Plant.h"
+#include "Item.h"
 
 int grass[20][25] = {
     { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
@@ -203,9 +204,9 @@ int main(int argc, char* argv[])
     
     Tilemap plantTiles(assets);
     plantTiles.LoadMap(plants);
-    bool plant = false;
     
     std::vector<Plant> Plants;
+    std::vector<Item> Items;
 
 	bool movement[4] = {false, false, false, false};
 
@@ -297,10 +298,18 @@ int main(int argc, char* argv[])
                         {
                             plantTiles.setTile(mouseX, mouseY, 3);
                             Plants.push_back(Plant(mouseX, mouseY, "wheat", 5000, &plantTiles));
-                            plant = true;
                         }
 					}
 				}
+                if (event.button.button == SDL_BUTTON_RIGHT)
+                {
+                    if(player.getTool() == "hoe" && plantTiles.getTile(mouseX, mouseY) == 6)
+                    {
+                        plantTiles.setTile(mouseX, mouseY, 0);
+                        Items.push_back(Item(mouseX, mouseY, "Wheat", 0.1, assets["wheat"][5]));
+                        Plants.pop_back();
+                    }
+                }
 			}
 		}
 
@@ -321,6 +330,12 @@ int main(int argc, char* argv[])
         
         for (Plant& plant : Plants)
             plant.update();
+        
+        for (Item& item : Items)
+        {
+            item.update();
+            item.render(window.renderer);
+        }
          
          
 		SDL_GetMouseState(&mouseX, &mouseY);

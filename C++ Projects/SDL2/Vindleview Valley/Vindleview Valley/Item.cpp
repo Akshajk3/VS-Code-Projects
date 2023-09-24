@@ -24,18 +24,14 @@ void Item::update()
         dest.y += bobSpeed;
         y += bobSpeed;
     }
-    
-    if (y < initialYPos - 1)
-    {
-        bobUp = false;
-    }
-    else if (y > initialYPos + 1)
-    {
-        bobUp = true;
-    }
+
+    itemTimer += 1;
 }
 
-void Item::render(SDL_Renderer* renderer)
+void Item::render(SDL_Renderer* renderer, int offset[2])
 {
+    dest.x - offset[0];
+    dest.y - offset[1];
+
     SDL_RenderCopy(renderer, texture, &src, &dest);
 }

@@ -13,7 +13,7 @@ Tilemap::Tilemap(std::map<std::string, std::vector<SDL_Texture*>> sprites)
     dest.y = 0;
 }
 
-void Tilemap::DrawMap(SDL_Renderer* ren)
+void Tilemap::DrawMap(SDL_Renderer* ren, int offset[2])
 {
     int type = 0;
 
@@ -23,8 +23,8 @@ void Tilemap::DrawMap(SDL_Renderer* ren)
         {
             type = map[row][col];
 
-            dest.x = col * 32;
-            dest.y = row * 32;
+            dest.x = col * 32 - offset[0];
+            dest.y = row * 32 - offset[1];
 
             if (type == 1)
             {
@@ -54,7 +54,22 @@ void Tilemap::DrawMap(SDL_Renderer* ren)
             {
                 SDL_RenderCopy(ren, assets["beet"][1], &src, &dest);
             }
-
+            if (type == 8)
+            {
+                SDL_RenderCopy(ren, assets["beet"][2], &src, &dest);
+            }
+            if (type == 9)
+            {
+                SDL_RenderCopy(ren, assets["beet"][3], &src, &dest);
+            }
+            if (type == 10)
+            {
+                SDL_RenderCopy(ren, assets["beet"][4], &src, &dest);
+            }
+            if (type == 11)
+            {
+                SDL_RenderCopy(ren, assets["trees"][0], &src, &dest);
+            }
         }
     }
 }

@@ -34,30 +34,30 @@ int grass[20][25] = {
     { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
     { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
     { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+    { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
 };
 
 int plants[20][25] = {
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-    { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 };
 
 int trees[20][25] = {
@@ -65,7 +65,7 @@ int trees[20][25] = {
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
@@ -82,6 +82,12 @@ int trees[20][25] = {
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 };
+
+const int displayWidth = 800;
+const int displayHeight = 600;
+
+const int worldWidth = 100;
+const int worldHeight = 100;
 
 int main(int argc, char* argv[])
 {
@@ -103,7 +109,7 @@ int main(int argc, char* argv[])
 	Uint32 frameStart;
 	int frameTime;
 
-	RenderWindow window("Vindleview Valley", 800, 600);
+	RenderWindow window("Vindleview Valley", displayWidth, displayHeight);
 
 	TextureManager textureManager;
 
@@ -147,9 +153,12 @@ int main(int argc, char* argv[])
 	assetPaths["axe"] = ("Assets/Objects/images/Basic tools and meterials_1.png");
 	assetPaths["water"] = ("Assets/Objects/images/Basic tools and meterials_0.png");
     assetPaths["wheatBag"] = ("Assets/Objects/images/wheat/00.png");
+    assetPaths["beetBag"] = ("Assets/Objects/images/beet/00.png");
     
 // Plant Asests Paths
     assetPaths["wheat"] = ("Assets/Objects/images/wheat");
+	assetPaths["beet"] = ("Assets/Objects/images/beet");
+	assetPaths["tree1"] = ("Assets/Objects/images/trees1");
 	
 // Player Assets
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
@@ -188,9 +197,11 @@ int main(int argc, char* argv[])
 	SDL_Texture* axe_icon = textureManager.loadTexture(assetPaths["axe"].c_str(), window.renderer);
 	SDL_Texture* water_icon = textureManager.loadTexture(assetPaths["water"].c_str(), window.renderer);
     SDL_Texture* wheat_icon = textureManager.loadTexture(assetPaths["wheatBag"].c_str(), window.renderer);
+    SDL_Texture* beet_icon = textureManager.loadTexture(assetPaths["beetBag"].c_str(), window.renderer);
 
 // Plant Assets
     assets["wheat"] = textureManager.loadTextures(assetPaths["wheat"], window.renderer);
+	assets["beet"] = textureManager.loadTextures(assetPaths["beet"], window.renderer);
 
 	SDL_ShowCursor(SDL_DISABLE);
 
@@ -204,6 +215,9 @@ int main(int argc, char* argv[])
     
     Tilemap plantTiles(assets);
     plantTiles.LoadMap(plants);
+
+	Tilemap treeTiles(assets);
+	treeTiles.LoadMap(trees);
     
     std::vector<Plant> Plants;
     std::vector<Item> Items;
@@ -212,6 +226,8 @@ int main(int argc, char* argv[])
 
 	int mouseX;
 	int	mouseY;
+
+	double scroll[2] = { 0, 0 };
 
 	bool isRunning = true;
 
@@ -263,6 +279,10 @@ int main(int argc, char* argv[])
                 {
                     player.setTool("wheat");
                 }
+				if (keyCode == SDLK_5)
+				{
+					player.setTool("beet");
+				}
 			}
 			if (event.type == SDL_KEYUP)
 			{
@@ -294,11 +314,16 @@ int main(int argc, char* argv[])
 
 						if(player.getTool() == "hoe")
 							backGroundTilemap.setTile(mouseX, mouseY, 2);
-                        if(player.getTool() == "wheat" && backGroundTilemap.getTile(mouseX, mouseY) == 2 && plantTiles.getTile(mouseX, mouseY) == 0)
-                        {
-                            plantTiles.setTile(mouseX, mouseY, 3);
-                            Plants.push_back(Plant(mouseX, mouseY, "wheat", 5000, &plantTiles));
-                        }
+						if (player.getTool() == "wheat" && backGroundTilemap.getTile(mouseX, mouseY) == 2 && plantTiles.getTile(mouseX, mouseY) == 0)
+						{
+							plantTiles.setTile(mouseX, mouseY, 3);
+							Plants.push_back(Plant(mouseX, mouseY, "wheat", 5000, &plantTiles));
+						}
+						if (player.getTool() == "beet" && backGroundTilemap.getTile(mouseX, mouseY) == 2 && plantTiles.getTile(mouseX, mouseY) == 0)
+						{
+							plantTiles.setTile(mouseX, mouseY, 7);
+							Plants.push_back(Plant(mouseX, mouseY, "beet", 5000, &plantTiles));
+						}
 					}
 				}
                 if (event.button.button == SDL_BUTTON_RIGHT)
@@ -306,26 +331,39 @@ int main(int argc, char* argv[])
                     if(player.getTool() == "hoe" && plantTiles.getTile(mouseX, mouseY) == 6)
                     {
                         plantTiles.setTile(mouseX, mouseY, 0);
-                        Items.push_back(Item(mouseX, mouseY, "Wheat", 0.1, assets["wheat"][5]));
+                        Items.push_back(Item(mouseX, mouseY, "Wheat", 0, assets["wheat"][5]));
                         Plants.pop_back();
                     }
+					if (player.getTool() == "hoe" && plantTiles.getTile(mouseX, mouseY) == 10)
+					{
+						plantTiles.setTile(mouseX, mouseY, 0);
+						Items.push_back(Item(mouseX, mouseY, "Beet", 0, assets["beet"][5]));
+						Plants.pop_back();
+					}
                 }
 			}
 		}
 
 		int move[2] = { movement[0] - movement[1], movement[2] - movement[3] };
 
+		scroll[0] = (player.getX() * 5 + (player.getCurrentFrame().w / 2) - displayWidth / 2) - scroll[0];
+		scroll[1] = (player.getY() * 5 + (player.getCurrentFrame().h / 2) - displayHeight / 2) - scroll[1];
+
+		int render_scroll[2] = { static_cast<int>(scroll[0]), static_cast<int>(scroll[1]) };
+
 		//std::cout << "Player X: " << player.getX() << std::endl;
 		//std::cout << "Player Y: " << player.getY() << std::endl;
+
+		int scroll[2] = { 0, 0 };
 
 		window.clear();
 		player.update(move);
 		cow.update();
-		backGroundTilemap.DrawMap(window.renderer);
-        plantTiles.DrawMap(window.renderer);
-		window.render(cow, 4);
-		window.render(chicken, 2);
-		window.render(player, 4);
+		backGroundTilemap.DrawMap(window.renderer, scroll);
+        plantTiles.DrawMap(window.renderer, scroll);
+		window.render(cow, 4, scroll);
+		window.render(chicken, 2, scroll);
+		window.render(player, 4, scroll);
         
         
         for (Plant& plant : Plants)
@@ -334,7 +372,7 @@ int main(int argc, char* argv[])
         for (Item& item : Items)
         {
             item.update();
-            item.render(window.renderer);
+            item.render(window.renderer, render_scroll);
         }
          
          
@@ -354,10 +392,14 @@ int main(int argc, char* argv[])
 		{
 			SDL_RenderCopy(window.renderer, water_icon, nullptr, &toolRect);
 		}
-        if(player.getTool() == "wheat")
+        if (player.getTool() == "wheat")
         {
             SDL_RenderCopy(window.renderer, wheat_icon, nullptr, &toolRect);
         }
+		if (player.getTool() == "beet")
+		{
+			SDL_RenderCopy(window.renderer, beet_icon, nullptr, &toolRect);
+		}
 
 		SDL_Rect cursorRect = { mouseX, mouseY, 32, 32 };
 		SDL_RenderCopy(window.renderer, cursorTexture, nullptr, &cursorRect);

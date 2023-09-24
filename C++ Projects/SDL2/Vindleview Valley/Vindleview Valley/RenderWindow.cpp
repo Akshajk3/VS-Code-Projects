@@ -39,8 +39,8 @@ void RenderWindow::clear()
 	SDL_RenderClear(renderer);
 }
 
-void RenderWindow::render(Entity& entity, int entityScale)
-{
+void RenderWindow::render(Entity& entity, int entityScale, int offset[2])
+{	
 	SDL_Rect src;
 	src.x = entity.getCurrentFrame().x;
 	src.y = entity.getCurrentFrame().y;
@@ -48,8 +48,8 @@ void RenderWindow::render(Entity& entity, int entityScale)
 	src.h = entity.getCurrentFrame().h;
 
 	SDL_Rect dest;
-	dest.x = entity.getX() * entityScale;
-	dest.y = entity.getY() * entityScale;
+	dest.x = entity.getX() * entityScale + offset[0];
+	dest.y = entity.getY() * entityScale + offset[1];
 	dest.w = entity.getCurrentFrame().w * entityScale;
 	dest.h = entity.getCurrentFrame().h * entityScale;
 

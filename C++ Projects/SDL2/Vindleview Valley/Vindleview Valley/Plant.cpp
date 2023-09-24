@@ -18,7 +18,7 @@ Plant::Plant(float p_x, float p_y, std::string p_type, int gTime, Tilemap* plant
 void Plant::grow()
 {
     int newStage;
-    newStage = std::min(6, stage + 1);
+    newStage = std::min(startStage + 3, stage + 1);
     
     tilemap->setTile(x, y, newStage);
     

@@ -144,6 +144,7 @@
     <ClCompile Include="RenderWindow.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tilemap.cpp" />
+    <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="RenderWindow.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tilemap.h" />
+    <ClInclude Include="Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

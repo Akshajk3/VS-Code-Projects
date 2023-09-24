@@ -68,7 +68,7 @@ void Tilemap::DrawMap(SDL_Renderer* ren, int offset[2])
             }
             if (type == 11)
             {
-                SDL_RenderCopy(ren, assets["trees"][0], &src, &dest);
+                SDL_RenderCopy(ren, assets["tree1"][2], &src, &dest);
             }
         }
     }

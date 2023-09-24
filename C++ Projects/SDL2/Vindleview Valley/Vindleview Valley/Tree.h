@@ -1,0 +1,25 @@
+#pragma once
+
+#include <SDL2/SDL.h>
+#include <vector>
+#include <map>
+#include <string>
+
+class Tree
+{
+public:
+	Tree(int p_x, int p_y, int type, std::vector<SDL_Texture*> sprites, SDL_Renderer* ren);
+
+	void render();
+	void takeDamage();
+	void die();
+	bool checkClick(SDL_Rect mouseRect);
+
+private:
+	int health = 3;
+	std::vector<SDL_Texture*> assets;
+	int x, y;
+	int type;
+	SDL_Rect src, dest;
+	SDL_Renderer* renderer;
+};

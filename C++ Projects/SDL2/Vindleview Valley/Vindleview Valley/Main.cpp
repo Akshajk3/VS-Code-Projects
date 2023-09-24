@@ -13,6 +13,7 @@
 #include "Player.h"
 #include "Plant.h"
 #include "Item.h"
+#include "Tree.h"
 
 int grass[20][25] = {
     { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
@@ -65,7 +66,7 @@ int trees[20][25] = {
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
@@ -158,7 +159,10 @@ int main(int argc, char* argv[])
 // Plant Asests Paths
     assetPaths["wheat"] = ("Assets/Objects/images/wheat");
 	assetPaths["beet"] = ("Assets/Objects/images/beet");
+
+// Tree Asset Paths
 	assetPaths["tree1"] = ("Assets/Objects/images/trees1");
+	assetPaths["tree2"] = ("Assets/Objects/images/trees2");
 	
 // Player Assets
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
@@ -203,6 +207,10 @@ int main(int argc, char* argv[])
     assets["wheat"] = textureManager.loadTextures(assetPaths["wheat"], window.renderer);
 	assets["beet"] = textureManager.loadTextures(assetPaths["beet"], window.renderer);
 
+// Tree Assets
+	assets["tree1"] = textureManager.loadTextures(assetPaths["tree1"], window.renderer);
+	assets["tree2"] = textureManager.loadTextures(assetPaths["tree2"], window.renderer);
+
 	SDL_ShowCursor(SDL_DISABLE);
 
 	Player player(0, 0, window.renderer, assets);
@@ -216,8 +224,11 @@ int main(int argc, char* argv[])
     Tilemap plantTiles(assets);
     plantTiles.LoadMap(plants);
 
-	Tilemap treeTiles(assets);
-	treeTiles.LoadMap(trees);
+	//Tilemap treeTiles(assets);
+	//treeTiles.LoadMap(trees);
+
+	Tree tree(50, 50, 0, assets["tree1"], window.renderer);
+	//tree.die();
     
     std::vector<Plant> Plants;
     std::vector<Item> Items;
@@ -236,6 +247,10 @@ int main(int argc, char* argv[])
 	while (isRunning)
 	{
 		frameStart = SDL_GetTicks();
+
+		SDL_GetMouseState(&mouseX, &mouseY);
+
+		SDL_Rect cursorRect = { mouseX, mouseY, 32, 32 };
 
 		while (SDL_PollEvent(&event))
 		{
@@ -324,6 +339,10 @@ int main(int argc, char* argv[])
 							plantTiles.setTile(mouseX, mouseY, 7);
 							Plants.push_back(Plant(mouseX, mouseY, "beet", 5000, &plantTiles));
 						}
+						if (player.getTool() == "axe" && tree.checkClick(cursorRect))
+						{
+							tree.die();
+						}
 					}
 				}
                 if (event.button.button == SDL_BUTTON_RIGHT)
@@ -361,6 +380,7 @@ int main(int argc, char* argv[])
 		cow.update();
 		backGroundTilemap.DrawMap(window.renderer, scroll);
         plantTiles.DrawMap(window.renderer, scroll);
+		tree.render();
 		window.render(cow, 4, scroll);
 		window.render(chicken, 2, scroll);
 		window.render(player, 4, scroll);
@@ -374,9 +394,6 @@ int main(int argc, char* argv[])
             item.update();
             item.render(window.renderer, render_scroll);
         }
-         
-         
-		SDL_GetMouseState(&mouseX, &mouseY);
 
 		SDL_Rect toolRect = { 0, 0, 64, 64 };
 
@@ -401,7 +418,6 @@ int main(int argc, char* argv[])
 			SDL_RenderCopy(window.renderer, beet_icon, nullptr, &toolRect);
 		}
 
-		SDL_Rect cursorRect = { mouseX, mouseY, 32, 32 };
 		SDL_RenderCopy(window.renderer, cursorTexture, nullptr, &cursorRect);
 
 		//std::cout << tilemap.getTile(mouseX, mouseY);

@@ -31,6 +31,6 @@ void Tree::die()
 	type = 2;
 	src.w = dest.w = 8 * 5;
 	src.h = dest.h = 10 * 5;
-	src.x = dest.x;
+	src.x = 0;
 	src.y = 0;
 }

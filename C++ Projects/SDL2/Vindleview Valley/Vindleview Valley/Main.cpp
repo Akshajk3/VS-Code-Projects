@@ -163,6 +163,12 @@ int main(int argc, char* argv[])
 // Tree Asset Paths
 	assetPaths["tree1"] = ("Assets/Objects/images/trees1");
 	assetPaths["tree2"] = ("Assets/Objects/images/trees2");
+
+// Item Asset Paths
+	assetPaths["wood"] = ("Assets/Objects/images/wood");
+
+// Mouse Asset Paths
+	assetPaths["cursor"] = ("Assets/Mouse_sprites");
 	
 // Player Assets
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
@@ -196,12 +202,12 @@ int main(int argc, char* argv[])
 	assets["till"] = textureManager.loadTextures(assetPaths["till"], window.renderer);
 
 // UI Assets
-	SDL_Texture* cursorTexture = textureManager.loadTexture("Assets/Mouse_sprites/Cursor_1.png", window.renderer);
+	SDL_Texture* cursorTexture = textureManager.loadTexture("Assets/Mouse_sprites/03.png", window.renderer);
 	SDL_Texture* hoe_icon = textureManager.loadTexture(assetPaths["hoe"].c_str(), window.renderer);
 	SDL_Texture* axe_icon = textureManager.loadTexture(assetPaths["axe"].c_str(), window.renderer);
 	SDL_Texture* water_icon = textureManager.loadTexture(assetPaths["water"].c_str(), window.renderer);
     SDL_Texture* wheat_icon = textureManager.loadTexture(assetPaths["wheatBag"].c_str(), window.renderer);
-    SDL_Texture* beet_icon = textureManager.loadTexture(assetPaths["beetBag"].c_str(), window.renderer);
+	SDL_Texture* beet_icon = textureManager.loadTexture(assetPaths["beetBag"].c_str(), window.renderer);
 
 // Plant Assets
     assets["wheat"] = textureManager.loadTextures(assetPaths["wheat"], window.renderer);
@@ -211,9 +217,15 @@ int main(int argc, char* argv[])
 	assets["tree1"] = textureManager.loadTextures(assetPaths["tree1"], window.renderer);
 	assets["tree2"] = textureManager.loadTextures(assetPaths["tree2"], window.renderer);
 
+// Item Assets
+	assets["wood"] = textureManager.loadTextures(assetPaths["wood"], window.renderer);
+
+// Mouse Assets
+	assets["cursor"] = textureManager.loadTextures(assetPaths["cursor"], window.renderer);
+
 	SDL_ShowCursor(SDL_DISABLE);
 
-	Player player(0, 0, window.renderer, assets);
+	Player player(25, 25, window.renderer, assets);
 	
 	Entity cow(100, 10, window.renderer, "cow", assets);
 	Entity chicken(100, 100, window.renderer, "chicken", assets);
@@ -227,7 +239,7 @@ int main(int argc, char* argv[])
 	//Tilemap treeTiles(assets);
 	//treeTiles.LoadMap(trees);
 
-	Tree tree(50, 50, 0, assets["tree1"], window.renderer);
+	Tree tree(500, 500, 0, assets["tree1"], window.renderer);
 	//tree.die();
     
     std::vector<Plant> Plants;
@@ -239,6 +251,8 @@ int main(int argc, char* argv[])
 	int	mouseY;
 
 	double scroll[2] = { 0, 0 };
+
+	bool selecting = false;
 
 	bool isRunning = true;
 
@@ -323,7 +337,7 @@ int main(int argc, char* argv[])
 			{
 				if (event.button.button == SDL_BUTTON_LEFT)
 				{
-					if (player.getTimer() == 0)
+					if (player.getTimer() == 0 && selecting == false)
 					{
 						player.act();
 
@@ -342,6 +356,7 @@ int main(int argc, char* argv[])
 						if (player.getTool() == "axe" && tree.checkClick(cursorRect))
 						{
 							tree.die();
+							Items.push_back(Item(tree.getX(), tree.getY() - 50, "wood", 0, assets["wood"][0], 1.5));
 						}
 					}
 				}
@@ -380,10 +395,10 @@ int main(int argc, char* argv[])
 		cow.update();
 		backGroundTilemap.DrawMap(window.renderer, scroll);
         plantTiles.DrawMap(window.renderer, scroll);
-		tree.render();
 		window.render(cow, 4, scroll);
 		window.render(chicken, 2, scroll);
 		window.render(player, 4, scroll);
+		tree.render();
         
         
         for (Plant& plant : Plants)
@@ -393,6 +408,16 @@ int main(int argc, char* argv[])
         {
             item.update();
             item.render(window.renderer, render_scroll);
+			if (item.checkMouse(cursorRect))
+			{
+				cursorTexture = assets["cursor"][2];
+				selecting = true;
+			}
+			else
+			{
+				cursorTexture = assets["cursor"][3];
+				selecting = false;
+			}
         }
 
 		SDL_Rect toolRect = { 0, 0, 64, 64 };

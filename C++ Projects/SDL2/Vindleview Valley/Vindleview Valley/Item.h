@@ -8,10 +8,11 @@
 class Item
 {
 public:
-    Item(float p_x, float p_y, std::string p_type, float animSpeed, SDL_Texture* p_tex);
+    Item(float p_x, float p_y, std::string p_type, float animSpeed, SDL_Texture* p_tex, float scale = 1);
     
     void update();
     void render(SDL_Renderer* renderer, int offset[2]);
+    bool checkMouse(SDL_Rect mouseRect);
     
 private:
     float x, y;

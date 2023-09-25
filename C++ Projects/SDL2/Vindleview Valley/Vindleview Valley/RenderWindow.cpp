@@ -41,15 +41,21 @@ void RenderWindow::clear()
 
 void RenderWindow::render(Entity& entity, int entityScale, int offset[2])
 {	
+	int screenWidth = 800;
+	int screenHeight = 600;
+
 	SDL_Rect src;
 	src.x = entity.getCurrentFrame().x;
 	src.y = entity.getCurrentFrame().y;
 	src.w = entity.getCurrentFrame().w;
 	src.h = entity.getCurrentFrame().h;
 
+	int entityWidth = entity.getCurrentFrame().w * entityScale;
+	int entityHeight = entity.getCurrentFrame().h * entityScale;
+
 	SDL_Rect dest;
-	dest.x = entity.getX() * entityScale + offset[0];
-	dest.y = entity.getY() * entityScale + offset[1];
+	dest.x = entity.getX() * entityScale - entityWidth / 2 + offset[0];
+	dest.y = entity.getY() * entityScale - entityHeight / 2 + offset[1];
 	dest.w = entity.getCurrentFrame().w * entityScale;
 	dest.h = entity.getCurrentFrame().h * entityScale;
 

@@ -13,6 +13,8 @@ public:
 	void render();
 	void takeDamage();
 	void die();
+	int getX();
+	int getY();
 	bool checkClick(SDL_Rect mouseRect);
 
 private:

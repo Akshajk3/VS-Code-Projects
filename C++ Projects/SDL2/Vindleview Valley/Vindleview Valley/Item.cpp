@@ -1,15 +1,15 @@
 #include "Item.h"
 
-Item::Item(float p_x, float p_y, std::string p_type, float animSpeed, SDL_Texture* tex)
+Item::Item(float p_x, float p_y, std::string p_type, float animSpeed, SDL_Texture* tex, float scale)
     : x(p_x), y(p_y), type(p_type), bobSpeed(animSpeed), texture(tex)
 {
     src.x = 0;
     src.y = 0;
     
-    src.w = dest.w = 32;
-    src.h = dest.h = 32;
-    dest.x = x;
-    dest.y = y;
+    src.w = dest.w = 32 * scale;
+    src.h = dest.h = 32 * scale;
+    dest.x = x - (src.w / 2);
+    dest.y = y - (src.h / 2);
 }
 
 void Item::update()
@@ -34,4 +34,12 @@ void Item::render(SDL_Renderer* renderer, int offset[2])
     dest.y - offset[1];
 
     SDL_RenderCopy(renderer, texture, &src, &dest);
+}
+
+bool Item::checkMouse(SDL_Rect mouseRect)
+{
+    return (mouseRect.x < dest.x + dest.w &&
+        mouseRect.x + mouseRect.w > dest.x &&
+        mouseRect.y < dest.y + dest.h &&
+        mouseRect.y + mouseRect.h > dest.y);
 }

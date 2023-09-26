@@ -8,7 +8,20 @@ Animation::Animation(std::vector<SDL_Texture*> textures, int img_dur, bool loop)
 
 void Animation::update()
 {
-	frame = (frame + 1) % (image_duration * images.size());
+	if (loop)
+		frame = (frame + 1) % (image_duration * images.size());
+	else
+	{
+		if (frame >= image_duration * images.size() - 1) 
+		{
+			done = true;
+		}
+		else 
+		{
+			int image_size = images.size();
+			frame = std::min(frame + 1, image_duration * image_size - 1);
+		}
+	}
 }
 
 SDL_Texture* Animation::img()

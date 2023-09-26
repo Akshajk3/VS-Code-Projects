@@ -14,6 +14,7 @@
 #include "Plant.h"
 #include "Item.h"
 #include "Tree.h"
+#include "Particle.h"
 
 int grass[20][25] = {
     { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
@@ -169,6 +170,9 @@ int main(int argc, char* argv[])
 
 // Mouse Asset Paths
 	assetPaths["cursor"] = ("Assets/Mouse_sprites");
+
+// Particle Asset Paths
+	assetPaths["smoke"] = ("Assets/Particles/Smoke");
 	
 // Player Assets
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
@@ -223,9 +227,12 @@ int main(int argc, char* argv[])
 // Mouse Assets
 	assets["cursor"] = textureManager.loadTextures(assetPaths["cursor"], window.renderer);
 
+// Particle Assets
+	assets["smoke"] = textureManager.loadTextures(assetPaths["smoke"], window.renderer);
+
 	SDL_ShowCursor(SDL_DISABLE);
 
-	Player player(25, 25, window.renderer, assets);
+	Player player(100, 75, window.renderer, assets);
 	
 	Entity cow(100, 10, window.renderer, "cow", assets);
 	Entity chicken(100, 100, window.renderer, "chicken", assets);
@@ -240,10 +247,10 @@ int main(int argc, char* argv[])
 	//treeTiles.LoadMap(trees);
 
 	Tree tree(500, 500, 0, assets["tree1"], window.renderer);
-	//tree.die();
     
     std::vector<Plant> Plants;
     std::vector<Item> Items;
+	std::vector<Particle> Particles;
 
 	bool movement[4] = {false, false, false, false};
 
@@ -356,6 +363,7 @@ int main(int argc, char* argv[])
 						if (player.getTool() == "axe" && tree.checkClick(cursorRect))
 						{
 							tree.die();
+							Particles.push_back(Particle(tree.getX(), tree.getY() - 100, assets["smoke"], window.renderer));
 							Items.push_back(Item(tree.getX(), tree.getY() - 50, "wood", 0, assets["wood"][0], 1.5));
 						}
 					}
@@ -393,6 +401,7 @@ int main(int argc, char* argv[])
 		window.clear();
 		player.update(move);
 		cow.update();
+		chicken.update();
 		backGroundTilemap.DrawMap(window.renderer, scroll);
         plantTiles.DrawMap(window.renderer, scroll);
 		window.render(cow, 4, scroll);
@@ -419,6 +428,22 @@ int main(int argc, char* argv[])
 				selecting = false;
 			}
         }
+
+		for (auto it = Particles.begin(); it != Particles.end();)
+		{
+			Particle& particle = *it;
+
+			particle.update();
+			particle.render();
+			if (particle.kill)
+			{
+				it = Particles.erase(it);
+			}
+			else
+			{
+				++it;
+			}
+		}
 
 		SDL_Rect toolRect = { 0, 0, 64, 64 };
 

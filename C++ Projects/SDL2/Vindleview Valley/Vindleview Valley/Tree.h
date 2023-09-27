@@ -17,6 +17,8 @@ public:
 	int getY();
 	bool checkClick(SDL_Rect mouseRect);
 
+	bool dead = false;
+
 private:
 	int health = 3;
 	std::vector<SDL_Texture*> assets;

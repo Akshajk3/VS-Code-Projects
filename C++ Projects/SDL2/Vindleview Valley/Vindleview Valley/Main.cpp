@@ -360,7 +360,7 @@ int main(int argc, char* argv[])
 							plantTiles.setTile(mouseX, mouseY, 7);
 							Plants.push_back(Plant(mouseX, mouseY, "beet", 5000, &plantTiles));
 						}
-						if (player.getTool() == "axe" && tree.checkClick(cursorRect))
+						if (player.getTool() == "axe" && tree.checkClick(cursorRect) && tree.dead == false)
 						{
 							tree.die();
 							Particles.push_back(Particle(tree.getX(), tree.getY() - 100, assets["smoke"], window.renderer));
@@ -406,8 +406,8 @@ int main(int argc, char* argv[])
         plantTiles.DrawMap(window.renderer, scroll);
 		window.render(cow, 4, scroll);
 		window.render(chicken, 2, scroll);
-		window.render(player, 4, scroll);
 		tree.render();
+		window.render(player, 4, scroll);
         
         
         for (Plant& plant : Plants)
@@ -428,6 +428,15 @@ int main(int argc, char* argv[])
 				selecting = false;
 			}
         }
+
+		if (tree.checkClick(cursorRect) && tree.dead == false)
+		{
+			cursorTexture = assets["cursor"][2];
+		}
+		else
+		{
+			cursorTexture = assets["cursor"][3];
+		}
 
 		for (auto it = Particles.begin(); it != Particles.end();)
 		{

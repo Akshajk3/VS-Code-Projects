@@ -42,4 +42,6 @@ void Tree::die()
 	src.h = dest.h = 10 * 5;
 	dest.x = x - (src.w / 2);
 	dest.y = y - (src.h / 2) + 40;
+
+	dead = true;
 }

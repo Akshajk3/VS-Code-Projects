@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AE84BAA12AB4C1BF00BB329A /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE84BAA02AB4C1BF00BB329A /* Item.cpp */; };
 		AEB8ABD22AC0F2E5002CC826 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB8ABD12AC0F2E4002CC826 /* Tree.cpp */; };
+		AEB8AC0E2AC3E33B002CC826 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB8AC0C2AC3E33B002CC826 /* Particle.cpp */; };
 		AEBFE0892AAE7FD000E99C79 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBFE0882AAE7FD000E99C79 /* libSDL2-2.0.0.dylib */; };
 		AEBFE08B2AAE7FDB00E99C79 /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBFE08A2AAE7FDB00E99C79 /* libSDL2_image-2.0.0.dylib */; };
 		AEBFE0D82AAE8ADA00E99C79 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBFE0CB2AAE8ADA00E99C79 /* Animation.cpp */; };
@@ -38,6 +39,8 @@
 		AE84BAA02AB4C1BF00BB329A /* Item.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Item.cpp; path = ../../Item.cpp; sourceTree = "<group>"; };
 		AEB8ABD02AC0F2E4002CC826 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tree.h; path = ../../Tree.h; sourceTree = "<group>"; };
 		AEB8ABD12AC0F2E4002CC826 /* Tree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tree.cpp; path = ../../Tree.cpp; sourceTree = "<group>"; };
+		AEB8AC0C2AC3E33B002CC826 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Particle.cpp; path = ../../Particle.cpp; sourceTree = "<group>"; };
+		AEB8AC0D2AC3E33B002CC826 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Particle.h; path = ../../Particle.h; sourceTree = "<group>"; };
 		AEBFE06C2AAE7AD900E99C79 /* VindelValley */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VindelValley; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBFE0882AAE7FD000E99C79 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../../../../opt/homebrew/Cellar/sdl2/2.28.2/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 		AEBFE08A2AAE7FDB00E99C79 /* libSDL2_image-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_image-2.0.0.dylib"; path = "../../../../../../../../../../opt/homebrew/Cellar/sdl2_image/2.6.3_2/lib/libSDL2_image-2.0.0.dylib"; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 		AEBFE06E2AAE7AD900E99C79 /* VindelValley */ = {
 			isa = PBXGroup;
 			children = (
+				AEB8AC0C2AC3E33B002CC826 /* Particle.cpp */,
+				AEB8AC0D2AC3E33B002CC826 /* Particle.h */,
 				AEB8ABD12AC0F2E4002CC826 /* Tree.cpp */,
 				AEB8ABD02AC0F2E4002CC826 /* Tree.h */,
 				AEBFE0CB2AAE8ADA00E99C79 /* Animation.cpp */,
@@ -181,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE84BAA12AB4C1BF00BB329A /* Item.cpp in Sources */,
+				AEB8AC0E2AC3E33B002CC826 /* Particle.cpp in Sources */,
 				AEBFE0DB2AAE8ADA00E99C79 /* Entity.cpp in Sources */,
 				AEBFE0E12AAED7E000E99C79 /* Plant.cpp in Sources */,
 				AEBFE0DE2AAE8ADA00E99C79 /* Main.cpp in Sources */,

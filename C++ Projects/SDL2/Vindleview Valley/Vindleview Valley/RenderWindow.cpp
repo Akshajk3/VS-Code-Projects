@@ -41,8 +41,8 @@ void RenderWindow::clear()
 
 void RenderWindow::render(Entity& entity, int entityScale, int offset[2])
 {	
-	int screenWidth = 800;
-	int screenHeight = 600;
+	//int screenWidth = 800;
+	//int screenHeight = 600;
 
 	SDL_Rect src;
 	src.x = entity.getCurrentFrame().x;

@@ -4,6 +4,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <random>
 
 #include "RenderWindow.h"
 #include "TextureManager.h"
@@ -90,6 +91,15 @@ const int displayHeight = 600;
 
 const int worldWidth = 100;
 const int worldHeight = 100;
+
+int randomRange(int min, int max)
+{
+    std::random_device rd;
+    std::mt19937 eng(rd());
+    std::uniform_int_distribution<> distr(min, max);
+    
+    return distr(eng);
+}
 
 int main(int argc, char* argv[])
 {
@@ -246,7 +256,10 @@ int main(int argc, char* argv[])
 	//Tilemap treeTiles(assets);
 	//treeTiles.LoadMap(trees);
 
-	Tree tree(500, 500, 0, assets["tree1"], window.renderer);
+    std::vector<Tree> Trees;
+    
+    for (int x = 0; x < 5; x++)
+        Trees.push_back(Tree(randomRange(50, 750), randomRange(100, 550), 0, assets["tree1"], window.renderer));
     
     std::vector<Plant> Plants;
     std::vector<Item> Items;
@@ -258,6 +271,8 @@ int main(int argc, char* argv[])
 	int	mouseY;
 
 	double scroll[2] = { 0, 0 };
+    
+    int wood = 0;
 
 	bool selecting = false;
 
@@ -268,6 +283,8 @@ int main(int argc, char* argv[])
 	while (isRunning)
 	{
 		frameStart = SDL_GetTicks();
+        
+        bool click = false;
 
 		SDL_GetMouseState(&mouseX, &mouseY);
 
@@ -360,13 +377,8 @@ int main(int argc, char* argv[])
 							plantTiles.setTile(mouseX, mouseY, 7);
 							Plants.push_back(Plant(mouseX, mouseY, "beet", 5000, &plantTiles));
 						}
-						if (player.getTool() == "axe" && tree.checkClick(cursorRect) && tree.dead == false)
-						{
-							tree.die();
-							Particles.push_back(Particle(tree.getX(), tree.getY() - 100, assets["smoke"], window.renderer));
-							Items.push_back(Item(tree.getX(), tree.getY() - 50, "wood", 0, assets["wood"][0], 1.5));
-						}
 					}
+                    click = true;
 				}
                 if (event.button.button == SDL_BUTTON_RIGHT)
                 {
@@ -396,7 +408,7 @@ int main(int argc, char* argv[])
 		//std::cout << "Player X: " << player.getX() << std::endl;
 		//std::cout << "Player Y: " << player.getY() << std::endl;
 
-		int scroll[2] = { 0, 0 };
+		int scroll[2] = {0, 0};
 
 		window.clear();
 		player.update(move);
@@ -406,53 +418,96 @@ int main(int argc, char* argv[])
         plantTiles.DrawMap(window.renderer, scroll);
 		window.render(cow, 4, scroll);
 		window.render(chicken, 2, scroll);
-		tree.render();
 		window.render(player, 4, scroll);
         
         
-        for (Plant& plant : Plants)
-            plant.update();
-        
-        for (Item& item : Items)
+        for (auto it = Plants.begin(); it != Plants.end();)
         {
+            Plant& plant = *it;
+            
+            plant.update();
+            
+            if (plantTiles.getTile(plant.getX(), plant.getY()) == 0)
+            {
+                it = Plants.erase(it);
+            }
+            else
+            {
+                ++it;
+            }
+        }
+        
+        bool collisionDectected = false;
+        selecting = false;
+        
+        
+        for (auto it = Items.begin(); it != Items.end();)
+        {
+            Item& item = *it;
+            
             item.update();
-            item.render(window.renderer, render_scroll);
-			if (item.checkMouse(cursorRect))
-			{
-				cursorTexture = assets["cursor"][2];
-				selecting = true;
-			}
-			else
-			{
-				cursorTexture = assets["cursor"][3];
-				selecting = false;
-			}
+            item.render(window.renderer, scroll);
+            if (item.checkMouse(cursorRect))
+            {
+                collisionDectected = true;
+                selecting = true;
+            }
+            
+            if (item.checkMouse(cursorRect) && click == true)
+            {
+                if (item.getType() == "wood")
+                    wood += 1;
+                    
+                it = Items.erase(it);
+                --it;
+            }
+            else
+            {
+                ++it;
+            }
+        }
+        
+        for (Tree& tree : Trees)
+        {
+            tree.render();
+            
+            if (tree.checkClick(cursorRect) && tree.dead == false)
+            {
+                collisionDectected = true;
+            }
+            
+            if (player.getTool() == "axe" && tree.checkClick(cursorRect) && tree.dead == false && click == true)
+            {
+                tree.die();
+                Particles.push_back(Particle(tree.getX(), tree.getY() - 100, assets["smoke"], window.renderer));
+                Items.push_back(Item(tree.getX(), tree.getY() - 50, "wood", 0, assets["wood"][0], 1.5));
+            }
         }
 
-		if (tree.checkClick(cursorRect) && tree.dead == false)
-		{
-			cursorTexture = assets["cursor"][2];
-		}
-		else
-		{
-			cursorTexture = assets["cursor"][3];
-		}
+        for (auto it = Particles.begin(); it != Particles.end();)
+        {
+            Particle& particle = *it;
 
-		for (auto it = Particles.begin(); it != Particles.end();)
-		{
-			Particle& particle = *it;
-
-			particle.update();
-			particle.render();
-			if (particle.kill)
-			{
-				it = Particles.erase(it);
-			}
-			else
-			{
-				++it;
-			}
-		}
+            particle.update();
+            particle.render();
+            if (particle.kill)
+            {
+                it = Particles.erase(it);
+            }
+            else
+            {
+                ++it;
+            }
+        }
+        
+        if (collisionDectected)
+        {
+            cursorTexture = assets["cursor"][2 ];
+        }
+        else
+        {
+            cursorTexture = assets["cursor"][3];
+        }
 
 		SDL_Rect toolRect = { 0, 0, 64, 64 };
 

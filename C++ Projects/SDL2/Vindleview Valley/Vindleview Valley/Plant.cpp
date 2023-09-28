@@ -36,3 +36,13 @@ void Plant::update()
         grow();
     }
 }
+
+int Plant::getX()
+{
+    return x;
+}
+
+int Plant::getY()
+{
+    return y;
+}

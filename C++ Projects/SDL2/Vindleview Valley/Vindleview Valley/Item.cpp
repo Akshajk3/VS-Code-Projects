@@ -30,8 +30,8 @@ void Item::update()
 
 void Item::render(SDL_Renderer* renderer, int offset[2])
 {
-    dest.x - offset[0];
-    dest.y - offset[1];
+    dest.x -= offset[0];
+    dest.y -= offset[1];
 
     SDL_RenderCopy(renderer, texture, &src, &dest);
 }
@@ -42,4 +42,9 @@ bool Item::checkMouse(SDL_Rect mouseRect)
         mouseRect.x + mouseRect.w > dest.x &&
         mouseRect.y < dest.y + dest.h &&
         mouseRect.y + mouseRect.h > dest.y);
+}
+
+std::string Item::getType()
+{
+    return type;
 }

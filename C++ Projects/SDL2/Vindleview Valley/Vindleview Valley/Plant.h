@@ -11,6 +11,9 @@ public:
     Plant(float p_x, float p_y, std::string p_type, int gTime, Tilemap* plantMap);
     void grow();
     void update();
+    int getX();
+    int getY();
+    
 private:
     int growTime;
     Uint32 lastUpdateTime;

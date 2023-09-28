@@ -14,6 +14,10 @@ public:
     void render(SDL_Renderer* renderer, int offset[2]);
     bool checkMouse(SDL_Rect mouseRect);
     
+    bool dead = false;
+    
+    std::string getType();
+    
 private:
     float x, y;
     float initialYPos;

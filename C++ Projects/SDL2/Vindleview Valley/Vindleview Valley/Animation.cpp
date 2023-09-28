@@ -18,7 +18,7 @@ void Animation::update()
 		}
 		else 
 		{
-			int image_size = images.size();
+			int image_size = static_cast<int>(images.size());
 			frame = std::min(frame + 1, image_duration * image_size - 1);
 		}
 	}

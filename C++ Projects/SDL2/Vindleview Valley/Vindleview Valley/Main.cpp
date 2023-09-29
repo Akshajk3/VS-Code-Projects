@@ -258,8 +258,17 @@ int main(int argc, char* argv[])
 
     std::vector<Tree> Trees;
     
-    for (int x = 0; x < 5; x++)
-        Trees.push_back(Tree(randomRange(50, 750), randomRange(100, 550), 0, assets["tree1"], window.renderer));
+	for (int x = 0; x < 5; x++)
+	{
+		auto it = Trees.begin() + x;
+
+        Trees.push_back(Tree(randomRange(50, 750), randomRange(100, 500), 0, assets["tree1"], window.renderer));
+		if (Trees[x].checkClick(cow.getCurrentFrame()) || Trees[x].checkClick(chicken.getCurrentFrame()) || Trees[x].checkClick(player.getCurrentFrame()))
+		{
+			Trees.erase(it);
+		}
+	}
+
     
     std::vector<Plant> Plants;
     std::vector<Item> Items;
@@ -284,7 +293,9 @@ int main(int argc, char* argv[])
 	{
 		frameStart = SDL_GetTicks();
         
-        bool click = false;
+        bool toolClick = false;
+		bool itemClick = false;
+		bool rightClick = false;
 
 		SDL_GetMouseState(&mouseX, &mouseY);
 
@@ -370,30 +381,21 @@ int main(int argc, char* argv[])
 						if (player.getTool() == "wheat" && backGroundTilemap.getTile(mouseX, mouseY) == 2 && plantTiles.getTile(mouseX, mouseY) == 0)
 						{
 							plantTiles.setTile(mouseX, mouseY, 3);
-							Plants.push_back(Plant(mouseX, mouseY, "wheat", 5000, &plantTiles));
+							Plants.push_back(Plant(mouseX, mouseY, "wheat", 100, &plantTiles));
 						}
 						if (player.getTool() == "beet" && backGroundTilemap.getTile(mouseX, mouseY) == 2 && plantTiles.getTile(mouseX, mouseY) == 0)
 						{
 							plantTiles.setTile(mouseX, mouseY, 7);
-							Plants.push_back(Plant(mouseX, mouseY, "beet", 5000, &plantTiles));
+							Plants.push_back(Plant(mouseX, mouseY, "beet", 100, &plantTiles));
 						}
+						toolClick = true;
 					}
-                    click = true;
+					else
+						itemClick = true;
 				}
                 if (event.button.button == SDL_BUTTON_RIGHT)
                 {
-                    if(player.getTool() == "hoe" && plantTiles.getTile(mouseX, mouseY) == 6)
-                    {
-                        plantTiles.setTile(mouseX, mouseY, 0);
-                        Items.push_back(Item(mouseX, mouseY, "Wheat", 0, assets["wheat"][5]));
-                        Plants.pop_back();
-                    }
-					if (player.getTool() == "hoe" && plantTiles.getTile(mouseX, mouseY) == 10)
-					{
-						plantTiles.setTile(mouseX, mouseY, 0);
-						Items.push_back(Item(mouseX, mouseY, "Beet", 0, assets["beet"][5]));
-						Plants.pop_back();
-					}
+					rightClick = true;
                 }
 			}
 		}
@@ -421,51 +423,37 @@ int main(int argc, char* argv[])
 		window.render(player, 4, scroll);
         
         
-        for (auto it = Plants.begin(); it != Plants.end();)
+		auto its = Plants.begin();
+		while (its != Plants.end())
         {
-            Plant& plant = *it;
+            Plant& plant = *its;
             
             plant.update();
+
+			std::cout << Plants.size() << std::endl;
             
-            if (plantTiles.getTile(plant.getX(), plant.getY()) == 0)
-            {
-                it = Plants.erase(it);
-            }
-            else
-            {
-                ++it;
-            }
+			if (rightClick == true && player.getTool() == "hoe" && plantTiles.getTile(mouseX, mouseY) == 6)
+			{
+				plantTiles.setTile(mouseX, mouseY, 0);
+				Items.push_back(Item(mouseX, mouseY, "Wheat", 0, assets["wheat"][5]));
+				Particles.push_back(Particle(plant.getX(), plant.getY() - 50, 4, assets["smoke"], window.renderer));
+				its = Plants.erase(its);
+			}
+			else if (rightClick == true && player.getTool() == "hoe" && plantTiles.getTile(mouseX, mouseY) == 10)
+			{
+				plantTiles.setTile(mouseX, mouseY, 0);
+				Items.push_back(Item(mouseX, mouseY, "Beet", 0, assets["beet"][5]));
+				Particles.push_back(Particle(plant.getX(), plant.getY() - 50, 4, assets["smoke"], window.renderer));
+				its = Plants.erase(its);
+			}
+			else
+			{
+				++its;
+			}
         }
         
         bool collisionDectected = false;
         selecting = false;
-        
-        
-        for (auto it = Items.begin(); it != Items.end();)
-        {
-            Item& item = *it;
-            
-            item.update();
-            item.render(window.renderer, scroll);
-            if (item.checkMouse(cursorRect))
-            {
-                collisionDectected = true;
-                selecting = true;
-            }
-            
-            if (item.checkMouse(cursorRect) && click == true)
-            {
-                if (item.getType() == "wood")
-                    wood += 1;
-                    
-                it = Items.erase(it);
-                --it;
-            }
-            else
-            {
-                ++it;
-            }
-        }
         
         for (Tree& tree : Trees)
         {
@@ -476,13 +464,39 @@ int main(int argc, char* argv[])
                 collisionDectected = true;
             }
             
-            if (player.getTool() == "axe" && tree.checkClick(cursorRect) && tree.dead == false && click == true)
+            if (player.getTool() == "axe" && tree.checkClick(cursorRect) && tree.dead == false && toolClick == true)
             {
                 tree.die();
-                Particles.push_back(Particle(tree.getX(), tree.getY() - 100, assets["smoke"], window.renderer));
+                Particles.push_back(Particle(tree.getX(), tree.getY() - 100, 10, assets["smoke"], window.renderer));
                 Items.push_back(Item(tree.getX(), tree.getY() - 50, "wood", 0, assets["wood"][0], 1.5));
             }
         }
+
+		auto it = Items.begin();
+		while (it != Items.end())
+		{
+			Item& item = *it;
+
+			item.update();
+			item.render(window.renderer, scroll);
+			if (item.checkMouse(cursorRect))
+			{
+				collisionDectected = true;
+				selecting = true;
+			}
+
+			if (item.checkMouse(cursorRect) && itemClick == true)
+			{
+				if (item.getType() == "wood")
+					wood += 1;
+
+				it = Items.erase(it);
+			}
+			else
+			{
+				++it;
+			}
+		}
 
         for (auto it = Particles.begin(); it != Particles.end();)
         {
@@ -502,7 +516,7 @@ int main(int argc, char* argv[])
         
         if (collisionDectected)
         {
-            cursorTexture = assets["cursor"][2 ];
+            cursorTexture = assets["cursor"][2];
         }
         else
         {

@@ -9,7 +9,7 @@
 class Particle
 {
 public:
-	Particle(float p_x, float p_y, std::vector<SDL_Texture*> sprites, SDL_Renderer* ren);
+	Particle(float p_x, float p_y, int scale, std::vector<SDL_Texture*> sprites, SDL_Renderer* ren);
 	void update();
 	void render();
 	

@@ -276,7 +276,7 @@ int main(int argc, char* argv[])
 		}
 	}
 
-    Building house1 = (100, 100, houseTex, &window.renderer);
+    Building house1(100, 100, houseTex, window.renderer);
     
     std::vector<Plant> Plants;
     std::vector<Item> Items;
@@ -429,7 +429,11 @@ int main(int argc, char* argv[])
 		window.render(cow, 4, scroll);
 		window.render(chicken, 2, scroll);
 		window.render(player, 4, scroll);
+
+		if (wood >= 5)
+			house1.Place();
         
+		house1.render();
         
 		auto its = Plants.begin();
 		while (its != Plants.end())

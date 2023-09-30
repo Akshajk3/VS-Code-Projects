@@ -16,6 +16,7 @@
 #include "Item.h"
 #include "Tree.h"
 #include "Particle.h"
+#include "Building.h"
 
 int grass[20][25] = {
     { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
@@ -183,6 +184,9 @@ int main(int argc, char* argv[])
 
 // Particle Asset Paths
 	assetPaths["smoke"] = ("Assets/Particles/Smoke");
+
+// Building Asset Paths
+    assetPaths["house"] = ("Assets/Objects/House.png");
 	
 // Player Assets
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
@@ -214,6 +218,9 @@ int main(int argc, char* argv[])
 	assets["grass"] = textureManager.loadTextures(assetPaths["grass"], window.renderer);
 	assets["fence"] = textureManager.loadTextures(assetPaths["fence"], window.renderer);
 	assets["till"] = textureManager.loadTextures(assetPaths["till"], window.renderer);
+    
+// Building Assets
+    SDL_Texture* houseTex = textureManager.loadTexture(assetPaths["house"].c_str(), window.renderer);
 
 // UI Assets
 	SDL_Texture* cursorTexture = textureManager.loadTexture("Assets/Mouse_sprites/03.png", window.renderer);
@@ -269,6 +276,7 @@ int main(int argc, char* argv[])
 		}
 	}
 
+    Building house1 = (100, 100, houseTex, &window.renderer);
     
     std::vector<Plant> Plants;
     std::vector<Item> Items;

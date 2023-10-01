@@ -6,6 +6,7 @@ class Building
 {
 public:
     Building(int p_x, int p_y, SDL_Texture* tex, SDL_Renderer* ren);
+    void update(int mouseX, int mouseY);
     void render();
     void Place();
     

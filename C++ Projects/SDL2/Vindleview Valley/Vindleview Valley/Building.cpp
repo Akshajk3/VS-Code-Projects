@@ -15,6 +15,15 @@ Building::Building(int p_x, int p_y, SDL_Texture* tex, SDL_Renderer* ren)
     SDL_SetTextureAlphaMod(texture, 100);
 };
 
+void Building::update(int mouseX, int mouseY)
+{
+    if(placed == false)
+    {
+        x = mouseX;
+        y = mouseY;
+    }
+}
+
 void Building::render()
 {
     SDL_RenderCopy(renderer, texture, &src, &dest);

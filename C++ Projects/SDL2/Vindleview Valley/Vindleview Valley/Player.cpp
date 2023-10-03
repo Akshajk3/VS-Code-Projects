@@ -67,7 +67,7 @@ void Player::setTool(std::string newTool)
 
 void Player::act()
 {
-    if (tool != "wheat" && tool != "beet")
+    if (tool == "hoe" || tool == "axe" || tool == "water")
     {
         setAction(tool);
         canMove = false;

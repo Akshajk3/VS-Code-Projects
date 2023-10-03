@@ -21,12 +21,20 @@ void Building::update(int mouseX, int mouseY)
     {
         x = mouseX;
         y = mouseY;
+
+        dest.x = x - (src.w / 2);
+        dest.y = y - (src.h / 2);
     }
 }
 
 void Building::render()
 {
     SDL_RenderCopy(renderer, texture, &src, &dest);
+}
+
+bool Building::isPlaced()
+{
+    return placed;
 }
 
 void Building::Place()

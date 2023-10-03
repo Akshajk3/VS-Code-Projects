@@ -300,8 +300,8 @@ int main(int argc, char* argv[])
 	while (isRunning)
 	{
 		frameStart = SDL_GetTicks();
-        
-        bool toolClick = false;
+
+		bool toolClick = false;
 		bool itemClick = false;
 		bool rightClick = false;
 
@@ -347,13 +347,17 @@ int main(int argc, char* argv[])
 				{
 					player.setTool("water");
 				}
-                if (keyCode == SDLK_4)
-                {
-                    player.setTool("wheat");
-                }
+				if (keyCode == SDLK_4)
+				{
+					player.setTool("wheat");
+				}
 				if (keyCode == SDLK_5)
 				{
 					player.setTool("beet");
+				}
+				if (keyCode == SDLK_6)
+				{
+					player.setTool("build");
 				}
 			}
 			if (event.type == SDL_KEYUP)
@@ -384,7 +388,7 @@ int main(int argc, char* argv[])
 					{
 						player.act();
 
-						if(player.getTool() == "hoe")
+						if (player.getTool() == "hoe")
 							backGroundTilemap.setTile(mouseX, mouseY, 2);
 						if (player.getTool() == "wheat" && backGroundTilemap.getTile(mouseX, mouseY) == 2 && plantTiles.getTile(mouseX, mouseY) == 0)
 						{
@@ -400,11 +404,16 @@ int main(int argc, char* argv[])
 					}
 					else
 						itemClick = true;
+
+					if (player.getTool() == "build" && wood >= 5)
+					{
+						house1.Place();
+					}
 				}
-                if (event.button.button == SDL_BUTTON_RIGHT)
-                {
+				if (event.button.button == SDL_BUTTON_RIGHT)
+				{
 					rightClick = true;
-                }
+				}
 			}
 		}
 
@@ -418,22 +427,27 @@ int main(int argc, char* argv[])
 		//std::cout << "Player X: " << player.getX() << std::endl;
 		//std::cout << "Player Y: " << player.getY() << std::endl;
 
-		int scroll[2] = {0, 0};
+		int scroll[2] = { 0, 0 };
 
 		window.clear();
 		player.update(move);
 		cow.update();
 		chicken.update();
 		backGroundTilemap.DrawMap(window.renderer, scroll);
-        plantTiles.DrawMap(window.renderer, scroll);
+		plantTiles.DrawMap(window.renderer, scroll);
 		window.render(cow, 4, scroll);
 		window.render(chicken, 2, scroll);
 		window.render(player, 4, scroll);
 
-		if (wood >= 5)
-			house1.Place();
-        
-		house1.render();
+		if (player.getTool() == "build" && house1.isPlaced() == false)
+		{
+			house1.update(mouseX, mouseY);
+			house1.render();
+		}
+		else if (house1.isPlaced() == true)
+		{
+			house1.render();
+		}
         
 		auto its = Plants.begin();
 		while (its != Plants.end())
@@ -556,6 +570,10 @@ int main(int argc, char* argv[])
 		if (player.getTool() == "beet")
 		{
 			SDL_RenderCopy(window.renderer, beet_icon, nullptr, &toolRect);
+		}
+		if (player.getTool() == "build")
+		{
+			SDL_RenderCopy(window.renderer, assets["cursor"][1], nullptr, &toolRect);
 		}
 
 		SDL_RenderCopy(window.renderer, cursorTexture, nullptr, &cursorRect);

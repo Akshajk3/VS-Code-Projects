@@ -427,7 +427,7 @@ int main(int argc, char* argv[])
 		//std::cout << "Player X: " << player.getX() << std::endl;
 		//std::cout << "Player Y: " << player.getY() << std::endl;
 
-		int scroll[2] = { 0, 0 };
+		int scroll[2] = { render_scroll[0], render_scroll[1] };
 
 		window.clear();
 		player.update(move);

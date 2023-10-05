@@ -419,15 +419,22 @@ int main(int argc, char* argv[])
 
 		int move[2] = { movement[0] - movement[1], movement[2] - movement[3] };
 
-		scroll[0] = (player.getX() * 5 + (player.getCurrentFrame().w / 2) - displayWidth / 2) - scroll[0];
-		scroll[1] = (player.getY() * 5 + (player.getCurrentFrame().h / 2) - displayHeight / 2) - scroll[1];
+        int displayWidth = 800;
+        int displayHeight = 600;
+        
+        scroll[2] = { (player.getX() + player.getCurrentFrame().w / 2) * 5 - displayWidth / 2,
+                          (player.getY() + player.getCurrentFrame().h / 2) * 5 - displayHeight / 2 };
+
+        // In your game loop:
+        scroll[0] = (player.getX() + player.getCurrentFrame().w / 2) * 5 - displayWidth / 2 - scroll[0];
+        scroll[1] = (player.getY() + player.getCurrentFrame().h / 2) * 5 - displayHeight / 2 - scroll[1];
 
 		int render_scroll[2] = { static_cast<int>(scroll[0]), static_cast<int>(scroll[1]) };
 
 		//std::cout << "Player X: " << player.getX() << std::endl;
 		//std::cout << "Player Y: " << player.getY() << std::endl;
 
-		int scroll[2] = { render_scroll[0], render_scroll[1] };
+        int scroll[2] = { 0, 0 };
 
 		window.clear();
 		player.update(move);

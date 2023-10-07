@@ -39,7 +39,7 @@ void RenderWindow::clear()
 	SDL_RenderClear(renderer);
 }
 
-void RenderWindow::render(Entity& entity, int entityScale, int offset[2])
+void RenderWindow::render(Entity& entity, int entityScale, int cameraX, int cameraY)
 {	
 	//int screenWidth = 800;
 	//int screenHeight = 600;
@@ -54,8 +54,8 @@ void RenderWindow::render(Entity& entity, int entityScale, int offset[2])
 	int entityHeight = entity.getCurrentFrame().h * entityScale;
 
 	SDL_Rect dest;
-	dest.x = entity.getX() * entityScale - entityWidth / 2 + offset[0];
-	dest.y = entity.getY() * entityScale - entityHeight / 2 + offset[1];
+    dest.x = (entity.getX() - cameraX) * entityScale - entityWidth / 2;
+    dest.y = (entity.getY() - cameraY) * entityScale - entityHeight / 2;
 	dest.w = entity.getCurrentFrame().w * entityScale;
 	dest.h = entity.getCurrentFrame().h * entityScale;
 

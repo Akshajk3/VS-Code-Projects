@@ -93,6 +93,9 @@ const int displayHeight = 600;
 const int worldWidth = 100;
 const int worldHeight = 100;
 
+int cameraX = 0;
+int cameraY = 0;
+
 int randomRange(int min, int max)
 {
     std::random_device rd;
@@ -286,8 +289,6 @@ int main(int argc, char* argv[])
 
 	int mouseX;
 	int	mouseY;
-
-	double scroll[2] = { 0, 0 };
     
     int wood = 0;
 
@@ -296,6 +297,8 @@ int main(int argc, char* argv[])
 	bool isRunning = true;
 
 	SDL_Event event;
+    
+    int scroll[2] = {0, 0};
 
 	while (isRunning)
 	{
@@ -422,29 +425,32 @@ int main(int argc, char* argv[])
         int displayWidth = 800;
         int displayHeight = 600;
         
-        scroll[2] = { (player.getX() + player.getCurrentFrame().w / 2) * 5 - displayWidth / 2,
-                          (player.getY() + player.getCurrentFrame().h / 2) * 5 - displayHeight / 2 };
-
-        // In your game loop:
         scroll[0] = (player.getX() + player.getCurrentFrame().w / 2) * 5 - displayWidth / 2 - scroll[0];
-        scroll[1] = (player.getY() + player.getCurrentFrame().h / 2) * 5 - displayHeight / 2 - scroll[1];
+            scroll[1] = (player.getY() + player.getCurrentFrame().h / 2) * 5 - displayHeight / 2 - scroll[1];
 
-		int render_scroll[2] = { static_cast<int>(scroll[0]), static_cast<int>(scroll[1]) };
+        cameraX += static_cast<int>(scroll[0]);
+        cameraY += static_cast<int>(scroll[1]);
+
+        // Ensure the camera stays within the boundaries of the game world
+        if (cameraX < 0) cameraX = 0;
+        if (cameraY < 0) cameraY = 0;
+        if (cameraX > worldWidth - displayWidth) cameraX = worldWidth - displayHeight;
+        if (cameraY > worldHeight - displayHeight) cameraY = worldHeight - displayHeight;
 
 		//std::cout << "Player X: " << player.getX() << std::endl;
 		//std::cout << "Player Y: " << player.getY() << std::endl;
 
-        int scroll[2] = { 0, 0 };
+        int render_scroll[2] = { 0, 0 };
 
 		window.clear();
 		player.update(move);
 		cow.update();
 		chicken.update();
-		backGroundTilemap.DrawMap(window.renderer, scroll);
-		plantTiles.DrawMap(window.renderer, scroll);
-		window.render(cow, 4, scroll);
-		window.render(chicken, 2, scroll);
-		window.render(player, 4, scroll);
+		backGroundTilemap.DrawMap(window.renderer, cameraX, cameraY);
+		plantTiles.DrawMap(window.renderer, cameraX, cameraY);
+		window.render(cow, 4, cameraX, cameraY);
+		window.render(chicken, 2, cameraX, cameraY);
+		window.render(player, 4, 0, 0);
 
 		if (player.getTool() == "build" && house1.isPlaced() == false)
 		{
@@ -511,7 +517,7 @@ int main(int argc, char* argv[])
 			Item& item = *it;
 
 			item.update();
-			item.render(window.renderer, scroll);
+			item.render(window.renderer, render_scroll);
 			if (item.checkMouse(cursorRect))
 			{
 				collisionDectected = true;

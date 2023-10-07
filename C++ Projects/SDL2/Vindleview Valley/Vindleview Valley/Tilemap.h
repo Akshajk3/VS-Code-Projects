@@ -14,7 +14,7 @@ public:
     int getTile(float p_x, float p_y);
 
     void LoadMap(int arr[20][25]);
-    void DrawMap(SDL_Renderer* ren, int offset[2]);
+    void DrawMap(SDL_Renderer* ren, int mouseX, int mouseY);
 
 private:
     SDL_Rect src, dest;

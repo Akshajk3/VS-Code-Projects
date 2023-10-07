@@ -13,7 +13,7 @@ Tilemap::Tilemap(std::map<std::string, std::vector<SDL_Texture*>> sprites)
     dest.y = 0;
 }
 
-void Tilemap::DrawMap(SDL_Renderer* ren, int offset[2])
+void Tilemap::DrawMap(SDL_Renderer* ren, int cameraX, int cameraY)
 {
     int type = 0;
 
@@ -23,8 +23,8 @@ void Tilemap::DrawMap(SDL_Renderer* ren, int offset[2])
         {
             type = map[row][col];
 
-            dest.x = col * 32 - offset[0];
-            dest.y = row * 32 - offset[1];
+            dest.x = col * 32 - cameraX;
+            dest.y = row * 32 - cameraY;
 
             if (type == 1)
             {

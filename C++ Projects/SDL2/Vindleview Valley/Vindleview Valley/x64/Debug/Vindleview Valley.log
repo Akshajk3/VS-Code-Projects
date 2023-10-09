@@ -1,2 +1,42 @@
-﻿  Player.cpp
+﻿  Main.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(395,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(395,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(396,76): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(396,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(396,119): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(396,111): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(398,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(398,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(399,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(399,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(401,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(401,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(401,118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(401,110): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(403,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(403,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(404,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(404,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(428,93): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(429,98): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(474,86): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(474,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(476,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(476,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(477,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(477,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(478,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(478,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(481,91): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(481,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(483,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(483,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(484,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(484,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(485,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(485,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(509,71): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(509,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(510,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(510,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Vindleview Valley.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\x64\Debug\Vindleview Valley.exe

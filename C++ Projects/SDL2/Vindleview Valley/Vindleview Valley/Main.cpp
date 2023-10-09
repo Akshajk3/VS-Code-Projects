@@ -446,10 +446,10 @@ int main(int argc, char* argv[])
 		player.update(move);
 		cow.update();
 		chicken.update();
-		backGroundTilemap.DrawMap(window.renderer, cameraX, cameraY);
-		plantTiles.DrawMap(window.renderer, cameraX, cameraY);
-		window.render(cow, 4, cameraX, cameraY);
-		window.render(chicken, 2, cameraX, cameraY);
+		backGroundTilemap.DrawMap(window.renderer, 0, 0);
+		plantTiles.DrawMap(window.renderer, 0, 0);
+		window.render(cow, 4, 0, 0);
+		window.render(chicken, 2, 0, 0);
 		window.render(player, 4, 0, 0);
 
 		if (player.getTool() == "build" && house1.isPlaced() == false)

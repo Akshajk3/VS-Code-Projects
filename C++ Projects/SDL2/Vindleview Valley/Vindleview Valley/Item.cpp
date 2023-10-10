@@ -36,6 +36,16 @@ void Item::render(SDL_Renderer* renderer, int offset[2])
     SDL_RenderCopy(renderer, texture, &src, &dest);
 }
 
+void Item::addCount()
+{
+    count += 1;
+}
+
+void Item::setIndex(int index)
+{
+    
+}
+
 bool Item::checkMouse(SDL_Rect mouseRect)
 {
     return (mouseRect.x < dest.x + dest.w &&

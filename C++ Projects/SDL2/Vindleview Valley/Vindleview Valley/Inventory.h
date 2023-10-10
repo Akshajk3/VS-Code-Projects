@@ -10,9 +10,9 @@ class Inventory
 public:
 	Inventory();
 
-	void addItem(const Item& item);
+	void addItem(Item& item);
 	void removeItem(int index);
-	void render();
+	void render(SDL_Renderer* renderer);
 
 private:
 	std::vector<Item> items;

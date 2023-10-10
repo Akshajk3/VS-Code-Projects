@@ -12,6 +12,8 @@ public:
     
     void update();
     void render(SDL_Renderer* renderer, int offset[2]);
+    void addCount();
+    void setIndex(int index);
     bool checkMouse(SDL_Rect mouseRect);
     
     bool dead = false;
@@ -27,4 +29,6 @@ private:
     float bobSpeed;
     SDL_Rect src, dest;
     int itemTimer = 0;
+    int count = 0;
+    int index = 0;
 };

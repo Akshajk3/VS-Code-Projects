@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AE7DC4C22AC8855500367168 /* Building.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE7DC4C02AC8855500367168 /* Building.cpp */; };
 		AE84BAA12AB4C1BF00BB329A /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE84BAA02AB4C1BF00BB329A /* Item.cpp */; };
+		AE98C1FB2AD3E33A006EABE5 /* Inventory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE98C1FA2AD3E33A006EABE5 /* Inventory.cpp */; };
 		AEB8ABD22AC0F2E5002CC826 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB8ABD12AC0F2E4002CC826 /* Tree.cpp */; };
 		AEB8AC0E2AC3E33B002CC826 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB8AC0C2AC3E33B002CC826 /* Particle.cpp */; };
 		AEBFE0892AAE7FD000E99C79 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBFE0882AAE7FD000E99C79 /* libSDL2-2.0.0.dylib */; };
@@ -40,6 +41,8 @@
 		AE7DC4C12AC8855500367168 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Building.h; path = ../../Building.h; sourceTree = "<group>"; };
 		AE84BA9D2AB2E9E800BB329A /* Item.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Item.h; path = ../../Item.h; sourceTree = "<group>"; };
 		AE84BAA02AB4C1BF00BB329A /* Item.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Item.cpp; path = ../../Item.cpp; sourceTree = "<group>"; };
+		AE98C1F92AD3E33A006EABE5 /* Inventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Inventory.h; path = ../../Inventory.h; sourceTree = "<group>"; };
+		AE98C1FA2AD3E33A006EABE5 /* Inventory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Inventory.cpp; path = ../../Inventory.cpp; sourceTree = "<group>"; };
 		AEB8ABD02AC0F2E4002CC826 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tree.h; path = ../../Tree.h; sourceTree = "<group>"; };
 		AEB8ABD12AC0F2E4002CC826 /* Tree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tree.cpp; path = ../../Tree.cpp; sourceTree = "<group>"; };
 		AEB8AC0C2AC3E33B002CC826 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Particle.cpp; path = ../../Particle.cpp; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				AEBFE0D22AAE8ADA00E99C79 /* TextureManager.cpp */,
 				AEBFE0D72AAE8ADA00E99C79 /* TextureManager.h */,
 				AEBFE0CD2AAE8ADA00E99C79 /* Tilemap.cpp */,
+				AE98C1FA2AD3E33A006EABE5 /* Inventory.cpp */,
+				AE98C1F92AD3E33A006EABE5 /* Inventory.h */,
 				AEBFE0D12AAE8ADA00E99C79 /* Tilemap.h */,
 				AEBFE0DF2AAED7C800E99C79 /* Plant.h */,
 				AEBFE0E02AAED7DF00E99C79 /* Plant.cpp */,
@@ -196,6 +201,7 @@
 				AE7DC4C22AC8855500367168 /* Building.cpp in Sources */,
 				AEBFE0E12AAED7E000E99C79 /* Plant.cpp in Sources */,
 				AEBFE0DE2AAE8ADA00E99C79 /* Main.cpp in Sources */,
+				AE98C1FB2AD3E33A006EABE5 /* Inventory.cpp in Sources */,
 				AEBFE0DA2AAE8ADA00E99C79 /* Tilemap.cpp in Sources */,
 				AEBFE0DD2AAE8ADA00E99C79 /* Player.cpp in Sources */,
 				AEBFE0D82AAE8ADA00E99C79 /* Animation.cpp in Sources */,

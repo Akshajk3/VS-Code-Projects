@@ -8,7 +8,7 @@ Inventory::Inventory()
 void Inventory::addItem(Item& item)
 {
     item.addCount();
-    item.setIndex(items.size() - 1);
+    item.setIndex(items.size() - 1.0f);
     items.push_back(item);
 }
 

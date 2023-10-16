@@ -427,7 +427,7 @@ int main(int argc, char* argv[])
         
         scroll[0] = (player.getX() + player.getCurrentFrame().w / 2) * 5 - displayWidth / 2 - scroll[0];
             scroll[1] = (player.getY() + player.getCurrentFrame().h / 2) * 5 - displayHeight / 2 - scroll[1];
-
+        
         cameraX += static_cast<int>(scroll[0]);
         cameraY += static_cast<int>(scroll[1]);
 

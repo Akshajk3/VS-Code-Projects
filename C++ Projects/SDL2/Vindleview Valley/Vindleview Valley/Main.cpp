@@ -17,6 +17,7 @@
 #include "Tree.h"
 #include "Particle.h"
 #include "Building.h"
+#include "Inventory.h"
 
 int grass[20][25] = {
     { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },

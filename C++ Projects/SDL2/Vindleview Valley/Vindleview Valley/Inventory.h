@@ -18,4 +18,5 @@ public:
 
 private:
 	std::vector<Item> items;
+	SDL_Rect InventoryRect;
 };

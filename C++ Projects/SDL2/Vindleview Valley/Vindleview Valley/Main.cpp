@@ -191,6 +191,9 @@ int main(int argc, char* argv[])
 
 // Building Asset Paths
     assetPaths["house"] = ("Assets/Objects/House.png");
+
+// Inventory Asset Paths
+	assetPaths["inv"] = ("Assets/inventory/tiles");
 	
 // Player Assets
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
@@ -222,6 +225,9 @@ int main(int argc, char* argv[])
 	assets["grass"] = textureManager.loadTextures(assetPaths["grass"], window.renderer);
 	assets["fence"] = textureManager.loadTextures(assetPaths["fence"], window.renderer);
 	assets["till"] = textureManager.loadTextures(assetPaths["till"], window.renderer);
+
+// Inventory Assets
+	assets["inv"] = textureManager.loadTextures(assetPaths["inv"], window.renderer);
     
 // Building Assets
     SDL_Texture* houseTex = textureManager.loadTexture(assetPaths["house"].c_str(), window.renderer);
@@ -264,6 +270,8 @@ int main(int argc, char* argv[])
     Tilemap plantTiles(assets);
     plantTiles.LoadMap(plants);
 
+	Inventory inventory(assets["inv"]);
+
 	//Tilemap treeTiles(assets);
 	//treeTiles.LoadMap(trees);
 
@@ -296,6 +304,8 @@ int main(int argc, char* argv[])
 	bool selecting = false;
 
 	bool isRunning = true;
+
+	bool show = false;
 
 	SDL_Event event;
     
@@ -363,6 +373,10 @@ int main(int argc, char* argv[])
 				{
 					player.setTool("build");
 				}
+				if (keyCode == SDLK_e)
+				{
+					show = !show;
+				}
 			}
 			if (event.type == SDL_KEYUP)
 			{
@@ -388,7 +402,7 @@ int main(int argc, char* argv[])
 			{
 				if (event.button.button == SDL_BUTTON_LEFT)
 				{
-					if (player.getTimer() == 0 && selecting == false)
+					if (player.getTimer() == 0 && selecting == false && show == false)
 					{
 						player.act();
 
@@ -409,7 +423,7 @@ int main(int argc, char* argv[])
 					else
 						itemClick = true;
 
-					if (player.getTool() == "build" && wood >= 5)
+					if (player.getTool() == "build" && wood >= 5 && show == false)
 					{
 						house1.Place();
 					}
@@ -499,7 +513,7 @@ int main(int argc, char* argv[])
         {
             tree.render();
             
-            if (tree.checkClick(cursorRect) && tree.dead == false)
+            if (tree.checkClick(cursorRect) && tree.dead == false && show == false)
             {
                 collisionDectected = true;
             }
@@ -529,6 +543,8 @@ int main(int argc, char* argv[])
 			{
 				if (item.getType() == "wood")
 					wood += 1;
+
+				inventory.addItem(item);
 
 				it = Items.erase(it);
 			}
@@ -562,6 +578,11 @@ int main(int argc, char* argv[])
         {
             cursorTexture = assets["cursor"][3];
         }
+
+		if (show)
+		{
+			inventory.render(window.renderer);
+		}
 
 		SDL_Rect toolRect = { 0, 0, 64, 64 };
 

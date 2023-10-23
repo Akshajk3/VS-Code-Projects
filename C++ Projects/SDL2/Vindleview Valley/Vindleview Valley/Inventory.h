@@ -11,9 +11,9 @@ public:
 	Inventory(std::vector<SDL_Texture*> tiles);
 
 	void addItem(Item& item);
-	void removeItem(int index);
+	void removeItem(int index, int count);
 	void render(SDL_Renderer* renderer);
-    
+
     bool show = false;
 
 private:
@@ -22,4 +22,7 @@ private:
 	std::vector<SDL_Texture*> invTiles;
 
 	SDL_Rect src, dest;
+
+	int col = 0;
+	int row = -1;
 };

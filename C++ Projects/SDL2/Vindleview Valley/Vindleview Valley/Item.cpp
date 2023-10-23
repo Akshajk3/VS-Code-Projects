@@ -46,6 +46,15 @@ void Item::setIndex(int index)
     
 }
 
+void Item::setPos(int p_x, int p_y)
+{
+    x = p_x;
+    y = p_y;
+
+    dest.x = x - (src.w / 2);
+    dest.y = y - (src.h / 2); 
+}
+
 bool Item::checkMouse(SDL_Rect mouseRect)
 {
     return (mouseRect.x < dest.x + dest.w &&

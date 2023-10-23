@@ -193,7 +193,7 @@ int main(int argc, char* argv[])
     assetPaths["house"] = ("Assets/Objects/House.png");
 
 // Inventory Asset Paths
-	assetPaths["inv"] = ("Assets/inventory/tiles");
+	assetPaths["inv"] = ("Assets/Inventory/tiles");
 	
 // Player Assets
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
@@ -277,7 +277,7 @@ int main(int argc, char* argv[])
 
     std::vector<Tree> Trees;
     
-	for (int x = 0; x < 5; x++)
+	for (int x = 0; x < 10; x++)
 	{
 		auto it = Trees.begin() + x;
 
@@ -411,12 +411,12 @@ int main(int argc, char* argv[])
 						if (player.getTool() == "wheat" && backGroundTilemap.getTile(mouseX, mouseY) == 2 && plantTiles.getTile(mouseX, mouseY) == 0)
 						{
 							plantTiles.setTile(mouseX, mouseY, 3);
-							Plants.push_back(Plant(mouseX, mouseY, "wheat", 100, &plantTiles));
+							Plants.push_back(Plant(mouseX, mouseY, "wheat", 10000, &plantTiles));
 						}
 						if (player.getTool() == "beet" && backGroundTilemap.getTile(mouseX, mouseY) == 2 && plantTiles.getTile(mouseX, mouseY) == 0)
 						{
 							plantTiles.setTile(mouseX, mouseY, 7);
-							Plants.push_back(Plant(mouseX, mouseY, "beet", 100, &plantTiles));
+							Plants.push_back(Plant(mouseX, mouseY, "beet", 10000, &plantTiles));
 						}
 						toolClick = true;
 					}
@@ -425,6 +425,7 @@ int main(int argc, char* argv[])
 
 					if (player.getTool() == "build" && wood >= 5 && show == false)
 					{
+						inventory.removeItem(0, 5);
 						house1.Place();
 					}
 				}

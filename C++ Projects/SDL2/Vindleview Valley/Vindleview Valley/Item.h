@@ -14,6 +14,7 @@ public:
     void render(SDL_Renderer* renderer, int offset[2]);
     void addCount();
     void setIndex(int index);
+    void setPos(int x, int y);
     bool checkMouse(SDL_Rect mouseRect);
     
     bool dead = false;

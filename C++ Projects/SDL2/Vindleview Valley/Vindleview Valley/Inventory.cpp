@@ -16,12 +16,21 @@ void Inventory::addItem(Item& item)
 {
     item.addCount();
     item.setIndex(items.size() - 1.0f);
+    col += 1;
+    std::cout << items.size() << std::endl;
+    if(items.size() % 5 == 0)
+    {
+        row += 1;
+        col = 0;
+    }
+    item.setPos((800 - 352) / 2 + col * 96, (600 - 192) / 2 + row * 96);
     items.push_back(item);
 }
 
-void Inventory::removeItem(int index)
+void Inventory::removeItem(int index, int count)
 {
-    items.pop_back();
+    for (int x = 0; x < count; x++)
+        items.pop_back();
 }
 
 void Inventory::render(SDL_Renderer* renderer)

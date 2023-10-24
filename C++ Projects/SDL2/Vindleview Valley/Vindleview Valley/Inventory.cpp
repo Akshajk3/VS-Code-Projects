@@ -30,7 +30,9 @@ void Inventory::addItem(Item& item)
 void Inventory::removeItem(int index, int count)
 {
     for (int x = 0; x < count; x++)
+    {
         items.pop_back();
+    }
 }
 
 void Inventory::render(SDL_Renderer* renderer)

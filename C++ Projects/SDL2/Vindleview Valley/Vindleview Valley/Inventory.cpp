@@ -17,7 +17,6 @@ void Inventory::addItem(Item& item)
     item.addCount();
     item.setIndex(items.size() - 1.0f);
     col += 1;
-    std::cout << items.size() << std::endl;
     if(items.size() % 5 == 0)
     {
         row += 1;
@@ -32,6 +31,12 @@ void Inventory::removeItem(int index, int count)
     for (int x = 0; x < count; x++)
     {
         items.pop_back();
+    }
+
+    if (items.size() < 5)
+    {
+        row -= 1;
+        col = 0;
     }
 }
 

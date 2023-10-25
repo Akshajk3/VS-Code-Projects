@@ -485,7 +485,7 @@ int main(int argc, char* argv[])
             
             plant.update();
 
-			std::cout << Plants.size() << std::endl;
+			//std::cout << Plants.size() << std::endl;
             
 			if (rightClick == true && player.getTool() == "hoe" && plantTiles.getTile(mouseX, mouseY) == 6)
 			{

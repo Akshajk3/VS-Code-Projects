@@ -6,7 +6,7 @@
 std::string BASE_IMG_PATH = "Assets/Characters/images";
 
 Entity::Entity(float p_x, float p_y, SDL_Renderer* ren, std::string type, std::map<std::string, std::vector<SDL_Texture*>> assets)
-	: x(p_x), y(p_y), renderer(ren), type(type), asset(assets)
+: x(p_x), y(p_y), renderer(ren), type(type), asset(assets), animation(Animation(assets["idle"]))
 {
 	if (type == "player")
 	{
@@ -22,6 +22,7 @@ Entity::Entity(float p_x, float p_y, SDL_Renderer* ren, std::string type, std::m
 		currentFrame.w = 32;
 		currentFrame.h = 32;
 	}
+    
 
 	setAction("idle");
 }

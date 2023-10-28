@@ -30,8 +30,8 @@ public:
 
 private:
 	SDL_Rect currentFrame;
-    Animation oldAnimation = animation;
-	Animation animation = oldAnimation;
+    //Animation oldAnimation = animation;
+    Animation animation;
 	int frame = 0;
 	std::string type;
 	std::string oldDirection = direction;

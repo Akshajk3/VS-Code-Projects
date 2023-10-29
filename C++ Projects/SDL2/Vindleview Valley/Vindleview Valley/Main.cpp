@@ -289,6 +289,8 @@ int main(int argc, char* argv[])
 	}
 
     Building house1(100, 100, houseTex, window.renderer);
+
+	std::vector<Building> buildings;
     
     std::vector<Plant> Plants;
     std::vector<Item> Items;
@@ -426,7 +428,7 @@ int main(int argc, char* argv[])
 					if (player.getTool() == "build" && wood >= 5 && show == false)
 					{
 						inventory.removeItem(0, 5);
-						house1.Place();
+						buildings.push_back(Building(mouseX, mouseY, houseTex, window.renderer, true));
 					}
 				}
 				if (event.button.button == SDL_BUTTON_RIGHT)
@@ -438,25 +440,25 @@ int main(int argc, char* argv[])
 
 		int move[2] = { movement[0] - movement[1], movement[2] - movement[3] };
 
-        int displayWidth = 800;
-        int displayHeight = 600;
-        
-        scroll[0] = (player.getX() + player.getCurrentFrame().w / 2) * 5 - displayWidth / 2 - scroll[0];
-            scroll[1] = (player.getY() + player.getCurrentFrame().h / 2) * 5 - displayHeight / 2 - scroll[1];
-        
-        cameraX += static_cast<int>(scroll[0]);
-        cameraY += static_cast<int>(scroll[1]);
+		int displayWidth = 800;
+		int displayHeight = 600;
 
-        // Ensure the camera stays within the boundaries of the game world
-        if (cameraX < 0) cameraX = 0;
-        if (cameraY < 0) cameraY = 0;
-        if (cameraX > worldWidth - displayWidth) cameraX = worldWidth - displayHeight;
-        if (cameraY > worldHeight - displayHeight) cameraY = worldHeight - displayHeight;
+		scroll[0] = (player.getX() + player.getCurrentFrame().w / 2) * 5 - displayWidth / 2 - scroll[0];
+		scroll[1] = (player.getY() + player.getCurrentFrame().h / 2) * 5 - displayHeight / 2 - scroll[1];
+
+		cameraX += static_cast<int>(scroll[0]);
+		cameraY += static_cast<int>(scroll[1]);
+
+		// Ensure the camera stays within the boundaries of the game world
+		if (cameraX < 0) cameraX = 0;
+		if (cameraY < 0) cameraY = 0;
+		if (cameraX > worldWidth - displayWidth) cameraX = worldWidth - displayHeight;
+		if (cameraY > worldHeight - displayHeight) cameraY = worldHeight - displayHeight;
 
 		//std::cout << "Player X: " << player.getX() << std::endl;
 		//std::cout << "Player Y: " << player.getY() << std::endl;
 
-        int render_scroll[2] = { 0, 0 };
+		int render_scroll[2] = { 0, 0 };
 
 		window.clear();
 		player.update(move);
@@ -476,6 +478,11 @@ int main(int argc, char* argv[])
 		else if (house1.isPlaced() == true)
 		{
 			house1.render();
+		}
+
+		for (Building& house : buildings)
+		{
+			house.render();
 		}
         
 		auto its = Plants.begin();

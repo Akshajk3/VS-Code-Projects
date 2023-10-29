@@ -1,8 +1,8 @@
 #include "Building.h"
 
 
-Building::Building(int p_x, int p_y, SDL_Texture* tex, SDL_Renderer* ren)
-    : x(p_x), y(p_y), texture(tex), renderer(ren)
+Building::Building(int p_x, int p_y, SDL_Texture* tex, SDL_Renderer* ren, bool place)
+    : x(p_x), y(p_y), texture(tex), renderer(ren), placed(place)
 {
     src.x = 0;
     src.y = 0;

@@ -5,7 +5,7 @@
 class Building
 {
 public:
-    Building(int p_x, int p_y, SDL_Texture* tex, SDL_Renderer* ren);
+    Building(int p_x, int p_y, SDL_Texture* tex, SDL_Renderer* ren, bool place = false);
     void update(int mouseX, int mouseY);
     void render();
     bool isPlaced();

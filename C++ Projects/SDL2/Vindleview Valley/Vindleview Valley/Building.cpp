@@ -1,7 +1,7 @@
 #include "Building.h"
 
 
-Building::Building(int p_x, int p_y, SDL_Texture* tex, SDL_Renderer* ren, bool place)
+Building::Building(int p_x, int p_y, SDL_Texture* tex, SDL_Renderer* ren, bool place, bool transparent)
     : x(p_x), y(p_y), texture(tex), renderer(ren), placed(place)
 {
     src.x = 0;
@@ -12,7 +12,14 @@ Building::Building(int p_x, int p_y, SDL_Texture* tex, SDL_Renderer* ren, bool p
     dest.x = x - (src.w / 2);
     dest.y = y - (src.h / 2);
 
-    SDL_SetTextureAlphaMod(texture, 100);
+    if (transparent == true)
+    {
+        SDL_SetTextureAlphaMod(texture, 100);
+    }
+    else
+    {
+        SDL_SetTextureAlphaMod(texture, 255);
+    }
 };
 
 void Building::update(int mouseX, int mouseY)
@@ -37,6 +44,7 @@ bool Building::isPlaced()
     return placed;
 }
 
+/*
 void Building::Place()
 {
     if (placed != true)
@@ -45,3 +53,4 @@ void Building::Place()
         SDL_SetTextureAlphaMod(texture, 255);
     }
 }
+*/

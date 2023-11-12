@@ -288,7 +288,7 @@ int main(int argc, char* argv[])
 		}
 	}
 
-    Building house1(100, 100, houseTex, window.renderer);
+    Building house1(100, 100, houseTex, window.renderer, false, false);
 
 	std::vector<Building> buildings;
     
@@ -428,6 +428,7 @@ int main(int argc, char* argv[])
 					if (player.getTool() == "build" && wood >= 5 && show == false)
 					{
 						inventory.removeItem(0, 5);
+						wood -= 5;
 						buildings.push_back(Building(mouseX, mouseY, houseTex, window.renderer, true));
 					}
 				}

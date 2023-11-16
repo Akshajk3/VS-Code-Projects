@@ -1,11 +1,27 @@
 import struct
 from pygame.math import Vector2 as vec2
+from data_types import *
 
 class WADReader():
     def __init__(self, wad_path):
         self.wad_file = open(wad_path, 'rb')
         self.header = self.read_header()
         self.directory = self.read_directory()
+
+    def read_linedef(self, offset):
+        # 14 bytes = 2H x 7
+        read_2_bytes = self.read_2_bytes
+
+        linedef = Linedef()
+        linedef.start_vertex_id = read_2_bytes(offset, byte_format='H')
+        linedef.end_vertex_id = read_2_bytes(offset + 2, byte_format='H')
+        linedef.flags = read_2_bytes(offset + 4, byte_format='H')
+        linedef.line_type = read_2_bytes(offset + 6, byte_format='H')
+        linedef.sector_tag = read_2_bytes(offset + 8, byte_format='H')
+        linedef.front_sidedef_id = read_2_bytes(offset + 10, byte_format='H')
+        linedef.back_sidedef_id = read_2_bytes(offset + 12, byte_format='H')
+        
+        return linedef
 
     def read_vertex(self, offset):
         # 4 bytes = 2h + 2h

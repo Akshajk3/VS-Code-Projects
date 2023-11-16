@@ -7,5 +7,4 @@ struct Block
 	bool is_transparent;
 	bool is_cube;
 	bool is_glass;
-
 };

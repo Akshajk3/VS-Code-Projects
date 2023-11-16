@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AEFA36E12B03F46D0061C2E2 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = AEFA36DA2B03F46D0061C2E2 /* glad.c */; };
+		AEFA36E22B03F46D0061C2E2 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFA36DB2B03F46D0061C2E2 /* Main.cpp */; };
+		AEFA36E32B03F46D0061C2E2 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFA36DF2B03F46D0061C2E2 /* TextureManager.cpp */; };
+		AEFA36E42B03F46D0061C2E2 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFA36E02B03F46D0061C2E2 /* Shader.cpp */; };
+		AEFA36E72B041FEA0061C2E2 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEFA36E62B041FE90061C2E2 /* libglfw.3.3.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AEFA36CA2B03F4480061C2E2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AEFA36CC2B03F4480061C2E2 /* Minecrafte */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Minecrafte; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEFA36D62B03F46D0061C2E2 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Renderer.h; path = ../../Minecraft/Renderer.h; sourceTree = "<group>"; };
+		AEFA36D72B03F46D0061C2E2 /* frag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = frag.glsl; path = ../../Minecraft/frag.glsl; sourceTree = "<group>"; };
+		AEFA36D92B03F46D0061C2E2 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = ../../Minecraft/Shader.h; sourceTree = "<group>"; };
+		AEFA36DA2B03F46D0061C2E2 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../Minecraft/glad.c; sourceTree = "<group>"; };
+		AEFA36DB2B03F46D0061C2E2 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = ../../Minecraft/Main.cpp; sourceTree = "<group>"; };
+		AEFA36DC2B03F46D0061C2E2 /* vert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vert.glsl; path = ../../Minecraft/vert.glsl; sourceTree = "<group>"; };
+		AEFA36DD2B03F46D0061C2E2 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = ../../Minecraft/Texture.h; sourceTree = "<group>"; };
+		AEFA36DE2B03F46D0061C2E2 /* Block_type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Block_type.h; path = ../../Minecraft/Block_type.h; sourceTree = "<group>"; };
+		AEFA36DF2B03F46D0061C2E2 /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureManager.cpp; path = ../../Minecraft/TextureManager.cpp; sourceTree = "<group>"; };
+		AEFA36E02B03F46D0061C2E2 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Shader.cpp; path = ../../Minecraft/Shader.cpp; sourceTree = "<group>"; };
+		AEFA36E62B041FE90061C2E2 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../../../opt/homebrew/Cellar/glfw/3.3.8/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AEFA36C92B03F4480061C2E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEFA36E72B041FEA0061C2E2 /* libglfw.3.3.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AEFA36C32B03F4480061C2E2 = {
+			isa = PBXGroup;
+			children = (
+				AEFA36CE2B03F4480061C2E2 /* Minecrafte */,
+				AEFA36CD2B03F4480061C2E2 /* Products */,
+				AEFA36E52B041FE90061C2E2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AEFA36CD2B03F4480061C2E2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AEFA36CC2B03F4480061C2E2 /* Minecrafte */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEFA36CE2B03F4480061C2E2 /* Minecrafte */ = {
+			isa = PBXGroup;
+			children = (
+				AEFA36DB2B03F46D0061C2E2 /* Main.cpp */,
+				AEFA36DE2B03F46D0061C2E2 /* Block_type.h */,
+				AEFA36D72B03F46D0061C2E2 /* frag.glsl */,
+				AEFA36DA2B03F46D0061C2E2 /* glad.c */,
+				AEFA36D62B03F46D0061C2E2 /* Renderer.h */,
+				AEFA36E02B03F46D0061C2E2 /* Shader.cpp */,
+				AEFA36D92B03F46D0061C2E2 /* Shader.h */,
+				AEFA36DD2B03F46D0061C2E2 /* Texture.h */,
+				AEFA36DF2B03F46D0061C2E2 /* TextureManager.cpp */,
+				AEFA36DC2B03F46D0061C2E2 /* vert.glsl */,
+			);
+			path = Minecrafte;
+			sourceTree = "<group>";
+		};
+		AEFA36E52B041FE90061C2E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AEFA36E62B041FE90061C2E2 /* libglfw.3.3.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AEFA36CB2B03F4480061C2E2 /* Minecrafte */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEFA36D32B03F4480061C2E2 /* Build configuration list for PBXNativeTarget "Minecrafte" */;
+			buildPhases = (
+				AEFA36C82B03F4480061C2E2 /* Sources */,
+				AEFA36C92B03F4480061C2E2 /* Frameworks */,
+				AEFA36CA2B03F4480061C2E2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Minecrafte;
+			productName = Minecrafte;
+			productReference = AEFA36CC2B03F4480061C2E2 /* Minecrafte */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AEFA36C42B03F4480061C2E2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AEFA36CB2B03F4480061C2E2 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = AEFA36C72B03F4480061C2E2 /* Build configuration list for PBXProject "Minecrafte" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AEFA36C32B03F4480061C2E2;
+			productRefGroup = AEFA36CD2B03F4480061C2E2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AEFA36CB2B03F4480061C2E2 /* Minecrafte */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AEFA36C82B03F4480061C2E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEFA36E22B03F46D0061C2E2 /* Main.cpp in Sources */,
+				AEFA36E12B03F46D0061C2E2 /* glad.c in Sources */,
+				AEFA36E42B03F46D0061C2E2 /* Shader.cpp in Sources */,
+				AEFA36E32B03F46D0061C2E2 /* TextureManager.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AEFA36D12B03F4480061C2E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AEFA36D22B03F4480061C2E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AEFA36D42B03F4480061C2E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.3.8/include,
+					"\"$(SRCROOT)/../Dependencies/glad/include\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.8/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AEFA36D52B03F4480061C2E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/glfw/3.3.8/include,
+					"\"$(SRCROOT)/../Dependencies/glad/include\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.8/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AEFA36C72B03F4480061C2E2 /* Build configuration list for PBXProject "Minecrafte" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEFA36D12B03F4480061C2E2 /* Debug */,
+				AEFA36D22B03F4480061C2E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEFA36D32B03F4480061C2E2 /* Build configuration list for PBXNativeTarget "Minecrafte" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEFA36D42B03F4480061C2E2 /* Debug */,
+				AEFA36D52B03F4480061C2E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AEFA36C42B03F4480061C2E2 /* Project object */;
+}

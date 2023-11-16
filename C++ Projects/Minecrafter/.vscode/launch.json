@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "/Users/akshajkanumuri/Documents/GitHub/VS-Code-Projects/C++ Projects/Minecrafter/Minecrafter",
+      "program": "/Users/akshajkanumuri/Documents/GitHub/VS-Code-Projects/C++ Projects/Minecrafter/Minecrafter/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

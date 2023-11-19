@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE4D6B8C2B069F65005FB5EE /* shaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE4D6B8B2B069F65005FB5EE /* shaderProgram.cpp */; };
 		AE98C1EE2AD0A650006EABE5 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE98C1ED2AD0A650006EABE5 /* Main.cpp */; };
 		AE98C1F62AD0B68C006EABE5 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE98C1F52AD0B68C006EABE5 /* libglfw.3.3.dylib */; };
 		AE98C1F82AD0DDD5006EABE5 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = AE98C1F72AD0DDD5006EABE5 /* glad.c */; };
@@ -25,6 +26,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AE4D6B8A2B069F50005FB5EE /* shaderProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shaderProgram.h; sourceTree = "<group>"; };
+		AE4D6B8B2B069F65005FB5EE /* shaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shaderProgram.cpp; sourceTree = "<group>"; };
+		AE4D6B8D2B06A870005FB5EE /* vert.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = vert.glsl; sourceTree = "<group>"; };
+		AE4D6B8E2B06A8B1005FB5EE /* frag.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = frag.glsl; sourceTree = "<group>"; };
 		AE98C1EA2AD0A650006EABE5 /* Minecrafter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Minecrafter; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE98C1ED2AD0A650006EABE5 /* Main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
 		AE98C1F52AD0B68C006EABE5 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../../opt/homebrew/Cellar/glfw/3.3.8/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
@@ -65,6 +70,10 @@
 			children = (
 				AE98C1F72AD0DDD5006EABE5 /* glad.c */,
 				AE98C1ED2AD0A650006EABE5 /* Main.cpp */,
+				AE4D6B8A2B069F50005FB5EE /* shaderProgram.h */,
+				AE4D6B8B2B069F65005FB5EE /* shaderProgram.cpp */,
+				AE4D6B8D2B06A870005FB5EE /* vert.glsl */,
+				AE4D6B8E2B06A8B1005FB5EE /* frag.glsl */,
 			);
 			path = Minecrafter;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE98C1EE2AD0A650006EABE5 /* Main.cpp in Sources */,
+				AE4D6B8C2B069F65005FB5EE /* shaderProgram.cpp in Sources */,
 				AE98C1F82AD0DDD5006EABE5 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

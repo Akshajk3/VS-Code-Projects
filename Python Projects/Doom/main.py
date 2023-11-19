@@ -11,7 +11,7 @@ class DoomEngine:
         self.screen = pygame.display.set_mode(WIN_RES)
         self.clock = pygame.time.Clock()
         self.running = True
-        self.dt = 1/60 
+        self.dt = 1/60
         self.on_init()
 
     def on_init(self):

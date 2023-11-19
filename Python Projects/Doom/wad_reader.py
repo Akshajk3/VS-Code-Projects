@@ -8,6 +8,31 @@ class WADReader():
         self.header = self.read_header()
         self.directory = self.read_directory()
 
+    def read_node(self, offset):
+        # 28 bytes = 2h x 12 + 2H x 2
+        read_2_bytes = self.read_2_bytes
+
+        node = Node()
+        node.x_partition = read_2_bytes(offset, byte_format='h')
+        node.y_partition = read_2_bytes(offset + 2, byte_format='h')
+        node.dx_partition = read_2_bytes(offset + 4, byte_format='h')
+        node.dy_partition = read_2_bytes(offset + 6, byte_format='h')
+
+        node.bbox['front'].top = read_2_bytes(offset + 8, byte_format='h')
+        node.bbox['front'].bottom = read_2_bytes(offset + 10, byte_format='h')
+        node.bbox['front'].left = read_2_bytes(offset + 12, byte_format='h')
+        node.bbox['front'].right = read_2_bytes(offset + 14, byte_format='h')
+
+        node.bbox['back'].top = read_2_bytes(offset + 16, byte_format='h')
+        node.bbox['back'].bottom = read_2_bytes(offset + 18, byte_format='h')
+        node.bbox['back'].left = read_2_bytes(offset + 20, byte_format='h')
+        node.bbox['back'].right = read_2_bytes(offset + 22, byte_format='h')
+
+        node.front_child_id = read_2_bytes(offset + 24, byte_format='h')
+        node.back_child_id = read_2_bytes(offset + 26, byte_format='h')
+
+        return node
+
     def read_linedef(self, offset):
         # 14 bytes = 2H x 7
         read_2_bytes = self.read_2_bytes

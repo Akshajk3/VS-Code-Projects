@@ -1,0 +1,17 @@
+#include "Game.h"
+
+int main()
+{
+	Game game;
+	game.Init();
+
+	while (!game.IsOver())
+	{
+		game.ProcessInput();
+		game.Update();
+		game.Render();
+		game.Update();
+	}
+
+	return 0;
+}

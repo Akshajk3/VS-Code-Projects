@@ -1,0 +1,21 @@
+﻿  Game.cpp
+  Main.cpp
+  VoomEngine.cpp
+  WADLoader.cpp
+  Generating Code...
+Main.obj : error LNK2019: unresolved external symbol "public: void __cdecl Game::Render(void)" (?Render@Game@@QEAAXXZ) referenced in function "int __cdecl SDL_main(void)" (?SDL_main@@YAHXZ)
+Main.obj : error LNK2019: unresolved external symbol "public: void __cdecl Game::Update(void)" (?Update@Game@@QEAAXXZ) referenced in function "int __cdecl SDL_main(void)" (?SDL_main@@YAHXZ)
+Main.obj : error LNK2019: unresolved external symbol "public: bool __cdecl Game::IsOver(void)" (?IsOver@Game@@QEAA_NXZ) referenced in function "int __cdecl SDL_main(void)" (?SDL_main@@YAHXZ)
+VoomEngine.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl VoomEngine::KeyPressed(union SDL_Event &)" (?KeyPressed@VoomEngine@@UEAAXAEATSDL_Event@@@Z)
+VoomEngine.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl VoomEngine::KeyReleased(union SDL_Event &)" (?KeyReleased@VoomEngine@@UEAAXAEATSDL_Event@@@Z)
+VoomEngine.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl VoomEngine::Quit(void)" (?Quit@VoomEngine@@UEAAXXZ)
+VoomEngine.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl VoomEngine::Update(void)" (?Update@VoomEngine@@UEAAXXZ)
+VoomEngine.obj : error LNK2001: unresolved external symbol "public: virtual bool __cdecl VoomEngine::isOver(void)" (?isOver@VoomEngine@@UEAA_NXZ)
+VoomEngine.obj : error LNK2001: unresolved external symbol "public: virtual int __cdecl VoomEngine::GetRenderWidth(void)" (?GetRenderWidth@VoomEngine@@UEAAHXZ)
+VoomEngine.obj : error LNK2001: unresolved external symbol "public: virtual int __cdecl VoomEngine::GetRenderHeight(void)" (?GetRenderHeight@VoomEngine@@UEAAHXZ)
+VoomEngine.obj : error LNK2001: unresolved external symbol "public: virtual int __cdecl VoomEngine::GetTimePerFrame(void)" (?GetTimePerFrame@VoomEngine@@UEAAHXZ)
+VoomEngine.obj : error LNK2001: unresolved external symbol "public: virtual class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl VoomEngine::GetName(void)" (?GetName@VoomEngine@@UEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ)
+SDL2main.lib(SDL_windows_main.obj) : error LNK2019: unresolved external symbol SDL_main referenced in function main_getcmdline
+    Hint on symbols that are defined and could potentially match:
+      "int __cdecl SDL_main(void)" (?SDL_main@@YAHXZ)
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\x64\Debug\Voom.exe : fatal error LNK1120: 13 unresolved externals

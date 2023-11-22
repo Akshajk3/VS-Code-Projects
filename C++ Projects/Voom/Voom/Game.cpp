@@ -1,13 +1,20 @@
 #include "Game.h"
 
-Game::Game()
-{
+#include <iostream>
+#include <string>
 
+Game::Game()
+	: m_iWindowWidth(1280), m_iWindowHeight(800)
+{
+	m_VoomEngine = new VoomEngine();
 }
 
 Game::~Game()
 {
-
+	delete m_VoomEngine;
+	SDL_DestroyRenderer(m_Renderer);
+	SDL_DestroyWindow(m_Window);
+	SDL_Quit();
 }
 
 bool Game::Init()

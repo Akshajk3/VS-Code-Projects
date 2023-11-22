@@ -84,10 +84,12 @@ bool WADLoader::ReadDirectories()
 
 	reader.ReadHeaderData(m_WADData, 0, header);
 
+	/*
 	std::cout << header.WADType << std::endl;
 	std::cout << header.DirectoryCount << std::endl;
 	std::cout << header.DirectoryOffset << std::endl;
 	std::cout << std::endl << std::endl;
+	*/
 
 	for (unsigned int i = 0; i < header.DirectoryCount; i++)
 	{
@@ -95,10 +97,12 @@ bool WADLoader::ReadDirectories()
 
 		m_WADDirectories.push_back(directory);
 		
+		/*
 		std::cout << directory.LumpOffset << std::endl;
 		std::cout << directory.LumpSize << std::endl;
 		std::cout << directory.LumpName << std::endl;
 		std::cout << std::endl << std::endl;
+		*/
 	}
 
 	return true;
@@ -145,9 +149,11 @@ bool WADLoader::ReadMapVertex(Map* map)
 
 		map->AddVertex(vertex);
 
+		/*
 		std::cout << vertex.XPosition << std::endl;
 		std::cout << vertex.YPosition << std::endl;
 		std::cout << std::endl << std::endl;
+		*/
 	}
 
 	return true;
@@ -179,6 +185,7 @@ bool WADLoader::ReadMapLineDef(Map* map)
 
 		map->AddLinedef(linedef);
 
+		/*
 		std::cout << linedef.StartVertex << std::endl;
 		std::cout << linedef.EndVertex << std::endl;
 		std::cout << linedef.Flags << std::endl;
@@ -188,6 +195,7 @@ bool WADLoader::ReadMapLineDef(Map* map)
 		std::cout << linedef.LeftSideDef << std::endl;
 		
 		std::cout << std::endl << std::endl;
+		*/
 	}
 
 	return true;

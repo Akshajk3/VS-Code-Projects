@@ -1,6 +1,6 @@
 #include "Game.h"
 
-int main()
+int main(int argc, char* argv[])
 {
 	Game game;
 	game.Init();
@@ -10,7 +10,7 @@ int main()
 		game.ProcessInput();
 		game.Update();
 		game.Render();
-		game.Update();
+		game.Delay();
 	}
 
 	return 0;

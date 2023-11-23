@@ -50,6 +50,14 @@ void Map::RenderAutoMap(SDL_Renderer *pRenderer)
     int iXShift = -m_XMin; // Invert the min X value
     int iYShift = -m_YMin; // Invert the min Y value
 
+	int iRenderXSize;
+	int iRenderYSize;
+
+	SDL_RenderGetLogicalSize(pRenderer, &iRenderXSize, &iRenderYSize);
+
+	--iRenderXSize;
+	--iRenderYSize;
+
     SDL_SetRenderDrawColor(pRenderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 
     for (LineDef &l : m_LineDefs)
@@ -60,8 +68,8 @@ void Map::RenderAutoMap(SDL_Renderer *pRenderer)
         //Draw a line between those 2 points and scale it down by a factor
         SDL_RenderDrawLine(pRenderer,
             (vStart.XPosition + iXShift) / m_iAutoMapScaleFactor,
-            (vStart.YPosition + iYShift) / m_iAutoMapScaleFactor,
+            iRenderYSize - (vStart.YPosition + iYShift) / m_iAutoMapScaleFactor,
             (vEnd.XPosition + iXShift) / m_iAutoMapScaleFactor,
-            (vEnd.YPosition + iYShift) / m_iAutoMapScaleFactor);
+            iRenderYSize - (vEnd.YPosition + iYShift) / m_iAutoMapScaleFactor);
     }
 }

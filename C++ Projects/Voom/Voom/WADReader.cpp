@@ -58,7 +58,7 @@ void WADReader::ReadDirectoryData(const uint8_t* pWADData, int offset, Directory
 void WADReader::ReadVertexData(const uint8_t* pWADData, int offset, Vertex& vertex)
 {
 	vertex.XPosition = Read2Bytes(pWADData, offset);
-	vertex.XPosition = Read2Bytes(pWADData, offset + 2);
+	vertex.YPosition = Read2Bytes(pWADData, offset + 2);
 }
 
 void WADReader::ReadLineDefData(const uint8_t* pWADData, int offset, LineDef& lineDef)

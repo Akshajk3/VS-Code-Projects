@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DataTypes.h"
+#include "Player.h"
 
 #include <SDL2/SDL.h>
 #include <string>
@@ -9,7 +10,7 @@
 class Map
 {
 public:
-	Map(std::string sName);
+	Map(std::string sName, Player* pPlayer);
 	~Map();
 
 	std::string getName();
@@ -27,4 +28,6 @@ protected:
 	int m_YMin;
 	int m_YMax;
 	int m_iAutoMapScaleFactor;
+
+	Player* m_Player;
 };

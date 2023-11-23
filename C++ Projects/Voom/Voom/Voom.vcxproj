@@ -136,6 +136,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="VoomEngine.cpp" />
     <ClCompile Include="WADLoader.cpp" />
     <ClCompile Include="WADReader.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="DataTypes.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="VoomEngine.h" />
     <ClInclude Include="WADLoader.h" />
     <ClInclude Include="WADReader.h" />

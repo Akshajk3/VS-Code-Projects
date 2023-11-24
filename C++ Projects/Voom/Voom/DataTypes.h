@@ -60,3 +60,12 @@ struct LineDef
 	uint16_t RightSideDef;
 	uint16_t LeftSideDef;
 };
+
+struct Thing
+{
+	int16_t XPosition;
+	int16_t YPosition;
+	uint16_t Angle;
+	uint16_t Type;
+	uint16_t Flags;
+};

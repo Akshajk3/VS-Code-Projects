@@ -35,4 +35,5 @@ protected:
 
 	WADLoader m_WADLoader;
 	Map* m_pMap;
+	Player* m_pPlayer;
 };

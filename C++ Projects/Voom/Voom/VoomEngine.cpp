@@ -3,7 +3,8 @@
 VoomEngine::VoomEngine()
 	: m_bIsOver(false), m_iRenderWidth(320), m_iRenderHeight(200)
 {
-	m_pMap = new Map("E1M1");
+	m_pPlayer = new Player(1);
+	m_pMap = new Map("E1M1", m_pPlayer);
 }
 
 VoomEngine::~VoomEngine()

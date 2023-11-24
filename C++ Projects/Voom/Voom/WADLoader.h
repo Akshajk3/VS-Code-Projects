@@ -25,6 +25,7 @@ protected:
 	bool ReadDirectories();
 	bool ReadMapVertex(Map* map);
 	bool ReadMapLineDef(Map* map);
+	bool ReadMapThing(Map* map);
 	int FindMapIndex(Map* map);
 
 	std::string m_sWADFilePath;

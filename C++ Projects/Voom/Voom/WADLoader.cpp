@@ -200,3 +200,33 @@ bool WADLoader::ReadMapLineDef(Map* map)
 
 	return true;
 }
+
+bool WADLoader::ReadMapThing(Map* map)
+{
+	int iMapIndex = FindMapIndex(map);
+
+	if (iMapIndex == -1)
+	{ 
+		return false;
+	}
+
+	iMapIndex += EMAPLUMPSINDEX::eTHINGS;
+
+	if (strcmp(m_WADDirectories[iMapIndex].LumpName, "THINGS") != 0)
+	{
+		return false;
+	}
+
+	int iThingsSizeInBytes = sizeof(Thing);
+	int iThingsCount = m_WADDirectories[iMapIndex].LumpSize / iThingsSizeInBytes;
+
+	Thing thing;
+	for (int i = 0; i < iThingsCount; i++)
+	{
+		m_Reader.ReadThingData(m_WADData, m_WADDirectories[iMapIndex].LumpOffset + i * iThingsSizeInBytes, thing);
+
+		map->AddThing(thing);
+	}
+
+	return true;
+}

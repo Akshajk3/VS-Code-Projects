@@ -1,17 +1,6 @@
-#include "Game.h"
+#include <iostream>
 
-int main(int argc, char* argv[])
+int main()
 {
-	Game game;
-	game.Init();
-
-	while (!game.IsOver())
-	{
-		game.ProcessInput();
-		game.Update();
-		game.Render();
-		game.Delay();
-	}
-
 	return 0;
 }

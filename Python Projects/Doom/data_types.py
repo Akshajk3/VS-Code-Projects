@@ -19,6 +19,7 @@ class Seg:
         'direction',
         'offset'
     ]
+    __slots__ += ['start_vertex', 'end_vertex', 'linedef']
 
 class Subsector:
     # 4 bytes = 2h + 2h

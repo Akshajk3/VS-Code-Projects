@@ -23,6 +23,8 @@ GLuint indices[] =
 
 int main(int argc, char* argv[])
 {
+    std::cout << "Current Directory: " << std::filesystem::current_path() << std::endl;
+    
     glfwInit();
     
     //glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

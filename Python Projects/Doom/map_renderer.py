@@ -13,10 +13,16 @@ class MapRenderer:
         self.vertexes = [pygame.math.Vector2(self.remap_x(v.x), self.remap_y(v.y)) for v in self.vertexes]
 
     def draw(self):
-        self.draw_linedefs()
+        pass
+        #self.draw_linedefs()
         #self.draw_vertices()
-        self.draw_player_pos()
+        #self.draw_player_pos()
         #self.draw_node(node_id=self.engine.bsp.root_node_id)
+
+    def draw_vlines(self, x1, x2, sub_sector_id):
+        color = self.get_color(sub_sector_id)
+        pygame.draw.line(self.engine.screen, color, (x1, 0), (x1, HEIGHT), 3)
+        pygame.draw.line(self.engine.screen, color, (x2, 0), (x2, HEIGHT), 3)
 
     def get_color(self, seed):
         random.seed(seed)
@@ -72,7 +78,7 @@ class MapRenderer:
         for line in self.linedefs:
             p1 = self.vertexes[line.start_vertex_id]
             p2 = self.vertexes[line.end_vertex_id]
-            pygame.draw.line(self.engine.screen, (70, 70, 70), p1, p2, 3)
+            pygame.draw.line(self.engine.screen, 'red', p1, p2, 3)
 
     def remap_x(self, n, out_min=30, out_max=WIDTH-30):
         return (max(self.x_min, min(n, self.x_max)) - self.x_min) * (out_max - out_min) / (self.x_max - self.x_min) + out_min

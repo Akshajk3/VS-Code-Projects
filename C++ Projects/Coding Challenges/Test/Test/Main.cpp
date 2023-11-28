@@ -1,53 +1,130 @@
 #include <iostream>
-#include <fstream>
-#include <istream>
-#include <string>
-#include <cstring>
-
 using namespace std;
 
-int render(int lineLength, istream& inf, ostream& outf)
-{
-    if (lineLength < 1) return 2;
+// This function searches through str for the character chr.
+// If the chr is found, it returns a pointer into str where
+// the character was first found, otherwise nullptr (not found).
 
-    string s;
-    int counter = 0;
-    getline(inf, s);
-    cout << s << endl;
-    for (char c : s)
-    {
-        if (!isspace(c))
-            counter++;
-        if (counter > lineLength)
-        {
-            return 1;
-        }
-    }
-    return 0;
+const char* findTheChar(const char* str, char chr)
+{
+    for (int k = 0; *str != 0; k++)
+        if (*(str + k) == chr)
+            return (str + k);
+
+    return nullptr;
 }
 
 int main()
 {
-    const int MAX_FILENAME_LENGTH = 100;
-    for (;;)
+    const char myString[] = "Hello, World!";
+    char searchChar = 'l';
+
+    const char* result = findTheChar(myString, searchChar);
+    
+    cout << result << endl;
+
+    if (result != nullptr)
     {
-        cout << "Enter input file name (or q to quit): ";
-        char filename[MAX_FILENAME_LENGTH];
-        cin.getline(filename, MAX_FILENAME_LENGTH);
-        if (strcmp(filename, "q") == 0)
-            break;
-        ifstream infile(filename);
-        if (!infile)
-        {
-            cerr << "Cannot open " << filename << "!" << endl;
-            continue;
-        }
-        cout << "Enter maximum line length: ";
-        int len;
-        cin >> len;
-        cin.ignore(10000, '\n');
-        int returnCode = render(len, infile, cout);
-        cout << "Return code is " << returnCode << endl;
+        std::cout << "Character '" << searchChar << "' found at position: " << result - myString << std::endl;
     }
-	return 0;
+    else
+    {
+        std::cout << "Character '" << searchChar << "' not found in the string." << std::endl;
+    }
+
+    return 0;
 }
+
+// QUESTION 5
+/*
+ #include <cstdint>
+ #include <iostream>
+
+ using namespace std;
+
+ void removeS(char* message)
+ {
+     size_t len = strlen(message);
+     int writeIndex = 0;
+     
+     for(int i = 0; i < len; i++)
+     {
+         if(message[i] != 'S' && message[i] != 's')
+         {
+             message[writeIndex] = message[i];
+             writeIndex++;
+         }
+     }
+     
+     message[writeIndex] = '\0';
+ }
+
+ int main()
+ {
+     char msg[50] = "She'll blossom like a massless princess.";
+     removeS(msg);
+     cout << msg << endl;  // prints   he'll bloom like a male prince.
+ }
+ */
+
+// QUESTION 3
+
+/*
+#include <cstdint>
+#include <iostream>
+
+using namespace std;
+
+double mean(const double* scores, int numScores)
+{
+    const double* ptr = scores;
+    int tot = 0;
+    for(int i = 0; i < numScores; i++)
+    {
+        tot += ptr[i];
+    }
+    return tot/numScores;
+}
+
+int main()
+{
+    double scores[] = {20.2, 15.5, 18.0, 22.8, 25.3};
+    int numScores = 5;
+    double x = mean(scores, numScores);
+    
+    cout << x << endl;
+}
+ */
+
+// QUESTION 2
+/*
+ #include <cstdint>
+ #include <iostream>
+
+ using namespace std;
+
+ int main()
+ {
+     double* cat;
+     double mouse[5];
+     
+     cat = &mouse[4];
+     
+     *cat = 25.0;
+     
+     *(cat - 1) = 17;
+     
+     cat -= 3;
+     
+     cat[1] = 42;
+     
+     cat[0] = 54;
+     
+     bool d = cat == &mouse[0];
+     
+     bool b = *cat == *(cat + 1);
+     
+     return 0;
+ }
+
+ */

@@ -11,8 +11,10 @@ class BSP:
         self.sub_sectors = engine.wad_data.sub_sectors
         self.segs = engine.wad_data.segments
         self.root_node_id = len(self.nodes) - 1
+        self.is_traverse_bsp = True
     
     def update(self):
+        self.is_traverse_bsp = True
         self.render_bsp_node(node_id=self.root_node_id)
 
     @staticmethod
@@ -60,8 +62,7 @@ class BSP:
         for i in range(sub_sector.seg_count):
             seg = self.segs[sub_sector.first_seg_id + i]
             if result := self.add_segment_to_fov(seg.start_vertex, seg.end_vertex):
-                #self.engine.map_renderer.draw_segs(seg, sub_sector_id)
-                self.engine.map_renderer.draw_vlines(result[0], result[1], sub_sector_id)
+                self.engine.seg_handler.classify_segement(seg, *result)
 
     @staticmethod
     def norm(angle):

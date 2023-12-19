@@ -29,6 +29,8 @@ pygame.display.set_caption("Servo Control with Arrow Keys")
 # Initial servo position
 servo_position = 90  # You can adjust this based on your servo's center position
 
+movement = [False, False]
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -37,23 +39,34 @@ while True:
             exit()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                servo_position -= 10
-                if servo_position < 0:
-                    servo_position = 0
+                movement[0] = True
             elif event.key == pygame.K_RIGHT:
-                servo_position += 10
-                if servo_position > 180:
-                    servo_position = 180
+                movement[1] = True
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                movement[0] = False
+            if event.key == pygame.K_RIGHT:
+                movement[1] = False
 
-            # Send servo position to Arduino
-            message = str(servo_position)
-            ArduinoSerial.write(message.encode('utf-8'))
-            input = ArduinoSerial.readline().decode('utf-8').rstrip()
-            print(input)
+    if movement[0] == True:
+        servo_position -= 10
+        if servo_position < 0:
+            servo_position = 0
+    if movement[1] == True:
+        servo_position += 10
+        if servo_position > 180:
+            servo_position = 180
 
-            #print(f"Sent servo position: {servo_position}")
+    # Send servo position to Arduino
+    message = str(servo_position)
+    ArduinoSerial.write(message.encode('utf-8'))
+    
+    # Read data from Arduino (non-blocking)
+    if ArduinoSerial.in_waiting > 0:
+        input_data = ArduinoSerial.readline().decode('utf-8').rstrip()
+        print(f"Received data from Arduino: {input_data}")
 
-    pygame.time.delay(100)  # Add a small delay to avoid flooding the serial port
+    pygame.time.delay(20) # Add a small delay to avoid flooding the serial port
     # command = input("Servo Degrees: ")
     # if(int(command) > 360 or int(command) < 0):
     #     print("Please enter a number between 0 and 360")

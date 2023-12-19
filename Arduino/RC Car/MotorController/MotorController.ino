@@ -1,32 +1,31 @@
 #include <Servo.h>
 
 int servoPin = 9;
-
 Servo steeringServo;
 
 int x;
-
 int input;
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
   steeringServo.attach(servoPin);
 }
 
 void loop() {
-  if (Serial.available() > 0) {
-    // Read the data as a string
-    String arduinoData = Serial.readStringUntil('\n');
-    
-    // Convert the string to an integer
-    int sensorValue = arduinoData.toInt();
+  static unsigned long previousMillis = 0;
+  unsigned long currentMillis = millis();
 
-    // Use the sensorValue as needed
+  if (Serial.available() > 0) {
+    String arduinoData = Serial.readStringUntil('\n');
+    int sensorValue = arduinoData.toInt();
     Serial.println(sensorValue);
     x = sensorValue;
   }
-  //Serial.println(x);
-  steeringServo.write(x);
-  delay(100);
+
+  if (currentMillis - previousMillis >= 10) {
+    previousMillis = currentMillis;
+
+    // Serial.println(x);  // Uncomment if you want to print x
+    steeringServo.write(x);
+  }
 }

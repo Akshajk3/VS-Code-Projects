@@ -17,11 +17,18 @@ while True:
     if results.multi_hand_landmarks:
         for hand_landmarks in results.multi_hand_landmarks:
             
-            lm_data = hand_landmarks.landmark[0]
+            lm_data1 = hand_landmarks.landmark[5]
+            lm_data2 = hand_landmarks.landmark[8]
+            
+            y1 = int(lm_data1.y * image.shape[0])
+            y2 = int(lm_data2.y * image.shape[0])
 
-            cx, cy = int(lm_data.x * image.shape[1]) , int(lm_data.y * image.shape[0])
+            if y2 > y1:
+                print("Hand closed")
+            else:
+                print("Hand open")
 
-            print(f"Landmark 0: ({cx}, {cy})")
+            #print(f"Landmark 5: ({y1}), Landmark 8: ({y2})")
 
             mp_drawings.draw_landmarks(image, hand_landmarks, mphands.HAND_CONNECTIONS)
             

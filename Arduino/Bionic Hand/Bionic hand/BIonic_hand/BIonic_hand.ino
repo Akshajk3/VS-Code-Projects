@@ -19,5 +19,12 @@ void loop() {
     value = Serial.parseInt();
   }
 
-  testServo.write(value);
+  if(value == 1)
+  {
+    testServo.write(0);
+  }
+  else
+  {
+    testServo.write(180);
+  }
 }

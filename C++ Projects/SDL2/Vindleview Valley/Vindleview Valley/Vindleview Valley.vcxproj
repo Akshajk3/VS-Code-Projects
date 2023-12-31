@@ -160,9 +160,16 @@
     <ClInclude Include="Plant.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RenderWindow.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tilemap.h" />
     <ClInclude Include="Tree.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Vindleview Valley.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Icon\player_actions_7.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

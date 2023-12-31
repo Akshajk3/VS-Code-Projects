@@ -1,4 +1,6 @@
 #include <Servo.h>
+#include <Adafruit_MotorShield.h>
+#include <Wire.h>
 
 int servoPin = 9;
 Servo steeringServo;

@@ -42,18 +42,21 @@ void Inventory::removeItem(int index, int count)
 
 void Inventory::render(SDL_Renderer* renderer)
 {   
-    for (int i = 0; i < 5; i++)
+    if(show == true)
     {
-        for (int j = 0; j < 3; j++)
+        for (int i = 0; i < 5; i++)
         {
-            dest.x = (800 - 352) / 2 + (i * 96) - (src.w / 2);
-            dest.y = (600 - 192) / 2 + (j * 96) - (src.h / 2);
-            SDL_RenderCopy(renderer, invTiles[0], &src, &dest);
-
-            for (Item& item : items)
+            for (int j = 0; j < 3; j++)
             {
-                int offest[2] = { 0, 0 };
-                item.render(renderer, offest);
+                dest.x = (800 - 352) / 2 + (i * 96) - (src.w / 2);
+                dest.y = (600 - 192) / 2 + (j * 96) - (src.h / 2);
+                SDL_RenderCopy(renderer, invTiles[0], &src, &dest);
+
+                for (Item& item : items)
+                {
+                    int offest[2] = { 0, 0 };
+                    item.render(renderer, offest);
+                }
             }
         }
     }

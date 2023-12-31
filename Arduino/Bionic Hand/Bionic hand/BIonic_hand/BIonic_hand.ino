@@ -10,6 +10,7 @@ void setup() {
   Serial.begin(9600);
   testServo.attach(servoPin);
   testServo.write(0);
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
@@ -19,12 +20,18 @@ void loop() {
     value = Serial.parseInt();
   }
 
-  if(value == 1)
+  if(value == 0)
   {
+    digitalWrite(LED_BUILTIN, LOW);
     testServo.write(0);
   }
+
+
   else
   {
+    digitalWrite(LED_BUILTIN, HIGH);
     testServo.write(180);
   }
+
+  delay(50);
 }

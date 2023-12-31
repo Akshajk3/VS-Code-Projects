@@ -194,6 +194,9 @@ int main(int argc, char* argv[])
 
 // Inventory Asset Paths
 	assetPaths["inv"] = ("Assets/Inventory/tiles");
+
+// Chest Asset Paths
+	assetPaths["chest"] = ("Assets/Objects/images/chest");
 	
 // Player Assets
 	assets["idle_down"] = textureManager.loadTextures(assetPaths["idle_down"], window.renderer);
@@ -257,6 +260,9 @@ int main(int argc, char* argv[])
 // Particle Assets
 	assets["smoke"] = textureManager.loadTextures(assetPaths["smoke"], window.renderer);
 
+// Chest Assets
+	assets["chest"] = textureManager.loadTextures(assetPaths["chest"], window.renderer);
+
 	SDL_ShowCursor(SDL_DISABLE);
 
 	Player player(100, 75, window.renderer, assets);
@@ -271,6 +277,11 @@ int main(int argc, char* argv[])
     plantTiles.LoadMap(plants);
 
 	Inventory inventory(assets["inv"]);
+	Inventory buildMenue(assets["inv"]);
+	Item houseItem = Item(0, 0, "inventoryIcon", 0, houseTex, 2);
+	Item chestItem = Item(0, 0, "inventoryIcon", 0, assets["chest"][0], 2);
+	buildMenue.addItem(houseItem);
+	buildMenue.addItem(chestItem);
 
 	//Tilemap treeTiles(assets);
 	//treeTiles.LoadMap(trees);
@@ -378,7 +389,16 @@ int main(int argc, char* argv[])
 				if (keyCode == SDLK_e)
 				{
 					show = !show;
+					inventory.show = !inventory.show;
+					buildMenue.show = false;
 				}
+				if (keyCode == SDLK_f)
+				{
+					show = !show;
+					buildMenue.show = !buildMenue.show;
+					inventory.show = false;
+				}
+				
 			}
 			if (event.type == SDL_KEYUP)
 			{
@@ -588,10 +608,8 @@ int main(int argc, char* argv[])
             cursorTexture = assets["cursor"][3];
         }
 
-		if (show)
-		{
-			inventory.render(window.renderer);
-		}
+		inventory.render(window.renderer);
+		buildMenue.render(window.renderer);
 
 		SDL_Rect toolRect = { 0, 0, 64, 64 };
 

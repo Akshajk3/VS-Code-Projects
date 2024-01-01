@@ -77,6 +77,44 @@ public:
 		componentArray[getComponentTypeID<T>()] = c;
 		componentBitSet[getComponentTypeID<T>()] = true;
 
+		c->init();
+		return *c;
+	}
 
+	template<typename T> T& getComponentTypeID() const
+	{
+		auto ptr(componentArray[getComponentTypeID<T>()]);
+		return *static_cast<T*>(ptr);
+	}
+};
+
+class Manager
+{
+private:
+	std::vector<std::unique_ptr<Entity>> entities;
+
+public:
+	void update()
+	{
+		for (auto& e : entities) e->update();
+	}
+	void draw()
+	{
+		for (auto& e : entities) e->draw();
+	}
+
+	void refresh()
+	{
+		entities.erase(std::remove_if(std::begin(entities), std::end(entities), [](const std::unique_ptr<Entity>& mEntitiy)
+			{
+				return !mEntitiy->isActive();
+			}),
+			std::end(entities));
+	}
+
+	Entity& addEntity()
+	{
+		Entity* e = new Entity();
+		std::unique_ptr<Entity> uPtr{ e };
 	}
 };

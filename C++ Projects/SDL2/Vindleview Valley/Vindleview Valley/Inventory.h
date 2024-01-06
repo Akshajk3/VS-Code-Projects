@@ -13,6 +13,7 @@ public:
 	void addItem(Item& item);
 	void removeItem(int index, int count);
 	void render(SDL_Renderer* renderer);
+	bool checkClick(SDL_Rect mouseRect);
 
     bool show = false;
 

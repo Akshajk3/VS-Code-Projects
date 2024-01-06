@@ -61,3 +61,11 @@ void Inventory::render(SDL_Renderer* renderer)
         }
     }
 }
+
+bool Inventory::checkClick(SDL_Rect mouseRect)
+{
+    return(mouseRect.x < dest.x + dest.w &&
+        mouseRect.x + mouseRect.w > dest.x &&
+        mouseRect.y < dest.y + dest.h &&
+        mouseRect.y + mouseRect.h > dest.y + dest.h);
+}

@@ -10,7 +10,7 @@ class Tree
 public:
 	Tree(int p_x, int p_y, int type, std::vector<SDL_Texture*> sprites, SDL_Renderer* ren);
 
-	void render();
+	void render(int cameraX, int cameraY);
 	void takeDamage();
 	void die();
 	int getX();

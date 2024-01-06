@@ -461,23 +461,25 @@ int main(int argc, char* argv[])
 
 		int move[2] = { movement[0] - movement[1], movement[2] - movement[3] };
 
-		int displayWidth = 800;
-		int displayHeight = 600;
+		//int displayWidth = 800;
+		//int displayHeight = 600;
 
-		const float scrollFactor = 0.1f;
-
-		scroll[0] = (player.getX() + player.getCurrentFrame().w / 2) * 5 - displayWidth / 2 - scroll[0];
-		scroll[1] = (player.getY() + player.getCurrentFrame().h / 2) * 5 - displayHeight / 2 - scroll[1];
-
-		cameraX += static_cast<int>(scroll[0] * scrollFactor);
-		cameraY += static_cast<int>(scroll[1] * scrollFactor);
-
-
-		// Ensure the camera stays within the boundaries of the game world
-		if (cameraX < 0) cameraX = 0;
-		if (cameraY < 0) cameraY = 0;
-		if (cameraX > worldWidth - displayWidth) cameraX = worldWidth - displayWidth;
-		if (cameraY > worldHeight - displayHeight) cameraY = worldHeight - displayHeight;
+        if (move[0] == 1)
+        {
+            scroll[0] -= -1;
+        }
+        if (move[0] == -1)
+        {
+            scroll[0] -= 1;
+        }
+        if (move[1] == 1)
+        {
+            scroll[1] -= -1;
+        }
+        if(move[1] == -1)
+        {
+            scroll[1] -= 1;
+        }
 
 		//cameraX = std::clamp(cameraX, 0, worldWidth - displayWidth);
 		//cameraY = std::clamp(cameraY, 0, worldHeight - displayHeight);
@@ -491,11 +493,11 @@ int main(int argc, char* argv[])
 		player.update(move);
 		cow.update();
 		chicken.update();
-		backGroundTilemap.DrawMap(window.renderer, 0, 0);
+		backGroundTilemap.DrawMap(window.renderer, scroll[0], scroll[1]);
 		plantTiles.DrawMap(window.renderer, 0, 0);
-		window.render(cow, 4, cameraX, cameraY);
-		window.render(chicken, 2, cameraX, cameraY);
-		window.render(player, 4, 0, 0);
+		window.render(cow, 4, scroll[0], scroll[1]);
+		window.render(chicken, 2, scroll[0], scroll[1]);
+		window.render(player, 4, scroll[0], scroll[1]);
 
 		if (player.getTool() == "build" && house1.isPlaced() == false)
 		{
@@ -546,7 +548,7 @@ int main(int argc, char* argv[])
         
         for (Tree& tree : Trees)
         {
-            tree.render();
+            tree.render(scroll[0], scroll[1]);
             
             if (tree.checkClick(cursorRect) && tree.dead == false && show == false)
             {

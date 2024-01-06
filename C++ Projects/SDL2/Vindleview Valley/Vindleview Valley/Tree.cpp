@@ -12,8 +12,10 @@ Tree::Tree(int p_x, int p_y, int p_type, std::vector<SDL_Texture*> sprites, SDL_
 	dest.y = y - (src.h / 2);
 }
 
-void Tree::render()
+void Tree::render(int cameraX, int cameraY)
 {
+    dest.x = (x - cameraX);
+    dest.y = (y - cameraY);
 	SDL_RenderCopy(renderer, assets[type], &src, &dest);
 }
 

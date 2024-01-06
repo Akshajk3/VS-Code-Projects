@@ -54,6 +54,14 @@ void RenderWindow::render(Entity& entity, int entityScale, int cameraX, int came
 	int entityHeight = entity.getCurrentFrame().h * entityScale;
 
 	SDL_Rect dest;
+    
+    float magnitude = sqrt(cameraX * cameraX + cameraY * cameraY);
+    if (magnitude > 0)
+    {
+        cameraX /= magnitude;
+        cameraY /= magnitude;
+    }
+    
     dest.x = (entity.getX() - cameraX) * entityScale - entityWidth / 2;
     dest.y = (entity.getY() - cameraY) * entityScale - entityHeight / 2;
 	dest.w = entity.getCurrentFrame().w * entityScale;

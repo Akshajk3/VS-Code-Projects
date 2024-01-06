@@ -22,6 +22,8 @@ void Tilemap::DrawMap(SDL_Renderer* ren, int cameraX, int cameraY)
         for (int col = 0; col < 25; col++)
         {
             type = map[row][col];
+            
+            float magnitude = sqrt(cameraX * cameraX + cameraY + cameraY);
 
             dest.x = col * 32 - cameraX;
             dest.y = row * 32 - cameraY;

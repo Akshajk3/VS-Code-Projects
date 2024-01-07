@@ -13,7 +13,7 @@ public:
 	SDL_Texture* loadTexture(const char* filePath);
 	void cleanUp();
 	void clear();
-	void render(Entity& entity, int entityScale, int cameraX, int cameraY);
+	void render(Entity& entity, int entityScale, int cameraX, int cameraY, bool player = false, int windowWidth = 0, int windowHeight = 0);
 	void display();
 
 	SDL_Renderer* renderer;

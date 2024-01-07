@@ -34,8 +34,11 @@ void Building::update(int mouseX, int mouseY)
     }
 }
 
-void Building::render()
+void Building::render(int cameraX, int cameraY)
 {
+    dest.x = x - cameraX;
+    dest.y = y - cameraY;
+
     SDL_RenderCopy(renderer, texture, &src, &dest);
 }
 

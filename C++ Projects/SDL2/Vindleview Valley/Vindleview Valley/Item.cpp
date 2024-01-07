@@ -30,8 +30,8 @@ void Item::update()
 
 void Item::render(SDL_Renderer* renderer, int offset[2])
 {
-    dest.x -= offset[0];
-    dest.y -= offset[1];
+    dest.x = x - offset[0];
+    dest.y = y - offset[1];
 
     SDL_RenderCopy(renderer, texture, &src, &dest);
 }

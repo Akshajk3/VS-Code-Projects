@@ -15,6 +15,7 @@ public:
 	void setTool(std::string newTool);
 	std::string getTool();
 	int getTimer();
+
 private:
 	int actionTimer = 0;
 	std::string tool = "hoe";

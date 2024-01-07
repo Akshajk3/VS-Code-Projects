@@ -7,7 +7,7 @@ class Building
 public:
     Building(int p_x, int p_y, SDL_Texture* tex, SDL_Renderer* ren, bool place = false, bool transparent = false);
     void update(int mouseX, int mouseY);
-    void render();
+    void render(int cameraX, int cameraY);
     bool isPlaced();
     //void Place();
     

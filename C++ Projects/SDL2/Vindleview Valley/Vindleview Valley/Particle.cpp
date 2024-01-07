@@ -21,7 +21,10 @@ void Particle::update()
 	anim.update();
 }
 
-void Particle::render()
+void Particle::render(int cameraX, int cameraY)
 {
+	dest.x = x - cameraX;
+	dest.y = y - cameraY;
+
 	SDL_RenderCopy(renderer, anim.img(), &src, &dest);
 }

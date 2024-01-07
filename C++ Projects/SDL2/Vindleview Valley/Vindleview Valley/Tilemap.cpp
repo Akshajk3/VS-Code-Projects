@@ -17,13 +17,11 @@ void Tilemap::DrawMap(SDL_Renderer* ren, int cameraX, int cameraY)
 {
     int type = 0;
 
-    for (int row = 0; row < 20; row++)
+    for (int row = 0; row < 40; row++)
     {
-        for (int col = 0; col < 25; col++)
+        for (int col = 0; col < 50; col++)
         {
             type = map[row][col];
-            
-            float magnitude = sqrt(cameraX * cameraX + cameraY + cameraY);
 
             dest.x = col * 32 - cameraX;
             dest.y = row * 32 - cameraY;
@@ -76,7 +74,7 @@ void Tilemap::DrawMap(SDL_Renderer* ren, int cameraX, int cameraY)
     }
 }
 
-void Tilemap::LoadMap(int arr[20][25])
+void Tilemap::LoadMap(int arr[40][50])
 {
     for (int row = 0; row < 20; row++)
     {

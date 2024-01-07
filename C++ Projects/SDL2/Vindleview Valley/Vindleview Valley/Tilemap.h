@@ -13,7 +13,7 @@ public:
     void setTile(float p_x, float p_y, int tile);
     int getTile(float p_x, float p_y);
 
-    void LoadMap(int arr[20][25]);
+    void LoadMap(int arr[40][50]);
     void DrawMap(SDL_Renderer* ren, int mouseX, int mouseY);
 
 private:

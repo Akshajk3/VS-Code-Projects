@@ -3,6 +3,9 @@
 #include <iostream>
 
 #include "shaderProgram.h"
+#include "VAO.h"
+#include "VBO.h"
+#include "EBO.h"
 
 int main()
 {
@@ -12,21 +15,21 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+
+	// Vertices coordinates
 	GLfloat vertices[] =
-	{
-		-0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Lower Left Corner
-		0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Lower Right Corner
-		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f, // Upper Corner
-		-0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Innter Left
-		0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inner right
-		0.0f, -0.5f * float(sqrt(3)) / 3, 0.0f // Inner down
+	{ //     COORDINATES     /        COLORS      /   TexCoord  //
+		-0.5f, -0.5f, 0.0f,     1.0f, 0.0f, 0.0f,	0.0f, 0.0f, // Lower left corner
+		-0.5f,  0.5f, 0.0f,     0.0f, 1.0f, 0.0f,	0.0f, 1.0f, // Upper left corner
+		 0.5f,  0.5f, 0.0f,     0.0f, 0.0f, 1.0f,	1.0f, 1.0f, // Upper right corner
+		 0.5f, -0.5f, 0.0f,     1.0f, 1.0f, 1.0f,	1.0f, 0.0f  // Lower right corner
 	};
 
+	// Indices for vertices order
 	GLuint indices[] =
 	{
-		0, 3, 5,
-		3, 2, 4,
-		5, 4, 1
+		0, 2, 1, // Upper triangle
+		0, 3, 2 // Lower triangle
 	};
 
 	GLFWwindow* window = glfwCreateWindow(800, 800, "VIndel Engine", NULL, NULL);
@@ -45,45 +48,37 @@ int main()
 	glViewport(0, 0, 800, 800);
 
 	Shader shaderProgram("vert.glsl", "frag.glsl");
+	
+	VAO VAO1;
+	VAO1.Bind();
 
-	GLuint VBO, VAO, EBO;
+	VBO VBO1(vertices, sizeof(vertices));
+	EBO EBO1(indices, sizeof(indices));
 
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO);
-	glGenBuffers(1, &EBO);
+	VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
+	VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 
-	glBindVertexArray(VAO);
+	VAO1.Unbind();
+	VBO1.Unbind();
+	EBO1.Unbind();
 
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-
-	glfwSwapBuffers(window);
+	GLuint uniID = glGetUniformLocation(shaderProgram.ID, "scale");
 
 	while (!glfwWindowShouldClose(window))
 	{
 		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		shaderProgram.Activate();
-		glBindVertexArray(VAO);
+		glUniform1f(uniID, 0.5f);
+		VAO1.Bind();
 		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
-	glDeleteVertexArrays(1, &VAO);
-	glDeleteBuffers(1, &VBO);
-	glDeleteBuffers(1, &EBO);
+	VAO1.Delete();
+	VBO1.Delete();
+	EBO1.Delete();
 	shaderProgram.Delete();
 	glfwDestroyWindow(window);
 	glfwTerminate();

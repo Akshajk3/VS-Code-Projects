@@ -1,10 +1,2 @@
-﻿  SDL_ttf.c
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Gameboy Emulator\Gameboy Emulator\Gameboy Emulator\SDL_ttf.c(1454,14): warning C4013: 'SDL_aligned_alloc' undefined; assuming extern returning int
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Gameboy Emulator\Gameboy Emulator\Gameboy Emulator\SDL_ttf.c(1454,52): warning C4047: '=': 'void *' differs in levels of indirection from 'int'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Gameboy Emulator\Gameboy Emulator\Gameboy Emulator\SDL_ttf.c(1459,15): warning C4013: 'SDL_CreateSurfaceFrom' undefined; assuming extern returning int
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Gameboy Emulator\Gameboy Emulator\Gameboy Emulator\SDL_ttf.c(1459,89): warning C4047: '=': 'SDL_Surface *' differs in levels of indirection from 'int'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Gameboy Emulator\Gameboy Emulator\Gameboy Emulator\SDL_ttf.c(1461,9): warning C4013: 'SDL_aligned_free' undefined; assuming extern returning int
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Gameboy Emulator\Gameboy Emulator\Gameboy Emulator\SDL_ttf.c(1501,5): warning C4013: 'SDL_SetSurfaceColorKey' undefined; assuming extern returning int
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Gameboy Emulator\Gameboy Emulator\Gameboy Emulator\SDL_ttf.c(1746,49): error C2065: 'SDL_RW_SEEK_SET': undeclared identifier
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Gameboy Emulator\Gameboy Emulator\Gameboy Emulator\SDL_ttf.c(1750,14): error C2198: 'SDL_RWread': too few arguments for call
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Gameboy Emulator\Gameboy Emulator\Gameboy Emulator\SDL_ttf.c(3540,9): warning C4013: 'SDL_DestroySurface' undefined; assuming extern returning int
+﻿  Main.cpp
+  Gameboy Emulator.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Gameboy Emulator\Gameboy Emulator\x64\Debug\Gameboy Emulator.exe

@@ -11,5 +11,5 @@ public:
 
 	void Bind();
 	void Unbind();
-	void Activate();
+	void Delete();
 };

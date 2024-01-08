@@ -133,29 +133,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="bus.cpp" />
-    <ClCompile Include="cart.cpp" />
-    <ClCompile Include="cpu.cpp" />
-    <ClCompile Include="cpu_util.cpp" />
-    <ClCompile Include="emu.cpp" />
-    <ClCompile Include="instructions.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="ppu.cpp" />
-    <ClCompile Include="SDL_ttf.c" />
-    <ClCompile Include="timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Tetris (JUE) (V1.1) [!].gb" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="bus.h" />
-    <ClInclude Include="cart.h" />
-    <ClInclude Include="common.h" />
-    <ClInclude Include="cpu.h" />
-    <ClInclude Include="emu.h" />
-    <ClInclude Include="instructions.h" />
-    <ClInclude Include="ppu.h" />
-    <ClInclude Include="timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

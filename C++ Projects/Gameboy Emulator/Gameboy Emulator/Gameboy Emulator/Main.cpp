@@ -1,6 +1,6 @@
-#include "emu.h"
+#include <iostream>
 
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {
-    return emu_run(argc, argv);
+	return 0;
 }

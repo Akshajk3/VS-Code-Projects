@@ -105,29 +105,6 @@ int plants[40][50] = {
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
 };
 
-int trees[20][25] = {
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
-};
-
 const int displayWidth = 800;
 const int displayHeight = 600;
 
@@ -310,10 +287,10 @@ int main(int argc, char* argv[])
 	Entity cow(100, 10, window.renderer, "cow", assets);
 	Entity chicken(100, 100, window.renderer, "chicken", assets);
 
-	Tilemap backGroundTilemap(assets);
+	Tilemap backGroundTilemap(assets, 40, 50);
     backGroundTilemap.LoadMap(grass);
     
-    Tilemap plantTiles(assets);
+    Tilemap plantTiles(assets, 40, 50);
     plantTiles.LoadMap(plants);
 
 	Inventory inventory(assets["inv"]);
@@ -328,11 +305,11 @@ int main(int argc, char* argv[])
 
     std::vector<Tree> Trees;
     
-	for (int x = 0; x < 10; x++)
+	for (int x = 0; x < 50; x++)
 	{
 		auto it = Trees.begin() + x;
 
-        Trees.push_back(Tree(randomRange(50, 750), randomRange(100, 500), 0, assets["tree1"], window.renderer));
+        Trees.push_back(Tree(randomRange(50, 1500), randomRange(100, 1100), 0, assets["tree1"], window.renderer));
 		if (Trees[x].checkClick(cow.getCurrentFrame()) || Trees[x].checkClick(chicken.getCurrentFrame()) || Trees[x].checkClick(player.getCurrentFrame()))
 		{
 			Trees.erase(it);
@@ -375,6 +352,7 @@ int main(int argc, char* argv[])
 		SDL_GetMouseState(&mouseX, &mouseY);
 
 		SDL_Rect cursorRect = { mouseX, mouseY, 32, 32 };
+
 
 		while (SDL_PollEvent(&event))
 		{
@@ -525,6 +503,9 @@ int main(int argc, char* argv[])
 				scroll[1] -= cameraSpeed;
 			}
 		}
+
+		//std::cout << "MouseX: " << mouseX << std::endl;
+		//std::cout << "MouseY: " << mouseY << std::endl;
 
 		//cameraX = std::clamp(cameraX, 0, worldWidth - displayWidth);
 		//cameraY = std::clamp(cameraY, 0, worldHeight - displayHeight);

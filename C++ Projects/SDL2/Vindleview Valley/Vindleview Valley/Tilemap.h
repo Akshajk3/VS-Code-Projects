@@ -8,7 +8,8 @@
 class Tilemap
 {
 public:
-    Tilemap(std::map<std::string, std::vector<SDL_Texture*>> sprites);
+    Tilemap(std::map<std::string, std::vector<SDL_Texture*>> sprites, int p_row, int p_col);
+    ~Tilemap();
 
     void setTile(float p_x, float p_y, int tile);
     int getTile(float p_x, float p_y);
@@ -20,5 +21,7 @@ private:
     SDL_Rect src, dest;
     std::map<std::string, std::vector<SDL_Texture*>> assets;
 
-    int map[20][25];
+    int rows, cols;
+    
+    int** map;
 };

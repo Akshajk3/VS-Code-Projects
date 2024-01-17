@@ -61,5 +61,20 @@ bool WADLoader::ReadDirectories()
 	std::cout << header.DirectoryCount << std::endl;
 	std::cout << header.DirectoryOffset << std::endl;
 	std::cout << std::endl << std::endl;
+
+	Directory directory;
+
+	for (unsigned int i = 0; i < header.DirectoryCount; i++)
+	{
+		reader.ReadDirectoryData(m_WADData, header.DirectoryOffset + i * 16, directory);
+
+		m_WADDirectories.push_back(directory);
+
+		std::cout << directory.LumpOffset << std::endl;
+		std::cout << directory.LumpSize << std::endl;
+		std::cout << directory.LumpName << std::endl;
+		std::cout << std::endl;
+	}
+
 	return true;
 }

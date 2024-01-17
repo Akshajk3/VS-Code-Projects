@@ -3,24 +3,24 @@ import mediapipe as mp
 import serial
 import serial.tools.list_ports
 
-ports = serial.tools.list_ports.comports()
+# ports = serial.tools.list_ports.comports()
 
-ArduinoSerial = serial.Serial()
+# ArduinoSerial = serial.Serial()
 
-portsList = []
+# portsList = []
 
-for onePort in ports:
-    portsList.append(str(onePort))
-    print(str(onePort))
+# for onePort in ports:
+#     portsList.append(str(onePort))
+#     print(str(onePort))
 
-val = input("Select Port: ")
+# val = input("Select Port: ")
 
-if val == "exit()":
-    exit()
+# if val == "exit()":
+#     exit()
 
-ArduinoSerial.baudrate = 9600
-ArduinoSerial.port = val
-ArduinoSerial.open()
+# ArduinoSerial.baudrate = 9600
+# ArduinoSerial.port = val
+# ArduinoSerial.open()
 
 mp_drawings = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
@@ -58,9 +58,11 @@ while True:
             if current_closed != previous_closed:
                 print("hello world")
                 if current_closed:
-                    ArduinoSerial.write(str(0).encode("utf-8"))
+                    pass
+                    #ArduinoSerial.write(str(0).encode("utf-8"))
                 else:
-                    ArduinoSerial.write(str(1).encode("utf-8"))
+                    pass
+                    #ArduinoSerial.write(str(1).encode("utf-8"))
 
                 previous_closed = current_closed
 
@@ -75,5 +77,5 @@ while True:
         break
 
 cap.release()
-ArduinoSerial.close()
+#ArduinoSerial.close()
 cv2.destroyAllWindows()

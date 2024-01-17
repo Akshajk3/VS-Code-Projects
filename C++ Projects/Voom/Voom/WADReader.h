@@ -1,23 +1,20 @@
+#pragma once
+
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <vector>
 
+#include "DataTypes.h"
+
 
 class WADReader
 {
 public:
-	WADReader(std::string filePath);
-	bool LoadWAD();
-
+	WADReader();
 	~WADReader();
 
-private:
-	bool OpenAndLoad();
-	bool ReadDictionaries();
-
-	std::string m_WadFilePath;
-	std::ifstream m_WadFile;
-	uint8_t* WADData;
-	std::vector<
+	uint16_t Read2Bytes(const uint8_t *pWADData, int offset);
+	uint32_t Read4Bytes(const uint8_t *pWADData, int offset);
+	void ReadHeaderData(const uint8_t *pWADData, int offset, Header& header);
 };

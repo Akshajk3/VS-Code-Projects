@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 
 using Byte = unsigned char;
 using Word = unsigned short;
@@ -29,6 +30,14 @@ struct Mem
 	Byte& operator[](u32 Address)
 	{
 		return Data[Address];
+	}
+
+	// write 2 bytes
+	void WriteWord(Word Value, u32 Address, u32& Cycles)
+	{
+		Data[Address] = Value & 0xFF;
+		Data[Address + 1] = (Value >> 8);
+		Cycles -= 2;
 	}
 
 };
@@ -73,6 +82,19 @@ struct CPU
 		return Data;
 	}
 
+	Word FetchWord(u32& Cycles, Mem& memory)
+	{
+		Word Data = memory[PC];
+		PC++;
+
+		Data |= (memory[PC] << 8);
+		PC++;
+
+		Cycles -= 2;
+
+		return Data;
+	}
+
 	static constexpr Byte INS_LDA_IM = 0xA9;
 	static constexpr Byte INS_LDA_ZP = 0xA5;
 	static constexpr Byte INS_LDA_ZPX = 0xB5;
@@ -111,6 +133,13 @@ struct CPU
 				A = ReadByte(Cycles, ZeroPageAddress, memory);
 				LDASetStatus();
 			} break;
+			case INS_JSR:
+			{
+				Word SubAddress = FetchWord(Cycles, memory);
+				memory.WriteWord(PC - 1, SP, Cycles);
+				PC = SubAddress;
+				Cycles--;
+			} break;
 			default:
 			{
 				printf("Instruction Not Handled %d", Ins);
@@ -125,9 +154,12 @@ int main()
 	Mem mem;
 	CPU cpu;
 	cpu.Reset(mem);
-	mem[0xFFFC] = CPU::INS_LDA_ZP;
+	mem[0xFFFC] = CPU::INS_JSR;
 	mem[0xFFFD] = 0x42;
-	mem[0x0042] = 0x84;
-	cpu.Execute(3, mem);
+	mem[0xFFFE] = 0x42;
+	mem[0x4242] = CPU::INS_LDA_IM;
+	mem[0x4243] = 0x84;
+	cpu.Execute(9, mem);
 	return 0;
 }
+

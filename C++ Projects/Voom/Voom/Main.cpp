@@ -1,16 +1,10 @@
 #include <iostream>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include "WADLoader.h"
+
 
 int main()
 {
-	if (!SDL_Init(SDL_INIT_VIDEO))
-	{
-		std::cout << "SDL Failed to Init. SDL Error: " << SDL_GetError << std::endl;
-	}
-
-
-
-
+	WADLoader wadLoader("wad/DOOM.WAD");
+	wadLoader.LoadWAD();
 	return 0;
 }

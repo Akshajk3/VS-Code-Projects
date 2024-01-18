@@ -16,6 +16,11 @@ std::string DoomEngine::GetWADFileName()
 	return "wad/DOOM.WAD";
 }
 
+std::string DoomEngine::GetName()
+{
+	return "Voom";
+}
+
 bool DoomEngine::Init()
 {
 	m_WADLoader.SetWADFilePath(GetWADFileName());
@@ -48,6 +53,7 @@ void DoomEngine::Render(SDL_Renderer* renderer)
 {
 	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
 	SDL_RenderClear(renderer);
+	m_pMap->RenderAutoMap(renderer);
 }
 
 void DoomEngine::KeyPressed(SDL_Event &event)

@@ -60,3 +60,12 @@ enum ELINEDEFFLAGS
 	eDONTDRAW = 80,
 	eDRAW = 100
 };
+
+struct Thing
+{
+	uint16_t XPos;
+	uint16_t YPos;
+	uint16_t Angle;
+	uint16_t Type;
+	uint16_t Flag;
+};

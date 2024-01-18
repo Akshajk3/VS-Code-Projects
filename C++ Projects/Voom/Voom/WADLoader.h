@@ -20,7 +20,8 @@ protected:
     bool OpenAndLoad();
     bool ReadDirectories();
     bool ReadMapVertex(Map* map);
-    bool ReadMapLinedef(Map* map); 
+    bool ReadMapLinedef(Map* map);
+    bool ReadMapThing(Map* map);
     int FindMapIndex(Map* map);
 
 

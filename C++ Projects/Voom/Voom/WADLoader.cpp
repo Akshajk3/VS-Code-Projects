@@ -170,17 +170,46 @@ bool WADLoader::ReadMapLinedef(Map* map)
 
 		map->AddLinedef(linedef);
 
-		/*	
+		
 		std::cout << linedef.StartVertex << std::endl;
 		std::cout << linedef.EndVertex << std::endl;
-		std::cout << linedef.Flags << std::endl;
-		std::cout << linedef.LineType << std::endl;
-		std::cout << linedef.SectorTag << std::endl;
-		std::cout << linedef.RightSidedef << std::endl;
-		std::cout << linedef.LeftSidedef << std::endl;
+		//std::cout << linedef.Flags << std::endl;
+		//std::cout << linedef.LineType << std::endl;
+		//std::cout << linedef.SectorTag << std::endl;
+		//std::cout << linedef.RightSidedef << std::endl;
+		//std::cout << linedef.LeftSidedef << std::endl;
 		std::cout << std::endl;
-		*/
-		
+	}
+
+	return true;
+}
+
+bool WADLoader::ReadMapThing(Map* map)
+{
+	int iMapIndex = FindMapIndex(map);
+
+	if (iMapIndex == -1)
+	{
+		return false;
+	}
+
+	iMapIndex + EMAPLUMPSINDEX::eTHINGS;
+
+	if (strcmp(m_WADDirectories[iMapIndex].LumpName, "THINGS") != 0)
+	{
+		return false;
+	}
+
+	int iThingSizeInBytes = sizeof(Thing);
+	int iThingCount = m_WADDirectories[iMapIndex].LumpSize / iThingSizeInBytes;
+
+	Thing thing;
+
+	for (int i = 0; i < iThingCount; i++)
+	{
+		m_Reader.ReadThingData(m_WADData, m_WADDirectories[iMapIndex].LumpOffset + i * iThingSizeInBytes, thing);
+
+		map->AddThing(thing);
 	}
 
 	return true;
@@ -195,12 +224,15 @@ bool WADLoader::LoadMapData(Map* map)
 		return false;
 	}
 	
-	
-	
 	if (!ReadMapLinedef(map))
 	{
 		std::cout << "Error: Failed to load map linedef data MAP: " << map->GetName() << std::endl;
 		return false;
+	}
+
+	if (!ReadMapThing(map))
+	{
+		std::cout << "Error: Failed to load map thing data MAP: " << map->GetName() << std::endl;
 	}
 	
 	return true;

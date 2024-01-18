@@ -1,15 +1,18 @@
 #include <iostream>
 
-#include "WADLoader.h"
-#include "Map.h"
-
+#include "Game.h"
 
 int main()
 {
-	WADLoader wadLoader("wad/DOOM.WAD");
-	wadLoader.LoadWAD();
+	Game game;
+	game.Init();
 
-	Map map("E1M1");
-	wadLoader.LoadMapData(map);
+	while(!game.IsOver())
+	{
+		game.ProcessInput();
+		game.Update();
+		game.Render();
+		game.Delay();
+	}
 	return 0;
 }

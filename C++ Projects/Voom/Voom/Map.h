@@ -11,7 +11,6 @@ public:
 	~Map();
 
 	std::string GetName();
-	std::vector<Vertex> GetVertices();
 	void AddVertex(Vertex& v);
 	void AddLinedef(Linedef& l);
 

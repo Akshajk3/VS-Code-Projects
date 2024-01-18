@@ -25,8 +25,3 @@ std::string Map::GetName()
 {
 	return m_Name;
 }
-
-std::vector<Vertex> Map::GetVertices()
-{
-	return m_Vertexes;
-}

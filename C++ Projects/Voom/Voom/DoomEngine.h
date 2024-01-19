@@ -6,6 +6,7 @@
 
 #include "WADLoader.h"
 #include "Map.h"
+#include "Player.h"
 
 class DoomEngine
 {
@@ -37,4 +38,5 @@ protected:
 
 	WADLoader m_WADLoader;
 	Map* m_pMap;
+	Player* m_Player;
 };

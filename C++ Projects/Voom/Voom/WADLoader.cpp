@@ -137,7 +137,7 @@ bool WADLoader::ReadMapVertex(Map* map)
 		m_Reader.ReadVertexData(m_WADData, m_WADDirectories[iMapIndex].LumpOffset + i * iVertexSizeInBytes, vertex);
 
 		map->AddVertex(vertex);
-		std::cout << "(" << vertex.x_pos << "," << vertex.y_pos << ")" << std::endl;
+		//std::cout << "(" << vertex.x_pos << "," << vertex.y_pos << ")" << std::endl;
 	}
 
 	return true;
@@ -171,14 +171,14 @@ bool WADLoader::ReadMapLinedef(Map* map)
 		map->AddLinedef(linedef);
 
 		
-		std::cout << linedef.StartVertex << std::endl;
-		std::cout << linedef.EndVertex << std::endl;
+		//std::cout << linedef.StartVertex << std::endl;
+		//std::cout << linedef.EndVertex << std::endl;
 		//std::cout << linedef.Flags << std::endl;
 		//std::cout << linedef.LineType << std::endl;
 		//std::cout << linedef.SectorTag << std::endl;
 		//std::cout << linedef.RightSidedef << std::endl;
 		//std::cout << linedef.LeftSidedef << std::endl;
-		std::cout << std::endl;
+		//std::cout << std::endl;
 	}
 
 	return true;
@@ -193,7 +193,7 @@ bool WADLoader::ReadMapThing(Map* map)
 		return false;
 	}
 
-	iMapIndex + EMAPLUMPSINDEX::eTHINGS;
+	iMapIndex += EMAPLUMPSINDEX::eTHINGS;
 
 	if (strcmp(m_WADDirectories[iMapIndex].LumpName, "THINGS") != 0)
 	{

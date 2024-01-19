@@ -21,16 +21,22 @@ public:
 	void RenderAutoMap(SDL_Renderer* renderer);
 	void RenderAutoMapPlayer(SDL_Renderer* renderer, int iXShift, int iYShift);
 	void RenderAutoMapWalls(SDL_Renderer* renderer, int iXShift, int iYShift);
+	void SetLumpIndex(int iIndex);
+
+	int GetLumpIndex();
 
 protected:
 	std::string m_Name;
 	std::vector<Vertex> m_Vertexes;
 	std::vector<Linedef> m_Linedefs;
 	std::vector<Thing> m_Things;
-	Player* m_Player;
+
 	int m_XMin;
 	int m_XMax;
 	int m_YMin;
 	int m_YMax;
 	int m_iAutoMapScaleFactor;
+	int m_iLumpIndex;
+
+	Player* m_Player;
 };

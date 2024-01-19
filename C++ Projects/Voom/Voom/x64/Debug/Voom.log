@@ -1,14 +1,2 @@
-﻿  DoomEngine.cpp
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\Voom\DoomEngine.cpp(6,18): error C2665: 'Map::Map': no overloaded function could convert all the argument types
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\Voom\Map.h(36,1): message : could be 'Map::Map(const Map &)'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\Voom\DoomEngine.cpp(6,18): message : 'Map::Map(const Map &)': cannot convert argument 1 from 'const char [5]' to 'const Map &'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\Voom\DoomEngine.cpp(6,19): message : Reason: cannot convert from 'const char [5]' to 'const Map'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\Voom\DoomEngine.cpp(6,18): message : while trying to match the argument list '(const char [5])'
-  Game.cpp
-  Main.cpp
-  Map.cpp
-  Player.cpp
-  WADLoader.cpp
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\Voom\WADLoader.cpp(196,12): warning C4552: '+': result of expression not used
-  WADReader.cpp
-  Generating Code...
+﻿  Map.cpp
+  Voom.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\x64\Debug\Voom.exe

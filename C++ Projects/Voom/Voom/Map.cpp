@@ -1,7 +1,7 @@
 #include "Map.h"
 
 Map::Map(std::string name, Player* player)
-	: m_Name(name), m_XMin(INT_MAX), m_XMax(INT_MIN), m_YMin(INT_MAX), m_YMax(INT_MIN), m_iAutoMapScaleFactor(15)
+	: m_Name(name), m_XMin(INT_MAX), m_XMax(INT_MIN), m_YMin(INT_MAX), m_YMax(INT_MIN), m_iAutoMapScaleFactor(15), m_Player(player), m_iLumpIndex(-1)
 {
 
 }
@@ -59,6 +59,11 @@ void Map::RenderAutoMapWalls(SDL_Renderer* renderer, int iXShift, int iYShift)
 
 	SDL_RenderGetLogicalSize(renderer, &iRenderXSize, &iRenderYSize);
 
+	--iRenderXSize;
+	--iRenderYSize;
+
+	SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+
 	for (Linedef& l : m_Linedefs)
 	{
 		Vertex vStart = m_Vertexes[l.StartVertex];
@@ -100,5 +105,23 @@ void Map::RenderAutoMapPlayer(SDL_Renderer* renderer, int iXShift, int iYShift)
 
 void Map::AddThing(Thing& thing)
 {
+	
+	if (thing.Type == m_Player->GetID())
+	{
+		m_Player->SetXPosition(thing.XPos);
+		m_Player->SetYPosition(thing.YPos);
+		m_Player->SetAngle(thing.Angle);
+	}
+
 	m_Things.push_back(thing);
+}
+
+void Map::SetLumpIndex(int iIndex)
+{
+	m_iLumpIndex = iIndex;
+}
+
+int Map::GetLumpIndex()
+{
+	return m_iLumpIndex;
 }

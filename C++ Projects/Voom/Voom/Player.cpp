@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player(int ID)
-	: m_ID(ID)
+	: m_ID(1), m_XPosition(0), m_YPosition(0), m_Angle(0)
 {
 	
 }
@@ -16,7 +16,7 @@ void Player::SetXPosition(int XPos)
 	m_XPosition = XPos;
 }
 
-void Player::SetYPosition(int YPos)\
+void Player::SetYPosition(int YPos)
 {
 	m_YPosition = YPos;
 }

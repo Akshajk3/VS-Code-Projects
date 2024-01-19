@@ -1,8 +1,11 @@
 #pragma once
 
-#include <iostream>
+#include <cstdint> 
 #include <fstream>
+#include <string>
+#include <vector>
 
+#include "DataTypes.h"
 #include "WADReader.h"
 #include "Map.h"
 
@@ -12,22 +15,22 @@ public:
     WADLoader();
     void SetWADFilePath(std::string sWADFilePath);
     bool LoadWAD();
-    bool LoadMapData(Map *pMap);
+    bool LoadMapData(Map* pMap);
 
     ~WADLoader();
 
 protected:
     bool OpenAndLoad();
     bool ReadDirectories();
-    bool ReadMapVertex(Map* map);
-    bool ReadMapLinedef(Map* map);
-    bool ReadMapThing(Map* map);
-    int FindMapIndex(Map* map);
-
+    bool ReadMapVertex(Map* pMap);
+    bool ReadMapLinedef(Map* pMap);
+    bool ReadMapThing(Map* pMap);
+    int FindMapIndex(Map* pMap);
 
     std::string m_sWADFilePath;
     std::ifstream m_WADFile;
-    uint8_t *m_WADData;
     std::vector<Directory> m_WADDirectories;
+    uint8_t* m_WADData;
     WADReader m_Reader;
 };
+

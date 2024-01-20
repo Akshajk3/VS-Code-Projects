@@ -35,7 +35,7 @@ bool WADLoader::OpenAndLoad()
 	m_WADFile.open(m_sWADFilePath, std::ifstream::binary);
 	if(!m_WADFile.is_open())
 	{
-		std::cout << "Error: Failed to open WAD file" << m_sWADFilePath << std::endl;
+		std::cout << "Error: Failed to open WAD file " << m_sWADFilePath << std::endl;
 		return false;
 	}
 

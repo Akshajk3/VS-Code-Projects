@@ -97,6 +97,8 @@ void Map::RenderAutoMapPlayer(SDL_Renderer* renderer, int iXShift, int iYShift)
 
 	for (int i = 0; i < 9; i++)
 	{
+        std::cout << m_Player->GetXPosition() << std::endl;
+
 		SDL_RenderDrawPoint(renderer,
 			(m_Player->GetXPosition() + iXShift) / m_iAutoMapScaleFactor + Direction[i].first,
 			iRenderYSize - (m_Player->GetYPosition() + iYShift) / m_iAutoMapScaleFactor + Direction->second);

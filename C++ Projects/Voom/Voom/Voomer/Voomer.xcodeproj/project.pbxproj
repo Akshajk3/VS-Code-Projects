@@ -14,8 +14,8 @@
 		AE51710E2B59A8BA00ACFA5E /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5171052B59A8BA00ACFA5E /* Main.cpp */; };
 		AE51710F2B59A8BA00ACFA5E /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5171062B59A8BA00ACFA5E /* Game.cpp */; };
 		AE5171102B59A8BA00ACFA5E /* DoomEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5171082B59A8BA00ACFA5E /* DoomEngine.cpp */; };
-		AE5171132B59A91800ACFA5E /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5171122B59A91800ACFA5E /* libSDL2.dylib */; };
 		AE5171142B59A91800ACFA5E /* libSDL2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AE5171122B59A91800ACFA5E /* libSDL2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AE5A66FA2B5AEE3C003671E4 /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5171122B59A91800ACFA5E /* libSDL2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +58,7 @@
 		AE5171082B59A8BA00ACFA5E /* DoomEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DoomEngine.cpp; path = ../../DoomEngine.cpp; sourceTree = "<group>"; };
 		AE5171092B59A8BA00ACFA5E /* WADReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WADReader.h; path = ../../WADReader.h; sourceTree = "<group>"; };
 		AE5171122B59A91800ACFA5E /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../../../../../opt/homebrew/Cellar/sdl2/2.28.2/lib/libSDL2.dylib; sourceTree = "<group>"; };
+		AE5A66FC2B5AFEAD003671E4 /* wad */ = {isa = PBXFileReference; lastKnownFileType = folder; path = wad; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE5171132B59A91800ACFA5E /* libSDL2.dylib in Frameworks */,
+				AE5A66FA2B5AEE3C003671E4 /* libSDL2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +93,7 @@
 		AE5170F42B59A4CE00ACFA5E /* Voomer */ = {
 			isa = PBXGroup;
 			children = (
+				AE5A66FC2B5AFEAD003671E4 /* wad */,
 				AE5171022B59A8BA00ACFA5E /* DataTypes.h */,
 				AE5171082B59A8BA00ACFA5E /* DoomEngine.cpp */,
 				AE5171072B59A8BA00ACFA5E /* DoomEngine.h */,
@@ -308,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = Voomer/wad;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Dependencies/SDL\"";
 				LIBRARY_SEARCH_PATHS = /opt/homebrew/Cellar/sdl2/2.28.2/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -318,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = Voomer/wad;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Dependencies/SDL\"";
 				LIBRARY_SEARCH_PATHS = /opt/homebrew/Cellar/sdl2/2.28.2/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";

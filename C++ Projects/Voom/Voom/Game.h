@@ -12,6 +12,8 @@ public:
 	void Render();
 	void Update();
 	void Delay();
+	void RenderPresent();
+	void RenderClear();
 
 	bool IsOver();
 	bool Init();

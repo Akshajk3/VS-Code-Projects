@@ -65,7 +65,7 @@ bool WADLoader::OpenAndLoad()
 
 bool WADLoader::ReadDirectories()
 {
-	std::cout << "Reading" << std::endl;
+	std::cout << "Info: Reading Complete" << std::endl;
 
 	WADReader reader;
 
@@ -100,10 +100,16 @@ bool WADLoader::ReadDirectories()
 
 int WADLoader::FindMapIndex(Map* map)
 {
+	if (map->GetLumpIndex() > -1)
+	{
+		return map->GetLumpIndex();
+	}
+
 	for (int i = 0; i < m_WADDirectories.size(); i++)
 	{
 		if (m_WADDirectories[i].LumpName == map->GetName())
 		{
+			map->SetLumpIndex(i);
 			return i;
 		}
 	}
@@ -113,6 +119,8 @@ int WADLoader::FindMapIndex(Map* map)
 
 bool WADLoader::ReadMapVertex(Map* map)
 {
+	std::cout << "Info: Loading Map Vertex" << std::endl;
+
 	int iMapIndex = FindMapIndex(map);
 
 	if (iMapIndex == -1)
@@ -145,6 +153,8 @@ bool WADLoader::ReadMapVertex(Map* map)
 
 bool WADLoader::ReadMapLinedef(Map* map)
 {
+	std::cout << "Info: Loading Map Linedef" << std::endl;
+
 	int iMapIndex = FindMapIndex(map);
 	
 	if (iMapIndex == -1)
@@ -186,6 +196,7 @@ bool WADLoader::ReadMapLinedef(Map* map)
 
 bool WADLoader::ReadMapThing(Map* map)
 {
+	std::cout << "Info: Loading Thing" << std::endl;
 	int iMapIndex = FindMapIndex(map);
 
 	if (iMapIndex == -1)
@@ -215,6 +226,38 @@ bool WADLoader::ReadMapThing(Map* map)
 	return true;
 }
 
+bool WADLoader::ReadMapNode(Map* map)
+{
+	std::cout << "Info: Loading Map Node" << std::endl;
+	int iMapIndex = FindMapIndex(map);
+
+	if(iMapIndex == -1)
+	{
+		return false;
+	}
+
+	iMapIndex += EMAPLUMPSINDEX::eNODES;
+
+	if (strcmp(m_WADDirectories[iMapIndex].LumpName, "NODES") != 0)
+	{
+		return false;
+	}
+
+	int iNodeSizeInBytes = sizeof(Node);
+	int iNodeCount = m_WADDirectories[iMapIndex].LumpSize / iNodeSizeInBytes;
+
+	Node node;
+
+	for (int i = 0; i < iNodeCount; i++)
+	{
+		m_Reader.ReadNodeData(m_WADData, m_WADDirectories[iMapIndex].LumpOffset + i * iNodeSizeInBytes, node);
+
+		map->AddNode(node);
+	}
+
+	return true;
+}
+
 bool WADLoader::LoadMapData(Map* map)
 {
 	
@@ -233,6 +276,13 @@ bool WADLoader::LoadMapData(Map* map)
 	if (!ReadMapThing(map))
 	{
 		std::cout << "Error: Failed to load map thing data MAP: " << map->GetName() << std::endl;
+		return false;
+	}
+
+	if(!ReadMapNode(map))
+	{
+		std::cout << "Error: Failed to load map node data Map: " << map->GetName() << std::endl;
+		return false;
 	}
 	
 	return true;

@@ -1,2 +1,2 @@
 all:
-	g++ -std=c++17 -IDependencies/SDL -o Voom Main.cpp -v 	-lSDL2-2.0.0
+	g++ -std=c++17 -IDependencies/SDL -o Voom Main.cpp DoomEngine.cpp Game.cpp WADLoader.cpp WADReader.cpp Player.cpp Map.cpp -L lib -l SDL2

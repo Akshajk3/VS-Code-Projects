@@ -66,12 +66,34 @@ void WADReader::ReadThingData(const uint8_t* pWADData, int offset, Thing& thing)
 	thing.Flag = Read2Bytes(pWADData, offset + 8);
 }
 
+void WADReader::ReadNodeData(const uint8_t *pWADData, int offset, Node& node)
+{
+	node.XPartition = Read2Bytes(pWADData, offset);
+	node.YPartition = Read2Bytes(pWADData, offset + 2);
+	node.ChangeXPartition = Read2Bytes(pWADData, offset + 4);
+	node.ChangeYPartition = Read2Bytes(pWADData, offset + 6);
+
+	node.RightBoxTop = Read2Bytes(pWADData, offset + 8);
+	node.RightBoxBottom = Read2Bytes(pWADData, offset + 10);
+	node.RightBoxLeft = Read2Bytes(pWADData, offset + 12);
+	node.RightBoxRight = Read2Bytes(pWADData, offset + 14);
+
+	node.LeftBoxTop = Read2Bytes(pWADData, offset + 16);
+	node.LeftBoxBottom = Read2Bytes(pWADData, offset + 18);
+	node.LeftBoxLeft = Read2Bytes(pWADData, offset + 20);
+	node.LeftBoxRight = Read2Bytes(pWADData, offset + 22);
+
+	node.RightChild = Read2Bytes(pWADData, offset + 24);
+	node.LeftChild = Read2Bytes(pWADData, offset + 26);
+}
+
 uint16_t WADReader::Read2Bytes(const uint8_t *pWADData, int offset)
 {
 	uint16_t ReadValue;
 	memcpy(&ReadValue, pWADData + offset, sizeof(uint16_t));
 	return ReadValue;
 }
+
 
 uint32_t WADReader::Read4Bytes(const uint8_t *pWADData, int offset)
 {

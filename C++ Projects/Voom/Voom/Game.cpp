@@ -1,9 +1,9 @@
 #include "Game.h"
 
 Game::Game()
-	: m_iWindowWidth(1280), m_iWindowHeight(720)
+	: m_iWindowWidth(1280), m_iWindowHeight(800)
 {
-	m_DoomEngine = new DoomEngine();
+	
 }
 
 Game::~Game()
@@ -22,7 +22,7 @@ bool Game::Init()
 		return false;
 	}
 
-	m_Window = SDL_CreateWindow(m_DoomEngine->GetName().c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_iWindowWidth, m_iWindowHeight, SDL_WINDOW_SHOWN);
+	m_Window = SDL_CreateWindow(NULL, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_iWindowWidth, m_iWindowHeight, SDL_WINDOW_SHOWN);
 	if (m_Window == nullptr)
 	{
 		std::cout << "Failed to Create Window Error: " << SDL_GetError() << std::endl;
@@ -36,18 +36,21 @@ bool Game::Init()
 		return false;
 	}
 
-	SDL_SetRenderDrawColor(m_Renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-	if (!m_DoomEngine->Init())
-	{
-		std::cout << m_DoomEngine->GetName() << " Failed to Init" << std::endl;
-		return false;
-	}
+	m_DoomEngine = new DoomEngine(m_Renderer);
 
 	if (SDL_RenderSetLogicalSize(m_Renderer, m_DoomEngine->GetRenderWidth(), m_DoomEngine->GetRenderHeight()) != 0)
 	{
 		std::cout << "SDL Failed to set Logical Size Error: " << SDL_GetError() << std::endl;
 		return false;
 	}
+
+	if (!m_DoomEngine->Init())
+	{
+		std::cout << m_DoomEngine->GetName() << " Failed to Init" << std::endl;
+		return false;
+	}
+
+	SDL_SetWindowTitle(m_Window, m_DoomEngine->GetName().c_str());
 
 	return true;
 }
@@ -77,12 +80,22 @@ void Game::ProcessInput()
 
 void Game::Render()
 {
-	SDL_SetRenderDrawColor(m_Renderer, 0, 0, 0, 0xFF);
-	SDL_RenderClear(m_Renderer);
+	RenderClear();
 
-	m_DoomEngine->Render(m_Renderer);
+	m_DoomEngine->Render();
+	
+	RenderPresent();
+}
 
+void Game::RenderPresent()
+{
 	SDL_RenderPresent(m_Renderer);
+}
+
+void Game::RenderClear()
+{
+	SDL_SetRenderDrawColor(m_Renderer, 0, 0, 0, 0xff);
+	SDL_RenderClear(m_Renderer);
 }
 
 void Game::Update()

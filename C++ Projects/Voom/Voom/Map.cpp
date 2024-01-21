@@ -1,9 +1,11 @@
 #include "Map.h"
 
-Map::Map(std::string name, Player* player)
-	: m_Name(name), m_XMin(INT_MAX), m_XMax(INT_MIN), m_YMin(INT_MAX), m_YMax(INT_MIN), m_iAutoMapScaleFactor(15), m_Player(player), m_iLumpIndex(-1)
+Map::Map(SDL_Renderer* renderer, std::string name, Player* player)
+	: m_Renderer(renderer), m_Name(name), m_XMin(INT_MAX), m_XMax(INT_MIN), m_YMin(INT_MAX), m_YMax(INT_MIN), m_iAutoMapScaleFactor(15), m_Player(player), m_iLumpIndex(-1)
 {
-
+	SDL_RenderGetLogicalSize(m_Renderer, &iRenderXSize, &iRenderYSize);
+	--iRenderXSize;
+	--iRenderYSize;
 }
 
 Map::~Map()
@@ -43,51 +45,33 @@ std::string Map::GetName()
 	return m_Name;
 }
 
-void Map::RenderAutoMap(SDL_Renderer* renderer)
-{
-	int iXShift = -m_XMin;
-	int iYShift = -m_YMin;
-	
-	RenderAutoMapWalls(renderer, iXShift, iYShift);
-	RenderAutoMapPlayer(renderer, iXShift, iYShift);
+void Map::RenderAutoMap()
+{	
+	RenderAutoMapWalls();
+	RenderAutoMapPlayer();
+	RenderAutoMapNodes();
 }
 
-void Map::RenderAutoMapWalls(SDL_Renderer* renderer, int iXShift, int iYShift)
-{
-	int iRenderXSize;
-	int iRenderYSize;
-
-	SDL_RenderGetLogicalSize(renderer, &iRenderXSize, &iRenderYSize);
-
-	--iRenderXSize;
-	--iRenderYSize;
-
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+void Map::RenderAutoMapWalls()
+{	
+	SDL_SetRenderDrawColor(m_Renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 
 	for (Linedef& l : m_Linedefs)
 	{
 		Vertex vStart = m_Vertexes[l.StartVertex];
 		Vertex vEnd = m_Vertexes[l.EndVertex];
 
-		SDL_RenderDrawLine(renderer,
-			(vStart.x_pos + iXShift) / m_iAutoMapScaleFactor,
-			iRenderYSize - (vStart.y_pos + iYShift) / m_iAutoMapScaleFactor,
-			(vEnd.x_pos + iXShift) / m_iAutoMapScaleFactor,
-			iRenderYSize - (vEnd.y_pos + iYShift) / m_iAutoMapScaleFactor);
+		SDL_RenderDrawLine(m_Renderer,
+			RemapXToScreen(vStart.x_pos),
+			RemapYToScreen(vStart.y_pos),
+			RemapXToScreen(vEnd.x_pos),
+			RemapYToScreen(vEnd.y_pos));
 	}
 }
 
-void Map::RenderAutoMapPlayer(SDL_Renderer* renderer, int iXShift, int iYShift)
+void Map::RenderAutoMapPlayer()
 {
-	int iRenderXSize;
-	int iRenderYSize;
-
-	SDL_RenderGetLogicalSize(renderer, &iRenderXSize, &iRenderYSize);
-
-	iRenderXSize--;
-	iRenderYSize--;
-
-	SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_SetRenderDrawColor(m_Renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 
 	std::pair<int, int> Direction[] = {
 		std::make_pair(-1, -1), std::make_pair(0, -1), std::make_pair(+1, -1),	// Above Row
@@ -97,12 +81,41 @@ void Map::RenderAutoMapPlayer(SDL_Renderer* renderer, int iXShift, int iYShift)
 
 	for (int i = 0; i < 9; i++)
 	{
-        std::cout << m_Player->GetXPosition() << std::endl;
-
-		SDL_RenderDrawPoint(renderer,
-			(m_Player->GetXPosition() + iXShift) / m_iAutoMapScaleFactor + Direction[i].first,
-			iRenderYSize - (m_Player->GetYPosition() + iYShift) / m_iAutoMapScaleFactor + Direction->second);
+		SDL_RenderDrawPoint(m_Renderer,
+			RemapXToScreen(m_Player->GetXPosition()) + Direction[i].first,
+			RemapYToScreen(m_Player->GetYPosition()) + Direction[i].second);
 	}
+}
+
+void Map::RenderAutoMapNodes()
+{
+	Node node = m_Nodes[m_Nodes.size()-1];
+
+	SDL_Rect RightRect = {
+		RemapXToScreen(node.RightBoxLeft),
+		RemapYToScreen(node.RightBoxTop),
+		RemapXToScreen(node.RightBoxRight) - RemapXToScreen(node.RightBoxLeft) + 1,
+		RemapYToScreen(node.RightBoxBottom) - RemapYToScreen(node.RightBoxTop) + 1
+	};
+
+	SDL_Rect LeftRect = {
+		RemapXToScreen(node.LeftBoxLeft),
+		RemapYToScreen(node.LeftBoxTop),
+		RemapXToScreen(node.LeftBoxRight) - RemapXToScreen(node.LeftBoxLeft) + 1,
+		RemapYToScreen(node.LeftBoxBottom) - RemapYToScreen(node.LeftBoxTop) + 1
+	};
+
+	SDL_SetRenderDrawColor(m_Renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(m_Renderer, &RightRect);
+	SDL_SetRenderDrawColor(m_Renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawRect(m_Renderer, &LeftRect);
+
+	SDL_SetRenderDrawColor(m_Renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
+	SDL_RenderDrawLine(m_Renderer,
+		RemapXToScreen(node.XPartition),
+		RemapYToScreen(node.YPartition),
+		RemapXToScreen(node.XPartition + node.ChangeXPartition),
+		RemapYToScreen(node.YPartition + node.ChangeYPartition));
 }
 
 void Map::AddThing(Thing& thing)
@@ -118,6 +131,11 @@ void Map::AddThing(Thing& thing)
 	m_Things.push_back(thing);
 }
 
+void Map::AddNode(Node& node)
+{
+	m_Nodes.push_back(node);
+}
+
 void Map::SetLumpIndex(int iIndex)
 {
 	m_iLumpIndex = iIndex;
@@ -126,4 +144,14 @@ void Map::SetLumpIndex(int iIndex)
 int Map::GetLumpIndex()
 {
 	return m_iLumpIndex;
+}
+
+int Map::RemapXToScreen(int XMapPosition)
+{
+	return (XMapPosition + (-m_XMin)) / m_iAutoMapScaleFactor;
+}
+
+int Map::RemapYToScreen(int YMapPosition)
+{
+	return iRenderYSize - (YMapPosition + (-m_YMin)) / m_iAutoMapScaleFactor;
 }

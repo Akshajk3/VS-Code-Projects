@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cstdio>
 
-using Byte = unsigned char;
-using Word = unsigned short;
+#include "6502.h"
+
 
 using u32 = unsigned int;
 

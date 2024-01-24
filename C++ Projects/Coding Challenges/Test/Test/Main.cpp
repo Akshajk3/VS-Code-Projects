@@ -1,39 +1,71 @@
+#include "Map.h"
 #include <iostream>
+#include <cassert>
 using namespace std;
-
-// This function searches through str for the character chr.
-// If the chr is found, it returns a pointer into str where
-// the character was first found, otherwise nullptr (not found).
-
-const char* findTheChar(const char* str, char chr)
-{
-    for (int k = 0; *str != 0; k++)
-        if (*(str + k) == chr)
-            return (str + k);
-
-    return nullptr;
-}
 
 int main()
 {
-    const char myString[] = "Hello, World!";
-    char searchChar = 'l';
-
-    const char* result = findTheChar(myString, searchChar);
-    
-    cout << result << endl;
-
-    if (result != nullptr)
-    {
-        std::cout << "Character '" << searchChar << "' found at position: " << result - myString << std::endl;
-    }
-    else
-    {
-        std::cout << "Character '" << searchChar << "' not found in the string." << std::endl;
-    }
-
-    return 0;
+    Map m;  // maps ints to strings
+    assert(m.empty());
+    ValueType v = "Ouch";
+    assert( !m.get(42, v)  &&  v == "Ouch"); // v unchanged by get failure
+    m.insert(123456789, "Wow!");
+    assert(m.size() == 1);
+    KeyType k = 9876543;
+    assert(m.get(0, k, v)  &&  k == 123456789  &&  v == "Wow!");
+    cout << "Passed all tests" << endl;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//#include <iostream>
+//using namespace std;
+//
+//// This function searches through str for the character chr.
+//// If the chr is found, it returns a pointer into str where
+//// the character was first found, otherwise nullptr (not found).
+//
+//const char* findTheChar(const char* str, char chr)
+//{
+//    for (int k = 0; *str != 0; k++)
+//        if (*(str + k) == chr)
+//            return (str + k);
+//
+//    return nullptr;
+//}
+//
+//int main()
+//{
+//    const char myString[] = "Hello, World!";
+//    char searchChar = 'l';
+//
+//    const char* result = findTheChar(myString, searchChar);
+//    
+//    cout << result << endl;
+//
+//    if (result != nullptr)
+//    {
+//        std::cout << "Character '" << searchChar << "' found at position: " << result - myString << std::endl;
+//    }
+//    else
+//    {
+//        std::cout << "Character '" << searchChar << "' not found in the string." << std::endl;
+//    }
+//
+//    return 0;
+//}
 
 // QUESTION 5
 /*

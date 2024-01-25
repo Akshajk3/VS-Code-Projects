@@ -35,5 +35,5 @@ class GamerMap
       // text.  The lines need not be in any particular order.
 
   private:
-    Map gamerMap;
+    OldMap gamerMap;
 };

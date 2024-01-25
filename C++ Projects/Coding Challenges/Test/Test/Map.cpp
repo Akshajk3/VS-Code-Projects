@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "Map.h"
 
-Map::Map()
+OldMap::OldMap()
 {
     for(int i = 0; i < DEFAULT_MAX_ITEMS; i++)
     {
@@ -10,7 +10,7 @@ Map::Map()
     }
 }
 
-bool Map::empty() const
+bool OldMap::empty() const
 {
     for(int i = 0; i < DEFAULT_MAX_ITEMS; i++)
     {
@@ -23,7 +23,7 @@ bool Map::empty() const
     return true;
 }
 
-int Map::size() const
+int OldMap::size() const
 {
     int counter = 0;
     
@@ -38,7 +38,7 @@ int Map::size() const
     return counter;
 }
 
-bool Map::insert(const KeyType& key, const ValueType& value)
+bool OldMap::insert(const KeyType& key, const ValueType& value)
 {
     for(int i = 0; i < DEFAULT_MAX_ITEMS; i++)
     {
@@ -58,7 +58,7 @@ bool Map::insert(const KeyType& key, const ValueType& value)
     return false;
 }
 
-bool Map::update(const KeyType& key, const ValueType& value)
+bool OldMap::update(const KeyType& key, const ValueType& value)
 {
     for(int i = 0; i < DEFAULT_MAX_ITEMS; i++)
     {
@@ -72,7 +72,7 @@ bool Map::update(const KeyType& key, const ValueType& value)
     return false;
 }
 
-bool Map::insertOrUpdate(const KeyType& key, const ValueType& value)
+bool OldMap::insertOrUpdate(const KeyType& key, const ValueType& value)
 {
     for(int i = 0; i < DEFAULT_MAX_ITEMS; i++)
     {
@@ -95,7 +95,7 @@ bool Map::insertOrUpdate(const KeyType& key, const ValueType& value)
     return false;
 }
 
-bool Map::erase(const KeyType& key)
+bool OldMap::erase(const KeyType& key)
 {
     for (int i = 0; i < DEFAULT_MAX_ITEMS; i++)
     {
@@ -110,7 +110,7 @@ bool Map::erase(const KeyType& key)
     return false;
 }
  
-bool Map::contains(const KeyType& key) const
+bool OldMap::contains(const KeyType& key) const
 {
     for(int i = 0; i < DEFAULT_MAX_ITEMS; i++)
     {
@@ -123,7 +123,7 @@ bool Map::contains(const KeyType& key) const
     return false;
 }
  
-bool Map::get(const KeyType& key, ValueType& value)
+bool OldMap::get(const KeyType& key, ValueType& value)
 {
     for(int i = 0; i < DEFAULT_MAX_ITEMS; i++)
     {
@@ -137,7 +137,7 @@ bool Map::get(const KeyType& key, ValueType& value)
     return false;
 }
  
-bool Map::get(int i, KeyType& key, ValueType& value)
+bool OldMap::get(int i, KeyType& key, ValueType& value)
 {
     if( 0 <= i && i < size())
     {
@@ -148,7 +148,7 @@ bool Map::get(int i, KeyType& key, ValueType& value)
     return false;
 }
 
-void Map::swap(Map& other)
+void OldMap::swap(OldMap& other)
 {
     for (int i = 0; i < DEFAULT_MAX_ITEMS; i++)
     {

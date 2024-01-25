@@ -9,10 +9,10 @@ using ValueType = double;
 
 const int DEFAULT_MAX_ITEMS = 150;
 
-class Map
+class OldMap
 {
   public:
-    Map();         // Create an empty map (i.e., one whose size() is 0).
+    OldMap();         // Create an empty map (i.e., one whose size() is 0).
 
     bool empty() const;  // Return true if the map is empty, otherwise false.
 
@@ -62,7 +62,7 @@ class Map
       // greater than exactly i keys in the map and return true.  Otherwise,
       // leave the key and value parameters unchanged and return false.
 
-    void swap(Map& other);
+    void swap(OldMap& other);
       // Exchange the contents of this map with the other one.
     
 

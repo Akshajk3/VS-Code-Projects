@@ -10,6 +10,7 @@
 		AE4D6B9C2B158973005FB5EE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE4D6B9B2B158973005FB5EE /* main.cpp */; };
 		AEBC56232B6023FA005781ED /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBC56222B6023FA005781ED /* Map.cpp */; };
 		AEBC56262B602A12005781ED /* GamerClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBC56252B602A12005781ED /* GamerClass.cpp */; };
+		AEBC56292B62276E005781ED /* NewMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBC56272B62276E005781ED /* NewMap.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		AEBC56222B6023FA005781ED /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
 		AEBC56242B602A00005781ED /* GamerClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamerClass.h; sourceTree = "<group>"; };
 		AEBC56252B602A12005781ED /* GamerClass.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GamerClass.cpp; sourceTree = "<group>"; };
+		AEBC56272B62276E005781ED /* NewMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NewMap.cpp; sourceTree = "<group>"; };
+		AEBC56282B62276E005781ED /* NewMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMap.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				AEBC56222B6023FA005781ED /* Map.cpp */,
 				AEBC56242B602A00005781ED /* GamerClass.h */,
 				AEBC56252B602A12005781ED /* GamerClass.cpp */,
+				AEBC56272B62276E005781ED /* NewMap.cpp */,
+				AEBC56282B62276E005781ED /* NewMap.h */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 				AEBC56232B6023FA005781ED /* Map.cpp in Sources */,
 				AEBC56262B602A12005781ED /* GamerClass.cpp in Sources */,
 				AE4D6B9C2B158973005FB5EE /* main.cpp in Sources */,
+				AEBC56292B62276E005781ED /* NewMap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

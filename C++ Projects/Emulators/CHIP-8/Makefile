@@ -1,2 +1,2 @@
 all:
-	g++ -o main Main.cpp cpu.cpp
+	g++ -o main Main.cpp emulator.cpp

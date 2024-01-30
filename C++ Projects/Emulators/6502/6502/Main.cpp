@@ -1,14 +1,19 @@
+#include <cassert>
+
 #include "6502.h"
 
-int main()
-{
+int main() {
+    // Initialize and reset the CPU
     CPU cpu;
     cpu.reset();
-    cpu.mem[0xFFFC] = cpu.JSR;
-    cpu.mem[0xFFFD] = 0x42;
-    cpu.mem[0xFFFE] = 0x42;
-    cpu.mem[0x4242] = cpu.LDA_IM;
-    cpu.mem[0x4243] = 0x84;
-    cpu.executeInstruction(9);
+
+    // Test LDA immediate
+    cpu.mem[0xFFFC] = CPU::LDA_IM;  // LDA immediate instruction
+    cpu.mem[0xFFFD] = 0x42;     // Value to load
+    cpu.executeInstruction(2);  // Execute one instruction
+    assert(cpu.a == 0x42);      // Check if accumulator contains the correct value
+
+    std::cout << "Simple test case passed!" << std::endl;
+
     return 0;
 }

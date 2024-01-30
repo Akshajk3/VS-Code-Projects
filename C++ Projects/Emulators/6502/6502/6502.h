@@ -18,10 +18,11 @@ public:
     static constexpr Byte LDA_IM = 0xA9;
     static constexpr Byte LDA_ZP = 0xA6;
     static constexpr Byte LDA_ZPX = 0xB5;
+    static constexpr Byte PHA = 0x48;
+    static constexpr Byte PLA = 0x68;
     static constexpr Byte JSR = 0x20;
     static constexpr Byte NOP = 0xEE;
-    
-private:
+
     Word pc;
     Word sp;
     Byte a;
@@ -42,4 +43,6 @@ private:
     Byte ReadByte(Byte address);
     Word FetchWord();
     void LDASetStatus();
+    void PushByte(Byte Value);
+    Byte PopByte();
 };

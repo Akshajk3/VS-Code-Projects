@@ -12,9 +12,9 @@ void CPU::LDASetStatus()
 void CPU::reset()
 {
     pc = 0xFFFC;
-    sp = 0x0100;
+    sp = 0xFF;
     C = Z = I = D = B = V = N = 0;
-    a = x = x = 0;
+    a = x = y = 0;
     mem.Init();
 }
 
@@ -44,6 +44,36 @@ Word CPU::FetchWord()
     Cycles -= 2;
     
     return Data;
+}
+
+void CPU::PushByte(Byte Value)
+{
+    mem[0x100 + sp] = Value;
+    
+    if(sp == 0x00)
+    {
+        sp = 0xFF;
+    }
+    else
+    {
+        sp--;
+    }
+}
+
+Byte CPU::PopByte()
+{
+    Byte result = mem[0x100 + sp];
+    
+    if(sp == 0xFF)
+    {
+        sp = 0x00;
+    }
+    else
+    {
+        sp++;
+    }
+    
+    return result;
 }
 
 void CPU::executeInstruction(u32 cycles)
@@ -81,6 +111,16 @@ void CPU::executeInstruction(u32 cycles)
                 mem.WriteWord(pc - 1, sp, Cycles);
                 pc = SubAddress;
                 Cycles--;
+            }break;
+            case PHA:
+            {
+                PushByte(a);
+                Cycles -= 3;
+            }break;
+            case PLA:
+            {
+                a = PopByte();
+                Cycles -= 4;
             }break;
             case NOP:
             {

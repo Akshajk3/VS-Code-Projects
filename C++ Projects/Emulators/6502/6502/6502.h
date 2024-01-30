@@ -9,7 +9,7 @@ public:
     CPU();
     
     void reset();
-    void executeInstruction();
+    void executeInstruction(u32 Cycles);
     void run();
     
     Memory mem;

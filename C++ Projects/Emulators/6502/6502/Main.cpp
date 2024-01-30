@@ -9,5 +9,6 @@ int main()
     cpu.mem[0xFFFE] = 0x42;
     cpu.mem[0x4242] = cpu.LDA_IM;
     cpu.mem[0x4243] = 0x84;
-    cpu.executeInstruction();
+    cpu.executeInstruction(9);
+    return 0;
 }

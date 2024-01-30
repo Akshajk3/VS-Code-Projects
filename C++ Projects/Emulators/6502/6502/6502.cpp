@@ -3,6 +3,12 @@
 CPU::CPU()
 {}
 
+void CPU::LDASetStatus()
+{
+    Z = (a == 0);
+    N = (a & 0b10000000) > 0;
+}
+
 void CPU::reset()
 {
     pc = 0xFFFC;
@@ -40,8 +46,10 @@ Word CPU::FetchWord()
     return Data;
 }
 
-void CPU::executeInstruction()
+void CPU::executeInstruction(u32 cycles)
 {
+    Cycles = cycles;
+
     while (Cycles > 0)
     {
         Byte Ins = FetchByte();

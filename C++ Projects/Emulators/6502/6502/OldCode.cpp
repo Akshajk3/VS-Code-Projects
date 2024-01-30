@@ -149,7 +149,7 @@ struct CPU
     }
 };
 
-int main()
+int mane()
 {
     Mem mem;
     CPU cpu;

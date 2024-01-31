@@ -3,6 +3,9 @@
 CPU::CPU()
 {}
 
+CPU::~CPU()
+{}
+
 void CPU::LDASetStatus()
 {
     Z = (a == 0);
@@ -49,30 +52,13 @@ Word CPU::FetchWord()
 void CPU::PushByte(Byte Value)
 {
     mem[0x100 + sp] = Value;
-    
-    if(sp == 0x00)
-    {
-        sp = 0xFF;
-    }
-    else
-    {
-        sp--;
-    }
+    sp--;
 }
 
 Byte CPU::PopByte()
 {
     Byte result = mem[0x100 + sp];
-    
-    if(sp == 0xFF)
-    {
-        sp = 0x00;
-    }
-    else
-    {
-        sp++;
-    }
-    
+    sp++;
     return result;
 }
 
@@ -128,7 +114,7 @@ void CPU::executeInstruction(u32 cycles)
             }break;
             default:
             {
-                printf("Instucition Not Handled %d", Ins);
+                std::cout << "Instucition Not Handled: " << Ins << std::endl;
             }break;
         }
     }

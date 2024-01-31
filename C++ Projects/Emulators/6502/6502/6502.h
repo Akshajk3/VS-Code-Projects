@@ -1,13 +1,14 @@
 #include <iostream>
 #include <cstdint>
 
-#include "memory.h"
+#include "Memory.h"
 
 class CPU
 {
 public:
     CPU();
-    
+    ~CPU();
+
     void reset();
     void executeInstruction(u32 Cycles);
     void run();

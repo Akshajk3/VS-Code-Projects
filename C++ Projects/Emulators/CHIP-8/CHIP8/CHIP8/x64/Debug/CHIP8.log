@@ -1,0 +1,16 @@
+﻿  cpu.cpp
+  Main.c
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(88,43): warning C4244: 'initializing': conversion from 'const float' to 'const uint8_t', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(89,43): warning C4244: 'initializing': conversion from 'const float' to 'const uint8_t', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(90,43): warning C4244: 'initializing': conversion from 'const float' to 'const uint8_t', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(91,43): warning C4244: 'initializing': conversion from 'const float' to 'const uint8_t', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(184,5): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(190,13): warning C4013: 'strncmp' undefined; assuming extern returning int
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(190,48): warning C4013: 'strlen' undefined; assuming extern returning int
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(223,5): warning C4013: 'memset' undefined; assuming extern returning int
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(226,5): warning C4013: 'memcpy' undefined; assuming extern returning int
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(391,51): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(397,51): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(1129,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\Main.c(1151,41): warning C4244: 'function': conversion from 'const double' to 'Uint32', possible loss of data
+  CHIP8.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Emulators\CHIP-8\CHIP8\x64\Debug\CHIP8.exe

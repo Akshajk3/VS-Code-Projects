@@ -1,6 +1,9 @@
 #pragma once
-#include <cstdint.h>
+
+#include <cstdint>
 #include <array>
+
+#include "olc6502.h"
 
 class Bus
 {

@@ -49,19 +49,6 @@ Word CPU::FetchWord()
     return Data;
 }
 
-void CPU::PushByte(Byte Value)
-{
-    mem[0x100 + sp] = Value;
-    sp--;
-}
-
-Byte CPU::PopByte()
-{
-    Byte result = mem[0x100 + sp];
-    sp++;
-    return result;
-}
-
 void CPU::executeInstruction(u32 cycles)
 {
     Cycles = cycles;
@@ -100,12 +87,14 @@ void CPU::executeInstruction(u32 cycles)
             }break;
             case PHA:
             {
-                PushByte(a);
+                mem[0x0100 + sp] = a;
+                sp--;
                 Cycles -= 3;
             }break;
             case PLA:
             {
-                a = PopByte();
+                a = mem[0x100 + sp];
+                sp++;
                 Cycles -= 4;
             }break;
             case NOP:

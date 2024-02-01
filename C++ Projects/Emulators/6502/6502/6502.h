@@ -44,6 +44,4 @@ public:
     Byte ReadByte(Byte address);
     Word FetchWord();
     void LDASetStatus();
-    void PushByte(Byte Value);
-    Byte PopByte();
 };

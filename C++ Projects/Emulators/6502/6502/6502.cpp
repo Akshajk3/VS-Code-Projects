@@ -87,7 +87,7 @@ void CPU::executeInstruction(u32 cycles)
             }break;
             case PHA:
             {
-                mem[0x0100 + sp] = a;
+                mem[0x0100 + sp] = a; // Push the current value of the accumulator onto the stack
                 sp--;
                 Cycles -= 3;
             }break;
@@ -103,7 +103,7 @@ void CPU::executeInstruction(u32 cycles)
             }break;
             default:
             {
-                std::cout << "Instucition Not Handled: " << Ins << std::endl;
+                std::cout << "Instruction Not Handled: " << static_cast<unsigned>(Ins) << std::endl;
             }break;
         }
     }

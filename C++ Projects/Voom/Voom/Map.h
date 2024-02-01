@@ -23,11 +23,15 @@ public:
 	void RenderAutoMapPlayer();
 	void RenderAutoMapWalls();
 	void RenderAutoMapNodes();
+	void RenderBSPNode(int NodeID);
+	void RenderSubsector(int SubsectorID);
 	void SetLumpIndex(int iIndex);
 
 	int GetLumpIndex();
 	int RemapXToScreen(int XMapPosition);
 	int RemapYToScreen(int YMapPosition);
+
+	bool IsPointOnLeftSide(int XPosition, int YPosition, int NodeID);
 
 protected:
 	std::string m_Name;

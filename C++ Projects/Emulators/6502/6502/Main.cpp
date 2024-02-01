@@ -1,25 +1,21 @@
-#include <cassert>
 #include <iostream>
+#include <cassert>
+#include <iomanip>
 #include "6502.h"
 
 int main() {
-    CPU cpu;
-    cpu.reset();
+	CPU cpu;
 
-    // Test LDA_ZPX instruction
-    cpu.mem[0xFFFC] = CPU::LDA_ZPX;  // Set the opcode for LDA_ZPX at the reset vector
-    cpu.mem[0xFFFD] = 0x20;          // Zero Page address
-    cpu.x = 0x03;                    // X Index
-    cpu.mem[0x0023] = 0x42;          // Value to load at Zero Page address + X Index
+	cpu.reset();
 
-    // Execute the instruction with enough cycles
-    cpu.executeInstruction(4); // LDA_ZPX takes 4 cycles
+	cpu.a = 0x55;
 
-    // Check if the accumulator contains the correct value
-    assert(cpu.a == 0x42);
+	cpu.mem[0xFFFC] = CPU::PHA;
+	cpu.pc++;
 
-    std::cout << "Test case passed!" << std::endl;
+	cpu.executeInstruction(3);
 
-    return 0;
+	assert(cpu.sp == 0xFE);
+
+	return 0;
 }
-

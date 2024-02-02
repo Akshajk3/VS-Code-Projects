@@ -118,6 +118,20 @@ void Map::RenderAutoMapNodes()
 		RemapYToScreen(node.YPartition + node.ChangeYPartition));
 }
 
+void Map::RenderBSPNode(int NodeID)
+{
+	if (NodeID & SUBSECTORIDENTIFIER)
+	{
+		RenderSubsector(NodeID & (~SUBSECTORIDENTIFIER));
+		return;
+	}
+}
+
+void Map::RenderSubsector(int SubsectorID)
+{
+
+}
+
 void Map::AddThing(Thing& thing)
 {
 	
@@ -154,4 +168,12 @@ int Map::RemapXToScreen(int XMapPosition)
 int Map::RemapYToScreen(int YMapPosition)
 {
 	return iRenderYSize - (YMapPosition + (-m_YMin)) / m_iAutoMapScaleFactor;
+}
+
+bool Map::IsPointOnLeftSide(int XPosition, int YPosition, int NodeID)
+{
+	int dx = XPosition - m_Nodes[NodeID].XPartition;
+	int dy = YPosition - m_Nodes[NodeID].YPartition;
+
+	return (((dx * m_Nodes[NodeID].ChangeYPartition) - (dy * m_Nodes[NodeID].ChangeXPartition)) <= 0);
 }

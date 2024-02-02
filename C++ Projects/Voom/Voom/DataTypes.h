@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#define SUBSECTORIDENTIFIER 0x8000
+
 struct Header
 {
 	char WADTypes[5];

@@ -1,2 +1,2 @@
 all:
-	g++ -o main Main.cpp
+	clang -o main Main.cpp

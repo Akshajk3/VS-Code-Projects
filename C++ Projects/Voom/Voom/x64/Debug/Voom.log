@@ -1,5 +1,9 @@
 ﻿  DoomEngine.cpp
+  Game.cpp
+  Main.cpp
   Map.cpp
+  Player.cpp
   WADLoader.cpp
+  WADReader.cpp
   Generating Code...
   Voom.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\x64\Debug\Voom.exe

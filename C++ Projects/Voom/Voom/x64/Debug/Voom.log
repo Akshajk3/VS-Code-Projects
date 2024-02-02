@@ -1,9 +1,3 @@
-﻿  DoomEngine.cpp
-  Game.cpp
-  Main.cpp
-  Map.cpp
-  Player.cpp
-  WADLoader.cpp
-  WADReader.cpp
-  Generating Code...
+﻿  Map.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\Voom\Map.cpp(143,31): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   Voom.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\x64\Debug\Voom.exe

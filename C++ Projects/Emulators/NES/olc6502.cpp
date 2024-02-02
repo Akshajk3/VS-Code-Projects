@@ -206,3 +206,19 @@ uint8_t olc6502::REL()
 		addr_rel |= 0xFF00;
 	return 0;
 }
+
+uint8_t olc6502::fetch()
+{
+	if (!(lookup[opcode].addrmode == &olc6502::IMP))
+		fetched = read(addr_abs);
+	return fetched;
+}
+
+uint8_t olc6502::AND()
+{
+	fetch();
+	a = a & fetched;
+	SetFlag(Z, a == 0x00);
+	SetFlag(N, a & 0x80);
+	return 1;
+}

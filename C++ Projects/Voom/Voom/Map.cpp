@@ -49,7 +49,7 @@ void Map::RenderAutoMap()
 {	
 	RenderAutoMapWalls();
 	RenderAutoMapPlayer();
-	RenderAutoMapNodes();
+	RenderBSPNodes();
 }
 
 void Map::RenderAutoMapWalls()
@@ -125,6 +125,22 @@ void Map::RenderBSPNode(int NodeID)
 		RenderSubsector(NodeID & (~SUBSECTORIDENTIFIER));
 		return;
 	}
+
+	bool isOnLeft = IsPointOnLeftSide(m_Player->GetXPosition(), m_Player->GetYPosition(), NodeID);
+
+	if (isOnLeft)
+	{
+		RenderBSPNode(m_Nodes[NodeID].LeftChild);
+	}
+	else
+	{
+		RenderBSPNode(m_Nodes[NodeID].RightChild);
+	}
+}
+
+void Map::RenderBSPNodes()
+{
+	RenderBSPNode(m_Nodes.size() - 1);
 }
 
 void Map::RenderSubsector(int SubsectorID)

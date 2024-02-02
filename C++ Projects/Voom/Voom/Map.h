@@ -24,6 +24,7 @@ public:
 	void RenderAutoMapWalls();
 	void RenderAutoMapNodes();
 	void RenderBSPNode(int NodeID);
+	void RenderBSPNodes();
 	void RenderSubsector(int SubsectorID);
 	void SetLumpIndex(int iIndex);
 

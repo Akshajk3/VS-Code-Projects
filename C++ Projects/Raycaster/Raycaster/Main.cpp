@@ -1,36 +1,109 @@
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <gl/GL.h>
+#include <GLUT/glut.h>
 #include <iostream>
+#include <math.h>
+#define PI 3.1415926535
 
-int main(int argc, char* argv)
+float px, py, pdx, pdy, pa;
+
+void drawPlayer()
 {
-	glfwInit();
+    glColor3f(1, 1, 0);
+    glPointSize(8);
+    glBegin(GL_POINTS);
+    glVertex2i(px, py);
+    glEnd();
+}
 
-	GLFWwindow* window = glfwCreateWindow(1024, 512, "Raycaster", NULL, NULL);
-	if (window == nullptr)
-	{
-		std::cout << "Failed to create window" << std::endl;
-		glfwTerminate();
-		return -1;
-	}
+int mapX = 8;
+int mapY = 8;
+int mapS = 64;
+int map[] =
+{
+    1, 1, 1, 1, 1, 1, 1, 1,
+    1, 0, 1, 0, 0, 0, 0, 1,
+    1, 0, 1, 0, 0, 0, 0, 1,
+    1, 0, 1, 0, 0, 0, 0, 1,
+    1, 0, 0, 0, 0, 0, 0, 1,
+    1, 0, 0, 0, 0, 1, 0, 1,
+    1, 0, 0, 0, 0, 0, 0, 1,
+    1, 1, 1, 1, 1, 1, 1, 1,
+};
 
-	glfwMakeContextCurrent(window);
+void drawMap2D()
+{
+    int x, y, xo, yo;
+    for(y = 0; y < mapY; y++)
+    {
+        for(x = 0; x < mapX; x++)
+        {
+            if(map[y * mapX + x] == 1)
+            {
+                glColor3f(1, 1, 1);
+            }
+            else
+            {
+                glColor3f(0, 0, 0);
+            }
+            xo = x*mapS;
+            yo = y*mapS;
+            glBegin(GL_QUADS);
+            glVertex2i(xo + 1, yo + 1);
+            glVertex2i(xo + 1, yo+mapS - 1);
+            glVertex2i(xo+mapS - 1, yo+mapS - 1);
+            glVertex2i(xo+mapS - 1, yo + 1);
+            glEnd();
+        }
+    }
+}
 
-	gladLoadGL();
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    drawMap2D();
+    drawPlayer();
+    glutSwapBuffers();
+}
 
-	glViewport(0, 0, 1024, 512);
+void buttons(unsigned char key, int x, int y)
+{
+    if(key == 'a')
+    {
+        pa -= 0.1;
+        if(pa < 0)
+            pa += 2 * PI;
+        pdx=cos(pa)*5;
+        pdy=sin(pa)*5;
+    }
+    if(key == 'd')
+    {
+        pa += 0.1;
+        if(pa > 2*PI)
+            pa -= 2 * PI;
+        pdx=cos(pa)*5;
+        pdy=sin(pa)*5;
+    }
+    if(key == 'w')
+    if(key == 's')
+    glutPostRedisplay();
+}
 
-	while (!glfwWindowShouldClose(window))
-	{
-		glClearColor(0.3, 0.3, 0.3, 0);
-		glOrtho(0, 1024, 512, 0, 0, 0);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glfwSwapBuffers(window);
-		glfwPollEvents();
-	}
+void init()
+{
+    glClearColor(0.3, 0.3, 0.3, 0);
+    gluOrtho2D(0, 1024, 512, 0);
+    px = 300;
+    py = 300;
+}
 
-	glfwDestroyWindow(window);
-	glfwTerminate();
-	return 0;
+int main(int argc, char* argv[])
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
+    glutInitWindowSize(1024, 512);
+    glutCreateWindow("Vindelcaster");
+    init();
+    glutDisplayFunc(display);
+    glutKeyboardFunc(buttons);
+    glutMainLoop();
+    return 0;
 }

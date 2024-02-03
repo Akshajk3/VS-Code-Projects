@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/akshajkanumuri/Documents/GitHub/VS-Code-Projects/C++ Projects/Emulators/CHIP-8",
+      "program": "/Users/akshajkanumuri/Documents/GitHub/VS-Code-Projects/C++ Projects/Emulators/CHIP-8/build/Debug/outDebug"
+    }
+  ]
+}

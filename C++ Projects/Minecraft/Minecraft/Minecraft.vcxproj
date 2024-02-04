@@ -136,18 +136,9 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="frag.glsl" />
-    <None Include="vert.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Block_type.h" />
-    <ClInclude Include="Buffers.h" />
-    <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
-    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

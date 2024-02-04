@@ -133,22 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DoomEngine.cpp" />
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="WADLoader.cpp" />
-    <ClCompile Include="WADReader.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="DataTypes.h" />
-    <ClInclude Include="DoomEngine.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="WADLoader.h" />
-    <ClInclude Include="WADReader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

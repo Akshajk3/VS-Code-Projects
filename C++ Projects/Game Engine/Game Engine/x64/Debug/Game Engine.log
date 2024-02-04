@@ -1,2 +1,12 @@
-﻿  Main.cpp
+﻿  EBO.cpp
+  Main.cpp
+  shaderProgram.cpp
+  VAO.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Game Engine\Game Engine\VAO.cpp(11,63): warning C4244: 'argument': conversion from 'GLsizeiptr' to 'GLsizei', possible loss of data
+  VBO.cpp
+  Generating Code...
+  glad.c
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Game Engine.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Game Engine\x64\Debug\Game Engine.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

@@ -1,5 +1,4 @@
 ﻿  Main.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\filesystem(13): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
   Minecraft.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Minecraft\x64\Debug\Minecraft.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

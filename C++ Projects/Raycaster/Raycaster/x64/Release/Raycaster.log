@@ -35,9 +35,9 @@ C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Rayca
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(270,23): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(270,18): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
   Generating code
-  0 of 18 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  2 of 18 functions (11.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Raycaster.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\x64\Release\Raycaster.exe
   'pwsh.exe' is not recognized as an internal or external command,

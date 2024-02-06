@@ -64,9 +64,19 @@ GLuint indices[] = {
     20, 21, 22, 22, 23, 20  // Left face
 };
 
+void errorCallback(int error, const char* description) {
+    std::cerr << "GLFW Error " << error << ": " << description << std::endl;
+}
+
 int main()
 {
-    glfwInit();
+    glfwSetErrorCallback(errorCallback);
+    
+    if(!glfwInit())
+    {
+        std::cout << "Failed to Init GLFW" << std::endl;
+        return -1;
+    }
 
     GLFWwindow* window = glfwCreateWindow(width, height, "Vindelcraft", NULL, NULL);
 
@@ -80,6 +90,8 @@ int main()
     glfwMakeContextCurrent(window);
 
     gladLoadGL();
+    
+    std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 
     glViewport(0, 0, width, height);
 

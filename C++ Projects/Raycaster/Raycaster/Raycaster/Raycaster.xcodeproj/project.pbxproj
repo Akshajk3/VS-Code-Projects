@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE6BAEE02B715A2700A05FF0 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE6BAEDF2B715A2700A05FF0 /* Main.cpp */; };
 		AE8CBD322B6D7DB50001584B /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8CBD312B6D7DB50001584B /* libglfw.3.3.dylib */; };
 		AE8CBD332B6D7DB50001584B /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AE8CBD312B6D7DB50001584B /* libglfw.3.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		AE8CBD372B6D7E780001584B /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = AE8CBD352B6D7E780001584B /* glad.c */; };
-		AE8CBD382B6D7E780001584B /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE8CBD362B6D7E780001584B /* Main.cpp */; };
 		AE8CBD452B6D897C0001584B /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8CBD442B6D897C0001584B /* GLUT.framework */; };
 		AE8CBD472B6D89810001584B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8CBD462B6D89810001584B /* OpenGL.framework */; };
-		AEF76FB92B6D9C7D004F85A4 /* Raycaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEF76FB82B6D9C7D004F85A4 /* Raycaster.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,17 +39,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AE6BAEDF2B715A2700A05FF0 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = ../../Main.cpp; sourceTree = "<group>"; };
 		AE8CBD262B6D6BDA0001584B /* Raycaster */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Raycaster; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8CBD312B6D7DB50001584B /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../../../../opt/homebrew/Cellar/glfw/3.3.8/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		AE8CBD352B6D7E780001584B /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../glad.c; sourceTree = "<group>"; };
-		AE8CBD362B6D7E780001584B /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = ../../Main.cpp; sourceTree = "<group>"; };
 		AE8CBD392B6D86C90001584B /* libglut.3.12.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglut.3.12.0.dylib; path = ../../../../../../../../../usr/local/Cellar/freeglut/3.4.0/lib/libglut.3.12.0.dylib; sourceTree = "<group>"; };
 		AE8CBD3C2B6D86F60001584B /* libglut.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglut.3.dylib; path = ../../../../../../../../../usr/local/Cellar/freeglut/3.4.0/lib/libglut.3.dylib; sourceTree = "<group>"; };
 		AE8CBD3F2B6D87040001584B /* libglut.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglut.dylib; path = ../../../../../../../../../usr/local/Cellar/freeglut/3.4.0/lib/libglut.dylib; sourceTree = "<group>"; };
 		AE8CBD442B6D897C0001584B /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		AE8CBD462B6D89810001584B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		AEF76FB72B6D9C70004F85A4 /* Raycaster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Raycaster.h; sourceTree = "<group>"; };
-		AEF76FB82B6D9C7D004F85A4 /* Raycaster.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Raycaster.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				AE8CBD352B6D7E780001584B /* glad.c */,
-				AE8CBD362B6D7E780001584B /* Main.cpp */,
-				AEF76FB72B6D9C70004F85A4 /* Raycaster.h */,
-				AEF76FB82B6D9C7D004F85A4 /* Raycaster.cpp */,
+				AE6BAEDF2B715A2700A05FF0 /* Main.cpp */,
 			);
 			path = Raycaster;
 			sourceTree = "<group>";
@@ -166,9 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE8CBD382B6D7E780001584B /* Main.cpp in Sources */,
+				AE6BAEE02B715A2700A05FF0 /* Main.cpp in Sources */,
 				AE8CBD372B6D7E780001584B /* glad.c in Sources */,
-				AEF76FB92B6D9C7D004F85A4 /* Raycaster.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

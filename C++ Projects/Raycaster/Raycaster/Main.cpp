@@ -1,6 +1,7 @@
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <iostream>
 #include <math.h>
+
 #define PI 3.1415926535
 #define P2 PI / 2
 #define P3 3 * PI / 2
@@ -79,6 +80,22 @@ float dist(float ax, float ay, float bx, float by, float ang)
 
 void drawRays2D()
 {
+    glColor3f(0,1,1);
+    glBegin(GL_QUADS);
+    glVertex2i(526, 0);
+    glVertex2i(1006, 0);
+    glVertex2i(1006, 160);
+    glVertex2i(526, 160);
+    glEnd();
+    
+    glColor3f(0,0,1);
+    glBegin(GL_QUADS);
+    glVertex2i(526, 160);
+    glVertex2i(1006, 160);
+    glVertex2i(1006, 320);
+    glVertex2i(526, 320);
+    glEnd();
+    
     int r, mx, my, mp, dof;
     float rx, ry, ra, xo, yo, disT;
     ra = pa - DR * 30;
@@ -227,6 +244,14 @@ void drawRays2D()
 
 void display()
 {
+    if(Keys.a == 1)
+    {
+        pa += 5;
+        pa = FixAng(pa);
+        pdx = cos(degToRad(pa));
+        pdy = -sin(degToRad(pa));
+    }
+    
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     drawMap2D();
     drawRays2D();
@@ -234,33 +259,44 @@ void display()
     glutSwapBuffers();
 }
 
-void buttons(unsigned char key, int x, int y)
+void ButtonDown(unsigned char key, int x, int y)
 {
     if(key == 'a')
     {
-        pa -= 0.1;
-        if(pa < 0)
-            pa += 2 * PI;
-        pdx=cos(pa)*5;
-        pdy=sin(pa)*5;
+        Keys.a = 1;
     }
     if(key == 'd')
     {
-        pa += 0.1;
-        if(pa > 2*PI)
-            pa -= 2 * PI;
-        pdx=cos(pa)*5;
-        pdy=sin(pa)*5;
+        Keys.d = 1;
     }
     if (key == 'w')
     {
-        px += pdx;
-        py += pdy;
+        Keys.w = 1;
     }
     if (key == 's')
     {
-        px -= pdx;
-        py -= pdy;
+        Keys.s = 1;
+    }
+    glutPostRedisplay();
+}
+
+void ButtonUp(unsigned char key, int x, int y)
+{
+    if(key == 'a')
+    {
+        Keys.a = 0;
+    }
+    if(key == 'd')
+    {
+        Keys.d = 0;
+    }
+    if(key == 'w')
+    {
+        Keys.w = 0;
+    }
+    if(key == 's')
+    {
+        Keys.s = 0;
     }
     glutPostRedisplay();
 }
@@ -290,7 +326,8 @@ int main(int argc, char* argv[])
     init();
     glutDisplayFunc(display);
     glutReshapeFunc(resize);
-    glutKeyboardFunc(buttons);
+    glutKeyboardFunc(ButtonDown);
+    glutKeyboardUpFunc(ButtonUp);
     glutMainLoop();
     return 0;
 }

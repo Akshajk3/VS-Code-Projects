@@ -1,43 +1,47 @@
 ﻿  Main.cpp
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(23,20): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(23,16): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(28,20): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(28,16): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(29,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(29,19): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(84,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(86,21): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(88,21): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(100,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(107,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(112,31): warning C4554: '|': check operator precedence for possible error; use parentheses to clarify precedence
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(146,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(153,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(158,31): warning C4554: '|': check operator precedence for possible error; use parentheses to clarify precedence
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(188,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(195,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(199,24): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(199,20): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(200,24): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(200,20): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(206,25): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(208,25): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(216,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(217,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(220,17): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(222,25): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(224,25): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(241,18): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(243,25): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(249,18): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(251,25): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(270,28): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(270,23): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(270,18): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(26,20): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(26,16): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(31,20): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(31,16): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(32,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(32,19): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(80,21): warning C4244: 'return': conversion from 'long double' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(124,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(126,21): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(128,21): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(140,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(147,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(152,31): warning C4554: '|': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(186,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(193,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(198,31): warning C4554: '|': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(228,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(235,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(239,24): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(239,20): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(240,24): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(240,20): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(246,25): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(248,25): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(256,33): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(257,39): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(260,17): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(262,25): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(264,25): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(270,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(272,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(276,19): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(283,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(290,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(291,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(296,25): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(297,25): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(352,28): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(352,23): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\Raycaster\Main.cpp(352,18): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
   Generating code
-  2 of 18 functions (11.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  Compiler switch has changed, fall back to full compilation.
+  All 21 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   Raycaster.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Raycaster\x64\Release\Raycaster.exe
   'pwsh.exe' is not recognized as an internal or external command,

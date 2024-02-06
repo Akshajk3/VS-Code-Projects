@@ -1,10 +1,12 @@
-#include <GLUT/glut.h>
+#include <gl/glut.h>
 #include <iostream>
 #include <math.h>
+#include <cmath>
 
 #define PI 3.1415926535
 #define P2 PI / 2
 #define P3 3 * PI / 2
+#define M_PI (3.141592653589793238462643383279502884L)
 #define DR 0.0174533 // one degree in radians
 
 float px, py, pdx, pdy, pa;
@@ -73,10 +75,31 @@ void drawMap2D()
     }
 }
 
+float degToRad(float a)
+{
+    return a * M_PI / 180.0;
+}
+
+float FixAng(float a)
+{
+    if (a > 359)
+    {
+        a -= 360;
+    }
+    if (a < 0)
+    {
+        a += 360;
+    }
+
+    return a;
+}
+
 float dist(float ax, float ay, float bx, float by, float ang)
 {
     return (sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)));
 }
+
+float frame1, frame2, fps;
 
 void drawRays2D()
 {
@@ -244,13 +267,36 @@ void drawRays2D()
 
 void display()
 {
+    frame2 = glutGet(GLUT_ELAPSED_TIME);
+    fps = (frame2 - frame1);
+    frame1 = glutGet(GLUT_ELAPSED_TIME);
+
     if(Keys.a == 1)
     {
-        pa += 5;
+        pa += 0.2 * fps;
         pa = FixAng(pa);
         pdx = cos(degToRad(pa));
         pdy = -sin(degToRad(pa));
     }
+    if (Keys.d == 1)
+    {
+        pa -= 0.2 * fps;
+        pa = FixAng(pa);
+        pdx = cos(degToRad(pa));
+        pdy = -sin(degToRad(pa));
+    }
+    if (Keys.w == 1)
+    {
+        px += pdx * 0.2 * fps;
+        py += pdy * 0.2 * fps;
+
+    }
+    if (Keys.s == 1)
+    {
+        px -= pdx * 0.2 * fps;
+        py -= pdy * 0.2 * fps;
+    }
+    glutPostRedisplay();
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     drawMap2D();
@@ -307,8 +353,9 @@ void init()
     gluOrtho2D(0, 1024, 512, 0);
     px = 300;
     py = 300;
-    pdx = cos(pa) * 5;
-    pdy = sin(pa) * 5;
+    pa = 90;
+    pdx = cos(degToRad(pa));
+    pdy = -sin(degToRad(pa));
 }
 
 void resize(int w, int h)

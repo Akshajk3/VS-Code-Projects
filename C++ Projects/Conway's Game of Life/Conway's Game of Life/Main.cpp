@@ -1,4 +1,8 @@
+#ifdef __APPLE__
 #include <GLUT/glut.h>
+#else
+#include <gl/glut.h>
+#endif
 #include <iostream>
 
 const int window_width = 800;
@@ -9,39 +13,56 @@ const int tile_size = 50;
 int rows = window_width / tile_size;
 int cols = window_height / tile_size;
 
-int tiles[16][12] =
+int tiles[15][11] =
 {
-  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 };
 
 void place_tile(int mouseX, int mouseY)
 {
     int row = mouseY / tile_size;
     int col = mouseX / tile_size;
-    std::cout << row << "," << col << std::endl;
+    tiles[row][col] = 1;
+}
+
+void remove_tile(int mouseX, int mouseY)
+{
+    int row = mouseY / tile_size;
+    int col = mouseX / tile_size;
+    tiles[row][col] = 0;
 }
 
 void draw_tiles()
 {
     glColor3f(1.0f, 1.0f, 1.0f);
-    glBegin(GL_QUADS);
-    glVertex2i(0, 0);
-    glVertex2i(tile_size, 0);
-    glVertex2i(tile_size, tile_size);
-    glVertex2i(0, tile_size);
-    glEnd();
+
+    for (int y = 0; y < 12; y++)
+    {
+        for (int x = 0; x < 16; x++)
+        {
+            if (tiles[y][x] == 1) // Check if the tile should be drawn
+            {
+                glBegin(GL_QUADS);
+                glVertex2i(x * tile_size, y * tile_size);
+                glVertex2i((x + 1) * tile_size, y * tile_size);
+                glVertex2i((x + 1) * tile_size, (y + 1) * tile_size);
+                glVertex2i(x * tile_size, (y + 1) * tile_size);
+                glEnd();
+            }
+        }
+    }
 }
+
 
 void draw_grid()
 {
@@ -70,6 +91,10 @@ void mouse(int button, int state, int x, int y)
     {
         place_tile(x, y);
     }
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
+    {
+        remove_tile(x, y);
+    }
 }
 
 void display()
@@ -77,7 +102,7 @@ void display()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     draw_grid();
     draw_tiles();
-    std::cout << rows << "," << cols << std::endl;
+    //std::cout << rows << "," << cols << std::endl;
     glutSwapBuffers();
 }
 

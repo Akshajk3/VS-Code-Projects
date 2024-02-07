@@ -1,4 +1,8 @@
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
 #include <gl/glut.h>
+#endif
 #include <iostream>
 #include <math.h>
 #include <cmath>

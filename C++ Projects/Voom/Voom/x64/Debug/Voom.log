@@ -1,4 +1,1 @@
-﻿  Main.cpp
-  Voom.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\x64\Debug\Voom.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+﻿LINK : fatal error LNK1104: cannot open file 'freeglutd.lib'

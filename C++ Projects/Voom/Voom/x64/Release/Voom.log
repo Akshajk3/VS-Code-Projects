@@ -1,0 +1,11 @@
+﻿  Main.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\Voom\Main.cpp(6,28): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\Voom\Main.cpp(6,23): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\Voom\Main.cpp(6,18): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 5 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Voom.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\x64\Release\Voom.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

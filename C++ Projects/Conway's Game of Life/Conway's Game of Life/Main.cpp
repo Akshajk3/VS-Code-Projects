@@ -50,7 +50,7 @@ void draw_tiles()
     {
         for (int x = 0; x < 16; x++)
         {
-            if (tiles[y][x] == 1) // Check if the tile should be drawn
+            if (tiles[y][x] == 1)
             {
                 glBegin(GL_QUADS);
                 glVertex2i(x * tile_size, y * tile_size);

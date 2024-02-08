@@ -7,15 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE51710A2B59A8BA00ACFA5E /* WADReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5170FD2B59A8BA00ACFA5E /* WADReader.cpp */; };
-		AE51710B2B59A8BA00ACFA5E /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5170FF2B59A8BA00ACFA5E /* Map.cpp */; };
-		AE51710C2B59A8BA00ACFA5E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5171002B59A8BA00ACFA5E /* Player.cpp */; };
-		AE51710D2B59A8BA00ACFA5E /* WADLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5171012B59A8BA00ACFA5E /* WADLoader.cpp */; };
 		AE51710E2B59A8BA00ACFA5E /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5171052B59A8BA00ACFA5E /* Main.cpp */; };
-		AE51710F2B59A8BA00ACFA5E /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5171062B59A8BA00ACFA5E /* Game.cpp */; };
-		AE5171102B59A8BA00ACFA5E /* DoomEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5171082B59A8BA00ACFA5E /* DoomEngine.cpp */; };
-		AE5171142B59A91800ACFA5E /* libSDL2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AE5171122B59A91800ACFA5E /* libSDL2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		AE5A66FA2B5AEE3C003671E4 /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5171122B59A91800ACFA5E /* libSDL2.dylib */; };
+		AEB446CF2B7417B100BFE059 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB446CE2B7417B100BFE059 /* GLUT.framework */; };
+		AEB446D12B7417B500BFE059 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB446D02B7417B500BFE059 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,37 +22,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		AE5171152B59A91800ACFA5E /* Embed Libraries */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				AE5171142B59A91800ACFA5E /* libSDL2.dylib in Embed Libraries */,
-			);
-			name = "Embed Libraries";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AE5170F22B59A4CE00ACFA5E /* Voomer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Voomer; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE5170FC2B59A8BA00ACFA5E /* WADLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WADLoader.h; path = ../../WADLoader.h; sourceTree = "<group>"; };
-		AE5170FD2B59A8BA00ACFA5E /* WADReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WADReader.cpp; path = ../../WADReader.cpp; sourceTree = "<group>"; };
-		AE5170FE2B59A8BA00ACFA5E /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Map.h; path = ../../Map.h; sourceTree = "<group>"; };
-		AE5170FF2B59A8BA00ACFA5E /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Map.cpp; path = ../../Map.cpp; sourceTree = "<group>"; };
-		AE5171002B59A8BA00ACFA5E /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = ../../Player.cpp; sourceTree = "<group>"; };
-		AE5171012B59A8BA00ACFA5E /* WADLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WADLoader.cpp; path = ../../WADLoader.cpp; sourceTree = "<group>"; };
-		AE5171022B59A8BA00ACFA5E /* DataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataTypes.h; path = ../../DataTypes.h; sourceTree = "<group>"; };
-		AE5171032B59A8BA00ACFA5E /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../../Player.h; sourceTree = "<group>"; };
-		AE5171042B59A8BA00ACFA5E /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../../Game.h; sourceTree = "<group>"; };
 		AE5171052B59A8BA00ACFA5E /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = ../../Main.cpp; sourceTree = "<group>"; };
-		AE5171062B59A8BA00ACFA5E /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = ../../Game.cpp; sourceTree = "<group>"; };
-		AE5171072B59A8BA00ACFA5E /* DoomEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoomEngine.h; path = ../../DoomEngine.h; sourceTree = "<group>"; };
-		AE5171082B59A8BA00ACFA5E /* DoomEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DoomEngine.cpp; path = ../../DoomEngine.cpp; sourceTree = "<group>"; };
-		AE5171092B59A8BA00ACFA5E /* WADReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WADReader.h; path = ../../WADReader.h; sourceTree = "<group>"; };
 		AE5171122B59A91800ACFA5E /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../../../../../opt/homebrew/Cellar/sdl2/2.28.2/lib/libSDL2.dylib; sourceTree = "<group>"; };
 		AE5A66FC2B5AFEAD003671E4 /* wad */ = {isa = PBXFileReference; lastKnownFileType = folder; path = wad; sourceTree = "<group>"; };
+		AEB446CE2B7417B100BFE059 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		AEB446D02B7417B500BFE059 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE5A66FA2B5AEE3C003671E4 /* libSDL2.dylib in Frameworks */,
+				AEB446CF2B7417B100BFE059 /* GLUT.framework in Frameworks */,
+				AEB446D12B7417B500BFE059 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,20 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5A66FC2B5AFEAD003671E4 /* wad */,
-				AE5171022B59A8BA00ACFA5E /* DataTypes.h */,
-				AE5171082B59A8BA00ACFA5E /* DoomEngine.cpp */,
-				AE5171072B59A8BA00ACFA5E /* DoomEngine.h */,
-				AE5171062B59A8BA00ACFA5E /* Game.cpp */,
-				AE5171042B59A8BA00ACFA5E /* Game.h */,
 				AE5171052B59A8BA00ACFA5E /* Main.cpp */,
-				AE5170FF2B59A8BA00ACFA5E /* Map.cpp */,
-				AE5170FE2B59A8BA00ACFA5E /* Map.h */,
-				AE5171002B59A8BA00ACFA5E /* Player.cpp */,
-				AE5171032B59A8BA00ACFA5E /* Player.h */,
-				AE5171012B59A8BA00ACFA5E /* WADLoader.cpp */,
-				AE5170FC2B59A8BA00ACFA5E /* WADLoader.h */,
-				AE5170FD2B59A8BA00ACFA5E /* WADReader.cpp */,
-				AE5171092B59A8BA00ACFA5E /* WADReader.h */,
 			);
 			path = Voomer;
 			sourceTree = "<group>";
@@ -115,6 +75,8 @@
 		AE5171112B59A91800ACFA5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEB446D02B7417B500BFE059 /* OpenGL.framework */,
+				AEB446CE2B7417B100BFE059 /* GLUT.framework */,
 				AE5171122B59A91800ACFA5E /* libSDL2.dylib */,
 			);
 			name = Frameworks;
@@ -130,7 +92,6 @@
 				AE5170EE2B59A4CE00ACFA5E /* Sources */,
 				AE5170EF2B59A4CE00ACFA5E /* Frameworks */,
 				AE5170F02B59A4CE00ACFA5E /* CopyFiles */,
-				AE5171152B59A91800ACFA5E /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -178,12 +139,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE51710B2B59A8BA00ACFA5E /* Map.cpp in Sources */,
-				AE51710D2B59A8BA00ACFA5E /* WADLoader.cpp in Sources */,
-				AE5171102B59A8BA00ACFA5E /* DoomEngine.cpp in Sources */,
-				AE51710A2B59A8BA00ACFA5E /* WADReader.cpp in Sources */,
-				AE51710F2B59A8BA00ACFA5E /* Game.cpp in Sources */,
-				AE51710C2B59A8BA00ACFA5E /* Player.cpp in Sources */,
 				AE51710E2B59A8BA00ACFA5E /* Main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,8 +267,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = Voomer/wad;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Dependencies/SDL\"";
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
 				LIBRARY_SEARCH_PATHS = /opt/homebrew/Cellar/sdl2/2.28.2/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-w";
 			};
 			name = Debug;
 		};
@@ -323,8 +280,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = Voomer/wad;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Dependencies/SDL\"";
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
 				LIBRARY_SEARCH_PATHS = /opt/homebrew/Cellar/sdl2/2.28.2/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-w";
 			};
 			name = Release;
 		};

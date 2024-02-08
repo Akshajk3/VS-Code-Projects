@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
             endingLineNumber = "71"
-            landmarkName = "mouse(button, state, x, y)"
+            landmarkName = "draw_grid()"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AE51710E2B59A8BA00ACFA5E /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5171052B59A8BA00ACFA5E /* Main.cpp */; };
-		AEB446CF2B7417B100BFE059 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB446CE2B7417B100BFE059 /* GLUT.framework */; };
-		AEB446D12B7417B500BFE059 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB446D02B7417B500BFE059 /* OpenGL.framework */; };
+		AEB446DA2B784FE000BFE059 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB446CE2B7417B100BFE059 /* GLUT.framework */; };
+		AEB446DB2B784FE400BFE059 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB446D02B7417B500BFE059 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +31,7 @@
 		AE5A66FC2B5AFEAD003671E4 /* wad */ = {isa = PBXFileReference; lastKnownFileType = folder; path = wad; sourceTree = "<group>"; };
 		AEB446CE2B7417B100BFE059 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		AEB446D02B7417B500BFE059 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		AEB446D62B781D3100BFE059 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../../../opt/homebrew/Cellar/sdl2/2.28.2/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,8 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEB446CF2B7417B100BFE059 /* GLUT.framework in Frameworks */,
-				AEB446D12B7417B500BFE059 /* OpenGL.framework in Frameworks */,
+				AEB446DA2B784FE000BFE059 /* GLUT.framework in Frameworks */,
+				AEB446DB2B784FE400BFE059 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +76,7 @@
 		AE5171112B59A91800ACFA5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEB446D62B781D3100BFE059 /* libSDL2-2.0.0.dylib */,
 				AEB446D02B7417B500BFE059 /* OpenGL.framework */,
 				AEB446CE2B7417B100BFE059 /* GLUT.framework */,
 				AE5171122B59A91800ACFA5E /* libSDL2.dylib */,

@@ -1,10 +1,15 @@
-#include <GL/glut.h>
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <gl/glut.h>
+#endif
+
 #include <iostream>
 
 void init()
 {
     glClearColor(0.3, 0.3, 0.3, 0);
-    gluOrtho2D(0, 800, 600, 0);
+    gluOrtho2D(0, 512, 512, 0);
 }
 
 void display()
@@ -17,11 +22,11 @@ int main(int argc, char* argv[])
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
-    glutInitWindowSize(800, 600);
+    glutInitWindowSize(512, 512);
     glutInitWindowPosition(200, 200);
-    glutCreateWindow("Vindelstein 3D");
+    glutCreateWindow("VindelEngien");
     init();
     glutDisplayFunc(display);
     glutMainLoop();
-	return 0;
+    return 0;
 }

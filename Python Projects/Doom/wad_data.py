@@ -9,7 +9,10 @@ class WADData:
     def __init__(self, engine, map_name):
         self.reader = WADReader(engine.wad_path)
         self.map_index = self.get_lump_index(lump_name=map_name)
-        print(f'\n{map_name}_index = {self.map_index}')
+        self.vertexes = self.get_lump_data(self.reader.read_vertex,
+                                           self.map_index + self.LUMP_INDICES['VERTEXES'],
+                                           4)
+        [print(i) for i in self.vertexes]
 
         self.reader.close()
 

@@ -12,9 +12,17 @@ class WADData:
         self.vertexes = self.get_lump_data(self.reader.read_vertex,
                                            self.map_index + self.LUMP_INDICES['VERTEXES'],
                                            4)
-        [print(i) for i in self.vertexes]
-
+        self.linedefs = self.get_lump_data(self.reader.read_linedefs,
+                                           self.map_index + self.LUMP_INDICES['LINEDEFS'],
+                                           num_bytes=14)
+        [self.print_attrs(i) for i in self.linedefs]
         self.reader.close()
+
+    @staticmethod
+    def print_attrs(obj):
+        print()
+        for attr in obj.__slots__:
+            print(eval(f'obj.{attr}'), end=' ')
 
     def get_lump_data(self, reader_func, lump_index, num_bytes, header_length = 0):
         lump_info = self.reader.directroy[lump_index]

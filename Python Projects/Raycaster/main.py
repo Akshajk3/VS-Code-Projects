@@ -5,6 +5,7 @@ import sys
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 BACKGROUND_COLOR = (76, 76, 76)
+M_PI = 3.14159265358979323846
 
 class Raycaster:
     def __init__(self):
@@ -13,19 +14,34 @@ class Raycaster:
         pygame.display.set_caption("VindelPyCaster")
         self.screen = pygame.display.set_mode((1024, 512))
 
+        self.px
+
         self.mapX = 8
         self.mapY = 8
         self.mapS = self.mapX * self.mapY
         self.map = [
             1, 1, 1, 1, 1, 1, 1, 1,
-            0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0,
+            1, 0, 1, 0, 0, 0, 0, 1,
+            1, 0, 1, 0, 0, 0, 0, 1,
+            1, 0, 1, 0, 0, 0, 0, 1,
+            1, 0, 0, 0, 0, 0, 0, 1,
+            1, 0, 0, 0, 0, 1, 0, 1,
+            1, 0, 0, 0, 0, 0, 0, 1,
+            1, 1, 1, 1, 1, 1, 1, 1,
         ]
+
+    def degToRad(self, a):
+        return a*M_PI/180.0
+
+    def FixAng(self, a):
+        if a > 359:
+            a -= 360
+        if a < 0:
+            a += 359
+        return a
+
+    def draw_player(self):
+
 
     def run(self):
         while True:
@@ -53,9 +69,8 @@ class Raycaster:
                 else:
                     color = BLACK
                 xo = x*self.mapS
-                yo = x*self.mapS
-                pygame.draw.rect(self.screen, color, pygame.Rect(xo + 1, yo + 1, xo + self.mapS - 1, yo + self.mapS - 1))
-                pygame.display.flip()
+                yo = y*self.mapS
+                pygame.draw.rect(self.screen, color, pygame.Rect(xo + 1, yo + 1, self.mapS - 1, self.mapS - 1))
 
 
 def main():

@@ -6,12 +6,20 @@ class MapRenderer:
         self.engine = engine
         self.wad_data = engine.wad_data
         self.vertexes = self.wad_data.vertexes
+        self.linedefs = self.wad_data.linedefs
         self.x_min, self.x_max, self.y_min, self.y_max = self.get_map_bounds()
         self.vertexes = [pygame.math.Vector2(self.remap_x(v.x), self.remap_y(v.y))
                          for v in self.vertexes]
 
     def draw(self):
+        self.draw_linedefs()
         self.draw_vertexes()
+
+    def draw_linedefs(self):
+        for line in self.linedefs:
+            p1 = self.vertexes[line.start_vertex_id]
+            p2 = self.vertexes[line.end_vertex_id]
+            pygame.draw.line(self.engine.screen, 'orange', p1, p2, 3)
 
     def remap_x(self, n, out_min=30, out_max=WIDTH-30):
         return(max(self.x_min, min(n, self.x_max)) - self.x_min) * (

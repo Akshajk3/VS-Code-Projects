@@ -161,6 +161,7 @@ class Raycaster:
             side = 0
             disV = 100000
             Tan = math.tan(self.degToRad(ra))
+
             if math.cos(self.degToRad(ra)) > 0.001:
                 rx = ((int(self.px) >> 6) << 6) + 64
                 ry = (self.px - rx) * Tan + self.py
@@ -201,13 +202,12 @@ class Raycaster:
                 xo = -yo * Tan
             elif math.sin(self.degToRad(ra)) < -0.001:
                 ry = ((int(self.py) >> 6) << 6) + 64
-                rx = (self.py - ry) * Tan+ self.px
+                rx = (self.py - ry) * Tan + self.px
                 yo = -64
                 xo = -yo * Tan
             else:
                 rx = self.px
                 ry = self.py
-                dof = 8
                 dof = 8
 
             while dof < 8:
@@ -232,9 +232,15 @@ class Raycaster:
 
             ca = self.FixAng(self.pa - ra)
             disH = disH * math.cos(self.degToRad(ca))
-            lineH =
+            lineH = (self.mapS * 320) / (disH)
+            if lineH > 320:
+                lineH = 320
+            lineOff = 160 - (int(lineH) >> 1)
 
-            ra = 
+            pygame.draw.line(self.screen, color, (r * 8 + 530, lineOff), (r*8 + 530, lineOff + lineH), 8)
+
+            ra = self.FixAng(ra - 1)
+
 
 def main():
     raycaster = Raycaster()

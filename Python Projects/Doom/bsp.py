@@ -1,6 +1,8 @@
 from settings import *
+
+
 class BSP:
-    SUB_SECTOR_IDENTIFIER = 0x8000 # 2 ^ 15 = 32768
+    SUB_SECTOR_IDENTIFIER = 0x8000  # 2**15 = 32768
 
     def __init__(self, engine):
         self.engine = engine
@@ -13,9 +15,17 @@ class BSP:
     def update(self):
         self.render_bsp_node(node_id=self.root_node_id)
 
+    def render_sub_sector(self, sub_sector_id):
+        sub_sector = self.sub_sectors[sub_sector_id]
+
+        for i in range(sub_sector.seg_count):
+            seg = self.segs[sub_sector.first_seg_id + i]
+            self.engine.map_renderer.draw_seg(seg, sub_sector_id)
+
     def render_bsp_node(self, node_id):
         if node_id >= self.SUB_SECTOR_IDENTIFIER:
             sub_sector_id = node_id - self.SUB_SECTOR_IDENTIFIER
+            self.render_sub_sector(sub_sector_id)
             return None
 
         node = self.nodes[node_id]

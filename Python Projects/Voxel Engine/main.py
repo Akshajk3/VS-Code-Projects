@@ -24,16 +24,26 @@ class VoxelEngine:
         self.is_running = True
 
     def update(self):
-        pass
+        self.delta_time = self.clock.tick()
+        self.time = pygame.time.get_ticks()
+        pygame.display.set_caption(f'{self.clock.get_fps() : .0f}')
 
     def render(self):
-        pass
+        self.ctx.clear(color=BG_COLOR)
+        pygame.display.flip()
 
     def handle_event(self):
-        pass
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
+                self.is_running = False
 
     def run(self):
-        pass
+        while self.is_running:
+            self.handle_event()
+            self.update()
+            self.render()
+        pygame.quit()
+        sys.exit()
 
 if __name__ == '__main__':
     app = VoxelEngine()

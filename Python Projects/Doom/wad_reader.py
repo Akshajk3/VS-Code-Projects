@@ -61,8 +61,8 @@ class WADReader:
         node.bbox['back'].left = read_2_bytes(offset + 20, byte_format= 'h')
         node.bbox['back'].right = read_2_bytes(offset + 22, byte_format='h')
 
-        node.front_child_id = read_2_bytes(offset + 24, byte_format='h')
-        node.back_child_id = read_2_bytes(offset + 26, byte_format='h')
+        node.front_child_id = read_2_bytes(offset + 24, byte_format='H')
+        node.back_child_id = read_2_bytes(offset + 26, byte_format='H')
 
         return node
 

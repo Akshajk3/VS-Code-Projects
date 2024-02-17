@@ -10,38 +10,30 @@ class VoxelEngine:
         pygame.display.gl_set_attribute(pygame.GL_CONTEXT_MINOR_VERSION, 3)
         pygame.display.gl_set_attribute(pygame.GL_CONTEXT_PROFILE_MASK, pygame.GL_CONTEXT_PROFILE_CORE)
         pygame.display.gl_set_attribute(pygame.GL_DEPTH_SIZE, 24)
- 
+
         pygame.display.set_mode(WIN_RES, flags=pygame.OPENGL | pygame.DOUBLEBUF)
         self.ctx = mgl.create_context()
 
         self.ctx.enable(flags=mgl.DEPTH_TEST | mgl.CULL_FACE | mgl.BLEND)
         self.ctx.gc_mode = 'auto'
 
-        self.clock = pygame.Clock()
+        self.clock = pygame.time.Clock()
         self.delta_time = 0
         self.time = 0
 
         self.is_running = True
 
     def update(self):
-        self.delta_time = self.clock.tick()
-        self.time = pygame.time.get_ticks() * 0.001
-        pygame.display.set_caption(f'{self.clock.get_fps() :.0f}')
+        pass
 
     def render(self):
-        self.ctx.clear(color=BG_COLOR)
-        pygame.display.flip()
+        pass
 
-    def handle_events(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT or (event.type == pygame.K_DOWN and event.key == pygame.K_ESCAPE):
-                self.is_running = False
+    def handle_event(self):
+        pass
 
     def run(self):
-        while self.is_running:
-            self.handle_events()
-            self.update()
-            self.render()
+        pass
 
 if __name__ == '__main__':
     app = VoxelEngine()

@@ -8,6 +8,7 @@ class WADReader
 {
 public:
     WADReader();
+    ~WADReader();
     
     void ReadHeaderData(const uint8_t* WADData, int offset, Header& header);
     void ReadDirectoryData(const uint8_t* WADData, int offset, Directory& directory);

@@ -49,7 +49,7 @@ class MapRenderer:
 
         x1, y1 = self.remap_x(x + len_ray * sin_a1), self.remap_y(y + len_ray * cos_a1)
         x2, y2 = self.remap_x(x + len_ray * sin_a2), self.remap_y(y + len_ray * cos_a2)
-        pg.draw.line(self.engine.screen, 'yellow', (px, py), (x1, x2), 4)
+        pg.draw.line(self.engine.screen, 'yellow', (px, py), (x1, y1), 4)
         pg.draw.line(self.engine.screen, 'yellow', (px, py), (x2, y2), 4)
 
     def draw_linedefs(self):

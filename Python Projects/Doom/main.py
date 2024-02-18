@@ -29,9 +29,9 @@ class DoomEngine:
 
 
     def draw(self):
+        pygame.display.flip()
         self.screen.fill('black')
         self.map_renderer.draw()
-        pygame.display.flip()
 
     def check_events(self):
         for event in pygame.event.get():

@@ -17,8 +17,14 @@ class MapRenderer:
                          for v in self.vertexes]
 
     def draw(self):
-        self.draw_linedefs()
-        self.draw_player_pos()
+        pass
+        # self.draw_linedefs()
+        # self.draw_player_pos()
+
+    def draw_vlines(self, x1, x2, sub_sector_id):
+        color = self.get_color(sub_sector_id)
+        pg.draw.line(self.engine.screen, color, (x1, 0), (x1, HEIGHT), 3)
+        pg.draw.line(self.engine.screen, color, (x2, 0), (x2, HEIGHT), 3)
 
     def get_color(self, seed):
         random.seed(seed)

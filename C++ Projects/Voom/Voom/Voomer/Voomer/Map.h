@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <SDL2/SDL.h>
+#include <vector>
 
 #include "DataTypes.h"
 #include "Settings.h"

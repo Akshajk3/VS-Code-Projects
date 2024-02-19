@@ -28,6 +28,7 @@ class WADData:
                                           self.map_index + self.LUMP_INDICES['THINGS'],
                                           num_bytes=10)
 
+        self.update_data()
         self.reader.close()
 
     def update_data(self):

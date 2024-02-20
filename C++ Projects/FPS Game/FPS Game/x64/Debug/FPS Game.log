@@ -1,0 +1,5 @@
+﻿  Source.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\FPS Game\FPS Game\Source.cpp(6,25): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\FPS Game\FPS Game\Source.cpp(6,20): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\FPS Game\FPS Game\Source.cpp(6,15): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+LINK : fatal error LNK1104: cannot open file 'freeglutd.lib'

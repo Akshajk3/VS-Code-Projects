@@ -25,7 +25,16 @@ class WADReader:
 
 
     def read_sidedef(self, offset):
-        read_2_bytes = self.read_2_bytes()
+        read_2_bytes = self.read_2_bytes
+        read_string = self.read_string
+
+        sidedef = Sidedef()
+        sidedef.x_offset = read_2_bytes(offset, byte_format='h')
+        sidedef.y_offset = read_2_bytes(offset + 2, byte_format='h')
+        sidedef.upper_texture = read_string(offset + 4, num_bytes=8)
+        sidedef.lower_texture = read_string(offset + 12, num_bytes=8)
+        sidedef.middle_texture = read_string(offset + 20, num_bytes=8)
+        sidedef.sector_id = read_2_bytes(offset + 28, byte_format='h')
 
     def read_thing(self, offset):
         read_2_bytes = self.read_2_bytes

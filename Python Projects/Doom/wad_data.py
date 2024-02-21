@@ -73,7 +73,10 @@ class WADData:
                 back_sidedef = seg.linedef.back_sidedef
 
             seg.front_sector = front_sidedef.sector
-            if self.LINEDEF_FLAGS['TWO_SIDED'] & self.linedef.flags 
+            if self.LINEDEF_FLAGS['TWO_SIDED'] & self.linedef.flags:
+                seg.back_sector = back_sidedef.sector
+            else:
+                seg.back_sector = None
 
 
             # convert angles from BMAS to degrees

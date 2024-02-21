@@ -1,113 +1,108 @@
-#include "memory.h"
+#include <Arduino.h>
 
-/*Wiring:
-Address Lines:
-Arduino Pin 22..29   <--->   Z80 A0..A7
+const int ADDR[] = {22, 23, 24, 25, 26, 27, 28, 29}; // Z80 A0..A7 pins connected to Arduino pins 22..29
+const int DATA[] = {49, 48, 47, 46, 45, 44, 43, 42}; // Z80 D0..D7 pins connected to Arduino pins 49..42
+const int CLOCK = 2;
+const int READ_WRITE = 3;
+const int TRIGGER = 4;
 
-Data Lines:
-Arduino Pin 49..42   <--->   Z80 D0..D7
+// clock frequency
+const int f = 2; // Hz
+                        
+byte ram[1024]; // RAM: we have 1 MB of RAM
+const unsigned int RAM_START = 0x0000; // RAM start address
 
-Control lines:
- Arduino Pin 10  <--->  Z80 Pin 6 (CLK)
- Arduino Pin 19  <--->  Z80 Pin 21 (RD)
- Arduino Pin 18  <--->  Z80 Pin 22 (WR)
- Arduino Pin A9  <--->  Z80 Pin 19 (MREQ)
- Arduino Pin A10 <--->  Z80 Pin 20 (IORQ)
- Arduino Pin 40  <--->  Z80 PIN 26 (RESET)
-*/
+// 6502 program.
+byte rom[] = { 0xa9, 0xff, 0x8d, 0x02, 0x60, 0xa2, 0x00, 0xbd, 0x1a, 0xc0, 0x8d, 0x00, 0x60, 0xe8, 0x20, 0x18, 0xc0, 0xe0, 0x0a, 0xf0, 0xf0, 0x4c, 0x07, 0xc0, 0xea, 0x60, 0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 
+                        0x02, 0xf8, 0x80, 0x90,  };
+const unsigned int ROM_START = 0x8000; // ROM start address
 
-//Working memory
-uint8_t memory[1024];
-
-//Z80 Out
-//Port D
-#define RD_PIN PD2 //(INT2 - Arduino Pin 19) Z80 Pin21
-#define WR_PIN PD3 //(INT3 - Arduino Pin 18) Z80 Pin 22
-#define RD    ((PIND & (1 << RD_PIN)) == 0) 
-#define WR    ((PIND & (1 << WR_PIN)) == 0) 
-#define PORT_MASK_D ~((1 << RD_PIN) + ( 1 << WR_PIN));
-
-//Port K
-#define MREQ_PIN PK1 //(PCINT17 - Arduino Pin A9) Z80 Pin 19
-#define IORQ_PIN PK2 //(PCINT18 - Arduino Pin A10) Z80 Pin 20
-
-#define MREQ  ((PINK & (1 << MREQ_PIN)) == 0) 
-#define IORQ  ((PINK & (1 << IORQ_PIN)) == 0) 
-
-#define ADDR PINA //A0..A7
-#define ADDR_HI (PINC & (PC0 | PC1)) //A8..A9
-
-//Z80 In
-//PortB
-#define CLK_PIN PB4 //(OC2A) Z80 Pin 6
-
-//Port G
-#define INT_PIN PG0 //Z80 Pin 16, Arduino Pin 41
-#define RST_PIN PG1 //Z80 PIN 26, Arduino Pin 40
-#define WAIT_PIN PG2 //Z80 Pin 24, Arduino Pin 39
-#define RESET(b)  b == 0 ? PORTG |= (1 << RST_PIN) : PORTG &= ~(1 << RST_PIN);  
-#define PORT_MASK_G (1 << INT_PIN) + (1 << RST_PIN) + (1 << WAIT_PIN);
-
-// the setup function runs once when you press reset or power the board
 void setup() {
-  Serial.begin(115200);
-  const long fClk = 1E5;
-  //Serial.begin(256000);
-  DDRA = 0x00; //Port A (Addr Low) input
-  DDRC = 0x00; //Port C (Addr Hi) input
-  DDRD &= PORT_MASK_D;
-  DDRK = 0x00; //Port K Input (Z80 sysctl out)
-  DDRG |= PORT_MASK_G;
-  PORTG |= PORT_MASK_G;
-  DDRL = 0xff; //Data Bus
-  PORTL = 0x00;
-
-  //Pin Interrupts
-  EICRA |= (1 << ISC31) + (0 << ISC30) + (1 << ISC21) + (0 << ISC20);
-  EIMSK |= (1 << RD_PIN) + (1 << WR_PIN);
-    
-  //Clock Timer2 
-  DDRB |= (1 << CLK_PIN); //Output
-  TCCR2A = (0 << COM2A1) + (1 << COM2A0); //Toggle OC2A on Compare Match
-  TCCR2A |= (1 << WGM21); //CTC Mode
-  TCCR2B = (0 << CS22) + (0 << CS21) + (1 << CS20); //No Prescaling
-  OCR2A = 16E6 / (2 * fClk) - 1;
-  
-  memset(memory, 0, sizeof(memory));
-  memcpy(memory, mem, sizeof(mem));
-  
-  RESET(1);
-  delay(1);
-  RESET(0);
-}
-
-// the loop is empty, because this is interrupt-driven
-void loop() {}
-
-//Read data from Data Bus
-inline uint8_t DATA_GET() {
-	DDRL = 0;
-	return PINL;
-}
-
-//Write data to Data Bus
-inline void DATA_PUT(uint8_t d) {
-	DDRL = 0xff;
-	PORTL = d;
-}
-
-ISR(INT2_vect) {//CPU Reads
-  //Serial.println(ADDR);
-  if (MREQ) {
-    DATA_PUT(memory[ADDR]);
+  for (int n = 0; n < 16; n++) {
+    pinMode(ADDR[n], INPUT);
   }
+  for (int n = 0; n < 8; n++) {
+    pinMode(DATA[n], INPUT);
+  }
+  pinMode(CLOCK, OUTPUT);
+  digitalWrite(CLOCK, LOW);
+  pinMode(READ_WRITE, INPUT);
+  pinMode(TRIGGER, INPUT_PULLUP);
+
+  Serial.begin(57600);
+  // load program at 
+  Serial.print("ROM size: "); Serial.println(sizeof(rom) / sizeof(rom[0]));
+  Serial.print("RAM size: "); Serial.println(sizeof(ram) / sizeof(ram[0]));
 }
 
-ISR(INT3_vect) {//CPU Writes
-  if (MREQ) {
-    memory[ADDR] = DATA_GET();
+void loop() {
+  // We can step through code by setting frequency low, and touch TRIGGER to low
+  while (digitalRead(TRIGGER) == HIGH) {
+    // Do nothing
   }
-  else {//IORQ
-    Serial.print((char)DATA_GET());
+  digitalWrite(CLOCK, LOW);
+  // tADS (address setup time is 30ns).
+  delayMicroseconds(1); // on 16MHz, 1 cycle is 62.5ns
+
+  // Read data bus
+  uint8_t data = readDataBus();
+
+  // is the CPU reading?
+  if (digitalRead(READ_WRITE) == HIGH) {
+    // read address
+    unsigned int address = readAddressBus();
+
+    // Decode address
+    if (address == 0xfffc) {        // init vector 
+      writeDataBus(0x00FF & ROM_START); // low byte
+    } else if (address == 0xfffd) { // init vector 
+      writeDataBus(ROM_START >> 8);     // high byte
+    } else if ( address >= RAM_START && address <= RAM_START + (sizeof(ram) / sizeof(ram[0]))-1) {
+      // Includes stack 0x0100 to 0x01ff
+      writeDataBus(ram[address - RAM_START]);
+    } else if ( address >= ROM_START && address <= ROM_START + (sizeof(rom) / sizeof(rom[0]))-1) {
+      writeDataBus(rom[address - ROM_START]);
+    }
+  }
+  delayMicroseconds(500000 / (f * 2));
+  digitalWrite(CLOCK, HIGH);
+  
+  delayMicroseconds(500000 / (f * 4));
+  
+  // Handle writes to RAM (includes stack).
+  if (digitalRead(READ_WRITE) == LOW) {
+    // Read address
+    unsigned int address = readAddressBus();
+
+    // Ram writes, includes stack (0x0100-0x01ff)
+    if ( address >= RAM_START && address <= RAM_START + (sizeof(ram) / sizeof(ram[0]))-1) {
+      ram[address - RAM_START] = data;
+    }
+  }
+  delayMicroseconds(500000 / (f * 4));
+}
+
+unsigned int readAddressBus() {
+  unsigned int address = 0;
+  for (int n = 0; n < 16; n++) {
+    int bit = digitalRead(ADDR[n]) ? 1 : 0;
+    address = (address << 1) + bit;
+  }
+  return address;
+}
+
+uint8_t readDataBus() {
+  uint8_t data = 0;
+  for (int n = 0; n < 8; n++) {
+    int bit = digitalRead(DATA[n]) ? 1 : 0;
+    data = (data << 1) + bit;
+  }
+  return data;
+}
+
+void writeDataBus(uint8_t data) {
+  for (int n = 0; n < 8; n++) {
+    pinMode(DATA[n], OUTPUT);
+    digitalWrite(DATA[n], (data >> n) & 0x01);
   }
 }

@@ -42,49 +42,41 @@ void setup() {
 }
 
 void loop() {
-  writeRegisterB(0xFF);
+  writeRegister(0x00, 0x85);
+  writeRegister(0x01, 0x55);
 
-  uint8_t value = readRegisterB();
+  uint8_t regB = readRegister(0x00);
+  uint8_t regC = readRegister(0x01);
 
-  Serial.println(value);
+  Serial.print("Value written to Register B: ");
+  Serial.println(regB);
+  Serial.print("Value written to Register C: ");
+  Serial.println(regC);
 
-  sendClock();
-}
-
-void sendClock()
-{
-  digitalWrite(CLK_PIN, HIGH);
-  delay(250);
-  digitalWrite(CLK_PIN, LOW);
-  delay(250);
+  delay(1000);
 }
 
 void writeAddress(uint8_t address)
 {
   for (int i = 0; i < Z80_ADDR_BUS_SIZE; i++)
   {
-    digitalWrite(Z80_ADDR_BUS[i], (address >> (Z80_ADDR_BUS_SIZE - 1 - i)) & 0x01);
+    digitalWrite(Z80_ADDR_BUS[i], (address >> 1) & 0x01);
   }
 }
 
-void writeRegister(uint8_t reg, uint8_t value) {
-  // Activate MREQ and IORQ for write operation
-  digitalWrite(MREQ_PIN, LOW);
-  digitalWrite(IORQ_PIN, LOW);
-
-  // Set the address lines
+void writeRegister(uint8_t reg, uint8_t value)
+{
   writeAddress(reg);
 
-  digitalWrite(WR_PIN, LOW); // WR should already be low for write operation
+  digitalWrite(WR_PIN, LOW);
+  digitalWrite(MREQ_PIN, HIGH);
+  digitalWrite(IORQ_PIN, LOW);
 
   writeData(value);
 
   digitalWrite(WR_PIN, HIGH);
-  digitalWrite(MREQ_PIN, HIGH);
   digitalWrite(IORQ_PIN, HIGH);
 }
-
-
 
 uint8_t readRegister(uint8_t reg)
 {
@@ -97,14 +89,8 @@ uint8_t readRegister(uint8_t reg)
 
   digitalWrite(IORQ_PIN, HIGH);
 
-  Serial.print("Read value ");
-  Serial.print(value, HEX);
-  Serial.print(" from address ");
-  Serial.println(reg, HEX);
-
   return value;
 }
-
 
 void writeRegisterB(uint8_t value) {
   // Perform a write operation to Z80 register B

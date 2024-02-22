@@ -6,17 +6,20 @@ const char DATA[] = {22, 24, 26, 28, 30, 32, 34, 36};
 #define MREQ 4
 #define WR 5
 #define RD 6
+#define CLK_PIN 7
+#define RESET_PIN 8
 
 void setup() {
   for (int i = 0; i < 16; i++)
     pinMode(ADDR[i], INPUT);
-  for (int i = 0; i < 8l i++)
+  for (int i = 0; i < 8; i++)
     pinMode(DATA[i], INPUT);
   pinMode(CLK, INPUT);
   pinMode(M1, INPUT);
   pinMode(MREQ, INPUT);
   pinMode(WR, INPUT);
   pinMode(RD, INPUT);
+  pinMode(RESET_PIN, INPUT);
   Serial.begin(57600);
 
   attachInterrupt(digitalPinToInterrupt(CLK), onClock, RISING);
@@ -25,16 +28,20 @@ void setup() {
 void onClock()
 {
   char output[255];
-  unsigned int data = 0;
   unsigned int addr = 0;
+  unsigned int data = 0;
 
+  // Print ADDR pin states
+  Serial.print("ADDR: ");
   for (int i = 0; i < 16; i++)
   {
     int bit = digitalRead(ADDR[i]) ? 1 : 0;
     addr = (addr << 1) + bit;
     Serial.print(bit);
   }
-  Serial.print("    ");
+
+  // Print DATA pin states
+  Serial.print("   DATA: ");
   for (int i = 0; i < 8; i++)
   {
     int bit = digitalRead(DATA[i]) ? 1 : 0;
@@ -42,10 +49,32 @@ void onClock()
     Serial.print(bit);
   }
 
-  sprintf(output, "   %04x, %02x", addr, data);
+  sprintf(output, "   %04x, %c %02x", addr, digitalRead(WR) ? 'r' : 'W', data);
   Serial.println(output);
 }
 
-void loop() {
+void pulseClock()
+{
+  digitalWrite(CLK_PIN, HIGH);
+  delay(500);
+  digitalWrite(CLK_PIN, LOW);
+  delay(500);
+}
 
+void Reset()
+{
+  digitalWrite(RESET_PIN, LOW);
+  delay(10);
+  digitalWrite(RESET_PIN, HIGH);
+  Serial.println("Reset");
+}
+
+void loop() {
+  onClock();
+  if (digitalRead(RESET_PIN) == HIGH)
+  {
+    Serial.println("RESET");
+  }
+  digitalWrite(RESET_PIN, HIGH);
+  pulseClock();
 }

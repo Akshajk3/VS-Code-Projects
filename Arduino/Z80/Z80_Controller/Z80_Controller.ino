@@ -1,13 +1,8 @@
-const char ADDR[] = {23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53};
+ const char ADDR[] = {23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53};
 const char DATA[] = {22, 24, 26, 28, 30, 32, 34, 36};
 
-#define CLK 2
-#define M1 3
-#define MREQ 4
-#define WR 5
-#define RD 6
-#define CLK_PIN 7
-#define RESET_PIN 8
+#define RD 2
+#define CLK_PIN 3
 
 byte ram[1024];
 const unsigned int RAM_START = 0x0000000;

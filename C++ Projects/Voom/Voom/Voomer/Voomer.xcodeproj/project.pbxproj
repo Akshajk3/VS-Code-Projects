@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE51710E2B59A8BA00ACFA5E /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE5171052B59A8BA00ACFA5E /* Main.cpp */; };
+		AE50169B2B8D0C3400866721 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE50169A2B8D0C3400866721 /* Main.cpp */; };
 		AECB8AEF2B814AC300D5559D /* WADReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AECB8AEE2B814AC300D5559D /* WADReader.cpp */; };
 		AECB8AF92B81551900D5559D /* WADLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AECB8AF82B81551900D5559D /* WADLoader.cpp */; };
 		AECB8AFC2B81BA4000D5559D /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AECB8AFB2B81BA4000D5559D /* Map.cpp */; };
@@ -44,8 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AE50169A2B8D0C3400866721 /* Main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
 		AE5170F22B59A4CE00ACFA5E /* Voomer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Voomer; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE5171052B59A8BA00ACFA5E /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = ../../Main.cpp; sourceTree = "<group>"; };
 		AE5171122B59A91800ACFA5E /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../../../../../opt/homebrew/Cellar/sdl2/2.28.2/lib/libSDL2.dylib; sourceTree = "<group>"; };
 		AE5A66FC2B5AFEAD003671E4 /* wad */ = {isa = PBXFileReference; lastKnownFileType = folder; path = wad; sourceTree = "<group>"; };
 		AEB446CE2B7417B100BFE059 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
@@ -100,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5A66FC2B5AFEAD003671E4 /* wad */,
-				AE5171052B59A8BA00ACFA5E /* Main.cpp */,
+				AE50169A2B8D0C3400866721 /* Main.cpp */,
 				AECB8AED2B814AA800D5559D /* WADReader.h */,
 				AECB8AEE2B814AC300D5559D /* WADReader.cpp */,
 				AECB8AF02B814C4900D5559D /* DataTypes.h */,
@@ -187,9 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE50169B2B8D0C3400866721 /* Main.cpp in Sources */,
 				AECB8B062B81C35200D5559D /* DoomEngine.cpp in Sources */,
 				AECB8AF92B81551900D5559D /* WADLoader.cpp in Sources */,
-				AE51710E2B59A8BA00ACFA5E /* Main.cpp in Sources */,
 				AECB8AFC2B81BA4000D5559D /* Map.cpp in Sources */,
 				AECB8AEF2B814AC300D5559D /* WADReader.cpp in Sources */,
 				AECB8B022B81C32C00D5559D /* Game.cpp in Sources */,

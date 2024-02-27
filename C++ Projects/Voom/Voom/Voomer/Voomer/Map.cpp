@@ -1,4 +1,5 @@
 #include "Map.h"
+#include <SDL2/SDL.h>
 
 
 Map::Map(std::string name)
@@ -31,6 +32,14 @@ void Map::RenderAutoMap(SDL_Renderer* renderer)
 {
     int XShift = -XMin;
     int YShift = -YMin;
+    
+    int iRenderXSize;
+    int iRenderYSize;
+    
+    SDL_RenderGetLogicalSize(renderer, &iRenderXSize, &iRenderYSize);
+    
+    --iRenderXSize;
+    --iRenderYSize;
     
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
     

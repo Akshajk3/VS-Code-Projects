@@ -8,7 +8,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   digitalWrite(CLK_PIN, HIGH);
-  delay(500); 
+  delay(100); 
   digitalWrite(CLK_PIN, LOW);
-  delay(500);
+  delay(100);
 }

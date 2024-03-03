@@ -1,5 +1,4 @@
-﻿  Camera.cpp
-  Models.cpp
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Minecraft\Minecraft\Models.cpp(45,8): error C2371: 'indices': redefinition; different basic types
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Minecraft\Minecraft\Models.h(7,16): message : see declaration of 'indices'
-  Generating Code...
+﻿  Models.cpp
+  Minecraft.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Minecraft\x64\Debug\Minecraft.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

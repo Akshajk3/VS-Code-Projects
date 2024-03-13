@@ -21,6 +21,24 @@ std::string Map::GetName()
 void Map::AddVertex(Vertex &v)
 {
     Vertexes.push_back(v);
+    
+    if (XMin > v.XPosition)
+    {
+        XMin = v.XPosition;
+    }
+    else if (XMax < v.XPosition)
+    {
+        XMax = v.XPosition;
+    }
+    
+    if (YMin > v.YPosition)
+    {
+        YMin = v.YPosition;
+    }
+    else if (YMax < v.XPosition)
+    {
+        YMax = v.YPosition;
+    }
 }
 
 void Map::AddLinedef(Linedef &l)
@@ -28,39 +46,23 @@ void Map::AddLinedef(Linedef &l)
     Linedefs.push_back(l);
 }
 
-void Map::RenderAutoMap(SDL_Renderer* renderer)
+void Map::RenderAutoMap(SDL_Renderer *pRenderer)
 {
-    int XShift = -XMin;
-    int YShift = -YMin;
-    
-    int iRenderXSize;
-    int iRenderYSize;
-    
-    SDL_RenderGetLogicalSize(renderer, &iRenderXSize, &iRenderYSize);
-    
-    --iRenderXSize;
-    --iRenderYSize;
-    
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-    
-    for(Linedef& l : Linedefs)
+    int iXShift = -XMin; // Invert the min X value
+    int iYShift = -YMin; // Invert the min Y value
+
+    SDL_SetRenderDrawColor(pRenderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+
+    for (Linedef &l : Linedefs)
     {
-        Vertex VStart = Vertexes[l.StartVertex];
-        Vertex VEnd = Vertexes[l.EndVertex];
-        SDL_RenderDrawLine(renderer,
-                           (VStart.XPosition + XShift) / AutoMapScaleFactor,
-                           (VStart.YPosition + XShift) / AutoMapScaleFactor,
-                           (VEnd.XPosition + XShift) / AutoMapScaleFactor,
-                           (VEnd.YPosition + XShift) / AutoMapScaleFactor);
+        Vertex vStart = Vertexes[l.StartVertex]; // Read the first point
+        Vertex vEnd = Vertexes[l.EndVertex]; // Read the second point
+
+        //Draw a line between those 2 points and scale it down by a factor
+        SDL_RenderDrawLine(pRenderer,
+            (vStart.XPosition + iXShift) / AutoMapScaleFactor,
+            (vStart.YPosition + iYShift) / AutoMapScaleFactor,
+            (vEnd.XPosition + iXShift) / AutoMapScaleFactor,
+            (vEnd.YPosition + iYShift) / AutoMapScaleFactor);
     }
-}
-
-int Map::RemapX(int x, int out_min, int out_max)
-{
-    return 0;
-}
-
-int Map::RemapY(int y, int out_min, int out_max)
-{
-    return 0;
 }

@@ -4,6 +4,29 @@ import sys
 WIN_RES = (400, 600)
 BLOCK_SIZE = 20
 
+O = [0, 0, 0, 0, 0,
+      0, 1, 1, 0, 0,
+      0, 1, 1, 0, 0,
+      0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0,]
+
+I = [0, 0, 0, 0, 0,
+     0, 0, 1, 0, 0,
+     0, 0, 1, 0, 0,
+     0, 0, 1, 0, 0,
+     0, 0, 1, 0, 0,]
+
+S = [[0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0,
+      0, 0, 1, 1, 0,
+      0, 1, 1, 0, 0,
+      0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0,
+      0, 0, 1, 0, 0,
+      0, 0, 1, 1, 0,
+      0, 0, 0, 1, 0,
+      0, 0, 0, 0, 0,]]
+
 class Tetris:
     def __init__(self):
         self.screen = pygame.display.set_mode(WIN_RES)
@@ -34,7 +57,7 @@ class Tetris:
                 if event.key == pygame.K_ESCAPE:
                     self.running = False
 
-    def draw_block(self, block_id):
+    def draw_tetriminos(self):
         pass
 
     def run(self):

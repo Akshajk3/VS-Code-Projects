@@ -1,8 +1,4 @@
 ﻿  Main.cpp
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\Game Engine\Main.cpp(45,11): error C2065: 'vertices': undeclared identifier
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\Game Engine\Main.cpp(45,28): error C2065: 'vertices': undeclared identifier
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\Game Engine\Main.cpp(46,11): error C2065: 'indices': undeclared identifier
-C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\Game Engine\Main.cpp(46,27): error C2065: 'indices': undeclared identifier
-  Texture.cpp
-  shaderClass.cpp
-  Generating Code...
+  Game Engine.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\OpenGL\Game Engine\x64\Debug\Game Engine.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

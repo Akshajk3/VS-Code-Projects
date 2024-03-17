@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\GeoPoint Thing\GeoPoint Thing\stops.h(32,45): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  GeoPoint Thing.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\GeoPoint Thing\x64\Debug\GeoPoint Thing.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

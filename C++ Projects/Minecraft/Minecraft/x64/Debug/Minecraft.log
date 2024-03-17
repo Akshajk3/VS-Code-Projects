@@ -1,4 +1,5 @@
-﻿  Models.cpp
+﻿  Main.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Minecraft\Minecraft\Main.cpp(153,27): warning C4267: 'initializing': conversion from 'size_t' to 'GLuint', possible loss of data
   Minecraft.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Minecraft\x64\Debug\Minecraft.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

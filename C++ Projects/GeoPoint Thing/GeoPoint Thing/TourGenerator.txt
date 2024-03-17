@@ -1,0 +1,21 @@
+class TourGenerator: public TourGeneratorBase
+{
+	public:
+	TourGenerator(const GeoDatabaseBase& geodb, const RouterBase& router);
+	virtual ~TourGenerator();
+	virtual std::vector<TourCommand> generate_tour(const Stops& stops) const;
+};
+
+virtual std::vector<TourCommand> generate_tour(const Stops& stops) const
+{
+	// Using Router Get the vector of GeoPoints
+	std::vector<GeoPoint> points = Router.getGeoPoints();
+	for(int i = 0; i < points.size(); i ++)
+	{
+		int dist = distance(point[i], point[i + 1]);
+		std::string streetName = get_street_name(point[i], point[i + 1]);
+		std::cout << "Travel " << dist << "feet on " << streetName << std::endl;
+	}
+
+	store these in a vector of strings or something idk the exact spec but this is like the general idea.
+}

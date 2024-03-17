@@ -7,7 +7,6 @@ class Block
 {
 public:
 	Block(int x, int y, int z);
-
 	void Render();
 
 private:

@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <vector>
 
 #include "Shader.h"
 #include "VAO.h"
@@ -68,6 +69,43 @@ void errorCallback(int error, const char* description) {
     std::cerr << "GLFW Error " << error << ": " << description << std::endl;
 }
 
+std::vector<GLfloat> createCubeVertices(glm::vec3 position) {
+    std::vector<GLfloat> cubeVertices = {
+        // Front face
+        -0.5f + position.x, -0.5f + position.y, 0.5f + position.z, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        0.5f + position.x, -0.5f + position.y, 0.5f + position.z, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+        0.5f + position.x, 0.5f + position.y, 0.5f + position.z, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        -0.5f + position.x, 0.5f + position.y, 0.5f + position.z, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+        // Back face
+        -0.5f + position.x, -0.5f + position.y, -0.5f + position.z, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        0.5f + position.x, -0.5f + position.y, -0.5f + position.z, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+        0.5f + position.x, 0.5f + position.y, -0.5f + position.z, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        -0.5f + position.x, 0.5f + position.y, -0.5f + position.z, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+        // Top face
+        -0.5f + position.x, 0.5f + position.y, 0.5f + position.z, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        0.5f + position.x, 0.5f + position.y, 0.5f + position.z, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+        0.5f + position.x, 0.5f + position.y, -0.5f + position.z, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        -0.5f + position.x, 0.5f + position.y, -0.5f + position.z, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+        // Bottom face
+        -0.5f + position.x, -0.5f + position.y, 0.5f + position.z, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        0.5f + position.x, -0.5f + position.y, 0.5f + position.z, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+        0.5f + position.x, -0.5f + position.y, -0.5f + position.z, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        -0.5f + position.x, -0.5f + position.y, -0.5f + position.z, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+        // Right face
+        0.5f + position.x, -0.5f + position.y, 0.5f + position.z, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        0.5f + position.x, -0.5f + position.y, -0.5f + position.z, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+        0.5f + position.x, 0.5f + position.y, -0.5f + position.z, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        0.5f + position.x, 0.5f + position.y, 0.5f + position.z, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+        // Left face
+        -0.5f + position.x, -0.5f + position.y, 0.5f + position.z, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f + position.x, -0.5f + position.y, -0.5f + position.z, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+        -0.5f + position.x, 0.5f + position.y, -0.5f + position.z, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        -0.5f + position.x, 0.5f + position.y, 0.5f + position.z, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f
+    };
+
+    return cubeVertices;
+}
+
 int main()
 {
     glfwSetErrorCallback(errorCallback);
@@ -100,8 +138,25 @@ int main()
     VAO vao;
     vao.Bind();
 
-    VBO vbo(vertices, sizeof(vertices));
-    EBO ebo(indices, sizeof(indices));
+    std::vector<GLfloat> allVertices;
+    std::vector<GLuint> allIndices;
+    std::vector<glm::vec3> cubePositions = {
+        glm::vec3(0.0f, 0.0f, 0.0f),
+        glm::vec3(2.0f, 0.0f, -2.0f),
+        glm::vec3(-2.0f, 0.0f, -2.0f)
+    };
+
+    for (const auto& position : cubePositions)
+    {
+        auto cubeVertices = createCubeVertices(position);
+        allVertices.insert(allVertices.end(), cubeVertices.begin(), cubeVertices.end());
+        GLuint startIndex = allIndices.size();
+        for (GLuint i = 0; i < 36; i++)
+            allIndices.push_back(indices[i] + startIndex);
+    }
+
+    VBO vbo(allVertices.data(), allVertices.size() * sizeof(GLfloat));
+    EBO ebo(allIndices.data(), allIndices.size() * sizeof(GLuint));
 
     vao.LinkAttrib(vbo, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
     vao.LinkAttrib(vbo, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
@@ -134,7 +189,15 @@ int main()
         glUniform1f(uniID, 0.5f);
         grassTex.Bind();
         vao.Bind();
-        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0); // 12 indices for a cube
+
+        for (size_t i = 0; i < cubePositions.size(); i++)
+        {
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::translate(model, cubePositions[i]);
+            glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+            glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)(36 * i * sizeof(GLuint)));
+        }
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

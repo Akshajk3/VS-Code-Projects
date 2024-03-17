@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		AECB8B242B8539C500D5559D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECB8B222B8539C500D5559D /* OpenGL.framework */; };
-		AECB8B252B8539C500D5559D /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECB8B232B8539C500D5559D /* GLUT.framework */; };
 		AECB8B282B853C7D00D5559D /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AECB8B272B853C7D00D5559D /* Main.cpp */; };
+		AEFECCDF2BA7748A008596DD /* ShaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFECCDC2BA7748A008596DD /* ShaderManager.cpp */; };
+		AEFECCE02BA7748A008596DD /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = AEFECCDD2BA7748A008596DD /* glad.c */; };
+		AEFECCE22BA774B5008596DD /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEFECCE12BA774B5008596DD /* libglfw.3.3.dylib */; };
+		AEFECCE32BA774B5008596DD /* libglfw.3.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AEFECCE12BA774B5008596DD /* libglfw.3.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AEFECCF92BA78B8D008596DD /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFECCF22BA78B8D008596DD /* VAO.cpp */; };
+		AEFECCFA2BA78B8D008596DD /* EBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFECCF62BA78B8D008596DD /* EBO.cpp */; };
+		AEFECCFB2BA78B8D008596DD /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFECCF72BA78B8D008596DD /* VBO.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,14 +28,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		AEFECCE42BA774B5008596DD /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AEFECCE32BA774B5008596DD /* libglfw.3.3.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AECB8B172B8539A900D5559D /* FPOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FPOS; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECB8B222B8539C500D5559D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		AECB8B232B8539C500D5559D /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
-		AECB8B262B853C7D00D5559D /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Renderer.h; path = ../../Renderer.h; sourceTree = "<group>"; };
 		AECB8B272B853C7D00D5559D /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = ../../Main.cpp; sourceTree = "<group>"; };
+		AEFECCDC2BA7748A008596DD /* ShaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderManager.cpp; path = ../../ShaderManager.cpp; sourceTree = "<group>"; };
+		AEFECCDD2BA7748A008596DD /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../glad.c; sourceTree = "<group>"; };
+		AEFECCDE2BA7748A008596DD /* ShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderManager.h; path = ../../ShaderManager.h; sourceTree = "<group>"; };
+		AEFECCE12BA774B5008596DD /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../../../../../opt/homebrew/Cellar/glfw/3.3.8/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		AEFECCF12BA78B8D008596DD /* frag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = frag.glsl; path = ../../frag.glsl; sourceTree = "<group>"; };
+		AEFECCF22BA78B8D008596DD /* VAO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VAO.cpp; path = ../../VAO.cpp; sourceTree = "<group>"; };
+		AEFECCF32BA78B8D008596DD /* VBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VBO.h; path = ../../VBO.h; sourceTree = "<group>"; };
+		AEFECCF42BA78B8D008596DD /* VAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VAO.h; path = ../../VAO.h; sourceTree = "<group>"; };
+		AEFECCF52BA78B8D008596DD /* vert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vert.glsl; path = ../../vert.glsl; sourceTree = "<group>"; };
+		AEFECCF62BA78B8D008596DD /* EBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EBO.cpp; path = ../../EBO.cpp; sourceTree = "<group>"; };
+		AEFECCF72BA78B8D008596DD /* VBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VBO.cpp; path = ../../VBO.cpp; sourceTree = "<group>"; };
+		AEFECCF82BA78B8D008596DD /* EBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EBO.h; path = ../../EBO.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AECB8B252B8539C500D5559D /* GLUT.framework in Frameworks */,
+				AEFECCE22BA774B5008596DD /* libglfw.3.3.dylib in Frameworks */,
 				AECB8B242B8539C500D5559D /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,8 +93,18 @@
 		AECB8B192B8539A900D5559D /* FPOS */ = {
 			isa = PBXGroup;
 			children = (
+				AEFECCDD2BA7748A008596DD /* glad.c */,
+				AEFECCDC2BA7748A008596DD /* ShaderManager.cpp */,
+				AEFECCDE2BA7748A008596DD /* ShaderManager.h */,
 				AECB8B272B853C7D00D5559D /* Main.cpp */,
-				AECB8B262B853C7D00D5559D /* Renderer.h */,
+				AEFECCF62BA78B8D008596DD /* EBO.cpp */,
+				AEFECCF82BA78B8D008596DD /* EBO.h */,
+				AEFECCF12BA78B8D008596DD /* frag.glsl */,
+				AEFECCF22BA78B8D008596DD /* VAO.cpp */,
+				AEFECCF42BA78B8D008596DD /* VAO.h */,
+				AEFECCF72BA78B8D008596DD /* VBO.cpp */,
+				AEFECCF32BA78B8D008596DD /* VBO.h */,
+				AEFECCF52BA78B8D008596DD /* vert.glsl */,
 			);
 			path = FPOS;
 			sourceTree = "<group>";
@@ -74,6 +112,7 @@
 		AECB8B212B8539C500D5559D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEFECCE12BA774B5008596DD /* libglfw.3.3.dylib */,
 				AECB8B232B8539C500D5559D /* GLUT.framework */,
 				AECB8B222B8539C500D5559D /* OpenGL.framework */,
 			);
@@ -90,6 +129,7 @@
 				AECB8B132B8539A900D5559D /* Sources */,
 				AECB8B142B8539A900D5559D /* Frameworks */,
 				AECB8B152B8539A900D5559D /* CopyFiles */,
+				AEFECCE42BA774B5008596DD /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -137,7 +177,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEFECCDF2BA7748A008596DD /* ShaderManager.cpp in Sources */,
 				AECB8B282B853C7D00D5559D /* Main.cpp in Sources */,
+				AEFECCF92BA78B8D008596DD /* VAO.cpp in Sources */,
+				AEFECCFB2BA78B8D008596DD /* VBO.cpp in Sources */,
+				AEFECCFA2BA78B8D008596DD /* EBO.cpp in Sources */,
+				AEFECCE02BA7748A008596DD /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +308,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../Dependencies\"",
+					"\"$(SRCROOT)/../../Dependencies/glad/include\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.8/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WARNING_CFLAGS = "-w";
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -272,8 +325,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../Dependencies\"",
+					"\"$(SRCROOT)/../../Dependencies/glad/include\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/glfw/3.3.8/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WARNING_CFLAGS = "-w";
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};

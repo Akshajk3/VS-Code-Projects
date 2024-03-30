@@ -16,6 +16,8 @@
 		AEFECCF92BA78B8D008596DD /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFECCF22BA78B8D008596DD /* VAO.cpp */; };
 		AEFECCFA2BA78B8D008596DD /* EBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFECCF62BA78B8D008596DD /* EBO.cpp */; };
 		AEFECCFB2BA78B8D008596DD /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFECCF72BA78B8D008596DD /* VBO.cpp */; };
+		AEFECCFD2BB73B1C008596DD /* stb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFECCFC2BB73B1C008596DD /* stb.cpp */; };
+		AEFECD002BB73B59008596DD /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEFECCFF2BB73B59008596DD /* Texture.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +60,9 @@
 		AEFECCF62BA78B8D008596DD /* EBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EBO.cpp; path = ../../EBO.cpp; sourceTree = "<group>"; };
 		AEFECCF72BA78B8D008596DD /* VBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VBO.cpp; path = ../../VBO.cpp; sourceTree = "<group>"; };
 		AEFECCF82BA78B8D008596DD /* EBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EBO.h; path = ../../EBO.h; sourceTree = "<group>"; };
+		AEFECCFC2BB73B1C008596DD /* stb.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stb.cpp; sourceTree = "<group>"; };
+		AEFECCFE2BB73B4E008596DD /* Texture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		AEFECCFF2BB73B59008596DD /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +110,9 @@
 				AEFECCF72BA78B8D008596DD /* VBO.cpp */,
 				AEFECCF32BA78B8D008596DD /* VBO.h */,
 				AEFECCF52BA78B8D008596DD /* vert.glsl */,
+				AEFECCFC2BB73B1C008596DD /* stb.cpp */,
+				AEFECCFE2BB73B4E008596DD /* Texture.h */,
+				AEFECCFF2BB73B59008596DD /* Texture.cpp */,
 			);
 			path = FPOS;
 			sourceTree = "<group>";
@@ -180,7 +188,9 @@
 				AEFECCDF2BA7748A008596DD /* ShaderManager.cpp in Sources */,
 				AECB8B282B853C7D00D5559D /* Main.cpp in Sources */,
 				AEFECCF92BA78B8D008596DD /* VAO.cpp in Sources */,
+				AEFECCFD2BB73B1C008596DD /* stb.cpp in Sources */,
 				AEFECCFB2BA78B8D008596DD /* VBO.cpp in Sources */,
+				AEFECD002BB73B59008596DD /* Texture.cpp in Sources */,
 				AEFECCFA2BA78B8D008596DD /* EBO.cpp in Sources */,
 				AEFECCE02BA7748A008596DD /* glad.c in Sources */,
 			);

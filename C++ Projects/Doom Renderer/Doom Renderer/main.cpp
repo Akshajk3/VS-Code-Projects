@@ -110,9 +110,9 @@ void movePlayer()
     if (K.d == 1 && K.m == 1)
         printf("look down\n");
     if (K.w == 1 && K.m == 1)
-        printf("look up\n");
+        printf("move up\n");
     if (K.s == 1 && K.m == 1)
-        printf("look down\n");
+        printf("move down\n");
 }
 
 void clearBackground()
@@ -202,7 +202,11 @@ void KeysUp(unsigned char key, int x, int y)
 
 void init()
 {
-    
+    int x;
+    for (x = 0; x < 360; x++)
+    {
+        
+    }
 }
 
 int main(int argc, char* argv[])

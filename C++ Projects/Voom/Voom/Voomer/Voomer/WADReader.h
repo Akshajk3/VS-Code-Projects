@@ -1,8 +1,6 @@
 #pragma once
 
-#include <iostream>
 #include "DataTypes.h"
-
 
 class WADReader
 {
@@ -15,7 +13,7 @@ public:
     void ReadVertexData(const uint8_t* WADData, int offset, Vertex& vertex);
     void ReadLinedefData(const uint8_t* WADData, int offset, Linedef& linedef);
     
-private:
+protected:
     uint16_t Read2Bytes(const uint8_t* WADData, int offset);
-    uint32_t Read4Bytes(const uint8_t* WADData, int offset);
+    uint32_t Read4Bytes(const uint8_t* WADData, int offest);
 };

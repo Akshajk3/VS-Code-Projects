@@ -1,33 +1,27 @@
 #pragma once
 
 #include <iostream>
-#include <fstream>
 #include <string>
-#include <vector>
+#include <fstream>
+
 #include "DataTypes.h"
 #include "WADReader.h"
-#include "Map.h"
 
 class WADLoader
 {
 public:
-    WADLoader();
-    ~WADLoader();
-    
-    void SetWADFilePath(std::string file_path);
+    WADLoader(std::string WADFilePath);
     bool LoadWAD();
-    bool LoadMapData(Map* map);
     
+    ~WADLoader();
 private:
     bool OpenAndLoad();
     bool ReadDirectories();
-    bool ReadMapVertex(Map* map);
-    bool ReadMapLinedef(Map* map);
-    int FindMapIndex(Map* map);
+    bool ReadVertexes();
+    bool ReadLinedefs();
     
-    std::string WADFilePath;
-    std::ifstream WADFile;
-    uint8_t* WADData;
-    std::vector<Directory> Directories;
-    WADReader reader;
+    std::string m_WADFilePath;
+    std::ifstream m_WADFile;
+    uint8_t* m_WADData;
+    std::vector<Directory> m_Directories;
 };

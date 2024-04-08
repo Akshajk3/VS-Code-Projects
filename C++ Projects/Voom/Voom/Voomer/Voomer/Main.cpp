@@ -1,19 +1,10 @@
 #include <iostream>
 
-#include "Game.h"
+#include "WADLoader.h"
 
-int main(int argc, char* argv[])
+int main()
 {
-    Game game;
-    game.Init();
-    
-    while(!game.IsOver())
-    {
-        game.HandelInput();
-        game.Update();
-        game.Render();
-        game.Delay();
-    }
-    
+    WADLoader wadLoader("wad/DOOM.WAD");
+    wadLoader.LoadWAD();
     return 0;
 }

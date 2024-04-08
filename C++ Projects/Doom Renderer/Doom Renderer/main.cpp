@@ -26,6 +26,23 @@ typedef struct
 
 Keys K;
 
+typedef struct
+{
+    float cos[360];
+    float sin[360];
+} Math;
+
+Math M;
+
+typedef struct
+{
+    int x, y, z;
+    int a;
+    int l;
+} Player;
+
+Player P;
+
 void pixel(int x, int y, int c)
 {
     int rgb[3];
@@ -92,7 +109,12 @@ void pixel(int x, int y, int c)
 void movePlayer()
 {
     if (K.a == 1 && K.m == 0)
-        printf("left\n");
+    {
+        P.a -= 4;
+        
+        if (P.a < 0)
+            P.a += 360;
+    }
     if (K.d == 1 && K.m == 0)
         printf("right\n");
     if (K.w == 1 && K.m == 0)
@@ -205,8 +227,15 @@ void init()
     int x;
     for (x = 0; x < 360; x++)
     {
-        
+        M.cos[x] == cos(x / 180.0 * M_PI);
+        M.sin[x] == sin(x / 180.0 * M_PI);
     }
+    
+    P.x = 70;
+    P.y = -110;
+    P.z = 20;
+    P.a = 0;
+    P.l = 0;
 }
 
 int main(int argc, char* argv[])

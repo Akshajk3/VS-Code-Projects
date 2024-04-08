@@ -14,7 +14,7 @@ class DoomEngine:
         self.running = True
         self.dt = 1 / 60
         self.on_init()
-    
+
     def on_init(self):
         self.wad_data = WADData(self, 'E1M1')
         self.map_renderer = MapRenderer(self)

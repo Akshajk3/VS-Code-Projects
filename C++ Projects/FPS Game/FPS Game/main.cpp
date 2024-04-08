@@ -1,6 +1,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <stb/stb_image.h>
 
 #include "ShaderManager.h"
 #include "VBO.h"
@@ -52,7 +53,6 @@ int main()
     ShaderManager shaderProgram("vert.glsl", "frag.glsl");
     
     VAO VAO1;
-    printf("Happened");
     VAO1.Bind();
     
     VBO VBO1(vertices, sizeof(vertices));

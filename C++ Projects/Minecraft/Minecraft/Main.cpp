@@ -13,8 +13,8 @@
 #include "Texture.h"
 #include "Camera.h"
 
-const unsigned int width = 1920;
-const unsigned int height = 1080;
+const unsigned int width = 1280;
+const unsigned int height = 720;
 
 // Vertices coordinates
 GLfloat vertices[] = {
@@ -115,6 +115,12 @@ int main()
         std::cout << "Failed to Init GLFW" << std::endl;
         return -1;
     }
+    
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
     GLFWwindow* window = glfwCreateWindow(width, height, "Vindelcraft", NULL, NULL);
 

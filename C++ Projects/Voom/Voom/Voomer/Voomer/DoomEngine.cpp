@@ -9,6 +9,8 @@ DoomEngine::DoomEngine(SDL_Renderer* renderer)
 DoomEngine::~DoomEngine()
 {
     delete m_Map;
+    delete m_Player;
+    delete m_ViewRenderer;
 }
 
 std::string DoomEngine::GetWADFileName()
@@ -22,6 +24,8 @@ bool DoomEngine::Init()
     
     m_Player = new Player(m_ViewRenderer, 1);
     m_Map = new Map("E1M1", m_Player, m_ViewRenderer);
+
+    m_ViewRenderer->Init(m_Map, m_Player);
     
     m_WADLoader.SetWADFilePath(GetWADFileName());
     m_WADLoader.LoadWAD();
@@ -32,9 +36,8 @@ bool DoomEngine::Init()
 
 void DoomEngine::Render()
 {
-    SDL_SetRenderDrawColor(m_Renderer, 0x00, 0x00, 0x00, 0x00);
-    SDL_RenderClear(m_Renderer);
-    m_Map->RenderAutoMap();
+    m_ViewRenderer->InitFrame();
+    m_ViewRenderer->Render(m_RenderAutoMap);
 }
 
 void DoomEngine::KeyPressed(SDL_Event &event)

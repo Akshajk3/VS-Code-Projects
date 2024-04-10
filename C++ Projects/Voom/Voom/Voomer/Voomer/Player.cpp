@@ -115,6 +115,5 @@ void Player::RotateRight()
 void Player::RenderAutoMap()
 {
     m_ViewRenderer->SetDrawColor(255, 0, 0);
-    
     m_ViewRenderer->DrawLine(m_XPosition, m_YPosition, m_XPosition + 5, m_YPosition + 5);
 }

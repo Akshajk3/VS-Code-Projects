@@ -51,8 +51,8 @@ void ViewRenderer::AddWallInFOV(Seg seg, Angle V1Angle, Angle V2Angle)
     int V1XScreen = AngleToScreen(V1Angle);
     int V2XScreen = AngleToScreen(V2Angle);
     
-    SDL_RenderDrawLine(m_Renderer, V1XScreen, 0, V2XScreen, m_AutoMapScaleFactor);
-    SDL_RenderDrawLine(m_Renderer, V1XScreen, 0, V2XScreen, m_AutoMapScaleFactor);
+    SDL_RenderDrawLine(m_Renderer, V1XScreen, 0, V1XScreen, m_RenderYSize);
+    SDL_RenderDrawLine(m_Renderer, V2XScreen, 0, V2XScreen, m_RenderYSize);
 }
 
 void ViewRenderer::RenderAutoMap()
@@ -120,5 +120,3 @@ int ViewRenderer::AngleToScreen(Angle angle)
     
     return X;
 }
-
-

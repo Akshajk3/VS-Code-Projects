@@ -1,4 +1,22 @@
-﻿  Main.cpp
+﻿  Animation.cpp
+  Building.cpp
+  Entity.cpp
+  Inventory.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Inventory.cpp(18,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Item.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(9,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(10,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(11,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(12,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(19,19): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(24,19): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(33,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(34,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(51,9): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(52,9): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(54,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Item.cpp(55,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Main.cpp
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(450,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(450,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(451,76): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
@@ -37,4 +55,25 @@ C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(587,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(588,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Main.cpp(588,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Particle.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Particle.cpp(11,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Particle.cpp(12,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Particle.cpp(26,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Particle.cpp(27,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Plant.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Plant.cpp(4,8): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Plant.cpp(4,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Plant.cpp(23,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Plant.cpp(23,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\Plant.cpp(34,38): warning C4018: '>': signed/unsigned mismatch
+  Player.cpp
+  RenderWindow.cpp
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\RenderWindow.cpp(65,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\Vindleview Valley\RenderWindow.cpp(66,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  TextureManager.cpp
+  Tilemap.cpp
+  Tree.cpp
+  Generating Code...
   Vindleview Valley.vcxproj -> C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\SDL2\Vindleview Valley\x64\Debug\Vindleview Valley.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

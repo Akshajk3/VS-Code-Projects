@@ -1,5 +1,6 @@
 #include "Game.h"
 
+
 Game::Game()
     : m_WindowWidth(960), m_WindowHeight(600)
 {
@@ -101,4 +102,14 @@ bool Game::IsOver()
 void Game::Delay()
 {
     SDL_Delay(m_DoomEngine->GetTimePerFrame());
+}
+
+void Game::RenderClear()
+{
+    SDL_RenderClear(m_Renderer);
+}
+
+void Game::RenderPresent()
+{
+    SDL_RenderPresent(m_Renderer);
 }

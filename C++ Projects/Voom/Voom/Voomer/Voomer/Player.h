@@ -29,7 +29,7 @@ public:
 protected:
     int m_PlayerID;
     int m_XPosition;
-    int m_YPositoin;
+    int m_YPosition;
     int m_FOV;
     int m_RotationSpeed;
     int m_MoveSpeed;

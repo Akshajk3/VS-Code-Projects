@@ -1,7 +1,5 @@
 #include "Player.h"
 
-#define PI 3.14159265358979f
-
 #include <cmath>
 
 Player::Player(ViewRenderer* renderer, int ID)
@@ -22,7 +20,7 @@ void Player::SetXPosition(int xPos)
 
 void Player::SetYPosition(int yPos)
 {
-    m_YPositoin = yPos;
+    m_YPosition = yPos;
 }
 
 void Player::SetAngle(int angle)
@@ -37,7 +35,7 @@ int Player::GetXPosition()
 
 int Player::GetYPosition()
 {
-    return m_YPositoin;
+    return m_YPosition;
 }
 
 Angle Player::GetAngle()
@@ -53,7 +51,7 @@ int Player::GetID()
 Angle Player::AngleToVertex(Vertex &vertex)
 {
     float Vdx = vertex.xPos - m_XPosition;
-    float Vdy = vertex.yPos - m_YPositoin;
+    float Vdy = vertex.yPos - m_YPosition;
     
     Angle VertexAngle(atan2f(Vdy, Vdx) * 180 / PI);
     
@@ -118,5 +116,5 @@ void Player::RenderAutoMap()
 {
     m_ViewRenderer->SetDrawColor(255, 0, 0);
     
-    m_ViewRenderer->DrawLine(m_XPosition, m_YPositoin, m_XPosition + 5, m_YPositoin + 5);
+    m_ViewRenderer->DrawLine(m_XPosition, m_YPosition, m_XPosition + 5, m_YPosition + 5);
 }

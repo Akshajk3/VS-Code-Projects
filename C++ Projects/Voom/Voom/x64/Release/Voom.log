@@ -1,3 +1,4 @@
-﻿  Main.cpp
+﻿  Game.cpp
+  Main.cpp
 MSVCRT.lib(exe_main.obj) : error LNK2001: unresolved external symbol main
 C:\Users\Kanumuri\Documents\GitHub\VS-Code-Projects\C++ Projects\Voom\x64\Release\Voom.exe : fatal error LNK1120: 1 unresolved externals

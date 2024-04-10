@@ -38,7 +38,7 @@ Angle Angle::operator - (const Angle& rhs)
     return angle;
 }
 
-Angle Angle::operator-()
+Angle Angle::operator - ()
 {
     Angle angle(360 - m_Angle);
     return angle;
@@ -105,4 +105,9 @@ void Angle::Normalize360()
     {
         m_Angle += 360;
     }
+}
+
+float Angle::GetValue()
+{
+    return m_Angle;
 }

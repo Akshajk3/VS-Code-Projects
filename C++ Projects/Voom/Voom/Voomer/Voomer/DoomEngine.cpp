@@ -64,7 +64,15 @@ void DoomEngine::KeyPressed(SDL_Event &event)
 
 void DoomEngine::KeyReleased(SDL_Event &event)
 {
-    
+    switch (event.key.keysym.sym)
+    {
+    case SDLK_TAB:
+        m_RenderAutoMap = false;
+        break;
+
+    default:
+        break;
+    }
 }
 
 void DoomEngine::Quit()

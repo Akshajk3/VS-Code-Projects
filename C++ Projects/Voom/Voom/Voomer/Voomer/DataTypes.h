@@ -3,6 +3,7 @@
 #include <cstdint>
 
 #define SUBSECTORIDENTIFIER 0x8000
+#define PI 3.14159265358979f
 
 enum MAPLUMPSINDEX
 {

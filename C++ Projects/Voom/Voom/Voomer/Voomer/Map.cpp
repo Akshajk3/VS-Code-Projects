@@ -139,9 +139,6 @@ void Map::RenderSubsector(int SubsectorID)
             m_ViewRenderer->AddWallInFOV(seg, V1Angle, V2Angle);
         }
     }
-    
-    //SDL_RenderPresent(m_Renderer);
-    //SDL_Delay(100);
 }
 
 bool Map::IsPointOnLeftSide(int XPosition, int YPosition, int NodeID)

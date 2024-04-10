@@ -1,7 +1,7 @@
 #include "WADLoader.h"
 
-WADLoader::WADLoader(std::string WADFilePath)
-    : m_WADFilePath(WADFilePath), m_WADData(NULL)
+WADLoader::WADLoader()
+    : m_WADData(NULL)
 {
     
 }
@@ -9,7 +9,11 @@ WADLoader::WADLoader(std::string WADFilePath)
 WADLoader::~WADLoader()
 {
     delete[] m_WADData;
-    m_WADData = NULL;
+}
+
+void WADLoader::SetWADFilePath(std::string WADFilePath)
+{
+    m_WADFilePath = WADFilePath;
 }
 
 bool WADLoader::LoadWAD()
@@ -59,6 +63,8 @@ bool WADLoader::OpenAndLoad()
     m_WADFile.close();
     
     std::cout << "Finished Loading WAD File" << std::endl;
+    std::cout << std::endl << std::endl;
+    
     return true;
 }
 
@@ -87,6 +93,294 @@ bool WADLoader::ReadDirectories()
 //        std::cout << directory.LumpName << std::endl;
 //        std::cout << std::endl;
     }
+    
+    return true;
+}
+
+bool WADLoader::LoadMapData(Map *map)
+{
+    if (!ReadMapVertex(map))
+    {
+        std::cout << "Error Failed to Load map Vertex Data, MAP: " << map->GetName() << std::endl;
+        return false;
+    }
+    
+    if (!ReadMapLinedef(map))
+    {
+        std::cout << "Error Failed to Load map Linedef Data, Map: " << map->GetName() << std::endl;
+        return false;
+    }
+    
+    if (!ReadMapThing(map))
+    {
+        std::cout << "Error Failed to Load map Thing Data, Map: " << map->GetName() << std::endl;
+        return false;
+    }
+    
+    if (!ReadMapNode(map))
+    {
+        std::cout << "Error Failed to Load map Node Data, Map: " << map->GetName() << std::endl;
+        return false;
+    }
+    
+    if (!ReadMapSubsector(map))
+    {
+        std::cout << "Error Failed to Load Map Subsector Data, Map: " << map->GetName() << std::endl;
+        return false;
+    }
+    
+    if (!ReadMapSeg(map))
+    {
+        std::cout << "Error Failed to Load Map Seg Data, Map: " << map->GetName() << std::endl;
+        return false;
+    }
+    
+    return true;
+}
+
+int WADLoader::FindMapIndex(Map* map)
+{
+    if (map->GetLumpIndex() > -1)
+    {
+        return map->GetLumpIndex();
+    }
+    
+    for (int i = 0; i < m_Directories.size(); i++)
+    {
+        if (m_Directories[i].LumpName == map->GetName())
+        {
+            map->SetLumpIndex(i);
+            return i;
+        }
+    }
+    
+    return -1;
+}
+
+bool WADLoader::ReadMapVertex(Map* map)
+{
+    std::cout << "Reading Map Vertex Data..." << std::endl;
+    
+    int MapIndex = FindMapIndex(map);
+    
+    if (MapIndex == -1)
+    {
+        return false;
+    }
+    
+    MapIndex += MAPLUMPSINDEX::VERTEXES;
+    
+    if (strcmp(m_Directories[MapIndex].LumpName, "VERTEXES") != 0)
+    {
+        return false;
+    }
+    
+    int VertexSize = sizeof(Vertex);
+    int VertexCount = m_Directories[MapIndex].LumpSize / VertexSize;
+    
+    Vertex vertex;
+    
+    for (int i = 0; i < VertexCount; i++)
+    {
+        m_Reader.ReadVertexData(m_WADData, m_Directories[MapIndex].LumpOffset + i * VertexSize, vertex);
+        
+        map->AddVertex(vertex);
+        
+//        std::cout << vertex.xPos << std::endl;
+//        std::cout << vertex.yPos << std::endl;
+        //std::cout << "("  << vertex.xPos << "," << vertex.yPos << ")" << std::endl;
+        //std::cout << std::endl << std::endl;
+    }
+    
+    std::cout << "Finished Loading Map Vertex Data!" << std::endl;
+    std::cout << std::endl;
+    
+    return true;
+}
+
+bool WADLoader::ReadMapLinedef(Map* map)
+{
+    std::cout << "Reading Map Linedef Data... " << std::endl;
+    
+    int MapIndex = FindMapIndex(map);
+    
+    if (MapIndex == -1)
+    {
+        return false;
+    }
+    
+    MapIndex += MAPLUMPSINDEX::LINEDEFS;
+    
+    if (strcmp(m_Directories[MapIndex].LumpName, "LINEDEFS") != 0)
+    {
+        return false;
+    }
+    
+    int LinedefSize = sizeof(Linedef);
+    int LinedefCount = m_Directories[MapIndex].LumpSize / LinedefSize;
+    
+    Linedef linedef;
+    
+    for (int i = 0; i < LinedefCount; i++)
+    {
+        m_Reader.ReadLinedefData(m_WADData, m_Directories[MapIndex].LumpOffset + i * LinedefSize, linedef);
+        
+        map->AddLinedef(linedef);
+        
+//        std::cout << linedef.StartVertex << std::endl;
+//        std::cout << linedef.EndVertex << std::endl;
+//        std::cout << linedef.Flags << std::endl;
+//        std::cout << linedef.LineType << std::endl;
+//        std::cout << linedef.SectorTag << std::endl;
+//        std::cout << linedef.RightSidedef << std::endl;
+//        std::cout << linedef.LeftSidedef << std::endl;
+    }
+    
+    std::cout << "Finished Loading Map Linedef Data!" << std::endl;
+    std::cout << std::endl;
+    
+    return true;
+}
+
+bool WADLoader::ReadMapThing(Map *map)
+{
+    std::cout << "Reading Map Thing Data... " << std::endl;
+    
+    int MapIndex = FindMapIndex(map);
+    
+    if (MapIndex == -1)
+    {
+        return false;
+    }
+    
+    MapIndex += MAPLUMPSINDEX::THINGS;
+    
+    if (strcmp(m_Directories[MapIndex].LumpName, "THINGS") != 0)
+    {
+        return false;
+    }
+    
+    int ThingSize = sizeof(Thing);
+    int ThingCount = m_Directories[MapIndex].LumpSize / ThingSize;
+    
+    Thing thing;
+    for (int i = 0; i < ThingCount; i++)
+    {
+        m_Reader.ReadThingData(m_WADData, m_Directories[MapIndex].LumpOffset + i * ThingSize, thing);
+        
+        map->AddThing(thing);
+    }
+    
+    std::cout << "Finished Loading Map Thing Data!" << std::endl;
+    std::cout << std::endl;
+    
+    return true;
+}
+
+bool WADLoader::ReadMapNode(Map *map)
+{
+    std::cout << "Reading Map Node Data... " << std::endl;
+    
+    int MapIndex = FindMapIndex(map);
+    
+    if (MapIndex == -1)
+    {
+        return false;
+    }
+    
+    MapIndex += MAPLUMPSINDEX::NODES;
+    
+    if (strcmp(m_Directories[MapIndex].LumpName, "NODES") != 0)
+    {
+        return false;
+    }
+    
+    int NodeSize = sizeof(Node);
+    int NodeCount = m_Directories[MapIndex].LumpSize / NodeSize;
+    
+    Node node;
+    
+    for (int i = 0; i < NodeCount; i++)
+    {
+        m_Reader.ReadNodeData(m_WADData, m_Directories[MapIndex].LumpOffset + i * NodeSize, node);
+        
+        map->AddNode(node);
+    }
+    
+    std::cout << "Finished Loading Map Node Data!" << std::endl;
+    std::cout << std::endl;
+    
+    return true;
+}
+
+bool WADLoader::ReadMapSubsector(Map* map)
+{
+    std::cout << "Reading Map Subsector Data... " << std::endl;
+    
+    int MapIndex = FindMapIndex(map);
+    
+    if (MapIndex == 1)
+    {
+        return false;
+    }
+    
+    MapIndex += MAPLUMPSINDEX::SSECTORS;
+    
+    if (strcmp(m_Directories[MapIndex].LumpName, "SSECTORS") != 0)
+    {
+        return false;
+    }
+    
+    int SubsectorSize = sizeof(Subsector);
+    int SubsectorCount = m_Directories[MapIndex].LumpSize / SubsectorSize;
+    
+    Subsector subsector;
+    
+    for (int i = 0; i < SubsectorCount; i++)
+    {
+        m_Reader.ReadSubsectorData(m_WADData, m_Directories[MapIndex].LumpOffset + i * SubsectorSize, subsector);
+        
+        map->AddSubsector(subsector);
+    }
+    
+    std::cout << "Finished Loading Map Subsector Data!" << std::endl;
+    std::cout << std::endl;
+    
+    return true;
+}
+
+bool WADLoader::ReadMapSeg(Map *map)
+{
+    std::cout << "Reading Map Seg Data... " << std::endl;
+    
+    int MapIndex = FindMapIndex(map);
+    
+    if (MapIndex == -1)
+    {
+        return false;
+    }
+    
+    MapIndex += MAPLUMPSINDEX::SEGS;
+    
+    if (strcmp(m_Directories[MapIndex].LumpName, "SEGS") != 0)
+    {
+        return false;
+    }
+    
+    int SegSize = sizeof(Seg);
+    int SegCount = m_Directories[MapIndex].LumpSize / SegSize;
+    
+    Seg seg;
+    
+    for (int i = 0; i < SegCount; i++)
+    {
+        m_Reader.ReadSegData(m_WADData, m_Directories[MapIndex].LumpOffset + i * SegSize, seg);
+        
+        map->AddSeg(seg);
+    }
+    
+    std::cout << "Finished Loading Map Seg Data!" << std::endl;
+    std::cout << std::endl;
     
     return true;
 }

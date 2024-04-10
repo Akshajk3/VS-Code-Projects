@@ -10,6 +10,11 @@
 		AE50169B2B8D0C3400866721 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE50169A2B8D0C3400866721 /* Main.cpp */; };
 		AEB8DCBE2BC33C440020BE0C /* WADLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB8DCBD2BC33C440020BE0C /* WADLoader.cpp */; };
 		AEB8DCC22BC3401B0020BE0C /* WADReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB8DCC12BC3401B0020BE0C /* WADReader.cpp */; };
+		AEC9E8662BC4491C007B9B87 /* DoomEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEC9E8652BC4491C007B9B87 /* DoomEngine.cpp */; };
+		AEC9E8692BC44F05007B9B87 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEC9E8682BC44F05007B9B87 /* Game.cpp */; };
+		AEC9E86C2BC4614E007B9B87 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEC9E86B2BC4614E007B9B87 /* Player.cpp */; };
+		AEC9E86F2BC59722007B9B87 /* Angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEC9E86E2BC59722007B9B87 /* Angle.cpp */; };
+		AEC9E8722BC5B26E007B9B87 /* ViewRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEC9E8712BC5B26E007B9B87 /* ViewRenderer.cpp */; };
 		AECB8B072B8295EF00D5559D /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB446D62B781D3100BFE059 /* libSDL2-2.0.0.dylib */; };
 		AECB8B082B8295EF00D5559D /* libSDL2-2.0.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = AEB446D62B781D3100BFE059 /* libSDL2-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		AECB8B0B2B8296D600D5559D /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AECB8B0A2B8296D600D5559D /* libSDL2_image-2.0.0.dylib */; };
@@ -54,6 +59,16 @@
 		AEB8DCBF2BC33CFF0020BE0C /* DataTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataTypes.h; sourceTree = "<group>"; };
 		AEB8DCC02BC3400E0020BE0C /* WADReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WADReader.h; sourceTree = "<group>"; };
 		AEB8DCC12BC3401B0020BE0C /* WADReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WADReader.cpp; sourceTree = "<group>"; };
+		AEC9E8642BC44829007B9B87 /* DoomEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoomEngine.h; sourceTree = "<group>"; };
+		AEC9E8652BC4491C007B9B87 /* DoomEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DoomEngine.cpp; sourceTree = "<group>"; };
+		AEC9E8672BC44EF6007B9B87 /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		AEC9E8682BC44F05007B9B87 /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		AEC9E86A2BC46141007B9B87 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		AEC9E86B2BC4614E007B9B87 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		AEC9E86D2BC59711007B9B87 /* Angle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Angle.h; sourceTree = "<group>"; };
+		AEC9E86E2BC59722007B9B87 /* Angle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Angle.cpp; sourceTree = "<group>"; };
+		AEC9E8702BC5B236007B9B87 /* ViewRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewRenderer.h; sourceTree = "<group>"; };
+		AEC9E8712BC5B26E007B9B87 /* ViewRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ViewRenderer.cpp; sourceTree = "<group>"; };
 		AECB8B0A2B8296D600D5559D /* libSDL2_image-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_image-2.0.0.dylib"; path = "../../../../../../../../../opt/homebrew/Cellar/sdl2_image/2.6.3_2/lib/libSDL2_image-2.0.0.dylib"; sourceTree = "<group>"; };
 		AEE91F952BC34CC100AC5198 /* Map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
 		AEE91F962BC34CCB00AC5198 /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
@@ -101,6 +116,16 @@
 				AEB8DCC12BC3401B0020BE0C /* WADReader.cpp */,
 				AEE91F952BC34CC100AC5198 /* Map.h */,
 				AEE91F962BC34CCB00AC5198 /* Map.cpp */,
+				AEC9E8642BC44829007B9B87 /* DoomEngine.h */,
+				AEC9E8652BC4491C007B9B87 /* DoomEngine.cpp */,
+				AEC9E8672BC44EF6007B9B87 /* Game.h */,
+				AEC9E8682BC44F05007B9B87 /* Game.cpp */,
+				AEC9E86A2BC46141007B9B87 /* Player.h */,
+				AEC9E86B2BC4614E007B9B87 /* Player.cpp */,
+				AEC9E86D2BC59711007B9B87 /* Angle.h */,
+				AEC9E86E2BC59722007B9B87 /* Angle.cpp */,
+				AEC9E8702BC5B236007B9B87 /* ViewRenderer.h */,
+				AEC9E8712BC5B26E007B9B87 /* ViewRenderer.cpp */,
 			);
 			path = Voomer;
 			sourceTree = "<group>";
@@ -176,8 +201,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE50169B2B8D0C3400866721 /* Main.cpp in Sources */,
+				AEC9E86F2BC59722007B9B87 /* Angle.cpp in Sources */,
+				AEC9E86C2BC4614E007B9B87 /* Player.cpp in Sources */,
 				AEB8DCBE2BC33C440020BE0C /* WADLoader.cpp in Sources */,
+				AEC9E8722BC5B26E007B9B87 /* ViewRenderer.cpp in Sources */,
 				AEE91F972BC34CCB00AC5198 /* Map.cpp in Sources */,
+				AEC9E8692BC44F05007B9B87 /* Game.cpp in Sources */,
+				AEC9E8662BC4491C007B9B87 /* DoomEngine.cpp in Sources */,
 				AEB8DCC22BC3401B0020BE0C /* WADReader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,58 +1,78 @@
+import time
 import pygame
-import numpy
+import numpy as np
 
-pygame.init()
+COLOR_BG = (10, 10, 10)
+COLOR_GRID = (40, 40, 40)
+COLOR_DIE_NEXT = (170, 170, 170)
+COLOR_ALIVE_NEXT = (255, 255, 255)
 
-screen_width = 800
-screen_height = 600
+def update(screen, cells, size, with_progress=False):
+    updated_cells = np.zeros((cells.shape[0], cells.shape[1]))
 
-screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("Videls Game of Life")
+    for row, col in np.ndindex(cells.shape):
+        alive = np.sum(cells[row-1:row+2, col-1:col+2]) - cells[row, col]
+        color = COLOR_BG if cells[row, col] == 0 else COLOR_ALIVE_NEXT
 
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-
-grid_width = 50
-grid_height = 50
-
-rows = screen_width // grid_width
-cols = screen_height // grid_height
-
-tiles = [[0 for _ in range(rows)] for _ in range(cols)]
-
-def draw_grid():
-        for y in range(0, screen_height, grid_height):
-            pygame.draw.line(screen, WHITE, (0, y), (screen_width, y))
-
-        for x in range(0, screen_width, grid_width):
-            pygame.draw.line(screen, WHITE, (x, 0), (x, screen_height))
-
-def place_tile(mouseX, mouseY):
-    row = mouseY // grid_height
-    col = mouseX // grid_width
-    tiles[row][col] = 1
-    print(row, col)
+        if cells[row, col] == 1:
+            if alive < 2 or alive > 3:
+                if with_progress:
+                    color = COLOR_DIE_NEXT
+            elif 2 <= alive <= 3:
+                updated_cells[row, col] = 1
+                if with_progress:
+                    color = COLOR_ALIVE_NEXT
+        else:
+            if alive == 3:
+                updated_cells[row, col] = 1
+                if with_progress:
+                    color = COLOR_ALIVE_NEXT
+        
+        pygame.draw.rect(screen, color, (col * size, row * size, size - 1, size - 1))
+    
+    return updated_cells
 
 def main():
+    pygame.init()
+    screen = pygame.display.set_mode((800, 600))
+
+    cells = np.zeros((60, 80))
+    screen.fill(COLOR_GRID)
+    update(screen, cells, 10)
+
+    pygame.display.flip()
+    pygame.display.update()
+
+    running = False
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                mousePos = pygame.mouse.get_pos()
-                place_tile(mousePos[0], mousePos[1])
+                return
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    running = not running
+                    update(screen, cells, 10)
+                    pygame.display.update()
+            if pygame.mouse.get_pressed()[0]:
+                pos = pygame.mouse.get_pos()
+                cells[pos[1] // 10, pos[0] // 10] = 1
+                update(screen, cells, 10)
+                pygame.display.update()
+            if pygame.mouse.get_pressed()[2]:
+                pos = pygame.mouse.get_pos()
+                cells[pos[1] // 10, pos[0] // 10] = 0
+                update(screen, cells, 10)
+                pygame.display.update()
         
-        screen.fill(BLACK)
+        screen.fill(COLOR_GRID)
 
-        draw_grid()
+        if running:
+            cells = update(screen, cells, 10, True)
+            pygame.display.update()
+        
+        time.sleep(0.001)
 
-        for row in range(rows):
-            for col in range(cols):
-                pass
-                #if tiles[row][col] == 1:
-                    #pygame.draw.rect(screen, WHITE, pygame.Rect(row * grid_width, col * grid_height, grid_width, grid_height))
-
-        pygame.display.flip()
-
-main()
+if __name__ == '__main__':
+    main()

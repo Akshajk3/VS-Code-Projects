@@ -42,6 +42,9 @@
     <ClCompile Include="Voomer\Voomer\ViewRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Voomer\Voomer\Thing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Voomer\Voomer\DataTypes.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Voomer\Voomer\Angle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Voomer\Voomer\Thing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

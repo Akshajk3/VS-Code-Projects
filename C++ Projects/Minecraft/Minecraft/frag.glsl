@@ -2,7 +2,7 @@
 
 out vec4 FragColor;
 
-in vec3 color;
+in float shading;
 
 in vec2 texCoord;
 

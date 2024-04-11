@@ -16,6 +16,7 @@ public:
     void RotateLeft();
     void RotateRight();
     void RenderAutoMap();
+    void Init(Thing thing);
     
     int GetID();
     int GetXPosition();

@@ -151,6 +151,7 @@
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="EBO.h" />
     <ClInclude Include="Models.h" />
+    <ClInclude Include="Numbers.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="VAO.h" />

@@ -30,8 +30,13 @@ bool DoomEngine::Init()
     
     m_WADLoader.SetWADFilePath(GetWADFileName());
     m_WADLoader.LoadWAD();
-    
     m_WADLoader.LoadMapData(m_Map);
+
+    Thing thing = (m_Map->GetThing())->GetThingByID(m_Player->GetID());
+
+    m_Player->Init(thing);
+    m_Map->Init();
+
     return true;
 }
 

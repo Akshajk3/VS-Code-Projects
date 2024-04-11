@@ -135,6 +135,18 @@ bool WADLoader::LoadMapData(Map *map)
         return false;
     }
     
+    if (!ReadMapSidedefs(map))
+    {
+        std::cout << "Error Failed to Load Map Sidedef Data, Map: " << map->GetName() << std::endl;
+        return false;
+    }
+    
+    if (!ReadMapSectors(map))
+    {
+        std::cout << "Error Failed to Load Map Sector Data, Map: " << map->GetName() << std::endl;
+        return false;
+    }
+    
     return true;
 }
 
@@ -216,10 +228,10 @@ bool WADLoader::ReadMapLinedef(Map* map)
         return false;
     }
     
-    int LinedefSize = sizeof(Linedef);
+    int LinedefSize = sizeof(WADLinedef);
     int LinedefCount = m_Directories[MapIndex].LumpSize / LinedefSize;
     
-    Linedef linedef;
+    WADLinedef linedef;
     
     for (int i = 0; i < LinedefCount; i++)
     {
@@ -268,7 +280,7 @@ bool WADLoader::ReadMapThing(Map *map)
     {
         m_Reader.ReadThingData(m_WADData, m_Directories[MapIndex].LumpOffset + i * ThingSize, thing);
         
-        map->AddThing(thing);
+        (map->GetThing())->AddThing(thing);
     }
     
     std::cout << "Finished Loading Map Thing Data!" << std::endl;
@@ -367,10 +379,10 @@ bool WADLoader::ReadMapSeg(Map *map)
         return false;
     }
     
-    int SegSize = sizeof(Seg);
+    int SegSize = sizeof(WADSeg);
     int SegCount = m_Directories[MapIndex].LumpSize / SegSize;
     
-    Seg seg;
+    WADSeg seg;
     
     for (int i = 0; i < SegCount; i++)
     {
@@ -381,6 +393,73 @@ bool WADLoader::ReadMapSeg(Map *map)
     
     std::cout << "Finished Loading Map Seg Data!" << std::endl;
     std::cout << std::endl;
+    
+    return true;
+}
+
+bool WADLoader::ReadMapSidedefs(Map *map)
+{
+    std::cout << "Reading Map Sidedefs..." << std::endl;
+    
+    int MapIndex = FindMapIndex(map);
+    
+    if (MapIndex == -1)
+    {
+        return false;
+    }
+    
+    MapIndex += MAPLUMPSINDEX::SIDEDEFS;
+    
+    if (strcmp(m_Directories[MapIndex].LumpName, "SIDEDEFS") != 0)
+    {
+        return false;
+    }
+    
+    int SidedefSize = sizeof(WADSidedef);
+    int SidedefCount = m_Directories[MapIndex].LumpSize / SidedefSize;
+    
+    WADSidedef sidedef;
+    
+    for (int i = 0; i < SidedefCount; i++)
+    {
+        m_Reader.ReadSidedefData(m_WADData, m_Directories[MapIndex].LumpOffset + i * SidedefSize, sidedef);
+        
+        map->AddSidedef(sidedef);
+    }
+    
+    std::cout << "Finished Loading Map Sidedef Data!" << std::endl;
+    std::cout << std::endl;
+    
+    return true;
+}
+
+bool WADLoader::ReadMapSectors(Map *map)
+{
+    int MapIndex = FindMapIndex(map);
+    
+    if (MapIndex == -1)
+    {
+        return false;
+    }
+    
+    MapIndex += MAPLUMPSINDEX::SECTORS;
+    
+    if (strcmp(m_Directories[MapIndex].LumpName, "SECTORS") != 0)
+    {
+        return false;
+    }
+    
+    int SectorSize = sizeof(WADSector);
+    int SectorCount = m_Directories[MapIndex].LumpSize / SectorSize;
+    
+    WADSector sector;
+    
+    for (int i = 0; i < SectorCount; i++)
+    {
+        m_Reader.ReadSectorData(m_WADData, m_Directories[MapIndex].LumpOffset + i * SectorSize, sector);
+        
+        map->AddSector(sector);
+    }
     
     return true;
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE50169B2B8D0C3400866721 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE50169A2B8D0C3400866721 /* Main.cpp */; };
+		AE73B83D2BC686A10037D2FF /* Thing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE73B83C2BC686A10037D2FF /* Thing.cpp */; };
 		AEB8DCBE2BC33C440020BE0C /* WADLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB8DCBD2BC33C440020BE0C /* WADLoader.cpp */; };
 		AEB8DCC22BC3401B0020BE0C /* WADReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB8DCC12BC3401B0020BE0C /* WADReader.cpp */; };
 		AEC9E8662BC4491C007B9B87 /* DoomEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEC9E8652BC4491C007B9B87 /* DoomEngine.cpp */; };
@@ -51,6 +52,8 @@
 		AE5170F22B59A4CE00ACFA5E /* Voomer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Voomer; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5171122B59A91800ACFA5E /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../../../../../opt/homebrew/Cellar/sdl2/2.28.2/lib/libSDL2.dylib; sourceTree = "<group>"; };
 		AE5A66FC2B5AFEAD003671E4 /* wad */ = {isa = PBXFileReference; lastKnownFileType = folder; path = wad; sourceTree = "<group>"; };
+		AE73B83B2BC686960037D2FF /* Thing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
+		AE73B83C2BC686A10037D2FF /* Thing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Thing.cpp; sourceTree = "<group>"; };
 		AEB446CE2B7417B100BFE059 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		AEB446D02B7417B500BFE059 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		AEB446D62B781D3100BFE059 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../../../opt/homebrew/Cellar/sdl2/2.28.2/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				AEC9E86E2BC59722007B9B87 /* Angle.cpp */,
 				AEC9E8702BC5B236007B9B87 /* ViewRenderer.h */,
 				AEC9E8712BC5B26E007B9B87 /* ViewRenderer.cpp */,
+				AE73B83B2BC686960037D2FF /* Thing.h */,
+				AE73B83C2BC686A10037D2FF /* Thing.cpp */,
 			);
 			path = Voomer;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE73B83D2BC686A10037D2FF /* Thing.cpp in Sources */,
 				AE50169B2B8D0C3400866721 /* Main.cpp in Sources */,
 				AEC9E86F2BC59722007B9B87 /* Angle.cpp in Sources */,
 				AEC9E86C2BC4614E007B9B87 /* Player.cpp in Sources */,
@@ -335,6 +341,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = Voomer/wad;
+				ENABLE_TESTABILITY = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Dependencies/SDL\"";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
 				LIBRARY_SEARCH_PATHS = (
@@ -352,6 +359,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = Voomer/wad;
+				ENABLE_TESTABILITY = NO;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Dependencies/SDL\"";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
 				LIBRARY_SEARCH_PATHS = (

@@ -41,5 +41,6 @@ protected:
     WADLoader m_WADLoader;
     Map* m_Map;
     Player* m_Player;
+    Things* m_Things;
     ViewRenderer* m_ViewRenderer;
 };

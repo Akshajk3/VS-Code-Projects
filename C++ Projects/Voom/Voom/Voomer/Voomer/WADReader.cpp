@@ -60,7 +60,7 @@ void WADReader::ReadVertexData(const uint8_t *WADData, int offset, Vertex &verte
     vertex.yPos = Read2Bytes(WADData, offset + 2);
 }
 
-void WADReader::ReadLinedefData(const uint8_t *WADData, int offset, Linedef &linedef)
+void WADReader::ReadLinedefData(const uint8_t *WADData, int offset, WADLinedef &linedef)
 {
     linedef.StartVertex = Read2Bytes(WADData, offset);
     linedef.EndVertex = Read2Bytes(WADData, offset + 2);
@@ -107,7 +107,7 @@ void WADReader::ReadSubsectorData(const uint8_t *WADData, int offset, Subsector 
     subsector.FirstSegID = Read2Bytes(WADData, offset + 2);
 }
 
-void WADReader::ReadSegData(const uint8_t *WADData, int offset, Seg &seg)
+void WADReader::ReadSegData(const uint8_t *WADData, int offset, WADSeg &seg)
 {
     seg.StartVertexID = Read2Bytes(WADData, offset);
     seg.EndVertexID = Read2Bytes(WADData, offset + 2);
@@ -115,4 +115,67 @@ void WADReader::ReadSegData(const uint8_t *WADData, int offset, Seg &seg)
     seg.LinedefID = Read2Bytes(WADData, offset + 6);
     seg.Direction = Read2Bytes(WADData, offset + 8);
     seg.Offset = Read2Bytes(WADData, offset + 10);
+}
+
+void WADReader::ReadSidedefData(const uint8_t *WADData, int offset, WADSidedef &sidedef)
+{
+    sidedef.XOffset = Read2Bytes(WADData, offset);
+    sidedef.YOffset = Read2Bytes(WADData, offset + 2);
+    
+    sidedef.UpperTexture[0] = WADData[offset + 4];
+    sidedef.UpperTexture[1] = WADData[offset + 5];
+    sidedef.UpperTexture[2] = WADData[offset + 6];
+    sidedef.UpperTexture[3] = WADData[offset + 7];
+    sidedef.UpperTexture[4] = WADData[offset + 8];
+    sidedef.UpperTexture[5] = WADData[offset + 9];
+    sidedef.UpperTexture[6] = WADData[offset + 10];
+    sidedef.UpperTexture[7] = WADData[offset + 11];
+    
+    sidedef.LowerTexture[0] = WADData[offset + 12];
+    sidedef.LowerTexture[1] = WADData[offset + 13];
+    sidedef.LowerTexture[2] = WADData[offset + 14];
+    sidedef.LowerTexture[3] = WADData[offset + 15];
+    sidedef.LowerTexture[4] = WADData[offset + 16];
+    sidedef.LowerTexture[5] = WADData[offset + 17];
+    sidedef.LowerTexture[6] = WADData[offset + 18];
+    sidedef.LowerTexture[7] = WADData[offset + 19];
+    
+    sidedef.MiddleTexture[0] = WADData[offset + 20];
+    sidedef.MiddleTexture[1] = WADData[offset + 21];
+    sidedef.MiddleTexture[2] = WADData[offset + 22];
+    sidedef.MiddleTexture[3] = WADData[offset + 23];
+    sidedef.MiddleTexture[4] = WADData[offset + 24];
+    sidedef.MiddleTexture[5] = WADData[offset + 25];
+    sidedef.MiddleTexture[6] = WADData[offset + 26];
+    sidedef.MiddleTexture[7] = WADData[offset + 27];
+    
+    sidedef.SectorID = Read2Bytes(WADData, offset + 28);
+}
+
+void WADReader::ReadSectorData(const uint8_t *WADData, int offset, WADSector &sector)
+{
+    sector.FloorHeight = Read2Bytes(WADData, offset);
+    sector.CeilingHeight = Read2Bytes(WADData, offset + 2);
+    
+    sector.FloorTexture[0] = WADData[offset + 4];
+    sector.FloorTexture[1] = WADData[offset + 5];
+    sector.FloorTexture[2] = WADData[offset + 6];
+    sector.FloorTexture[3] = WADData[offset + 7];
+    sector.FloorTexture[4] = WADData[offset + 8];
+    sector.FloorTexture[5] = WADData[offset + 9];
+    sector.FloorTexture[6] = WADData[offset + 10];
+    sector.FloorTexture[7] = WADData[offset + 11];
+    
+    sector.CeilingTexture[0] = WADData[offset + 12];
+    sector.CeilingTexture[1] = WADData[offset + 13];
+    sector.CeilingTexture[2] = WADData[offset + 14];
+    sector.CeilingTexture[3] = WADData[offset + 15];
+    sector.CeilingTexture[4] = WADData[offset + 16];
+    sector.CeilingTexture[5] = WADData[offset + 17];
+    sector.CeilingTexture[6] = WADData[offset + 18];
+    sector.CeilingTexture[7] = WADData[offset + 19];
+    
+    sector.LightLevel = Read2Bytes(WADData, offset + 20);
+    sector.Type = Read2Bytes(WADData, offset + 22);
+    sector.Tag = Read2Bytes(WADData, offset + 24);
 }

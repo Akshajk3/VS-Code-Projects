@@ -27,6 +27,8 @@ private:
     bool ReadMapNode(Map* map);
     bool ReadMapSubsector(Map* map);
     bool ReadMapSeg(Map* map);
+    bool ReadMapSectors(Map* map);
+    bool ReadMapSidedefs(Map* map);
     int FindMapIndex(Map* map);
     
     std::string m_WADFilePath;

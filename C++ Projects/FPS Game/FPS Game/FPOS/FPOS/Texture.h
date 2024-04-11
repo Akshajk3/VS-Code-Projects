@@ -14,5 +14,6 @@ public:
     
     void TexUnit(ShaderManager& shader, const char* uniform, GLuint unit);
     void Bind();
-    
+    void Unbind();
+    void Delete();
 };

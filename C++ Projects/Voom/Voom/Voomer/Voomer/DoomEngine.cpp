@@ -21,9 +21,10 @@ std::string DoomEngine::GetWADFileName()
 bool DoomEngine::Init()
 {
     m_ViewRenderer = new ViewRenderer(m_Renderer);
+    m_Things = new Things();
     
     m_Player = new Player(m_ViewRenderer, 1);
-    m_Map = new Map("E1M1", m_Player, m_ViewRenderer);
+    m_Map = new Map("E1M1", m_Player, m_ViewRenderer, m_Things);
 
     m_ViewRenderer->Init(m_Map, m_Player);
     

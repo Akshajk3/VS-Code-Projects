@@ -3,7 +3,7 @@
 #include <cmath>
 
 Player::Player(ViewRenderer* renderer, int ID)
-    : m_PlayerID(ID), m_FOV(90), m_RotationSpeed(4), m_MoveSpeed(2)
+    : m_ViewRenderer(renderer), m_PlayerID(ID), m_FOV(90), m_RotationSpeed(4), m_MoveSpeed(2)
 {
     
 }

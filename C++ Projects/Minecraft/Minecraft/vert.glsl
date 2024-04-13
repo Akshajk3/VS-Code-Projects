@@ -1,8 +1,8 @@
 #version 330 core
 
 layout(location = 0) in vec3 aPos;
-layout(location = 1) in float aShading;
-layout(location = 2) in vec2 aTex;
+layout(location = 1) in vec2 aTex;
+layout(location = 2) in float aShading;
 
 out float shading;
 out vec2 texCoord;

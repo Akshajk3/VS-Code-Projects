@@ -2,11 +2,12 @@
 
 #include <glad/glad.h>
 #include <iostream>
+#include <vector>
 
 class VBO
 {
 public:
-	VBO(GLfloat* vertices, GLsizeiptr size);
+	VBO(std::vector<GLfloat> vertices);
 	
 	GLuint ID;
 

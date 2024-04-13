@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Chunk.cpp" />
     <ClCompile Include="EBO.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />

@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "World.h"
+#include "Numbers.h"
 
 #define CHUNK_WIDTH 16
 #define CHUNK_HEIGHT 16
@@ -12,22 +13,19 @@
 class Chunk
 {
 public:
-    Chunk(int position, World world);
+    Chunk(int xPos, int yPos);
     ~Chunk();
+
+    void AddBlock();
+    void DrawChunk();
     
 private:
-    std::vector<std::vector<int>> blocks;
-    std::vector<GLfloat> meshVertexPosition;
-    std::vector<GLfloat> meshTexCoords;
-    std::vector<GLfloat> meshShadingValues;
-    std::vector<GLuint> meshIndices;
-    
-    GLuint VAO;
-    GLuint vertexPositionVBO;
-    GLuint texCoordVBO;
-    GLuint shadingValueVBO;
-    GLuint EBO;
-    
-    bool has_mesh;
-    int meshIndexCounter;
+    std::vector<BlockType> blocks;
+    VAO vao;
+    VBO vertVBO;
+    VBO texVBO;
+    VBO shadingVBO;
+    EBO ebo;
+
+    void CollectData();
 };

@@ -50,6 +50,9 @@
     <ClCompile Include="Models.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Chunk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">

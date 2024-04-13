@@ -73,7 +73,7 @@ int main()
     
     for (int x = 0; x < 8; x++)
     {
-        for (int y = 0; y < 8; y++)
+        for (int y = 0; y < 16; y++)
         {
             for (int z = 0; z < 8; z++)
             {
@@ -85,6 +85,11 @@ int main()
     glfwSetWindowSize(window, width + 1, height + 1);
     glfwSetWindowSize(window, width, height);
 
+    //glfwSwapInterval(0);
+      
+    double lastTime = glfwGetTime();
+    int frame = 0;
+    
     while (!glfwWindowShouldClose(window))
     {
         glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
@@ -96,6 +101,16 @@ int main()
         for (auto& block : chunk)
         {
             block.Draw();
+        }
+
+        double currentTime = glfwGetTime();
+        frame++;
+
+        if (currentTime - lastTime >= 1)
+        {
+            std::cout << frame << std::endl;
+            frame = 0;
+            lastTime = currentTime;
         }
         
         glfwSwapBuffers(window);

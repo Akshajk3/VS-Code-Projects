@@ -2,19 +2,12 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 #include <vector>
 
 #include "Shader.h"
-#include "VAO.h"
-#include "VBO.h"
-#include "EBO.h"
 #include "Texture.h"
 #include "Camera.h"
-#include "Numbers.h"
-#include "Block.h"
-#include "Chunk.h"
+#include "World.h"
 
 const unsigned int width = 1920;
 const unsigned int height = 1080;
@@ -90,18 +83,7 @@ int main()
 
     glEnable(GL_DEPTH_TEST);
 
-    std::vector<Chunk> world;
-
-    for (int x = 0; x < 4; x++)
-    {
-        for (int y = 0; y < 4; y++)
-        {
-            world.push_back(Chunk(glm::vec2(x, y)));
-        }
-    }
-
-    Chunk chunk(glm::vec2(0, 0));
-    Chunk chunk1(glm::vec2(1, 1));
+    World world ;
     
     glfwSetWindowSize(window, width + 1, height + 1);
     glfwSetWindowSize(window, width, height);
@@ -123,10 +105,7 @@ int main()
 
         shaderProgram.Activate();
 
-        for (auto& chunk : world)
-        {
-            chunk.DrawChunk();
-        }
+        world.DrawChunks();
 
         double currentTime = glfwGetTime();
         frame++;
@@ -144,10 +123,7 @@ int main()
         glfwPollEvents();
     }
 
-    for (auto& chunk : world)
-    {
-        chunk.DeleteChunk();
-    }
+    world.DeleteChunks();
 
     grassTex.Delete();
     shaderProgram.Delete();

@@ -4,8 +4,7 @@
 #include <vector>
 #include <glm/glm.hpp>
 
-#include "World.h"
-#include "Numbers.h"
+#include "Block.h"
 #include "Numbers.h"
 
 #define CHUNK_WIDTH 8

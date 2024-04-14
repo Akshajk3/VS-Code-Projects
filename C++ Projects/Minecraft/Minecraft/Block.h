@@ -5,6 +5,7 @@
 #include <string>
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
 
 #include "Numbers.h"
 #include "Texture.h"
@@ -16,20 +17,23 @@
 class BlockType
 {
 public:
-    BlockType(int xPos, int yPos, int zPos, Texture tex, Shader shader);
+    BlockType(glm::vec3 position);
     ~BlockType();
     
     void Draw();
     void Delete();
+
+    std::vector<GLfloat> getVertexPositions();
+    std::vector<GLfloat> getTexCoords();
+    std::vector<GLfloat> getShadingValues();
 
 private:
     std::string name;
     std::vector<GLfloat> vertexPositions;
     std::vector<GLfloat> texCoords;
     std::vector<GLfloat> shadingValues;
-    Texture texture;
+
     Numbers numbers;
-    Shader shaderProgram;
     VAO vao;
     VBO vertVBO;
     VBO texVBO;

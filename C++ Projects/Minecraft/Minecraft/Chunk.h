@@ -2,30 +2,39 @@
 
 #include <glad/glad.h>
 #include <vector>
+#include <glm/glm.hpp>
 
 #include "World.h"
 #include "Numbers.h"
+#include "Numbers.h"
 
-#define CHUNK_WIDTH 16
+#define CHUNK_WIDTH 8
 #define CHUNK_HEIGHT 16
-#define CHUNK_LENGTH 16
+#define CHUNK_LENGTH 8
 
 class Chunk
 {
 public:
-    Chunk(int xPos, int yPos);
+    Chunk(glm::vec2 pos);
     ~Chunk();
 
-    void AddBlock();
+    void DeleteChunk();
     void DrawChunk();
     
 private:
-    std::vector<BlockType> blocks;
-    VAO vao;
-    VBO vertVBO;
-    VBO texVBO;
-    VBO shadingVBO;
-    EBO ebo;
+    std::vector<std::vector<std::vector<int>>> blocks;
 
-    void CollectData();
+    std::vector<BlockType> blockMeshes;
+
+    std::vector<GLfloat> meshVertexPositions;
+    std::vector<GLfloat> meshTexCoords;
+    std::vector<GLfloat> meshShadingValues;
+
+    Texture dirtTex = Texture("textures/dirt.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    Texture stoneTex = Texture("textures/cobblestone.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    Texture grassTex = Texture("textures/grass.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    GLuint meshIndices[];
+
+    void GenerateMesh();
 };

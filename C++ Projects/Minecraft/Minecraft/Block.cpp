@@ -1,7 +1,7 @@
 #include "Block.h"
 
-BlockType::BlockType(int xPos, int yPos, int zPos, Texture tex, Shader shader)
-    : texture(tex), shaderProgram(shader), vertVBO(numbers.vertices), texVBO(numbers.texCoords), shadingVBO(numbers.shadingValues), ebo(numbers.indices, sizeof(numbers.indices))
+BlockType::BlockType(glm::vec3 position)
+    : vertVBO(numbers.vertices), texVBO(numbers.texCoords), shadingVBO(numbers.shadingValues), ebo(numbers.indices, sizeof(numbers.indices))
 {
     vertexPositions = numbers.vertices;
     texCoords = numbers.texCoords;
@@ -9,9 +9,9 @@ BlockType::BlockType(int xPos, int yPos, int zPos, Texture tex, Shader shader)
     
     for (int i = 0; i < vertexPositions.size(); i+=3)
     {
-        vertexPositions[i] += xPos;
-        vertexPositions[i + 1] += yPos;
-        vertexPositions[i + 2] += zPos;
+        vertexPositions[i] += position.x;
+        vertexPositions[i + 1] += position.y;
+        vertexPositions[i + 2] += position.z;
     }
     
     vao.Bind();
@@ -40,8 +40,6 @@ BlockType::~BlockType()
 
 void BlockType::Draw()
 {
-    shaderProgram.Activate();
-    texture.Bind();
     vao.Bind();
     glDrawElements(GL_TRIANGLES, sizeof(numbers.indices) / sizeof(int), GL_UNSIGNED_INT, 0);
 }
@@ -53,6 +51,19 @@ void BlockType::Delete()
     texVBO.Delete();
     shadingVBO.Delete();
     ebo.Delete();
-    texture.Delete();
-    shaderProgram.Delete();
+}
+
+std::vector<GLfloat> BlockType::getVertexPositions()
+{
+    return vertexPositions;
+}
+
+std::vector<GLfloat> BlockType::getTexCoords()
+{
+    return texCoords;
+}
+
+std::vector<GLfloat> BlockType::getShadingValues()
+{
+    return shadingValues;
 }

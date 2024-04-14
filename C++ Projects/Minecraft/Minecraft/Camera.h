@@ -18,6 +18,7 @@ public:
 	glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
 
 	bool firstClick = true;
+	bool captured = false;
 
 	int width;
 	int height;
@@ -29,4 +30,7 @@ public:
 
 	void Matrix(float FOVdeg, float nearPlane, float farPlane, Shader& shader, const char* uniform);
 	void Inputs(GLFWwindow* window);
+
+	void CaptureMouse(GLFWwindow* window);
+	void ReleaseMouse(GLFWwindow* window);
 };

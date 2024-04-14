@@ -20,20 +20,31 @@ public:
     void DeleteChunk();
     void DrawChunk();
     
+    bool IsBlockHidden(int x, int y, int z) const;
+    
+    bool drawLeft;
+    bool drawRight;
+    bool drawBottom;
+    bool drawTop;
+    bool drawBack;
+    bool drawFront;
+    
+    
 private:
     std::vector<std::vector<std::vector<int>>> blocks;
-
-    std::vector<BlockType> blockMeshes;
 
     std::vector<GLfloat> meshVertexPositions;
     std::vector<GLfloat> meshTexCoords;
     std::vector<GLfloat> meshShadingValues;
+    std::vector<GLuint> meshIndices;
+    
+    glm::vec2 position;
 
     Texture dirtTex = Texture("textures/dirt.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     Texture stoneTex = Texture("textures/cobblestone.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     Texture grassTex = Texture("textures/grass.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
-
-    GLuint meshIndices[];
+    
+    VAO vao;
 
     void GenerateMesh();
 };

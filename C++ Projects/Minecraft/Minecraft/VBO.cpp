@@ -2,20 +2,10 @@
 
 VBO::VBO(std::vector<GLfloat> vertices)
 {
-    int n = vertices.size();
-    
-    GLfloat* verts = new GLfloat[n];
-    for (int i = 0; i < n; i++)
-    {
-        verts[i] = vertices[i];
-    }
-    
 	glGenBuffers(1, &ID);
 	glBindBuffer(GL_ARRAY_BUFFER, ID);
     
-	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * n, verts, GL_STATIC_DRAW);
-    
-    delete[] verts;
+	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * vertices.size(), vertices.data(), GL_STATIC_DRAW);
 }
 
 void VBO::Bind()

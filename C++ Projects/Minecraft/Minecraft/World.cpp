@@ -1,33 +1,37 @@
 #include "World.h"
 
-World::World()
+World::World(int width, int height)
 {
-    for (int x = 0; x < WORLD_WIDTH; x++)
+    chunks.resize(width);
+    
+    for (int x = 0; x < width; x++)
     {
-        for (int y = 0; y < WORLD_WIDTH; y++)
+        for (int y = 0; y < height; y++)
         {
-            chunks.push_back(Chunk(glm::vec2(x, y)));
+            chunks[x].push_back(glm::vec2(x, y));
         }
     }
 }
+
 
 World::~World()
 {
     
 }
 
+
 void World::DrawChunks()
 {
-    for (auto& chunk : chunks)
+    for (auto& column : chunks)
     {
-        chunk.DrawChunk();
+        for (auto& chunk : column)
+        {
+            chunk.DrawChunk();
+        }
     }
 }
 
 void World::DeleteChunks()
 {
-    for (auto& chunk : chunks)
-    {
-        chunk.DeleteChunk();
-    }
+    
 }

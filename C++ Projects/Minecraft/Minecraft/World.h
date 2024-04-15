@@ -4,18 +4,15 @@
 
 #include "Chunk.h"
 
-#define WORLD_WIDTH 4
-#define WORLD_HEIGHT 4
-
 class World
 {
 public:
-	World();
+	World(int width, int height);
 	~World();
 
 	void DrawChunks();
 	void DeleteChunks();
 
 private:
-	std::vector<Chunk> chunks;
+	std::vector<std::vector<Chunk>> chunks;
 };

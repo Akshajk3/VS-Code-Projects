@@ -9,8 +9,8 @@
 #include "Camera.h"
 #include "World.h"
 
-const unsigned int width = 1920;
-const unsigned int height = 1080;
+const unsigned int width = 1280;
+const unsigned int height = 720;
 
 Camera camera(width, height, glm::vec3(16.0f, 20.0f, 40.0f));
 
@@ -83,7 +83,9 @@ int main()
 
     glEnable(GL_DEPTH_TEST);
 
-    World world ;
+    World world(4, 4);
+    
+    BlockType block(glm::vec3(0, 0, 0));
     
     glfwSetWindowSize(window, width + 1, height + 1);
     glfwSetWindowSize(window, width, height);
@@ -101,11 +103,14 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         camera.Inputs(window);
-        camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
+        camera.Matrix(45.0f, 0.1f, 400.0f, shaderProgram, "camMatrix");
 
         shaderProgram.Activate();
+        //grassTex.Bind();
 
         world.DrawChunks();
+        
+        //block.Draw();
 
         double currentTime = glfwGetTime();
         frame++;

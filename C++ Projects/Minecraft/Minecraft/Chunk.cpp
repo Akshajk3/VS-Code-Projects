@@ -13,18 +13,7 @@ Chunk::Chunk(glm::vec2 pos)
 		{
 			for (int z = 0; z < CHUNK_LENGTH; z++)
 			{
-                if (y > 14)
-                {
-                    blocks[x][y][z] = 1;
-                }
-                else if (y > 10)
-                {
-                    blocks[x][y][z] = 2;
-                }
-                else
-                {
-                    blocks[x][y][z] = 3;
-                }
+                blocks[x][y][z] = 1;
 			}
 		}
 	}
@@ -37,6 +26,11 @@ Chunk::Chunk(glm::vec2 pos)
 Chunk::~Chunk()
 {
 	blocks.clear();
+    vao.Delete();
+    meshVertexPositions.clear();
+    meshTexCoords.clear();
+    meshShadingValues.clear();
+    meshIndices.clear();
 }
 
 void Chunk::GenerateMesh()
@@ -45,36 +39,124 @@ void Chunk::GenerateMesh()
     meshTexCoords.clear();
     meshShadingValues.clear();
     meshIndices.clear();
-    
-    for (int x = 0; x < CHUNK_WIDTH; x++)
-    {
-        for (int y = 0; y < CHUNK_HEIGHT; y++)
-        {
-            for (int z = 0; z < CHUNK_LENGTH; z++)
-            {
-                int worldX = position.x * CHUNK_WIDTH + x;
-                int worldY = y;
-                int worldZ = position.y * CHUNK_LENGTH + z;
-                
-                if (IsBlockHidden(x, y, z, 0) == -1)
+
+    for (int x = 0; x < CHUNK_WIDTH; x++) {
+        for (int y = 0; y < CHUNK_HEIGHT; y++) {
+            for (int z = 0; z < CHUNK_LENGTH; z++) {
+                if (blocks[x][y][z] != 0 && IsBlockHidden(x, y, z, 0)) 
                 {
-                    BlockType* block = new BlockType(glm::vec3(worldX, worldY, worldZ));
-                    
-                    std::vector<GLfloat> blockVertexPosition = block->getVertexPositions();
-                    std::vector<GLfloat> blockTexCoords = block->getTexCoords();
-                    std::vector<GLfloat> blockShadingValues = block->getShadingValues();
-                    
-                    meshVertexPositions.insert(meshVertexPositions.end(), blockVertexPosition.begin(), blockVertexPosition.end());
-                    meshTexCoords.insert(meshTexCoords.end(), blockTexCoords.begin(), blockTexCoords.end());
-                    meshShadingValues.insert(meshShadingValues.end(), blockShadingValues.begin(), blockShadingValues.end());
-                    
-                    Numbers numbers;
-                    
-                    GLuint baseIndex = meshVertexPositions.size() / 3;
-                    for (GLuint index : numbers.indices)
-                        meshIndices.push_back(baseIndex + index);
-                    
-                    delete block;
+                    // Generate mesh data for each block
+                    float startX = position.x * CHUNK_WIDTH;
+                    float startY = 0.0f; // Adjust as needed
+                    float startZ = position.y * CHUNK_LENGTH;
+
+                    // Vertex positions
+                    meshVertexPositions.insert(meshVertexPositions.end(), {
+                        startX + x, startY + y, startZ + z,
+                        startX + x + 1, startY + y, startZ + z,
+                        startX + x + 1, startY + y + 1, startZ + z,
+                        startX + x, startY + y + 1, startZ + z,
+
+                        startX + x, startY + y, startZ + z + 1,
+                        startX + x + 1, startY + y, startZ + z + 1,
+                        startX + x + 1, startY + y + 1, startZ + z + 1,
+                        startX + x, startY + y + 1, startZ + z + 1,
+
+                        startX + x, startY + y, startZ + z,
+                        startX + x + 1, startY + y, startZ + z,
+                        startX + x + 1, startY + y, startZ + z + 1,
+                        startX + x, startY + y, startZ + z + 1,
+
+                        startX + x, startY + y + 1, startZ + z,
+                        startX + x + 1, startY + y + 1, startZ + z,
+                        startX + x + 1, startY + y + 1, startZ + z + 1,
+                        startX + x, startY + y + 1, startZ + z + 1,
+
+                        startX + x, startY + y, startZ + z,
+                        startX + x, startY + y + 1, startZ + z,
+                        startX + x, startY + y + 1, startZ + z + 1,
+                        startX + x, startY + y, startZ + z + 1,
+
+                        startX + x + 1, startY + y, startZ + z,
+                        startX + x + 1, startY + y + 1, startZ + z,
+                        startX + x + 1, startY + y + 1, startZ + z + 1,
+                        startX + x + 1, startY + y, startZ + z + 1
+                        });
+
+                    // Texture coordinates and shading values (you can adjust these as needed)
+                    meshTexCoords.insert(meshTexCoords.end(), {
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f,
+
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f,
+
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f,
+
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f,
+
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f,
+
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f
+                        });
+                    meshShadingValues.insert(meshShadingValues.end(), {
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+
+                        0.4f, 0.4f, 0.4f, 0.4f,
+                        0.4f, 0.4f, 0.4f, 0.4f,
+                        0.4f, 0.4f, 0.4f, 0.4f,
+                        0.4f, 0.4f, 0.4f, 0.4f,
+
+                        1.0f, 1.0f, 1.0f, 1.0f,
+                        1.0f, 1.0f, 1.0f, 1.0f,
+                        1.0f, 1.0f, 1.0f, 1.0f,
+                        1.0f, 1.0f, 1.0f, 1.0f,
+
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f,
+
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f
+                        });
+
+                    // Indices
+                    GLuint baseIndex = meshVertexPositions.size() / 3 - 24; // Adjust baseIndex for the current block
+                    meshIndices.insert(meshIndices.end(), {
+                        baseIndex, baseIndex + 1, baseIndex + 2, baseIndex + 2, baseIndex + 3, baseIndex,
+                        baseIndex + 4, baseIndex + 5, baseIndex + 6, baseIndex + 6, baseIndex + 7, baseIndex + 4,
+                        baseIndex + 8, baseIndex + 9, baseIndex + 10, baseIndex + 10, baseIndex + 11, baseIndex + 8,
+                        baseIndex + 12, baseIndex + 13, baseIndex + 14, baseIndex + 14, baseIndex + 15, baseIndex + 12,
+                        baseIndex + 16, baseIndex + 17, baseIndex + 18, baseIndex + 18, baseIndex + 19, baseIndex + 16,
+                        baseIndex + 20, baseIndex + 21, baseIndex + 22, baseIndex + 22, baseIndex + 23, baseIndex + 20
+                        });
                 }
             }
         }
@@ -97,31 +179,15 @@ void Chunk::GenerateMesh()
     texVBO.Unbind();
     shadingVBO.Unbind();
     ebo.Unbind();
+
+    vertVBO.Delete();
+    texVBO.Delete();
+    shadingVBO.Delete();
+    ebo.Delete();
 }
 
 void Chunk::DrawChunk()
 {
-    for (int x = 0; x < CHUNK_WIDTH; x++)
-    {
-        for (int y = 0; y < CHUNK_HEIGHT; y++)
-        {
-            for (int z = 0; z < CHUNK_LENGTH; z++)
-            {
-                if (blocks[x][y][z] == 1)
-                {
-                    //grassTex.Bind();
-                }
-                if (blocks[x][y][z] == 2)
-                {
-                    dirtTex.Bind();
-                }
-                if (blocks[x][y][z] == 3)
-                {
-                    stoneTex.Bind();
-                }
-            }
-        }
-    }
     vao.Bind();
     glDrawElements(GL_TRIANGLES, meshIndices.size(), GL_UNSIGNED_INT, 0);
 }
@@ -162,4 +228,14 @@ void Chunk::DeleteChunk()
     meshTexCoords.clear();
     meshShadingValues.clear();
     meshIndices.clear();
+}
+
+int Chunk::GetX()
+{
+    return position.x;
+}
+
+int Chunk::GetY()
+{
+    return position.y;
 }

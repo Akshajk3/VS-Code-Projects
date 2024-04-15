@@ -9,10 +9,12 @@
 #include "Camera.h"
 #include "World.h"
 
-const unsigned int width = 1280;
-const unsigned int height = 720;
+const unsigned int width = 1920;
+const unsigned int height = 1080;
+glm::vec3 SkyColor(0.007f, 0.8f, 0.996f);
+glm::vec3 StartingPos(0.0f, 20.0f, 0.0f);
 
-Camera camera(width, height, glm::vec3(16.0f, 20.0f, 40.0f));
+Camera camera(width, height, StartingPos);
 
 void errorCallback(int error, const char* description) {
     std::cerr << "GLFW Error " << error << ": " << description << std::endl;
@@ -83,7 +85,9 @@ int main()
 
     glEnable(GL_DEPTH_TEST);
 
-    World world(4, 4);
+    World world(4, 1024);
+
+    camera.Position = glm::vec3(world.GetSize() / 2 * CHUNK_WIDTH, StartingPos.y, world.GetSize() / 2 * CHUNK_LENGTH);
     
     BlockType block(glm::vec3(0, 0, 0));
     
@@ -92,14 +96,14 @@ int main()
 
     // glfwSwapInterval is used to turn on and off Vsync
     // 0 = off, 1 = on
-    glfwSwapInterval(0);
-      
+    glfwSwapInterval(1);
+    
     double lastTime = glfwGetTime();
     int frame = 0;
     
     while (!glfwWindowShouldClose(window))
     {
-        glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+        glClearColor(SkyColor.x, SkyColor.y, SkyColor.z, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         camera.Inputs(window);
@@ -108,12 +112,17 @@ int main()
         shaderProgram.Activate();
         //grassTex.Bind();
 
+        world.ManageChunks(glm::vec2(camera.Position.x, camera.Position.z));
         world.DrawChunks();
         
         //block.Draw();
 
         double currentTime = glfwGetTime();
         frame++;
+
+        float deltaTime = 1.0f;
+        std::cout << deltaTime << std::endl;
+        camera.UpdateDeltaTime(deltaTime);
 
         if (currentTime - lastTime >= 1)
         {
@@ -127,8 +136,6 @@ int main()
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-
-    world.DeleteChunks();
 
     grassTex.Delete();
     shaderProgram.Delete();

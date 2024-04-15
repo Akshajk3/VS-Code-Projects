@@ -26,6 +26,8 @@ public:
 	float speed = 0.1f;
 	float sensitivity = 100.0f;
 
+	float deltaTime = 0.0f;
+
 	Camera(int width, int height, glm::vec3 position);
 
 	void Matrix(float FOVdeg, float nearPlane, float farPlane, Shader& shader, const char* uniform);
@@ -33,4 +35,5 @@ public:
 
 	void CaptureMouse(GLFWwindow* window);
 	void ReleaseMouse(GLFWwindow* window);
+	void UpdateDeltaTime(float deltaTime);
 };

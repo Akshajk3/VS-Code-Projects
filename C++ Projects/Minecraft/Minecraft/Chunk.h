@@ -19,6 +19,9 @@ public:
 
     void DeleteChunk();
     void DrawChunk();
+
+    int GetX();
+    int GetY();
     
     int IsBlockHidden(int x, int y, int z, int face) const;
     
@@ -29,6 +32,7 @@ public:
     bool drawBack;
     bool drawFront;
     
+    glm::vec2 position;
     
 private:
     std::vector<std::vector<std::vector<int>>> blocks;
@@ -38,7 +42,6 @@ private:
     std::vector<GLfloat> meshShadingValues;
     std::vector<GLuint> meshIndices;
     
-    glm::vec2 position;
 
     Texture dirtTex = Texture("textures/dirt.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     Texture stoneTex = Texture("textures/cobblestone.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);

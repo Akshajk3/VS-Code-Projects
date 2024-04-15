@@ -22,27 +22,27 @@ void Camera::Inputs(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
-		Position += speed * Orientation;
+		Position += speed * Orientation * deltaTime;
 	}
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
 	{
-		Position += speed * -glm::normalize(glm::cross(Orientation, up));
+		Position += speed * -glm::normalize(glm::cross(Orientation, up)) * deltaTime;
 	}
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 	{
-		Position += speed * -Orientation;
+		Position += speed * -Orientation * deltaTime;
 	}
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 	{
-		Position += speed * glm::normalize(glm::cross(Orientation, up));
+		Position += speed * glm::normalize(glm::cross(Orientation, up)) * deltaTime;
 	}
 	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
 	{
-		Position += speed * up;
+		Position += speed * up * deltaTime;
 	}
 	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
 	{
-		Position += speed * -up;
+		Position += speed * -up * deltaTime;
 	}
 	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 	{
@@ -62,8 +62,8 @@ void Camera::Inputs(GLFWwindow* window)
 
 		glfwGetCursorPos(window, &mouseX, &mouseY);
 
-		float rotX = sensitivity * (float)(mouseY - (height / 2)) / height;
-		float rotY = sensitivity * (float)(mouseX - (width / 2)) / width;
+		float rotX = sensitivity * (float)(mouseY - (height / 2)) / height * deltaTime;
+		float rotY = sensitivity * (float)(mouseX - (width / 2)) / width * deltaTime;
 
 		glm::vec3 newOrientation = glm::rotate(Orientation, glm::radians(-rotX), glm::normalize(glm::cross(Orientation, up)));
 
@@ -110,4 +110,9 @@ void Camera::ReleaseMouse(GLFWwindow* window)
 		firstClick = true;
 		captured = false;
 	}
+}
+
+void Camera::UpdateDeltaTime(float DeltaTime)
+{
+	deltaTime = DeltaTime;
 }

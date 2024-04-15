@@ -20,7 +20,7 @@ public:
     void DeleteChunk();
     void DrawChunk();
     
-    bool IsBlockHidden(int x, int y, int z) const;
+    int IsBlockHidden(int x, int y, int z, int face) const;
     
     bool drawLeft;
     bool drawRight;

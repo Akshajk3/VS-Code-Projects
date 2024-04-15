@@ -13,7 +13,18 @@ Chunk::Chunk(glm::vec2 pos)
 		{
 			for (int z = 0; z < CHUNK_LENGTH; z++)
 			{
-				blocks[x][y][z] = 1;
+                if (y > 14)
+                {
+                    blocks[x][y][z] = 1;
+                }
+                else if (y > 10)
+                {
+                    blocks[x][y][z] = 2;
+                }
+                else
+                {
+                    blocks[x][y][z] = 3;
+                }
 			}
 		}
 	}
@@ -41,17 +52,17 @@ void Chunk::GenerateMesh()
         {
             for (int z = 0; z < CHUNK_LENGTH; z++)
             {
-                if (blocks[x][y][z] && !IsBlockHidden(x, y, z))
+                int worldX = position.x * CHUNK_WIDTH + x;
+                int worldY = y;
+                int worldZ = position.y * CHUNK_LENGTH + z;
+                
+                if (IsBlockHidden(x, y, z, 0) == -1)
                 {
-                    int worldX = position.x * CHUNK_WIDTH + x;
-                    int worldY = y;
-                    int worldZ = position.y * CHUNK_LENGTH + z;
+                    BlockType* block = new BlockType(glm::vec3(worldX, worldY, worldZ));
                     
-                    BlockType block(glm::vec3(worldX, worldY, worldZ));
-                    
-                    std::vector<GLfloat> blockVertexPosition = block.getVertexPositions();
-                    std::vector<GLfloat> blockTexCoords = block.getTexCoords();
-                    std::vector<GLfloat> blockShadingValues = block.getShadingValues();
+                    std::vector<GLfloat> blockVertexPosition = block->getVertexPositions();
+                    std::vector<GLfloat> blockTexCoords = block->getTexCoords();
+                    std::vector<GLfloat> blockShadingValues = block->getShadingValues();
                     
                     meshVertexPositions.insert(meshVertexPositions.end(), blockVertexPosition.begin(), blockVertexPosition.end());
                     meshTexCoords.insert(meshTexCoords.end(), blockTexCoords.begin(), blockTexCoords.end());
@@ -63,7 +74,7 @@ void Chunk::GenerateMesh()
                     for (GLuint index : numbers.indices)
                         meshIndices.push_back(baseIndex + index);
                     
-                    block.Delete();
+                    delete block;
                 }
             }
         }
@@ -90,14 +101,58 @@ void Chunk::GenerateMesh()
 
 void Chunk::DrawChunk()
 {
-    grassTex.Bind();
+    for (int x = 0; x < CHUNK_WIDTH; x++)
+    {
+        for (int y = 0; y < CHUNK_HEIGHT; y++)
+        {
+            for (int z = 0; z < CHUNK_LENGTH; z++)
+            {
+                if (blocks[x][y][z] == 1)
+                {
+                    //grassTex.Bind();
+                }
+                if (blocks[x][y][z] == 2)
+                {
+                    dirtTex.Bind();
+                }
+                if (blocks[x][y][z] == 3)
+                {
+                    stoneTex.Bind();
+                }
+            }
+        }
+    }
     vao.Bind();
     glDrawElements(GL_TRIANGLES, meshIndices.size(), GL_UNSIGNED_INT, 0);
 }
 
-bool Chunk::IsBlockHidden(int x, int y, int z) const
+int Chunk::IsBlockHidden(int x, int y, int z, int face) const
 {
-    return false;
+    // Check if the block is surrounded by other blocks on all six sides
+    if (x > 0 && x < CHUNK_WIDTH - 1 &&
+        y > 0 && y < CHUNK_HEIGHT - 1 &&
+        z > 0 && z < CHUNK_LENGTH - 1) {
+        // Check if neighboring blocks are solid
+        // Left face hidden
+        if (blocks[x - 1][y][z])
+            return 0;
+        // Right face hidden
+        if (blocks[x + 1][y][z])
+            return 1;
+        // Bottom face hidden
+        if (blocks[x][y - 1][z])
+            return 2;
+        // Top face hidden
+        if (blocks[x][y + 1][z])
+            return 3;
+        // Back face hidden
+        if (blocks[x][y][z - 1])
+            return 4;
+        // Front face hidden
+        if (blocks[x][y][z + 1])
+            return 5;
+    }
+    return -1; // Block is not hidden
 }
 
 void Chunk::DeleteChunk()

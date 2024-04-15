@@ -35,7 +35,17 @@ BlockType::BlockType(glm::vec3 position)
 
 BlockType::~BlockType()
 {
-    
+    vertexPositions.clear();
+    vertexPositions.shrink_to_fit(); // Reduce the capacity to match the size
+    texCoords.clear();
+    texCoords.shrink_to_fit();
+    shadingValues.clear();
+    shadingValues.shrink_to_fit();
+    vao.Delete();
+    vertVBO.Delete();
+    texVBO.Delete();
+    shadingVBO.Delete();
+    ebo.Delete();
 }
 
 void BlockType::Draw()
@@ -44,14 +54,20 @@ void BlockType::Draw()
     glDrawElements(GL_TRIANGLES, numbers.indices.size(), GL_UNSIGNED_INT, 0);
 }
 
-void BlockType::Delete()
-{
+void BlockType::Delete() {
+    vertexPositions.clear();
+    vertexPositions.shrink_to_fit(); // Reduce the capacity to match the size
+    texCoords.clear();
+    texCoords.shrink_to_fit();
+    shadingValues.clear();
+    shadingValues.shrink_to_fit();
     vao.Delete();
     vertVBO.Delete();
     texVBO.Delete();
     shadingVBO.Delete();
     ebo.Delete();
 }
+
 
 std::vector<GLfloat> BlockType::getVertexPositions()
 {

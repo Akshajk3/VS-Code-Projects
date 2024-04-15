@@ -83,7 +83,7 @@ int main()
 
     glEnable(GL_DEPTH_TEST);
 
-    World world(8, 8);
+    World world(4, 4);
     
     BlockType block(glm::vec3(0, 0, 0));
     

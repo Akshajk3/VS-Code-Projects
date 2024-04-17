@@ -23,6 +23,8 @@ public:
     void Draw();
     void Delete();
 
+    int addData(std::vector<GLfloat>& vertexData, int index, glm::vec3 v0, glm::vec3 v1, glm::vec3 v2, glm::vec3 v3);
+
     std::vector<GLfloat> getVertexPositions();
     std::vector<GLfloat> getTexCoords();
     std::vector<GLfloat> getShadingValues();

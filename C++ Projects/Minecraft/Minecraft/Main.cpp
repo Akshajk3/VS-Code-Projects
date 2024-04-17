@@ -85,9 +85,11 @@ int main()
 
     glEnable(GL_DEPTH_TEST);
 
-    World world(4, 1024);
+    //World world(4, 1024);
 
-    camera.Position = glm::vec3(world.GetSize() / 2 * CHUNK_WIDTH, StartingPos.y, world.GetSize() / 2 * CHUNK_LENGTH);
+    Chunk chunk(glm::vec2(0, 0));
+
+    //camera.Position = glm::vec3(world.GetSize() / 2 * CHUNK_WIDTH, StartingPos.y, world.GetSize() / 2 * CHUNK_LENGTH);
     
     BlockType block(glm::vec3(0, 0, 0));
     
@@ -110,11 +112,11 @@ int main()
         camera.Matrix(45.0f, 0.1f, 400.0f, shaderProgram, "camMatrix");
 
         shaderProgram.Activate();
-        //grassTex.Bind();
+        grassTex.Bind();
 
-        world.ManageChunks(glm::vec2(camera.Position.x, camera.Position.z));
-        world.DrawChunks();
-        
+        //world.ManageChunks(glm::vec2(camera.Position.x, camera.Position.z));
+        //world.DrawChunks();
+        chunk.DrawChunk();
         //block.Draw();
 
         double currentTime = glfwGetTime();
@@ -137,6 +139,7 @@ int main()
         glfwPollEvents();
     }
 
+    chunk.DeleteChunk();
     grassTex.Delete();
     shaderProgram.Delete();
     glfwDestroyWindow(window);

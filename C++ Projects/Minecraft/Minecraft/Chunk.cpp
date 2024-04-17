@@ -3,14 +3,10 @@
 Chunk::Chunk(glm::vec2 pos)
     : position(pos)
 {
-	// Resize the blocks vector to the chunk dimensions
-	blocks.resize(CHUNK_WIDTH, std::vector<std::vector<int>>(CHUNK_HEIGHT, std::vector<int>(CHUNK_LENGTH)));
-    
-
 	for (int x = 0; x < CHUNK_WIDTH; x++)
 	{
 		for (int y = 0; y < CHUNK_HEIGHT; y++)
-		{
+		{ 
 			for (int z = 0; z < CHUNK_LENGTH; z++)
 			{
                 blocks[x][y][z] = 1;
@@ -25,7 +21,6 @@ Chunk::Chunk(glm::vec2 pos)
 
 Chunk::~Chunk()
 {
-	blocks.clear();
     vao.Delete();
     meshVertexPositions.clear();
     meshTexCoords.clear();

@@ -35,7 +35,7 @@ public:
     glm::vec2 position;
     
 private:
-    std::vector<std::vector<std::vector<int>>> blocks;
+    int blocks[CHUNK_WIDTH][CHUNK_HEIGHT][CHUNK_LENGTH];
 
     std::vector<GLfloat> meshVertexPositions;
     std::vector<GLfloat> meshTexCoords;
@@ -50,4 +50,5 @@ private:
     VAO vao;
 
     void GenerateMesh();
+    void AddFace();
 };

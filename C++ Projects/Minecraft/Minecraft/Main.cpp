@@ -9,10 +9,10 @@
 #include "Camera.h"
 #include "World.h"
 
-const unsigned int width = 1920;
-const unsigned int height = 1080;
+const unsigned int width = 1280;
+const unsigned int height = 720;
 glm::vec3 SkyColor(0.007f, 0.8f, 0.996f);
-glm::vec3 StartingPos(0.0f, 20.0f, 0.0f);
+glm::vec3 StartingPos(0.0f, 0.0f, 0.0f);
 
 Camera camera(width, height, StartingPos);
 
@@ -85,13 +85,10 @@ int main()
 
     glEnable(GL_DEPTH_TEST);
 
-    //World world(4, 1024);
-
     Chunk chunk(glm::vec2(0, 0));
+    Chunk chunk2(glm::vec2(1,0));
 
     //camera.Position = glm::vec3(world.GetSize() / 2 * CHUNK_WIDTH, StartingPos.y, world.GetSize() / 2 * CHUNK_LENGTH);
-    
-    BlockType block(glm::vec3(0, 0, 0));
     
     glfwSetWindowSize(window, width + 1, height + 1);
     glfwSetWindowSize(window, width, height);
@@ -99,9 +96,12 @@ int main()
     // glfwSwapInterval is used to turn on and off Vsync
     // 0 = off, 1 = on
     glfwSwapInterval(1);
+    glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
     
     double lastTime = glfwGetTime();
     int frame = 0;
+    
+    //glEnable(GL_CULL_FACE);
     
     while (!glfwWindowShouldClose(window))
     {
@@ -114,16 +114,14 @@ int main()
         shaderProgram.Activate();
         grassTex.Bind();
 
-        //world.ManageChunks(glm::vec2(camera.Position.x, camera.Position.z));
-        //world.DrawChunks();
-        chunk.DrawChunk();
-        //block.Draw();
+        //chunk.DrawChunk();
+        chunk2.DrawChunk();
 
         double currentTime = glfwGetTime();
         frame++;
 
         float deltaTime = 1.0f;
-        std::cout << deltaTime << std::endl;
+        //std::cout << deltaTime << std::endl;
         camera.UpdateDeltaTime(deltaTime);
 
         if (currentTime - lastTime >= 1)
@@ -140,6 +138,7 @@ int main()
     }
 
     chunk.DeleteChunk();
+    chunk2.DeleteChunk();
     grassTex.Delete();
     shaderProgram.Delete();
     glfwDestroyWindow(window);

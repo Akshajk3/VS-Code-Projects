@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7dacbd73-c463-4bc2-a13d-bf8427c549cb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Block.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Block.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Camera.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Camera.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Chunk.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Chunk.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/EBO.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/EBO.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Mencraft/Mencraft.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/Mencraft/Mencraft.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Mencraft/Mencraft.xcodeproj/project.xcworkspace/xcuserdata/akshajkanumuri.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/Mencraft/Mencraft.xcodeproj/project.xcworkspace/xcuserdata/akshajkanumuri.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Minecraft.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/Minecraft.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Minecraft.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/Minecraft.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Models.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Models.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Numbers.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Shader.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Shader.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Texture.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/Texture.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/VAO.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/VAO.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/VBO.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/VBO.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/World.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/World.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/frag.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/glad.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/stb.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/vert.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Block.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Block.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Camera.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Camera.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Chunk.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Chunk.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/EBO.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/EBO.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Main.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Main.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.exe.recipe" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.exe.recipe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/Cl.items.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/Cl.items.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/Minecraft.lastbuildstate" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/Minecraft.lastbuildstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/link.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/link.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Minecraft.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Models.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Models.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Shader.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Shader.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Texture.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/Texture.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/VAO.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/VAO.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/VBO.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/VBO.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/World.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/World.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/glad.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/glad.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/stb.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/stb.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/vc143.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/vc143.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/vc143.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/Minecraft/x64/Debug/vc143.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/x64/Debug/Minecraft.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/x64/Debug/Minecraft.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Minecraft/x64/Debug/Minecraft.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Minecraft/x64/Debug/Minecraft.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/meshes/chunk_mesh.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/meshes/chunk_mesh.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/meshes/chunk_mesh_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/meshes/chunk_mesh_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/shader_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/shader_program.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/shaders/chunk.frag" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/shaders/chunk.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/shaders/chunk.vert" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/shaders/chunk.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/textures.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/textures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/world_objects/chunk.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python Projects/Voxel Engine/world_objects/chunk.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2fOkDJjxmIWoFui9h4eOjzupp0q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7dacbd73-c463-4bc2-a13d-bf8427c549cb" name="Changes" comment="" />
+      <created>1713679392328</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713679392328</updated>
+      <workItem from="1713679393143" duration="38000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

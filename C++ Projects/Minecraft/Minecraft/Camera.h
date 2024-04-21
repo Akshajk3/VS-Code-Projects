@@ -19,6 +19,7 @@ public:
 
 	bool firstClick = true;
 	bool captured = false;
+    bool wireframe = false;
 
 	int width;
 	int height;

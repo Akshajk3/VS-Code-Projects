@@ -1,2 +1,2 @@
 all:
-	g++ -I Dependencies -I Dependencies/glad/include -o main Main.cpp -lglfw3.3 -ldl -lpthread -lX11 -lXrandr
+	g++ -o main -std=c++11 -Wno-all -I Dependencies -I Dependencies/glad/include Main.cpp glad.c Camera.cpp Chunk.cpp EBO.cpp Shader.cpp stb.cpp Texture.cpp VAO.cpp VBO.cpp World.cpp -LDependencies/GLFW/lib-vc2022 -lglfw3

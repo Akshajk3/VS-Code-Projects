@@ -61,7 +61,7 @@ void Camera::Inputs(GLFWwindow* window)
     {
         glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
     }
-
+    
 	if (captured)
 	{
 		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);

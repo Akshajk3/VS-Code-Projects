@@ -13,9 +13,6 @@ Chunk::Chunk(glm::vec2 pos)
             }
         }
     }
-    
-    position.x *= CHUNK_WIDTH;
-    position.y *= CHUNK_LENGTH;
 
     GenerateMesh();
 }
@@ -46,33 +43,118 @@ void Chunk::GenerateMesh()
             {
                 if (blocks[x][y][z] == 1)
                 {
-                    
-                    float worldX = x;
-                    float worldY = y;
-                    float worldZ = z;
-                    
-                    for (int face = 0; face < 1; face++)
-                    {
-                        std::vector<GLfloat> faceVertices;
-                        
-                        std::cout << numbers.vertices[face].size() << std::endl;
-                        for (int i = 0; i < numbers.vertices[face].size(); i+=3)
-                        {
-                            faceVertices.push_back(numbers.vertices[face][i] + worldX);
-                            faceVertices.push_back(numbers.vertices[face][i + 1] + worldY);
-                            faceVertices.push_back(numbers.vertices[face][i + 2] + worldZ);
-                        }
-                        meshVertexPositions.insert(meshVertexPositions.end(), faceVertices.begin(), faceVertices.end());
-                        
-                        std::vector<GLfloat> faceTexCoords = numbers.texCoords[face];
-                        meshTexCoords.insert(meshTexCoords.end(), faceTexCoords.begin(), faceTexCoords.end());
-                        
-                        std::vector<GLfloat> faceShadingValues = numbers.shadingValues[face];
-                        meshShadingValues.insert(meshShadingValues.end(), faceShadingValues.begin(), faceShadingValues.end());
-                        
-                        std::vector<GLuint> faceIndices = numbers.indices[face];
-                        meshIndices.insert(meshIndices.end(), faceIndices.begin(), faceIndices.end());
-                    }
+                    // Generate mesh data for each block
+                    float startX = position.x * CHUNK_WIDTH;
+                    float startY = 0.0; // Adjust as needed
+                    float startZ = position.y * CHUNK_LENGTH;
+
+                    // Vertex positions
+                    meshVertexPositions.insert(meshVertexPositions.end(), {
+                        startX + x, startY + y, startZ + z,
+                        startX + x + 1, startY + y, startZ + z,
+                        startX + x + 1, startY + y + 1, startZ + z,
+                        startX + x, startY + y + 1, startZ + z,
+
+                        startX + x, startY + y, startZ + z + 1,
+                        startX + x + 1, startY + y, startZ + z + 1,
+                        startX + x + 1, startY + y + 1, startZ + z + 1,
+                        startX + x, startY + y + 1, startZ + z + 1,
+
+                        startX + x, startY + y, startZ + z,
+                        startX + x + 1, startY + y, startZ + z,
+                        startX + x + 1, startY + y, startZ + z + 1,
+                        startX + x, startY + y, startZ + z + 1,
+
+                        startX + x, startY + y + 1, startZ + z,
+                        startX + x + 1, startY + y + 1, startZ + z,
+                        startX + x + 1, startY + y + 1, startZ + z + 1,
+                        startX + x, startY + y + 1, startZ + z + 1,
+
+                        startX + x, startY + y, startZ + z,
+                        startX + x, startY + y + 1, startZ + z,
+                        startX + x, startY + y + 1, startZ + z + 1,
+                        startX + x, startY + y, startZ + z + 1,
+
+                        startX + x + 1, startY + y, startZ + z,
+                        startX + x + 1, startY + y + 1, startZ + z,
+                        startX + x + 1, startY + y + 1, startZ + z + 1,
+                        startX + x + 1, startY + y, startZ + z + 1
+                        });
+
+                    // Texture coordinates and shading values (you can adjust these as needed)
+                    meshTexCoords.insert(meshTexCoords.end(), {
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f,
+
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f,
+
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f,
+
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f,
+
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f,
+
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f,
+                        0.0f, 1.0f
+                        });
+                    meshShadingValues.insert(meshShadingValues.end(), {
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+                        0.6f, 0.6f, 0.6f, 0.6f,
+
+                        0.4f, 0.4f, 0.4f, 0.4f,
+                        0.4f, 0.4f, 0.4f, 0.4f,
+                        0.4f, 0.4f, 0.4f, 0.4f,
+                        0.4f, 0.4f, 0.4f, 0.4f,
+
+                        1.0f, 1.0f, 1.0f, 1.0f,
+                        1.0f, 1.0f, 1.0f, 1.0f,
+                        1.0f, 1.0f, 1.0f, 1.0f,
+                        1.0f, 1.0f, 1.0f, 1.0f,
+
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f,
+
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f,
+                        0.8f, 0.8f, 0.8f, 0.8f
+                        });
+
+                    // Indices
+                    GLuint baseIndex = meshVertexPositions.size() / 3 - 24; // Adjust baseIndex for the current block
+                    meshIndices.insert(meshIndices.end(), {
+                        baseIndex, baseIndex + 1, baseIndex + 2, baseIndex + 2, baseIndex + 3, baseIndex,
+                        baseIndex + 4, baseIndex + 5, baseIndex + 6, baseIndex + 6, baseIndex + 7, baseIndex + 4,
+                        baseIndex + 8, baseIndex + 9, baseIndex + 10, baseIndex + 10, baseIndex + 11, baseIndex + 8,
+                        baseIndex + 12, baseIndex + 13, baseIndex + 14, baseIndex + 14, baseIndex + 15, baseIndex + 12,
+                        baseIndex + 16, baseIndex + 17, baseIndex + 18, baseIndex + 18, baseIndex + 19, baseIndex + 16,
+                        baseIndex + 20, baseIndex + 21, baseIndex + 22, baseIndex + 22, baseIndex + 23, baseIndex + 20
+                        });
                 }
             }
         }

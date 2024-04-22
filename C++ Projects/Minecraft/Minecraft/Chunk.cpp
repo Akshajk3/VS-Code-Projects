@@ -10,10 +10,6 @@ Chunk::Chunk(glm::vec2 pos)
             for (int z = 0; z < CHUNK_LENGTH; z++)
             {
                 blocks[x][y][z] = 1;
-                if (IsFaceHidden(x, y, z, 0))
-                {
-                    std::cout << "Shown" << std::endl;
-                }
             }
         }
     }
@@ -58,6 +54,8 @@ void Chunk::GenerateMesh()
                     for (int face = 0; face < 1; face++)
                     {
                         std::vector<GLfloat> faceVertices;
+                        
+                        std::cout << numbers.vertices[face].size() << std::endl;
                         for (int i = 0; i < numbers.vertices[face].size(); i+=3)
                         {
                             faceVertices.push_back(numbers.vertices[face][i] + worldX);

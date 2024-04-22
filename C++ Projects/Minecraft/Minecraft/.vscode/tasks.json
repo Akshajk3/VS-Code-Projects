@@ -5,11 +5,24 @@
             "label": "C/C++: g++ build active file",
             "command": "/usr/bin/g++",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "-o", "${workspaceFolder}/build/Debug/main", // Output executable path
+                "-std=c++11",
+                "-Wno-all",
+                "-I", "Dependencies",
+                "-I", "Dependencies/glad/include",
+                "${workspaceFolder}/Main.cpp",
+                "${workspaceFolder}/Camera.cpp",
+                "${workspaceFolder}/Chunk.cpp",
+                "${workspaceFolder}/EBO.cpp",
+                "${workspaceFolder}/Shader.cpp",
+                "${workspaceFolder}/stb.cpp",
+                "${workspaceFolder}/Texture.cpp",
+                "${workspaceFolder}/VAO.cpp",
+                "${workspaceFolder}/VBO.cpp",
+                "${workspaceFolder}/World.cpp",
+                "${workspaceFolder}/glad.c", // Add glad.c here
+                "-L", "Dependencies/GLFW/lib-vc2022",
+                "-lglfw3"
             ],
             "options": {
                 "cwd": "${fileDirname}"
